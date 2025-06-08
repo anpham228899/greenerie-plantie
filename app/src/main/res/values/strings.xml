@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GreeneriePlantie</string>
+    <string name="title_blog_author" />
+    <string name="title_plant_news">Plant News</string>
 </resources>
