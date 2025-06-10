@@ -2,4 +2,8 @@
     <string name="app_name">GreeneriePlantie</string>
     <string name="title_blog_author" />
     <string name="title_plant_news">Plant News</string>
+    <string name="title_customer_support">Customer Support</string>
+    <string name="title_hotline">Hotline</string>
+    <string name="title_try_chatbot">Try on our Chatbot</string>
+    <string name="title_click_here">Click Here</string>
 </resources>

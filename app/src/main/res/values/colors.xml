@@ -2,5 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green_primary">#90C447</color>
+    <color name="green_primary">#517B2C</color>
+    <color name="green_secondary">#90C447</color>
+    <color name="green_dark">#152B08</color>
+    <color name="green_light">#BCDA70</color>
+    <color name="green_soft">#C7DD9F</color>
+    <color name="yellow_light">#FFE7D2</color>
+    <color name="yellow_primary">#FFA500</color>
+    <style name="TextAppearance.MaterialComponents.Headline1.">#517B2C</style>
 </resources>

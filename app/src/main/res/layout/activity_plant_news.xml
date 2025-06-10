@@ -8,7 +8,7 @@
     android:background="#F6F6F6">
 
     <ImageView
-        android:id="@+id/backButton"
+        android:id="@+id/btnBack"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="start|top"
@@ -22,10 +22,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_plant_news"
-        android:textColor="#517B2C"
-        android:textSize="38sp"
         android:padding="8dp"
+        android:text="@string/title_plant_news"
+        android:textColor="@color/green_primary"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
