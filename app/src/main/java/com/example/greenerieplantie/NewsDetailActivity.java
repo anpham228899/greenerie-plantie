@@ -35,7 +35,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             return insets;
         });
 
-        ImageView backButton = findViewById(R.id.backButton);
+        ImageView backButton = findViewById(R.id.btnBack);
         ImageView headerImage = findViewById(R.id.headerImage);
         TextView titleView = findViewById(R.id.detailTitle);
         TextView authorDateView = findViewById(R.id.detailAuthorDate);

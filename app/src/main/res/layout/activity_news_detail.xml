@@ -18,7 +18,7 @@
             android:src="@mipmap/img_rice" />
 
         <ImageView
-            android:id="@+id/backButton"
+            android:id="@+id/btnBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="start|top"
