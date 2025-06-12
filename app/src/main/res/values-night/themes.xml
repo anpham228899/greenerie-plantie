@@ -1,7 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.GreeneriePlantie" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+    <style name="Theme.GreeneriePlantie" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#90C447</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="android:windowBackground">#000000</item>
     </style>
+
 </resources>

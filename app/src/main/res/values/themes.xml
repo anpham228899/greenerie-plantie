@@ -1,9 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.GreeneriePlantie" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Base.Theme.GreeneriePlantie" parent="Theme.Material3.DayNight">
+        <!-- Sử dụng Material3 DayNight theme với ActionBar -->
+        <item name="colorPrimary">#90C447</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
     </style>
 
-    <style name="Theme.GreeneriePlantie" parent="Base.Theme.GreeneriePlantie" />
+    <style name="Theme.GreeneriePlantie" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">#90C447</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <!-- Đảm bảo ActionBar được sử dụng -->
+        <item name="windowActionBar">true</item> <!-- Bật ActionBar -->
+        <item name="windowNoTitle">false</item>  <!-- Tắt tùy chọn không tiêu đề -->
+    </style>
+
 </resources>
+
+
+
