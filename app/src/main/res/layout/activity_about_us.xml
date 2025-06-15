@@ -40,14 +40,14 @@
             </FrameLayout>
 
             <LinearLayout
-                android:id="@+id/rohvpyv4ldlm"
+                android:id="@+id/txtAboutUsContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="15dp">
 
                 <TextView
-                    android:id="@+id/txtAboutUs"
+                    android:id="@+id/tv_about_us"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="23dp"
@@ -58,7 +58,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtAboutUsSub1"
+                    android:id="@+id/tv_about_us_sub_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="23dp"
@@ -68,7 +68,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:id="@+id/rt9gbe9k86ac"
+                    android:id="@+id/txtAboutUs1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
@@ -78,13 +78,13 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/r2jpqt810q7r"
+                        android:id="@+id/tv_about_us_content_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:layout_weight="1"
-                        android:text="Greenery is your all-in-one plant care assistant. From watering reminders to expert tips, we help you keep your plants thriving and your spaces blooming. Whether you’re a beginner or a botanical pro, we’re here to support your green journey."
                         android:justificationMode="inter_word"
+                        android:text="Content1"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -97,7 +97,7 @@
                         android:orientation="vertical"></LinearLayout>
 
                     <ImageView
-                        android:id="@+id/imgAboutUs2"
+                        android:id="@+id/img_about_us_2"
                         android:layout_width="139dp"
                         android:layout_height="130dp"
                         android:scaleType="fitXY"
@@ -105,7 +105,7 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/imgAboutUs3"
+                    android:id="@+id/img_about_us_3"
                     android:layout_width="match_parent"
                     android:layout_height="198dp"
                     android:layout_marginHorizontal="22dp"
@@ -115,7 +115,7 @@
                     android:src="@mipmap/img_aboutus3" />
 
                 <LinearLayout
-                    android:id="@+id/rbayxuwla8wd"
+                    android:id="@+id/txtAboutUs2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="19dp"
@@ -125,7 +125,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txtAboutUsSub2"
+                        android:id="@+id/tv_about_us_sub_2"
                         android:layout_width="111dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="12dp"
@@ -143,30 +143,29 @@
                         android:orientation="vertical"></LinearLayout>
 
                     <TextView
-                        android:id="@+id/r0pmp0q9kuwl"
+                        android:id="@+id/tv_about_us_content_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Greenery is your all-in-one plant care assistant. From watering reminders to expert tips, we help you keep your plants thriving and your spaces blooming. Whether you’re a beginner or a botanical pro, we’re here to support your green journey."
                         android:justificationMode="inter_word"
+                        android:text="Content2"
                         android:textColor="#000000"
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/rcdl7yv6jgtl"
+                    android:id="@+id/tv_about_us_content_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="23dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="We’re here to help you grow:\nNurture – Smart tools to care for plants effortlessly\nEducate – Expert-backed guidance for plant lover\nInspire – Eco-friendly habits that benefit the Earth\nConnect – A global of nature-minded growers\nWe’re here to help you grow:\nNurture – Smart tools to care for plants effortlessly\nEducate – Expert-backed guidance for plant lover\nInspire – Eco-friendly habits that benefit the Earth\nConnect – A global of nature-minded growers\nWe’re here to help you grow:\nNurture – Smart tools to care for plants effortlessly\nEducate – Expert-backed guidance for plant lover\nInspire – Eco-friendly habits that benefit the Earth\nConnect – A global of nature-minded growers"
                     android:justificationMode="inter_word"
+                    android:text="Content3"
                     android:textColor="#000000"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
