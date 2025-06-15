@@ -27,13 +27,22 @@
             android:exported="false" />
         <activity
             android:name=".AboutUsActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            </activity>
+
         <activity
             android:name=".ChatbotActivity"
             android:exported="false" />
+
         <activity
             android:name=".HomepageActivity"
-            android:exported="false" />
+            android:exported="false"/>
+
         <activity
             android:name=".OnboardingActivity"
             android:exported="false" />
@@ -78,13 +87,7 @@
             android:exported="false" />
         <activity
             android:name=".ProfileManagementActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
