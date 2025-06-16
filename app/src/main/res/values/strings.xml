@@ -54,6 +54,7 @@
     <string name="title_signin_and_signup_welcome">Welcome to Greenerie — grow your garden, nourish your life. Sign in or create an account to get started!</string>
     <string name="btn_signin_and_signup_signin">Sign in\n</string>
     <string name="btn_signin_and_signup_signup">Sign up</string>
+
     <string name="title_sign_in_greenery">Greenery</string>
     <string name="title_sign_in_welcome">Welcome back to Greenerie.\nSign in to continue growing with us.</string>
     <string name="edt_sign_in_email">Email\n</string>
@@ -131,4 +132,22 @@
     <string name="tile_homepage_name_product9_for_you">" Mini Garden Shovel"</string>
     <string name="title_homepage_product9_orgin">Orgin: Italy</string>
     <string name="title_homepage_product9_price">22,000</string>
+=======
+    <string name="title_customer_support">Customer Support</string>
+    <string name="title_hotline">Hotline</string>
+    <string name="title_try_chatbot">Try on our Chatbot</string>
+    <string name="btn_click_here">Click here</string>
+    <string name="title_profile_management">Profile Management</string>
+    <string name="title_account_settings">Account Settings</string>
+    <string name="title_profile_settings">Profile Settings</string>
+    <string name="title_order_history">Order History</string>
+    <string name="title_care_reminder">Care Reminder</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_change_language">Change Language</string>
+    <string name="title_shop_info">Shop Information</string>
+    <string name="title_about_us">About Us</string>
+    <string name="title_policy">Policy</string>
+    <string name="title_about_us_sub_1">Grow smarter, Live greener</string>
+    <string name="title_about_us_sub_2">A greener world, one plant at a time</string>
+>>>>>>> origin/develop
 </resources>
