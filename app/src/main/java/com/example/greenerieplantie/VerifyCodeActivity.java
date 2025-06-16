@@ -14,7 +14,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
     private EditText codeInput;
     private Button resetPasswordButton;
     private TextView errorMessage, goBackText;
-    private static final String CORRECT_CODE = "123456"; // Mã code giả lập
+    private String correctCode;  // Thêm biến để lưu mã code gửi qua Intent
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
-        // Khởi tạo các thành phần
+        // Khởi tạo các thành phần giao diện
         codeInput = findViewById(R.id.edt_verify_code_code);
         resetPasswordButton = findViewById(R.id.btn_verify_code_reset_password);
         errorMessage = findViewById(R.id.title_reset_password_invalid);
@@ -33,6 +33,9 @@ public class VerifyCodeActivity extends AppCompatActivity {
 
         // Áp dụng gạch chân cho chữ "Go back"
         goBackText.setPaintFlags(goBackText.getPaintFlags() | android.graphics.Paint.UNDERLINE_TEXT_FLAG);
+
+        // Lấy mã code từ Intent
+        correctCode = getIntent().getStringExtra("resetCode");
 
         // Xử lý khi nhấn nút "Reset Password"
         resetPasswordButton.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +61,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
         String code = codeInput.getText().toString().trim();
 
         if (isValidCode(code)) {
-            // Giả lập kiểm tra mã code
+            // Nếu mã code hợp lệ
             errorMessage.setVisibility(View.GONE); // Ẩn thông báo lỗi
             // Chuyển sang màn hình nhập mật khẩu mới
             Intent intent = new Intent(VerifyCodeActivity.this, ResetPasswordActivity.class);
@@ -71,10 +74,11 @@ public class VerifyCodeActivity extends AppCompatActivity {
         }
     }
 
-    // Kiểm tra mã code hợp lệ (giả lập)
+    // Kiểm tra mã code hợp lệ
     private boolean isValidCode(String code) {
-        return code.equals(CORRECT_CODE); // So sánh với mã code đúng
+        return code.equals(correctCode); // So sánh với mã code nhận được từ Intent
     }
 }
+
 
 

@@ -29,9 +29,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    packagingOptions {
+        exclude("META-INF/NOTICE.md")  // Loại bỏ tệp NOTICE.md
+        exclude("META-INF/LICENSE.md")  // Loại bỏ tệp LICENSE.md nếu có
+    }
 }
 
 dependencies {
+    implementation("com.sun.mail:android-mail:1.6.6")
+    implementation("com.sun.mail:android-activation:1.6.6")
 
     implementation(libs.appcompat)
     implementation(libs.material)

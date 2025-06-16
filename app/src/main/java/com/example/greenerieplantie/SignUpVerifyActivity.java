@@ -20,6 +20,7 @@ public class SignUpVerifyActivity extends AppCompatActivity {
     private Button verifyButton;
     private TextView errorMessage;
     private TextView termsPolicyText;
+    private String correctVerificationCode;  // Biến để lưu mã xác minh đúng
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,9 @@ public class SignUpVerifyActivity extends AppCompatActivity {
         verifyButton = findViewById(R.id.btn_sign_up_verify);
         errorMessage = findViewById(R.id.title_sign_up_verify_invalid);
         termsPolicyText = findViewById(R.id.text_sign_up_verify_term_policy);
+
+        // Lấy mã xác minh từ Intent
+        correctVerificationCode = getIntent().getStringExtra("verificationCode");
 
         // Xử lý khi nhấn nút "Verify"
         verifyButton.setOnClickListener(new View.OnClickListener() {
@@ -87,17 +91,16 @@ public class SignUpVerifyActivity extends AppCompatActivity {
         String verificationCode = verificationCodeInput.getText().toString().trim();
 
         // Kiểm tra mã xác minh
-        if (verificationCode.equals("123456")) {
-
+        if (verificationCode.equals(correctVerificationCode)) {
             errorMessage.setVisibility(View.GONE); // Ẩn thông báo lỗi
             Intent intent = new Intent(SignUpVerifyActivity.this, HomepageActivity.class);
             startActivity(intent);
             finish(); // Kết thúc màn hình hiện tại
         } else {
-
             errorMessage.setVisibility(View.VISIBLE);
             errorMessage.setText("Invalid verification code. Please try again.");
         }
     }
 }
+
 

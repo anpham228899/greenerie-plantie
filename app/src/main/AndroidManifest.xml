@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -35,7 +37,7 @@
             android:name=".ChatbotActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".HomepageActivity"
             android:exported="false" />
 
         <activity
@@ -93,10 +95,10 @@
             android:name=".OnboardingPlantSellActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".HomepageActivity"
+            android:name=".SignUpActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
