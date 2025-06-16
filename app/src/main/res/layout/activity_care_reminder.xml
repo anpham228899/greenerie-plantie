@@ -30,7 +30,7 @@
                 android:src="@mipmap/ic_back" />
 
             <TextView
-                android:id="@+id/tv_carereminder"
+                android:id="@+id/tv_notifications"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
