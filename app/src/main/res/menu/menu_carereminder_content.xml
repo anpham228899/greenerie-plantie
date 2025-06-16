@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/content1" android:title="Water the plant" />
+    <item android:id="@+id/content2" android:title="Add fertilizer" />
+    <item android:id="@+id/content3" android:title="Trim leaves" />
+</menu>

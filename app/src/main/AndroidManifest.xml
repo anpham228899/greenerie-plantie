@@ -27,13 +27,7 @@
             android:exported="false" />
         <activity
             android:name=".AboutUsActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            </activity>
+            android:exported="false"/>
 
         <activity
             android:name=".ChatbotActivity"
@@ -70,9 +64,17 @@
         <activity
             android:name=".NotificationActivity"
             android:exported="false" />
+
         <activity
             android:name=".CareReminderActivity"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".OrderDetailActivity"
             android:exported="false" />
