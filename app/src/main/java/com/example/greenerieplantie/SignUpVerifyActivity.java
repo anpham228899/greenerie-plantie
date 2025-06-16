@@ -14,52 +14,44 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpVerifyActivity extends AppCompatActivity {
 
-    private EditText emailInput, passwordInput, confirmPasswordInput;
-    private Button sendVerificationCodeButton;
+    private EditText verificationCodeInput;
+    private Button verifyButton;
     private TextView errorMessage;
+    private TextView termsPolicyText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+        setContentView(R.layout.activity_sign_up_verify);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
 
-        // Gắn layout giao diện
-        setContentView(R.layout.activity_sign_up);
-
         // Khởi tạo các thành phần
-        emailInput = findViewById(R.id.edt_sign_up_input_email);
-        passwordInput = findViewById(R.id.edt_sign_up_input_password);
-        confirmPasswordInput = findViewById(R.id.edt_sign_up_confirm_password);
-        sendVerificationCodeButton = findViewById(R.id.btn_sign_up_send_verification_code);
-        errorMessage = findViewById(R.id.title_sign_up_invalid);
+        verificationCodeInput = findViewById(R.id.edt_sign_up_verify_input_code);
+        verifyButton = findViewById(R.id.btn_sign_up_verify);
+        errorMessage = findViewById(R.id.title_sign_up_verify_invalid);
+        termsPolicyText = findViewById(R.id.text_sign_up_verify_term_policy);
 
-        // Xử lý khi nhấn nút "Send verification code"
-        sendVerificationCodeButton.setOnClickListener(new View.OnClickListener() {
+        // Xử lý khi nhấn nút "Verify"
+        verifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleSignUp();
+                handleVerification();
             }
         });
 
         // Khởi tạo TextView cho Terms và Policy
-        TextView textView = findViewById(R.id.text_sign_up_term_policy);
-
-        // Nội dung văn bản hiển thị
         String text = "By signing up, you will agree to our Terms and Policy.";
-
         SpannableString spannableString = new SpannableString(text);
 
         // Sự kiện khi nhấn vào "Terms"
         ClickableSpan termsClick = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent intent = new Intent(SignUpActivity.this, PoliciesActivity.class);
+                Intent intent = new Intent(SignUpVerifyActivity.this, PoliciesActivity.class);
                 startActivity(intent);
             }
         };
@@ -68,7 +60,7 @@ public class SignUpActivity extends AppCompatActivity {
         ClickableSpan policyClick = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent intent = new Intent(SignUpActivity.this, PoliciesActivity.class);
+                Intent intent = new Intent(SignUpVerifyActivity.this, PoliciesActivity.class);
                 startActivity(intent);
             }
         };
@@ -84,28 +76,27 @@ public class SignUpActivity extends AppCompatActivity {
         spannableString.setSpan(policyClick, policyStart, policyEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         // Gán spannable vào TextView
-        textView.setText(spannableString);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-        textView.setHighlightColor(Color.TRANSPARENT); // Không hiển thị nền khi click
-        textView.setLinkTextColor(Color.parseColor("#517B2C"));
+        termsPolicyText.setText(spannableString);
+        termsPolicyText.setMovementMethod(LinkMovementMethod.getInstance());
+        termsPolicyText.setHighlightColor(Color.TRANSPARENT); //
+        termsPolicyText.setLinkTextColor(Color.parseColor("#517B2C"));
     }
 
-    // Xử lý đăng ký và kiểm tra mật khẩu
-    private void handleSignUp() {
-        String email = emailInput.getText().toString().trim();
-        String password = passwordInput.getText().toString().trim();
-        String confirmPassword = confirmPasswordInput.getText().toString().trim();
+    // Xử lý xác thực mã xác minh
+    private void handleVerification() {
+        String verificationCode = verificationCodeInput.getText().toString().trim();
 
-        if (password.equals(confirmPassword)) {
-            // Nếu hai mật khẩu giống nhau, chuyển đến màn hình SignupVerifyActivity
+        // Kiểm tra mã xác minh
+        if (verificationCode.equals("123456")) {
+
             errorMessage.setVisibility(View.GONE); // Ẩn thông báo lỗi
-            Intent intent = new Intent(SignUpActivity.this, SignUpVerifyActivity.class);
+            Intent intent = new Intent(SignUpVerifyActivity.this, HomepageActivity.class);
             startActivity(intent);
             finish(); // Kết thúc màn hình hiện tại
         } else {
-            // Nếu mật khẩu không giống nhau, hiển thị thông báo lỗi
+
             errorMessage.setVisibility(View.VISIBLE);
-            errorMessage.setText("Passwords do not match. Please try again.");
+            errorMessage.setText("Invalid verification code. Please try again.");
         }
     }
 }

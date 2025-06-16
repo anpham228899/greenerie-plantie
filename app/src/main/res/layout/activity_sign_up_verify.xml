@@ -44,7 +44,7 @@
                         android:id="@+id/title_sign_up_verify_greenery"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/title_signup_greenery"
+                        android:text="Greenerie"
                         android:textColor="#517B2C"
                         android:textSize="38sp"
                         android:textStyle="bold" />
@@ -62,59 +62,37 @@
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/title_signup_welcome"
+                        android:text="@string/text_sign_up_verify_description"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/edt_sign_up_input_email"
+                    android:id="@+id/edt_sign_up_verify_input_code"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="6dp"
                     android:layout_marginStart="48dp"
 
-                    android:hint="@string/edt_sign_up_input_email"
+                    android:hint="@string/edt_sign_up_verify_input_code"
 
                     android:textColor="#7D7B7B"
                     android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/edt_sign_up_input_password"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginBottom="7dp"
-                    android:inputType="textPassword"
-
-                    android:hint="@string/edt_sign_up_input_password"
-                    android:textColor="#7D7B7B"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/edt_sign_up_confirm_password"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="6dp"
-                    android:layout_marginStart="48dp"
-                    android:inputType="textPassword"
-                    android:hint="@string/edt_sign_up_input_confirm_password"
-                    android:textColor="#7D7B7B"
-                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/title_sign_up_invalid"
+                    android:id="@+id/title_sign_up_verify_invalid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:layout_marginBottom="1dp"
-                    android:text="@string/title_sign_up_invalid"
+                    android:text="@string/title_sign_up_verify_invalid"
                     android:textColor="#FF0000"
                     android:textSize="14sp"
                     android:visibility="gone" />
 
                 <LinearLayout
-                    android:id="@+id/btn_sign_up_oke"
+                    android:id="@+id/btn_popup_oke"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal"
@@ -131,7 +109,7 @@
 
 
                     <Button
-                        android:id="@+id/btn_sign_up_send_verification_code"
+                        android:id="@+id/btn_sign_up_verify"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -139,7 +117,7 @@
 
                         android:layout_marginBottom="5dp"
                         android:background="@android:color/transparent"
-                        android:text="@string/btn_sign_up_send_verification_code"
+                        android:text="@string/btn_sign_up_verify"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -147,7 +125,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/text_sign_up_term_policy"
+                android:id="@+id/text_sign_up_verify_term_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="80dp"
