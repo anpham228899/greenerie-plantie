@@ -54,4 +54,10 @@
     <string name="title_signin_and_signup_welcome">Welcome to Greenery — grow your garden, nourish your life. Sign in or create an account to get started!</string>
     <string name="btn_signin_and_signup_signin">Sign in\n</string>
     <string name="btn_signin_and_signup_signup">Sign up</string>
+    <string-array name="sort_options">
+        <item>New</item>
+        <item>Best Seller</item>
+        <item>Price A - Z</item>
+        <item>Price Z - A</item>
+    </string-array>
 </resources>
