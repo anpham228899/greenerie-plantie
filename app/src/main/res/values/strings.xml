@@ -71,4 +71,6 @@
     <string name="title_about_us_sub_1">Grow smarter, Live greener</string>
     <string name="title_about_us_sub_2">A greener world, one plant at a time</string>
     <string name="tv_in_app_notifications">In-app Notifications</string>
+    <string name="title_cart">Your cart</string>
+    <string name="title_total">Total</string>
 </resources>
