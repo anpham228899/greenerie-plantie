@@ -30,7 +30,7 @@
 
             <!-- TextView for title -->
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tv_shipping_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
