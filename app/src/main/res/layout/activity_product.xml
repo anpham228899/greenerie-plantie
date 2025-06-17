@@ -140,7 +140,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/thanhtimkiem"
+                android:id="@+id/khungtimkiem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="18dp"
@@ -152,17 +152,17 @@
                 android:paddingVertical="10dp">
 
                 <ImageButton
-                    android:id="@+id/btn_homepage_search"
+                    android:id="@+id/btn_product_search"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
                     android:background="@android:color/transparent"
                     android:src="@mipmap/ic_homepage_search"
 
-                    />
+                    tools:ignore="DuplicateIds" />
 
                 <EditText
-                    android:id="@+id/et_homepage_search"
+                    android:id="@+id/et_product_search"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -171,7 +171,8 @@
                     android:inputType="text"
                     android:paddingVertical="2dp"
                     android:textColor="#BDBDBD"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:ignore="DuplicateIds" />
             </LinearLayout>
         </LinearLayout>
 
