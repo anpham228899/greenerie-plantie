@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/time1" android:title="1:00 AM" />
+    <item android:id="@+id/time2" android:title="1:30 AM" />
+    <item android:id="@+id/time3" android:title="2:00 AM" />
+    <item android:id="@+id/time4" android:title="2:30 AM" />
+    <item android:id="@+id/time5" android:title="3:00 AM" />
+    <item android:id="@+id/time6" android:title="3:30 AM" />
+    <item android:id="@+id/time7" android:title="4:00 AM" />
+    <item android:id="@+id/time8" android:title="4:30 AM" />
+    <item android:id="@+id/time9" android:title="5:00 AM" />
+    <item android:id="@+id/time10" android:title="5:30 AM" />
+    <item android:id="@+id/time11" android:title="6:00 AM" />
+    <item android:id="@+id/time12" android:title="6:30 AM" />
+    <item android:id="@+id/time13" android:title="7:00 AM" />
+    <item android:id="@+id/time14" android:title="7:30 AM" />
+    <item android:id="@+id/time15" android:title="8:00 AM" />
+    <item android:id="@+id/time16" android:title="8:30 AM" />
+    <item android:id="@+id/time17" android:title="9:00 AM" />
+    <item android:id="@+id/time18" android:title="9:30 AM" />
+    <item android:id="@+id/time19" android:title="10:00 AM" />
+    <item android:id="@+id/time20" android:title="10:30 AM" />
+    <item android:id="@+id/time21" android:title="11:00 AM" />
+    <item android:id="@+id/time22" android:title="11:30 AM" />
+    <item android:id="@+id/time23" android:title="12:00 PM" />
+</menu>
+

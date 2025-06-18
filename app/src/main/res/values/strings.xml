@@ -2,9 +2,9 @@
     <string name="app_name">GreeneriePlantie</string>
     <string name="title_blog_author" />
     <string name="title_plant_news">Plant News</string>
-    <string name="title_home_page_welcome_customer">Welcome to Greenery, \\nAn Pham!</string>
-    <string name="title_homepage_welcome_customer">Welcome to Greenery, \\nAn Pham!</string>
-    <string name="title_homepage_welcome">Welcome to Greenery, An Pham!</string>
+    <string name="title_home_page_welcome_customer">Welcome to Greenerie, \\nAn Pham!</string>
+    <string name="title_homepage_welcome_customer">Welcome to Greenerie, \\nAn Pham!</string>
+    <string name="title_homepage_welcome">Welcome to Greenerie, An Pham!</string>
     <string name="title_homepage_weather">Sun Cloudy 29°</string>
     <string name="et_homepage_search">Find your plant</string>
     <string name="btn_homepage_for_you">For You</string>
@@ -40,9 +40,9 @@
     <string name="title_homepage_about_us">About Us</string>
     <string name="btn_homepage_viewmore_abus">View more\n</string>
     <string name="title_homepage_abus1">Grow smarter, Live greener</string>
-    <string name="title_homepage_des_abus1">Greenery is your all-in-one plant care assistant. From watering reminders to expert tips, we help you keep your plants thriving and your spaces blooming. Whether you’re a beginner or a botanical pro, we’re here to support your green journey.</string>
+    <string name="title_homepage_des_abus1">Greenerie is your all-in-one plant care assistant. From watering reminders to expert tips, we help you keep your plants thriving and your spaces blooming. Whether you’re a beginner or a botanical pro, we’re here to support your green journey.</string>
     <string name="title_homepage_abus2">A greener world, one plant at a time</string>
-    <string name="title_homepage_des_abus2">We imagine a future where every home and city corner is alive with nature. At Greenery, we believe plant care is self-care—and a step toward a healthier, more sustainable planet.</string>
+    <string name="title_homepage_des_abus2">We imagine a future where every home and city corner is alive with nature. At Greenerie, we believe plant care is self-care—and a step toward a healthier, more sustainable planet.</string>
     <string name="nav_home">Home</string>
     <string name="nav_reminder">Care Reminder</string>
     <string name="nav_chatbot">Chatbot</string>
@@ -132,7 +132,6 @@
     <string name="tile_homepage_name_product9_for_you">" Mini Garden Shovel"</string>
     <string name="title_homepage_product9_orgin">Orgin: Italy</string>
     <string name="title_homepage_product9_price">22,000</string>
-=======
     <string name="title_customer_support">Customer Support</string>
     <string name="title_hotline">Hotline</string>
     <string name="title_try_chatbot">Try on our Chatbot</string>
@@ -149,5 +148,5 @@
     <string name="title_policy">Policy</string>
     <string name="title_about_us_sub_1">Grow smarter, Live greener</string>
     <string name="title_about_us_sub_2">A greener world, one plant at a time</string>
->>>>>>> origin/develop
+    <string name="tv_in_app_notifications">In-app Notifications</string>
 </resources>
