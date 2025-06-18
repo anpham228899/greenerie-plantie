@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="391dp"
                 android:scaleType="fitXY"
-                android:src="@mipmap/img_signin_and_signup" />
+                android:src="@mipmap/ic_launcher" />
 
             <LinearLayout
                 android:id="@+id/rnxsnp65lue"
@@ -58,7 +58,7 @@
                 android:textColor="#000000"
                 android:textSize="14sp" />
             <LinearLayout
-                android:id="@+id/rkmcmlhh9zs"
+                android:id="@+id/btn_popup_oke"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:gravity="center_horizontal"
@@ -74,7 +74,7 @@
 
 
                 <Button
-                    android:id="@+id/btn_signin_and_signup_signin"
+                    android:id="@+id/btn_verify_code_reset_password"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
