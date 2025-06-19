@@ -149,6 +149,73 @@
     <string name="title_about_us_sub_1">Grow smarter, Live greener</string>
     <string name="title_about_us_sub_2">A greener world, one plant at a time</string>
     <string name="tv_in_app_notifications">In-app Notifications</string>
+    <string name="title_payment">Payment</string>
+    <string name="title_payment_shipping_address">Shipping Address</string>
+    <string name="title_payment_information">Information</string>
+    <string name="title_payment_product">Product</string>
+    <string name="title_payment_shipping_options">Shipping Options</string>
+    <string name="title_payment_method">Payment Method</string>
+    <string name="title_discount_code">Discount Code</string>
+    <string name="hint_enter_discount_code">Enter discount code</string>
+    <string name="btn_place_order">Place Order</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="title_dialog_order_placed">Order Placed!</string>
+    <string name="title_dialog_order_placed_message">Your order is placed successfully!</string>
+    <string name="title_dialog_navigation_message">Navigating to Homepage...</string>
+    <string name="btn_save">Save</string>
+    <string name="hint_country">Vietnam</string>
+    <string name="hint_city">Thu Duc</string>
+    <string name="hint_district">Linh Xuan</string>
+    <string name="hint_street">Do Muoi</string>
+    <string name="hint_no_street">699</string>
+    <string name="hint_shipping_infor_name">Enter full name</string>
+    <string name="title_shipping_infor_name">Full name</string>
+    <string name="title_shipping_information">Shipping information</string>
+    <string name="title_email">Email</string>
+    <string name="hint_enter_email">Enter email</string>
+    <string name="title_phone">Phone</string>
+    <string name="hint_phone">Enter phone number</string>
+
+    <string-array name="country">
+        <item>Vietnam</item>
+    </string-array>
+
+    <string-array name="provinces_name">
+        <item>Ha Noi</item>
+        <item>Ho Chi Minh</item>
+        <item>Hue</item>
+        <item>Da Nang</item>
+        <item>Can Tho</item>
+        <item>Hai Phong</item>
+        <item>Lai Chau</item>
+        <item>Dien Bien</item>
+        <item>Son La</item>
+        <item>Lang Son</item>
+        <item>Quang Ninh</item>
+        <item>Thanh Hoa</item>
+        <item>Nghe An</item>
+        <item>Ha Tinh</item>
+        <item>Cao Bang</item>
+        <item>Tuyen Quang</item>
+        <item>Lao Cai</item>
+        <item>Thai Nguyen</item>
+        <item>Phu Tho</item>
+        <item>Bac Ninh</item>
+        <item>Hung Yen</item>
+        <item>Ninh Binh</item>
+        <item>Quang Tri</item>
+        <item>Quang Ngai</item>
+        <item>Gia Lai</item>
+        <item>Khanh Hoa</item>
+        <item>Lam Dong</item>
+        <item>Dak Lak</item>
+        <item>Dong Nai</item>
+        <item>Tay Ninh</item>
+        <item>Vinh Long</item>
+        <item>Dong Thap</item>
+        <item>Ca Mau</item>
+        <item>An Giang</item>
+    </string-array>
     <string name="title_cart">Your cart</string>
     <string name="title_total">Total</string>
 </resources>

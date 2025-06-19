@@ -15,8 +15,14 @@
         android:theme="@style/Theme.GreeneriePlantie"
         tools:targetApi="31">
         <activity
+            android:name=".ShippingInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShippingAddressActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListNotificationsActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".NewsDetailActivity"
             android:exported="false"
@@ -60,34 +66,32 @@
         <activity
             android:name=".LanguageActivity"
             android:exported="false" />
+
         <activity
             android:name=".PaymentActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".CartActivity"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
-    </activity>
+            android:exported="false"/>
         <activity
             android:name=".OnboardingHelloActivity"
             android:exported="false" />
         <activity
             android:name=".PoliciesActivity"
             android:exported="false" />
-
         <activity
             android:name=".NotificationActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".CareReminderActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".OrderDetailActivity"
             android:exported="false" />

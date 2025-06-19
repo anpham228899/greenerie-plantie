@@ -37,8 +37,8 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         // Initialize views
-        cartItemCountTextView = findViewById(R.id.tv_cart_item_count);
-        totalPriceTextView = findViewById(R.id.tv_total_value);
+        cartItemCountTextView = findViewById(R.id.cart_item_count);
+        totalPriceTextView = findViewById(R.id.tv_total_value);  
         recyclerView = findViewById(R.id.item_cart_recycler_view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
