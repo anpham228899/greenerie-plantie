@@ -154,7 +154,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/item_cart_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="267dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clipToPadding="false"
             android:padding="8dp"
@@ -501,9 +501,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/border_background_signup"
+                android:background="@drawable/button_green_secondary"
                 android:text="@string/btn_cancel"
-                android:textColorLink="@color/green_light"
+                android:textColor="@color/green_secondary"
                 android:textSize="14sp" />
 
             <Button

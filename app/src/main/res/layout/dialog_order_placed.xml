@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@android:drawable/editbox_background_normal"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:background="@drawable/dialog_payment"
-    android:gravity="center_horizontal">
+    android:padding="12dp">
 
     <!-- Top row LinearLayout for close icon alignment -->
     <LinearLayout
