@@ -1,6 +1,8 @@
 package com.example.greenerieplantie;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,20 +25,19 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomepageActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
     private TextView titleHomepageWelcome;
     private EditText searchEditText;
+    private ImageView profileImage;
     private ImageButton searchButton;
+    private SharedPreferences sharedPreferences;
 
     private Button btnForYou, btnNewArrivals, btnBestSeller;
     private ImageButton btnNotification;
 
     private LinearLayout product1Layout, product2Layout, product3Layout, product4Layout, product5Layout, product6Layout, product7Layout, product8Layout, product9Layout;
 
-    // NEW: ImageButtons for product images
     private ImageButton imgProduct1, imgProduct2, imgProduct3, imgProduct4, imgProduct5, imgProduct6, imgProduct7, imgProduct8, imgProduct9;
 
-    // Declare variables for the new elements
     private Button btnViewMorePlantNews, btnViewMoreAboutUs;
     private ImageButton imgBlog1, imgBlog2, imgAboutUs1, imgAboutUs2;
     private TextView titleBlog1, titleBlog2, titleAboutUs1, titleAboutUs2;
@@ -50,10 +52,16 @@ public class HomepageActivity extends AppCompatActivity {
             getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.white));
         }
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        titleHomepageWelcome = findViewById(R.id.title_homepage_welcome);
+        titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         searchEditText = findViewById(R.id.et_homepage_search);
         searchButton = findViewById(R.id.btn_homepage_search);
+        // Khởi tạo các thành phần
+        titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
+        profileImage = findViewById(R.id.img_homepage_avatar_custimer);
+        // Lấy SharedPreferences để lưu trữ thông tin người dùng
+        sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+        updateUserInfo();
+
 
         btnForYou = findViewById(R.id.btn_homepage_for_you);
         btnNewArrivals = findViewById(R.id.btn_homepage_new_arrivals);
@@ -70,7 +78,6 @@ public class HomepageActivity extends AppCompatActivity {
         product8Layout = findViewById(R.id.layout_homepage_product8);
         product9Layout = findViewById(R.id.layout_homepage_product9);
 
-        // NEW: Mapping product image buttons
         imgProduct1 = findViewById(R.id.img_homepage_product1_for_you);
         imgProduct2 = findViewById(R.id.img_homepage_product2_for_you);
         imgProduct3 = findViewById(R.id.img_homepage_product3_for_you);
@@ -81,7 +88,6 @@ public class HomepageActivity extends AppCompatActivity {
         imgProduct8 = findViewById(R.id.img_homepage_product8_for_you);
         imgProduct9 = findViewById(R.id.img_homepage_product9_for_you);
 
-        // NEW: Set click listeners to open product detail
         imgProduct1.setOnClickListener(v -> openProductDetail("product1"));
         imgProduct2.setOnClickListener(v -> openProductDetail("product2"));
         imgProduct3.setOnClickListener(v -> openProductDetail("product3"));
@@ -92,7 +98,6 @@ public class HomepageActivity extends AppCompatActivity {
         imgProduct8.setOnClickListener(v -> openProductDetail("product8"));
         imgProduct9.setOnClickListener(v -> openProductDetail("product9"));
 
-        // Initialize views for "Plant News" and "About Us"
         btnViewMorePlantNews = findViewById(R.id.btn_homepage_view_more_blog);
         btnViewMoreAboutUs = findViewById(R.id.btn_homepage_viewmore_abus);
 
@@ -106,36 +111,27 @@ public class HomepageActivity extends AppCompatActivity {
         titleAboutUs1 = findViewById(R.id.title_homepage_abus1);
         titleAboutUs2 = findViewById(R.id.title_homepage_abus2);
 
-        // Set up "View More" buttons for navigation
         btnViewMorePlantNews.setOnClickListener(v -> {
-            Intent intent = new Intent(HomepageActivity.this, PlantNewsActivity.class); // Target Plant News Activity
+            Intent intent = new Intent(HomepageActivity.this, PlantNewsActivity.class);
             startActivity(intent);
         });
 
         btnViewMoreAboutUs.setOnClickListener(v -> {
-            Intent intent = new Intent(HomepageActivity.this, AboutUsActivity.class); // Target About Us Activity
+            Intent intent = new Intent(HomepageActivity.this, AboutUsActivity.class);
             startActivity(intent);
         });
 
-        // Set up ImageButton listeners for each blog
-        imgBlog1.setOnClickListener(v -> openBlogDetail(1)); // Open Blog 1 details
-        imgBlog2.setOnClickListener(v -> openBlogDetail(2)); // Open Blog 2 details
-        titleBlog1.setOnClickListener(v -> openBlogDetail(1)); // Open Blog 1 details when title is clicked
-        titleBlog2.setOnClickListener(v -> openBlogDetail(2)); // Open Blog 2 details when title is clicked
+        imgBlog1.setOnClickListener(v -> openBlogDetail(1));
+        imgBlog2.setOnClickListener(v -> openBlogDetail(2));
+        titleBlog1.setOnClickListener(v -> openBlogDetail(1));
+        titleBlog2.setOnClickListener(v -> openBlogDetail(2));
 
-        // Set up listeners for "About Us" sections
-        imgAboutUs1.setOnClickListener(v -> openAboutUsDetail(1)); // Open About Us 1 details
-        imgAboutUs2.setOnClickListener(v -> openAboutUsDetail(2)); // Open About Us 2 details
-        titleAboutUs1.setOnClickListener(v -> openAboutUsDetail(1)); // Open About Us 1 details when title is clicked
-        titleAboutUs2.setOnClickListener(v -> openAboutUsDetail(2)); // Open About Us 2 details when title is clicked
+        imgAboutUs1.setOnClickListener(v -> openAboutUsDetail(1));
+        imgAboutUs2.setOnClickListener(v -> openAboutUsDetail(2));
+        titleAboutUs1.setOnClickListener(v -> openAboutUsDetail(1));
+        titleAboutUs2.setOnClickListener(v -> openAboutUsDetail(2));
 
-        // Existing code to handle other UI components
-        String text = "Welcome to Greenery, An Pham!";
-        SpannableString spannableString = new SpannableString(text);
-        int start = text.indexOf("Greenery");
-        int end = start + "Greenery".length();
-        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#517B2C")), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        titleHomepageWelcome.setText(spannableString);
+
 
         searchButton.setOnClickListener(v -> {
             String query = searchEditText.getText().toString().trim();
@@ -157,31 +153,8 @@ public class HomepageActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                Toast.makeText(this, "Homepage", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, HomepageActivity.class));
-                return true;
-            } else if (id == R.id.nav_reminder) {
-                Toast.makeText(this, "Reminder", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, CareReminderActivity.class));
-                return true;
-            } else if (id == R.id.nav_chatbot) {
-                Toast.makeText(this, "Chatbot", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, ChatbotActivity.class));
-                return true;
-            } else if (id == R.id.nav_cart) {
-                Toast.makeText(this, "Cart", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, CartActivity.class));
-                return true;
-            } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, ProfileManagementActivity.class));
-                return true;
-            }
-            return false;
-        });
+        // Apply the BottomNavigationView via NavMenuActivity
+        NavMenuActivity.setupNavMenu(findViewById(R.id.bottom_navigation), this);
     }
 
     // Function to open Product detail page
@@ -204,6 +177,32 @@ public class HomepageActivity extends AppCompatActivity {
         intent.putExtra("about_us_id", aboutUsId); // Pass About Us ID to detail activity
         startActivity(intent);
     }
+    // Cập nhật thông tin người dùng (Tên và ảnh)
+    private void updateUserInfo() {
+        // Lấy tên người dùng từ SharedPreferences
+        String userName = sharedPreferences.getString("userName", null);
+        String userImage = sharedPreferences.getString("userImage", null);
+
+        // Nếu không có tên người dùng (chưa cập nhật), hiển thị mặc định "You!"
+        if (userName == null || userName.isEmpty()) {
+            userName = getResources().getString(R.string.default_user_name);  // "You!" mặc định
+        }
+
+        // Kết hợp hai chuỗi "Welcome to Greenerie," và tên người dùng
+        String welcomeMessage1 = getString(R.string.title_homepage_welcome1);  // "Welcome to Greenerie,"
+        String welcomeMessage2 = getString(R.string.default_user_name_real, userName);  // Tên người dùng
+
+
+
+        // Nếu không có ảnh người dùng, dùng ảnh mặc định
+        if (userImage == null || userImage.isEmpty()) {
+            profileImage.setImageResource(R.mipmap.ic_launcher); // Hình ảnh mặc định
+        } else {
+            // Nếu có ảnh, thay đổi ảnh người dùng (Ví dụ: ảnh từ URL hoặc tài nguyên)
+            // Glide.with(this).load(userImage).into(profileImage); // Nếu ảnh là URL, bạn có thể dùng Glide hoặc Picasso để tải ảnh.
+        }
+    }
+
 
     private void updateTab(String selectedTab) {
         btnForYou.setTextColor(Color.parseColor("#BDBDBD"));
@@ -273,6 +272,7 @@ public class HomepageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
 
 
 
