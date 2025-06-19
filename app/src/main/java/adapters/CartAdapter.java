@@ -102,12 +102,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         public CartViewHolder(View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.product_name);
-            productDescription = itemView.findViewById(R.id.product_description);
-            priceBeforeDiscount = itemView.findViewById(R.id.price_before_discount);
-            priceAfterDiscount = itemView.findViewById(R.id.price_after_discount);
-            quantity = itemView.findViewById(R.id.quantity);
-            productImage = itemView.findViewById(R.id.product_image);
+            productName = itemView.findViewById(R.id.tv_product_name);
+            productDescription = itemView.findViewById(R.id.tv_product_description);
+            priceBeforeDiscount = itemView.findViewById(R.id.tv_price_before_discount);
+            priceAfterDiscount = itemView.findViewById(R.id.tv_price_after_discount);
+            quantity = itemView.findViewById(R.id.tv_quantity);
+            productImage = itemView.findViewById(R.id.img_product);
             icMinus = itemView.findViewById(R.id.ic_minus);
             icPlus = itemView.findViewById(R.id.ic_plus);
             deleteIcon = itemView.findViewById(R.id.ic_delete);

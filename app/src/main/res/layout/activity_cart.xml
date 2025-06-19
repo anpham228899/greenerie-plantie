@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Your Cart"
+            android:text="@string/title_cart"
             android:textColor="@color/green_primary"
             android:textSize="36sp"
             android:textStyle="bold" />
@@ -26,7 +26,7 @@
 
         <!-- Cart Item Count -->
         <TextView
-            android:id="@+id/cart_item_count"
+            android:id="@+id/tv_cart_item_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You have 0 items in your cart"
@@ -52,7 +52,7 @@
 
             <!-- "Select All" Checkbox -->
             <CheckBox
-                android:id="@+id/select_all_checkbox"
+                android:id="@+id/cb_select_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -72,14 +72,14 @@
 
                 <!-- Total Text -->
                 <TextView
-                    android:id="@+id/total_title"
+                    android:id="@+id/title_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total"
-                    android:textColor="#000"
-                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp"
                     android:gravity="start|center_vertical"
-                    android:layout_marginBottom="4dp"/>
+                    android:text="@string/title_total"
+                    android:textColor="#000"
+                    android:textSize="16sp" />
 
                 <!-- Total Value Text (Dynamic) -->
                 <TextView
@@ -95,7 +95,7 @@
 
             <!-- Checkout Button on the Right -->
             <Button
-                android:id="@+id/checkout_button"
+                android:id="@+id/btn_checkout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

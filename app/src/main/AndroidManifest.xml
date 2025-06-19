@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -26,7 +28,10 @@
             android:exported="false"
             android:theme="@style/Theme.GreeneriePlantie" />
         <activity
-            android:name=".PlantNewsActivity"
+            android:name=".SignInSignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ProductDetailActivity"
@@ -44,16 +49,22 @@
             android:name=".HomepageActivity"
             android:exported="false" />
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".PlantNewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpVerifyActivity"
             android:exported="false" />
         <activity
             android:name=".ResetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".ProfileManagementActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".LanguageActivity"
             android:exported="false" />
 
         <activity
@@ -70,10 +81,10 @@
             android:name=".CartActivity"
             android:exported="false"/>
         <activity
-            android:name=".PoliciesActivity"
+            android:name=".OnboardingHelloActivity"
             android:exported="false" />
         <activity
-            android:name=".LanguageActivity"
+            android:name=".PoliciesActivity"
             android:exported="false" />
         <activity
             android:name=".NotificationActivity"
@@ -94,8 +105,23 @@
             android:name=".ProfileSettingActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileManagementActivity"
-            android:exported="true" />
+            android:name=".OnboardingChatbotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OnboardingPlantSellActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />

@@ -38,7 +38,7 @@ public class CartActivity extends AppCompatActivity {
 
         // Initialize views
         cartItemCountTextView = findViewById(R.id.cart_item_count);
-        totalPriceTextView = findViewById(R.id.tv_total_value);  // TextView for total price
+        totalPriceTextView = findViewById(R.id.tv_total_value);  
         recyclerView = findViewById(R.id.item_cart_recycler_view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,7 +61,7 @@ public class CartActivity extends AppCompatActivity {
         });
 
         // Initialize the "select all" checkbox
-        selectAllCheckbox = findViewById(R.id.select_all_checkbox);
+        selectAllCheckbox = findViewById(R.id.cb_select_all);
         selectAllCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             for (Cart cartItem : cartItems) {
                 cartItem.setSelected(isChecked);
