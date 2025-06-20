@@ -68,7 +68,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".PaymentActivity"
+            android:name=".CartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -78,7 +78,7 @@
         </activity>
 
         <activity
-            android:name=".CartActivity"
+            android:name=".PaymentActivity"
             android:exported="false"/>
         <activity
             android:name=".OnboardingHelloActivity"

@@ -1,6 +1,7 @@
 package com.example.greenerieplantie;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class ShippingInformationActivity extends AppCompatActivity {
 
     private EditText etFullName, etEmail, etPhone;
     private Button btnCancel, btnSave;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,13 @@ public class ShippingInformationActivity extends AppCompatActivity {
             } else {
                 showDialog(fullName, email, phone);
             }
+        });
+
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(ShippingInformationActivity.this, PaymentActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

@@ -143,8 +143,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_background_btn_checkout"
-                android:text="@string/btn_cancel" />
+                android:background="@drawable/button_green_secondary"
+                android:text="@string/btn_cancel"
+                android:textColor="@color/green_secondary" />
 
             <Button
                 android:id="@+id/btn_save"
