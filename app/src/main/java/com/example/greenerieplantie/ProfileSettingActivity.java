@@ -2,7 +2,6 @@ package com.example.greenerieplantie;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,8 +28,8 @@ public class ProfileSettingActivity extends AppCompatActivity {
         edtPhone = findViewById(R.id.edtPhone);
         edtGender = findViewById(R.id.edtGender);
         edtDob = findViewById(R.id.edtDob);
-        btnSave = findViewById(R.id.btn_save);
-        btnCancel = findViewById(R.id.btn_cancel);
+        btnSave = findViewById(R.id.btnSubmitReview);
+        btnCancel = findViewById(R.id.btnCancel);
 
         changeLanguage("vi");
 

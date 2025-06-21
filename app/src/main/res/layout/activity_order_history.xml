@@ -8,18 +8,19 @@
     android:paddingBottom="16dp"
     android:background="#F4F4F4">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_gravity="start"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Back"
-        android:padding="8dp"
-        android:src="@mipmap/ic_back"/>
+        android:contentDescription="Back Button"
+        android:src="@mipmap/ic_back" />
 
     <TextView
+        android:id="@+id/txtOrderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="@string/title_order_history"
         android:textColor="@color/green_primary"
         android:textSize="36sp"

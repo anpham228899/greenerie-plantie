@@ -14,7 +14,6 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="start"
-        android:layout_marginBottom="16dp"
         android:contentDescription="Back Button"
         android:src="@mipmap/ic_back" />
 
@@ -87,6 +86,7 @@
                 android:textAlignment="textStart" />
 
         </LinearLayout>
+
     </LinearLayout>
 
     <ScrollView
@@ -198,6 +198,7 @@
                         android:text="@string/title_currency"
                         android:textAlignment="textEnd"
                         android:textSize="12sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -335,10 +336,10 @@
                 <EditText
                     android:id="@+id/edtReview"
                     android:layout_width="match_parent"
-                    android:layout_height="130dp"
+                    android:layout_height="120dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/button_green_secondary"
+                    android:background="@drawable/border_background_signup"
                     android:gravity="top|start"
                     android:hint="@string/hint_write_review"
                     android:inputType="textMultiLine"
@@ -353,29 +354,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16sp">
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
+            android:layout_width="26dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
             android:background="@drawable/button_green_secondary"
-            android:paddingTop="6dp"
-            android:text="@string/title_cancel"
-            android:textColor="?attr/colorOnSecondary"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp" />
+            android:text="@string/btn_cancel"
+            android:textColor="@color/green_primary" />
 
         <Button
             android:id="@+id/btnSubmitReview"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="@string/title_submit_review"
-            android:textSize="12dp"
-            app:cornerRadius="12dp" />
+            android:background="@drawable/button_green_primary"
+            android:text="@string/btn_save"
+            app:cornerRadius="8dp" />
     </LinearLayout>
 
 </LinearLayout>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -50,222 +50,206 @@
 
         </LinearLayout>
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_marginHorizontal="8dp"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:paddingTop="12dp"
-                    android:text="@string/title_fullname"
-                    android:textColor="#474B51"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                android:layout_marginBottom="8dp"
+                android:paddingTop="12dp"
+                android:text="@string/title_fullname"
+                android:textColor="#474B51"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LinearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                app:cardCornerRadius="8dp"
+                android:layout_marginHorizontal="8dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/edtFullName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/bg_edit_text"
-                    android:clickable="true"
-                    android:elevation="6dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
                     android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="8dp">
-
-                    <EditText
-                        android:id="@+id/edtFullName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        android:focusable="true"
-                        android:padding="12dp"
-                        android:text="An Pham"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:paddingTop="12dp"
-                    android:text="@string/title_email"
-                    android:textColor="#474B51"
+                    android:text="An Pham"
+                    android:textColor="#484C52"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout"
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/title_email"
+                android:textColor="#474B51"
+
+                android:layout_marginHorizontal="8dp"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LinearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginHorizontal="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/bg_edit_text"
-                    android:clickable="true"
-                    android:elevation="6dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
                     android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="8dp">
-
-                    <EditText
-                        android:id="@+id/edtEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        android:focusable="true"
-                        android:text="anptt22411ca@st.uel.edu.vn"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:paddingTop="12dp"
-                    android:text="@string/title_phone"
-                    android:textColor="#474B51"
+                    android:text="anptt22411ca@st.uel.edu.vn"
+                    android:textColor="#484C52"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/title_phone"
+                android:textColor="#474B51"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="8dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LinearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginHorizontal="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/edtPhone"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/bg_edit_text"
-                    android:clickable="true"
-                    android:elevation="6dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
                     android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="8dp">
-
-                    <EditText
-                        android:id="@+id/edtPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        android:focusable="true"
-                        android:text="+84 9999999"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:paddingTop="12dp"
-                    android:text="@string/title_gender"
-                    android:textColor="#474B51"
+                    android:text="+84 9999999"
+                    android:textColor="#484C52"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/title_gender"
+                android:textColor="#474B51"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LinearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginHorizontal="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/edtGender"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/bg_edit_text"
-                    android:clickable="true"
-                    android:elevation="6dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
                     android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="8dp">
-
-                    <EditText
-                        android:id="@+id/edtGender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        android:focusable="true"
-                        android:text="Female"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:paddingTop="12dp"
-                    android:text="@string/title_dob"
-                    android:textColor="#474B51"
+                    android:text="Female"
+                    android:textColor="#484C52"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:id="@+id/LinearLayout"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/title_dob"
+                android:textColor="#474B51"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LinearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginHorizontal="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/edtDob"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/bg_edit_text"
-                    android:clickable="true"
-                    android:elevation="6dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
                     android:focusable="true"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="8dp">
+                    android:text="24-May-1991"
+                    android:textColor="#484C52"
+                    android:textSize="16sp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </androidx.cardview.widget.CardView>
 
-                    <EditText
-                        android:id="@+id/edtDob"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/transparent"
-                        android:focusable="true"
-                        android:text="24-May-1991"
-                        android:textColor="#000000"
-                        android:textSize="16sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
             android:gravity="center"
-            android:layout_marginTop="16dp">
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_cancel"
+                android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:background="@drawable/button_green_secondary"
                 android:text="@string/btn_cancel"
-                android:textColor="@color/green_secondary" />
+                android:textColor="@color/green_primary" />
 
             <Button
-                android:id="@+id/btn_save"
+                android:id="@+id/btnSubmitReview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_background_btn_checkout"
-                android:text="@string/btn_save" />
+                android:background="@drawable/button_green_primary"
+                android:text="@string/btn_save"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>

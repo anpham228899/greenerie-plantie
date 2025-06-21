@@ -3,7 +3,6 @@ package com.example.greenerieplantie;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -32,8 +31,8 @@ public class ShippingAddressActivity extends AppCompatActivity {
         etDistrict = findViewById(R.id.et_district);
         etStreet = findViewById(R.id.et_street);
         etNumber = findViewById(R.id.et_number);
-        btnCancel = findViewById(R.id.btn_cancel);
-        btnSave = findViewById(R.id.btn_save);
+        btnCancel = findViewById(R.id.btnCancel);
+        btnSave = findViewById(R.id.btnSubmitReview);
         btnBack = findViewById(R.id.btnBack); // ImageView
 
         // Set up AutoCompleteTextViews
