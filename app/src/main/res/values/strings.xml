@@ -54,7 +54,20 @@
     <string name="title_signin_and_signup_welcome">Welcome to Greenerie — grow your garden, nourish your life. Sign in or create an account to get started!</string>
     <string name="btn_signin_and_signup_signin">Sign in\n</string>
     <string name="btn_signin_and_signup_signup">Sign up</string>
-
+    <string name="title_order_number">Order Number</string>
+    <string name="title_view_details">View Details</string>
+    <string name="title_currency">VND</string>
+    <string name="hint_write_review">Write your review here...</string>
+    <string name="title_review">Review</string>
+    <string name="title_subtotal">"Subtotal: "</string>
+    <string name="title_shipping_fee">"Shipping Fee: "</string>
+    <string name="title_discount">"Discount: "</string>
+    <string name="title_submit_review">Submit Review</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="title_order_id">Order ID:</string>
+    <string name="title_order_date">"Order Date: "</string>
+    <string name="title_delivery_progress">Delivery</string>
+    <string name="title_order_items">Order Items</string>
     <string name="title_sign_in_greenery">Greenery</string>
     <string name="title_sign_in_welcome">Welcome back to Greenerie.\nSign in to continue growing with us.</string>
     <string name="edt_sign_in_email">Email\n</string>
@@ -218,4 +231,10 @@
     </string-array>
     <string name="title_cart">Your cart</string>
     <string name="title_total">Total</string>
+    <string name="title_profile_setting">Profile\nSettings</string>
+    <string name="profile_saved">Your information is saved</string>
+    <string name="fill_fields">Please fill the required fields</string>
+    <string name="title_fullname">Fullname</string>
+    <string name="title_gender">Gender</string>
+    <string name="title_dob">Date of Birth</string>
 </resources>

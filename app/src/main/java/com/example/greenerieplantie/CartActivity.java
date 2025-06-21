@@ -98,7 +98,7 @@ public class CartActivity extends AppCompatActivity {
         }
 
         // Update the cart item count and total price
-        cartItemCountTextView.setText("You have " + itemCount + " items in your cart");
+        cartItemCountTextView.setText(itemCount);
 
         // Format the total price with commas and update the total price display
         totalPriceTextView.setText("VND " + decimalFormat.format(totalPrice));

@@ -1,14 +1,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="72dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="#F6F6F6">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="Back"
+        android:padding="8dp"
+        android:src="@mipmap/ic_back"/>
+
+    <TextView
+        android:id="@+id/tv_notifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Care Reminder"
+        android:textColor="@color/green_primary"
+        android:textSize="36sp"
+        android:textStyle="bold"/>
 
     <ScrollView
-        android:id="@+id/rg31rg6zulhh"
+        android:id="@+id/scrollViewCareReminder"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -18,27 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="17dp"
-                android:scaleType="fitXY"
-                android:src="@mipmap/ic_back" />
-
-            <TextView
-                android:id="@+id/tv_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginBottom="33dp"
-                android:text="Care Reminder"
-                android:textColor="#517B2C"
-                android:textSize="36sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_carereminder_selectproduct"
@@ -52,7 +51,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/ri4nqcjr20vh"
+                android:id="@+id/LinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -77,8 +76,8 @@
 
                 <ImageView
                     android:id="@+id/img_dropdown_product"
-                    android:layout_width="34dp"
-                    android:layout_height="40dp"
+                    android:layout_width="28dp"
+                    android:layout_height="34dp"
                     android:scaleType="fitXY"
                     android:src="@mipmap/ic_carereminder_dropdown" />
             </LinearLayout>
@@ -95,7 +94,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/rssb2ot3az3h"
+                android:id="@+id/LinearLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -120,14 +119,14 @@
 
                 <ImageView
                     android:id="@+id/img_dropdown_time"
-                    android:layout_width="34dp"
-                    android:layout_height="40dp"
+                    android:layout_width="28dp"
+                    android:layout_height="34dp"
                     android:scaleType="fitXY"
                     android:src="@mipmap/ic_carereminder_dropdown" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/r7vkaq6ruwoh"
+                android:id="@+id/LinearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -231,7 +230,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/rcx8xef222av"
+                android:id="@+id/LinearLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -256,8 +255,8 @@
 
                 <ImageView
                     android:id="@+id/img_dropdown_content"
-                    android:layout_width="34dp"
-                    android:layout_height="40dp"
+                    android:layout_width="28dp"
+                    android:layout_height="34dp"
                     android:scaleType="fitXY"
                     android:src="@mipmap/ic_carereminder_dropdown" />
             </LinearLayout>

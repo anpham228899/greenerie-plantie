@@ -47,7 +47,12 @@
             android:exported="false" />
         <activity
             android:name=".HomepageActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".PlantNewsActivity"
             android:exported="false" />
@@ -66,17 +71,9 @@
         <activity
             android:name=".LanguageActivity"
             android:exported="false" />
-
         <activity
             android:name=".CartActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:exported="false"/>
         <activity
             android:name=".PaymentActivity"
             android:exported="false"/>
@@ -115,13 +112,7 @@
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

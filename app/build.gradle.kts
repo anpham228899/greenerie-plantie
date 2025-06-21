@@ -30,8 +30,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     packagingOptions {
-        exclude("META-INF/NOTICE.md")  // Loại bỏ tệp NOTICE.md
-        exclude("META-INF/LICENSE.md")  // Loại bỏ tệp LICENSE.md nếu có
+        exclude("META-INF/NOTICE.md")
+        exclude("META-INF/LICENSE.md")
     }
 }
 
