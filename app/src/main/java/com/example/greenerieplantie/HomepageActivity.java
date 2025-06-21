@@ -157,6 +157,7 @@ public class HomepageActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
@@ -165,7 +166,7 @@ public class HomepageActivity extends AppCompatActivity {
                 return true;
             } else if (id == R.id.nav_reminder) {
                 Toast.makeText(this, "Reminder", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, CareReminderActivity.class));
+                startActivity(new Intent(this, ProductActivity.class));
                 return true;
             } else if (id == R.id.nav_chatbot) {
                 Toast.makeText(this, "Chatbot", Toast.LENGTH_SHORT).show();

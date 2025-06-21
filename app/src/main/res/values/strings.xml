@@ -49,7 +49,7 @@
     <string name="nav_cart">Cart</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_homepage_reminder" />
-    <string name="nav_homepage_careremind">Reminder</string>
+    <string name="nav_homepage_careremind">Product</string>
     <string name="title_signin_and_signup_greenery">Greenerie</string>
     <string name="title_signin_and_signup_welcome">Welcome to Greenerie — grow your garden, nourish your life. Sign in or create an account to get started!</string>
     <string name="btn_signin_and_signup_signin">Sign in\n</string>
@@ -140,6 +140,22 @@
     <string name="title_account_settings">Account Settings</string>
     <string name="title_profile_settings">Profile Settings</string>
     <string name="title_order_history">Order History</string>
+    <string name="title_order_date">Order Date</string>
+    <string name="title_subtotal">Sub total</string>
+    <string name="title_currency">Currency</string>
+    <string name="title_order_items">Order Items</string>
+    <string name="title_shipping_fee">Shipping fee</string>
+    <string name="title_discount">Discount</string>
+    <string name="title_delivery_progress">Delivery progess</string>
+    <string name="title_submit_review">Submit Review</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="hint_write_review">Hint Write Review</string>
+    <string name="title_order_id">Order ID</string>
+    <string name="title_review">Review</string>
+    <string name="title_order_number">Order number</string>
+    <string name="title_view_details">Details</string>
+
+
     <string name="title_care_reminder">Care Reminder</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_change_language">Change Language</string>
@@ -175,6 +191,20 @@
     <string name="hint_enter_email">Enter email</string>
     <string name="title_phone">Phone</string>
     <string name="hint_phone">Enter phone number</string>
+
+    <string name="title_product_header">Our Product</string>
+    <string name="btn_product_allplants">All Plants</string>
+    <string name="btn_product_fruittree">Fruit Tree</string>
+    <string name="btn_product_foodcrops">Food Crops</string>
+    <string name="btn_product_veggies">Veggies</string>
+    <string name="title_product_category">Category</string>
+    <string-array name="sn_product_sort_options">
+        <item>New</item>
+        <item>Best Seller</item>
+        <item>Price A - Z</item>
+        <item>Price Z - A</item>
+    </string-array>
+
 
     <string-array name="country">
         <item>Vietnam</item>

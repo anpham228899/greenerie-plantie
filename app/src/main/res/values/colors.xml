@@ -10,4 +10,5 @@
     <color name="yellow_light">#FFE7D2</color>
     <color name="yellow_primary">#FFA500</color>
     <style name="TextAppearance.MaterialComponents.Headline1.">#517B2C</style>
+    <style name="rating_selected_color">#FFC107</style>
 </resources>
