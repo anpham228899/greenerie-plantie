@@ -154,7 +154,9 @@ public class HomepageActivity extends AppCompatActivity {
         });
 
         // Apply the BottomNavigationView via NavMenuActivity
-        NavMenuActivity.setupNavMenu(findViewById(R.id.bottom_navigation), this);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_home);
+
     }
 
     // Function to open Product detail page
@@ -271,6 +273,7 @@ public class HomepageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
 
 

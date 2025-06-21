@@ -172,5 +172,6 @@
     <string name="default_user_name">You!</string>
     <string name="title_homepage_welcome1">Welcome to</string>
     <string name="default_user_name_real">%1$s</string>
+    <string name="nav_product">Product</string>
     >>>>>> origin/develop
 </resources>
