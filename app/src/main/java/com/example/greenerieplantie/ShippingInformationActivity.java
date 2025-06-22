@@ -1,8 +1,8 @@
 package com.example.greenerieplantie;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,6 +21,7 @@ public class ShippingInformationActivity extends AppCompatActivity {
 
     private EditText etFullName, etEmail, etPhone;
     private Button btnCancel, btnSave;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,8 @@ public class ShippingInformationActivity extends AppCompatActivity {
         etFullName = findViewById(R.id.et_full_name);
         etEmail = findViewById(R.id.et_email);
         etPhone = findViewById(R.id.et_phone);
-        btnCancel = findViewById(R.id.btn_cancel);
-        btnSave = findViewById(R.id.btn_save);
+        btnCancel = findViewById(R.id.btnCancel);
+        btnSave = findViewById(R.id.btnSubmitReview);
 
         ImageView btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> onBackPressed());
@@ -57,6 +58,13 @@ public class ShippingInformationActivity extends AppCompatActivity {
             } else {
                 showDialog(fullName, email, phone);
             }
+        });
+
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(ShippingInformationActivity.this, PaymentActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

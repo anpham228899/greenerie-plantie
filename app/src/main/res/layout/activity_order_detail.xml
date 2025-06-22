@@ -5,7 +5,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingTop="72dp"
+    android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp">
 
@@ -14,7 +14,6 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="start"
-        android:layout_marginBottom="16dp"
         android:contentDescription="Back Button"
         android:src="@mipmap/ic_back" />
 
@@ -29,50 +28,64 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txtOrderDetailID"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtOrderDetailID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/title_order_id"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/edtOrderDetailID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="TextView"
+                android:textAlignment="textStart" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/title_order_id"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/edtOrderDetailID"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="textStart" />
+            <TextView
+                android:id="@+id/txtOrderDetailDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/title_order_date"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/edtOrderDetailDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAlignment="textStart" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/txtOrderDetailDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/title_order_date"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/edtOrderDetailDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="textStart" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -185,6 +198,7 @@
                         android:text="@string/title_currency"
                         android:textAlignment="textEnd"
                         android:textSize="12sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -322,10 +336,10 @@
                 <EditText
                     android:id="@+id/edtReview"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="120dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/button_green_secondary"
+                    android:background="@drawable/border_background_signup"
                     android:gravity="top|start"
                     android:hint="@string/hint_write_review"
                     android:inputType="textMultiLine"
@@ -334,35 +348,34 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="16sp">
-
-                <Button
-                    android:id="@+id/btnCancel"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/button_green_secondary"
-                    android:paddingTop="6dp"
-                    android:text="@string/title_cancel"
-                    android:textColor="?attr/colorOnSecondary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="16dp" />
-
-                <Button
-                    android:id="@+id/btnSubmitReview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/title_submit_review"
-                    android:textSize="12dp"
-                    app:cornerRadius="12dp" />
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="26dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:background="@drawable/button_green_secondary"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/green_primary" />
+
+        <Button
+            android:id="@+id/btnSubmitReview"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_green_primary"
+            android:text="@string/btn_save"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,15 +1,15 @@
 package com.example.greenerieplantie;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Dialog;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +18,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
     private AutoCompleteTextView actvCountry, actvCity;
     private EditText etDistrict, etStreet, etNumber;
     private Button btnCancel, btnSave;
+    private ImageView btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +31,25 @@ public class ShippingAddressActivity extends AppCompatActivity {
         etDistrict = findViewById(R.id.et_district);
         etStreet = findViewById(R.id.et_street);
         etNumber = findViewById(R.id.et_number);
-        btnCancel = findViewById(R.id.btn_cancel);
-        btnSave = findViewById(R.id.btn_save);
+        btnCancel = findViewById(R.id.btnCancel);
+        btnSave = findViewById(R.id.btnSubmitReview);
+        btnBack = findViewById(R.id.btnBack); // ImageView
 
-        // Set up AutoCompleteTextViews with predefined values
-        ArrayAdapter<String> countryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, getResources().getStringArray(R.array.country));
+        // Set up AutoCompleteTextViews
+        ArrayAdapter<String> countryAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_dropdown_item_1line,
+                getResources().getStringArray(R.array.country)
+        );
         actvCountry.setAdapter(countryAdapter);
 
-        ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, getResources().getStringArray(R.array.provinces_name));
+        ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_dropdown_item_1line,
+                getResources().getStringArray(R.array.provinces_name)
+        );
         actvCity.setAdapter(cityAdapter);
 
-        // Handle button clicks
+        // Cancel clears all inputs
         btnCancel.setOnClickListener(v -> {
-            // Clear all input fields
             actvCountry.setText("");
             actvCity.setText("");
             etDistrict.setText("");
@@ -50,7 +57,16 @@ public class ShippingAddressActivity extends AppCompatActivity {
             etNumber.setText("");
         });
 
+        // Save opens dialog
         btnSave.setOnClickListener(v -> showDialog());
+
+        // Back returns to PaymentActivity
+        btnBack.setOnClickListener(v -> {
+            Intent intent = new Intent(ShippingAddressActivity.this, PaymentActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
+        });
     }
 
     private void showDialog() {
@@ -63,7 +79,6 @@ public class ShippingAddressActivity extends AppCompatActivity {
         if (country.isEmpty() || city.isEmpty() || district.isEmpty() || street.isEmpty() || number.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
         } else {
-            // Create a new dialog and set the content
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.dialog_save_shipping_address);
             dialog.setCancelable(true);
@@ -72,11 +87,9 @@ public class ShippingAddressActivity extends AppCompatActivity {
             String fullAddress = number + ", " + street + ", " + district + ", " + city + ", " + country;
             tvAddress.setText(fullAddress);
 
-            // Set up the close button (X)
             ImageView imgClose = dialog.findViewById(R.id.img_close);
-            imgClose.setOnClickListener(v -> dialog.dismiss());  // Close the dialog when the close button is clicked
+            imgClose.setOnClickListener(v -> dialog.dismiss());
 
-            // Show the dialog
             dialog.show();
         }
     }

@@ -52,10 +52,23 @@
     <string name="nav_homepage_careremind">Reminder</string>
     <string name="title_signin_and_signup_greenery">Greenerie</string>
     <string name="title_signin_and_signup_welcome">Welcome to Greenerie — grow your garden, nourish your life. Sign in or create an account to get started!</string>
-    <string name="btn_signin_and_signup_signin">Sign in\n</string>
+    <string name="btn_signin_and_signup_signin">Sign in</string>
     <string name="btn_signin_and_signup_signup">Sign up</string>
-
-    <string name="title_sign_in_greenery">Greenery</string>
+    <string name="title_order_number">Order Number</string>
+    <string name="title_view_details">View Details</string>
+    <string name="title_currency">VND</string>
+    <string name="hint_write_review">Write your review here...</string>
+    <string name="title_review">Review</string>
+    <string name="title_subtotal">"Subtotal: "</string>
+    <string name="title_shipping_fee">"Shipping Fee: "</string>
+    <string name="title_discount">"Discount: "</string>
+    <string name="title_submit_review">Submit Review</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="title_order_id">Order ID:</string>
+    <string name="title_order_date">"Order Date: "</string>
+    <string name="title_delivery_progress">Delivery</string>
+    <string name="title_order_items">Order Items</string>
+    <string name="title_sign_in_greenerie">Greenerie</string>
     <string name="title_sign_in_welcome">Welcome back to Greenerie.\nSign in to continue growing with us.</string>
     <string name="edt_sign_in_email">Email\n</string>
     <string name="edt_sign_in_password">Password</string>
@@ -64,14 +77,14 @@
     <string name="cb_remember_me">Remember me</string>
     <string name="btn_sign_in_forogt_password">Forgot your password? Click here</string>
     <string name="btn_signin_signin">Sign in</string>
-    <string name="title_signup_greenery">Greenery</string>
+    <string name="title_signup_greenerie">Greenerie</string>
     <string name="title_signup_welcome">Welcome to Greenerie.\nSign up to discover our wonderful store</string>
     <string name="edt_sign_up_input_email">Email</string>
     <string name="edt_sign_up_input_password">Enter new password</string>
     <string name="edt_sign_up_input_confirm_password">Confirm new password</string>
     <string name="btn_sign_up_send_verification_code">Send verification code</string>
     <string name="text_sign_up_term_policy" />
-    <string name="title_reset_password_greenery">Greenerie</string>
+    <string name="title_reset_password_greenerie">Greenerie</string>
     <string name="title_reset_password_let_reset">Let\'s reset your password!</string>
     <string name="edt_reset_password_input_email">Email</string>
     <string name="edt_reset_password_input_password">Enter new password</string>
@@ -132,7 +145,6 @@
     <string name="tile_homepage_name_product9_for_you">" Mini Garden Shovel"</string>
     <string name="title_homepage_product9_orgin">Orgin: Italy</string>
     <string name="title_homepage_product9_price">22,000</string>
-=======
     <string name="title_customer_support">Customer Support</string>
     <string name="title_hotline">Hotline</string>
     <string name="title_try_chatbot">Try on our Chatbot</string>
@@ -149,10 +161,6 @@
     <string name="title_policy">Policy</string>
     <string name="title_about_us_sub_1">Grow smarter, Live greener</string>
     <string name="title_about_us_sub_2">A greener world, one plant at a time</string>
-    <string name="title_home_page_welcome_customer_vi">Chào mừng đến với Greenery, \nAn Pham!</string>
-    <string name="title_homepage_welcome_customer_vi">Chào mừng đến với Greenery, \nAn Pham!</string>
-    <string name="title_homepage_welcome_vi">Chào mừng đến với Greenery, An Pham!</string
->
     <string name="text_policy_title1">1. Privacy Policy</string>
     <string name="text_policy_tex1">Greenary is committed to protecting users’ personal data—including full name, email, phone number, and shipping address and will use it solely to process orders, provide plant-care advice, and improve our services. We may share data with third parties such as shipping partners (Viettel Post, Giao Hàng Nhanh) or payment gateways (Momo, Napas) only to fulfill transactions; all partners must sign confidentiality agreements. Users have the right to access, correct, or request deletion of their data via the “Account Settings” section in the app or by contacting Greenary directly. This policy is reviewed periodically, and any changes will be announced to users via in-app pop-ups or email before taking effect.</string>
     <string name="text_policy_title2">2. Terms of Service</string>
@@ -173,5 +181,81 @@
     <string name="title_homepage_welcome1">Welcome to</string>
     <string name="default_user_name_real">%1$s</string>
     <string name="nav_product">Product</string>
-    >>>>>> origin/develop
+
+    <string name="tv_in_app_notifications">In-app Notifications</string>
+    <string name="title_payment">Payment</string>
+    <string name="title_payment_shipping_address">Shipping Address</string>
+    <string name="title_payment_information">Information</string>
+    <string name="title_payment_product">Product</string>
+    <string name="title_payment_shipping_options">Shipping Options</string>
+    <string name="title_payment_method">Payment Method</string>
+    <string name="title_discount_code">Discount Code</string>
+    <string name="hint_enter_discount_code">Enter discount code</string>
+    <string name="btn_place_order">Place Order</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="title_dialog_order_placed">Order Placed!</string>
+    <string name="title_dialog_order_placed_message">Your order is placed successfully!</string>
+    <string name="title_dialog_navigation_message">Navigating to Homepage...</string>
+    <string name="btn_save">Save</string>
+    <string name="hint_country">Vietnam</string>
+    <string name="hint_city">Thu Duc</string>
+    <string name="hint_district">Linh Xuan</string>
+    <string name="hint_street">Do Muoi</string>
+    <string name="hint_no_street">699</string>
+    <string name="hint_shipping_infor_name">Enter full name</string>
+    <string name="title_shipping_infor_name">Full name</string>
+    <string name="title_shipping_information">Shipping information</string>
+    <string name="title_email">Email</string>
+    <string name="hint_enter_email">Enter email</string>
+    <string name="title_phone">Phone</string>
+    <string name="hint_phone">Enter phone number</string>
+
+    <string-array name="country">
+        <item>Vietnam</item>
+    </string-array>
+
+    <string-array name="provinces_name">
+        <item>Ha Noi</item>
+        <item>Ho Chi Minh</item>
+        <item>Hue</item>
+        <item>Da Nang</item>
+        <item>Can Tho</item>
+        <item>Hai Phong</item>
+        <item>Lai Chau</item>
+        <item>Dien Bien</item>
+        <item>Son La</item>
+        <item>Lang Son</item>
+        <item>Quang Ninh</item>
+        <item>Thanh Hoa</item>
+        <item>Nghe An</item>
+        <item>Ha Tinh</item>
+        <item>Cao Bang</item>
+        <item>Tuyen Quang</item>
+        <item>Lao Cai</item>
+        <item>Thai Nguyen</item>
+        <item>Phu Tho</item>
+        <item>Bac Ninh</item>
+        <item>Hung Yen</item>
+        <item>Ninh Binh</item>
+        <item>Quang Tri</item>
+        <item>Quang Ngai</item>
+        <item>Gia Lai</item>
+        <item>Khanh Hoa</item>
+        <item>Lam Dong</item>
+        <item>Dak Lak</item>
+        <item>Dong Nai</item>
+        <item>Tay Ninh</item>
+        <item>Vinh Long</item>
+        <item>Dong Thap</item>
+        <item>Ca Mau</item>
+        <item>An Giang</item>
+    </string-array>
+    <string name="title_cart">Your cart</string>
+    <string name="title_total">Total</string>
+    <string name="title_profile_setting">Profile\nSettings</string>
+    <string name="profile_saved">Your information is saved</string>
+    <string name="fill_fields">Please fill the required fields</string>
+    <string name="title_fullname">Fullname</string>
+    <string name="title_gender">Gender</string>
+    <string name="title_dob">Date of Birth</string>
 </resources>
