@@ -1,6 +1,7 @@
 package com.example.greenerieplantie;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class LanguageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
+
         // Ẩn thanh ActionBar nếu có
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
@@ -32,16 +34,17 @@ public class LanguageActivity extends AppCompatActivity {
         titleLanguageVietsub = findViewById(R.id.title_language_vietsub);
         backButton = findViewById(R.id.imgbtn_language_back);
 
+        // Lấy SharedPreferences để lưu ngôn ngữ đã chọn
         sharedPreferences = getSharedPreferences("LanguagePrefs", Context.MODE_PRIVATE);
 
         // Đặt ngôn ngữ theo cài đặt hiện tại
         setLanguage(getLanguagePreference());
 
-        // Sự kiện quay lại
+        // Sự kiện quay lại về trang trước đó (không cần chuyển hướng về Homepage)
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();  // Quay lại màn hình trước
+                finish();  // Chỉ đóng màn hình LanguageActivity mà không chuyển về trang khác
             }
         });
 
@@ -49,7 +52,7 @@ public class LanguageActivity extends AppCompatActivity {
         textLanguageEngsub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLanguage("en");
+                setLanguage("en"); // Chuyển sang tiếng Anh
             }
         });
 
@@ -57,7 +60,7 @@ public class LanguageActivity extends AppCompatActivity {
         titleLanguageVietsub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLanguage("vi");
+                setLanguage("vi"); // Chuyển sang tiếng Việt
             }
         });
     }
@@ -100,6 +103,10 @@ public class LanguageActivity extends AppCompatActivity {
 
     // Lấy ngôn ngữ hiện tại từ SharedPreferences
     private String getLanguagePreference() {
-        return sharedPreferences.getString("language", "en");
+        return sharedPreferences.getString("language", "en"); // Mặc định là tiếng Anh
     }
 }
+
+
+
+

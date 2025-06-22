@@ -26,6 +26,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
 
+        // Ẩn thanh ActionBar nếu có
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         // Khởi tạo các thành phần giao diện
         emailInput = findViewById(R.id.edt_verify_code_code);
         sendCodeButton = findViewById(R.id.btn_verify_code_reset_password);

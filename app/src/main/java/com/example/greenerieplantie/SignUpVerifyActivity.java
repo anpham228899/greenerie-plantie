@@ -93,7 +93,7 @@ public class SignUpVerifyActivity extends AppCompatActivity {
         // Kiểm tra mã xác minh
         if (verificationCode.equals(correctVerificationCode)) {
             errorMessage.setVisibility(View.GONE); // Ẩn thông báo lỗi
-            Intent intent = new Intent(SignUpVerifyActivity.this, HomepageActivity.class);
+            Intent intent = new Intent(SignUpVerifyActivity.this, SignInActivity.class);
             startActivity(intent);
             finish(); // Kết thúc màn hình hiện tại
         } else {
