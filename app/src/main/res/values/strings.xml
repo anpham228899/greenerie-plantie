@@ -258,4 +258,5 @@
     <string name="title_fullname">Fullname</string>
     <string name="title_gender">Gender</string>
     <string name="title_dob">Date of Birth</string>
+    <string name="title_order_details">Order Details</string>
 </resources>

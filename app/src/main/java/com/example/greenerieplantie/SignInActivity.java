@@ -19,20 +19,17 @@ public class SignInActivity extends AppCompatActivity {
     private CheckBox rememberMe;
     private SharedPreferences sharedPreferences;
 
-    // Tạo tài khoản mẫu
     private static final String SAMPLE_EMAIL = "hoang2k4@gmail.com";
     private static final String SAMPLE_PASSWORD = "hoang01062004";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in); // Đảm bảo layout đúng
-        // Ẩn thanh ActionBar nếu có
+        setContentView(R.layout.activity_sign_in);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
 
-        // Khởi tạo các thành phần
         emailInput = findViewById(R.id.edt_verify_code_code);
         passwordInput = findViewById(R.id.edt_sign_in_password);
         signInButton = findViewById(R.id.btn_verify_code_reset_password);
@@ -42,7 +39,6 @@ public class SignInActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
 
-        // Xử lý sự kiện khi nhấn nút "Sign in"
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,11 +46,9 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-        // Xử lý sự kiện khi nhấn nút "Forgot your password?"
         forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Chuyển tới màn hình ForgetPasswordActivity
                 Intent intent = new Intent(SignInActivity.this, ForgetPasswordActivity.class);
                 startActivity(intent);
             }

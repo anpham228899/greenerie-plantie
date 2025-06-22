@@ -132,7 +132,6 @@ public class HomepageActivity extends AppCompatActivity {
         titleAboutUs2.setOnClickListener(v -> openAboutUsDetail(2));
 
 
-
         searchButton.setOnClickListener(v -> {
             String query = searchEditText.getText().toString().trim();
             if (!query.isEmpty()) {

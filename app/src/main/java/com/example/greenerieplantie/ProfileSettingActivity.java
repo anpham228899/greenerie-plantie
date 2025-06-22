@@ -1,7 +1,11 @@
 package com.example.greenerieplantie;
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,7 +19,7 @@ public class ProfileSettingActivity extends AppCompatActivity {
 
     private ImageView imgProfile;
     private EditText edtFullName, edtEmail, edtPhone, edtGender, edtDob;
-    private Button btnSave, btnCancel, btnEditProfile;
+    private Button btnSave, btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +32,15 @@ public class ProfileSettingActivity extends AppCompatActivity {
         edtPhone = findViewById(R.id.edtPhone);
         edtGender = findViewById(R.id.edtGender);
         edtDob = findViewById(R.id.edtDob);
-        btnSave = findViewById(R.id.btnSubmitReview);
+        btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
+        edtFullName.addTextChangedListener(fieldWatcher);
+        edtEmail.addTextChangedListener(fieldWatcher);
+        edtPhone.addTextChangedListener(fieldWatcher);
+        edtGender.addTextChangedListener(fieldWatcher);
+        edtDob.addTextChangedListener(fieldWatcher);
 
-        changeLanguage("vi");
+        updateSaveButtonState();
 
         btnCancel.setOnClickListener(v -> finish());
 
@@ -49,24 +58,45 @@ public class ProfileSettingActivity extends AppCompatActivity {
                 finish();
             }
         });
+        ImageView btnEditImage = findViewById(R.id.btnEditImage);
 
-        btnEditProfile.setOnClickListener(v -> {
-            edtFullName.setEnabled(true);
-            edtEmail.setEnabled(true);
-            edtPhone.setEnabled(true);
-            edtGender.setEnabled(true);
-            edtDob.setEnabled(true);
+        btnEditImage.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, 1);
         });
     }
 
-    private void changeLanguage(String langCode) {
-        Locale locale = new Locale(langCode);
-        Locale.setDefault(locale);
-
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-
-        recreate();
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            Uri imageUri = data.getData();
+            imgProfile.setImageURI(imageUri);
+        }
     }
+
+    private void updateSaveButtonState() {
+        String fullName = edtFullName.getText().toString().trim();
+        String email = edtEmail.getText().toString().trim();
+        String phone = edtPhone.getText().toString().trim();
+        String gender = edtGender.getText().toString().trim();
+        String dob = edtDob.getText().toString().trim();
+
+        btnSave.setEnabled(!fullName.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !gender.isEmpty() && !dob.isEmpty());
+    }
+
+    private TextWatcher fieldWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            updateSaveButtonState();
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {}
+    };
+
 }

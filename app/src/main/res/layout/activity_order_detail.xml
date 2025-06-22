@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Order Details"
+        android:text="@string/title_order_details"
         android:textColor="@color/green_primary"
         android:textSize="36sp"
         android:textStyle="bold" />
@@ -291,7 +291,7 @@
                 android:id="@+id/barDeliveryProgress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="4"
+                android:max="3"
                 android:progress="1"
                 android:progressDrawable="@drawable/progress_bar_custom" />
 
@@ -348,34 +348,34 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="26dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/button_green_secondary"
+                    android:text="@string/btn_cancel"
+                    android:textColor="@color/green_primary" />
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_green_primary"
+                    android:text="@string/btn_save"
+                    app:cornerRadius="8dp" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="26dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.8"
-            android:background="@drawable/button_green_secondary"
-            android:text="@string/btn_cancel"
-            android:textColor="@color/green_primary" />
-
-        <Button
-            android:id="@+id/btnSubmitReview"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_green_primary"
-            android:text="@string/btn_save"
-            app:cornerRadius="8dp" />
-    </LinearLayout>
 
 </LinearLayout>

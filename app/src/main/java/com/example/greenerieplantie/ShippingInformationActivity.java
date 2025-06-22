@@ -33,7 +33,7 @@ public class ShippingInformationActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.et_email);
         etPhone = findViewById(R.id.et_phone);
         btnCancel = findViewById(R.id.btnCancel);
-        btnSave = findViewById(R.id.btnSubmitReview);
+        btnSave = findViewById(R.id.btnSave);
 
         ImageView btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> onBackPressed());

@@ -35,7 +35,7 @@
         android:paddingStart="12dp">
 
         <TextView
-            android:id="@+id/txtProductTitle"
+            android:id="@+id/txtProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ST25 Rice - Vietnam"
@@ -58,12 +58,13 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="wrap_content"
+                android:layout_width="28dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="0.5
+" />
 
             <TextView
-                android:id="@+id/txtOrderNumber"
+                android:id="@+id/txtProductPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

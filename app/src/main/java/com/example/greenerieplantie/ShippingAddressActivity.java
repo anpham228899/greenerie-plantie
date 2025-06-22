@@ -32,7 +32,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
         etStreet = findViewById(R.id.et_street);
         etNumber = findViewById(R.id.et_number);
         btnCancel = findViewById(R.id.btnCancel);
-        btnSave = findViewById(R.id.btnSubmitReview);
+        btnSave = findViewById(R.id.btnSave);
         btnBack = findViewById(R.id.btnBack); // ImageView
 
         // Set up AutoCompleteTextViews

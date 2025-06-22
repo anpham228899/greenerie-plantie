@@ -74,7 +74,7 @@
                         android:layout_marginTop="-10dp"
                         android:layout_marginEnd="95dp"
                         android:gravity="center"
-                        android:text="@string/title_sign_in_greenery"
+                        android:text="@string/title_signup_greenerie"
                         android:textColor="#517B2C"
                         android:textSize="38sp"
                         android:textStyle="bold" />

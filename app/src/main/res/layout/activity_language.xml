@@ -96,7 +96,6 @@
                     android:layout_marginStart="16dp"
                     android:paddingTop="8dp"
                     android:text="@string/title_language_vietsub"
-                    android:textStyle="bold"
                     android:textColor="#474B51"
                     android:textSize="16sp" />
             </LinearLayout>
