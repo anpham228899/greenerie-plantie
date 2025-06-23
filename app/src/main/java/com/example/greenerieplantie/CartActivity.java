@@ -1,8 +1,11 @@
 package com.example.greenerieplantie;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -12,11 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DecimalFormat;
-// No need to import List anymore here as it's directly from ListCart.getCartItems()
 
 import adapters.CartAdapter;
 import models.Cart;
-import utils.ListCart; // Import ListCart
+import utils.ListCart; 
 
 public class CartActivity extends AppCompatActivity {
 
@@ -34,6 +36,7 @@ public class CartActivity extends AppCompatActivity {
 
         cartItemCountTextView = findViewById(R.id.tv_cart_item_count);
         totalPriceTextView = findViewById(R.id.tv_total_value);
+
         recyclerView = findViewById(R.id.item_cart_recycler_view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -55,6 +58,7 @@ public class CartActivity extends AppCompatActivity {
             }
             cartAdapter.notifyDataSetChanged();
             refreshCartDisplay();
+
         });
     }
 
@@ -69,7 +73,6 @@ public class CartActivity extends AppCompatActivity {
         double totalPrice = 0;
 
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
-
         for (Cart cartItem : ListCart.getCartItems()) {
             if (cartItem.isSelected()) {
                 itemCount += cartItem.getQuantity();

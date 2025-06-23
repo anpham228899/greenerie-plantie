@@ -1,8 +1,15 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
-    android:padding="16dp">
+    android:background="#F6F6F6">
+
+    <!-- Nội dung chính có thể cuộn -->
+    <ScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
     <LinearLayout
         android:id="@+id/main"
@@ -147,7 +154,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/title_payment_product"
             android:textColor="@color/green_primary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <!-- Cart Items List (RecyclerView) -->
@@ -170,7 +177,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/title_payment_shipping_options"
             android:textColor="@color/green_primary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -195,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:checked="true"
-                    android:text="Standard"
+                    android:text="@string/title_rb_standard"
                     android:textColor="#000"
                     android:textSize="16sp" />
 
@@ -204,7 +211,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(5 - 7 days)"
+                    android:text="@string/title_tv_standard_shipping_time"
                     android:textColor="#000"
                     android:textSize="16sp" />
 
@@ -212,7 +219,7 @@
                     android:id="@+id/tv_standard_shipping_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Free"
+                    android:text="@string/title_tv_standard_shipping_price"
                     android:textColor="@color/yellow_primary"
                     android:textSize="14sp"
                     android:textStyle="bold|italic" />
@@ -240,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="Express"
+                    android:text="@string/title_rb_express"
                     android:textColor="#000"
                     android:textSize="16sp" />
 
@@ -249,7 +256,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="(1 - 2 days)"
+                    android:text="@string/title_tv_express_shipping_time"
                     android:textColor="#000"
                     android:textSize="16sp" />
 
@@ -257,7 +264,7 @@
                     android:id="@+id/tv_express_shipping_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VND 15,000"
+                    android:text="@string/title_tv_express_shipping_price"
                     android:textColor="@color/yellow_primary"
                     android:textSize="14sp"
                     android:textStyle="bold|italic" />
@@ -274,7 +281,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/title_payment_method"
             android:textColor="@color/green_primary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <!-- Payment Method Section -->
@@ -305,7 +312,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:checked="true"
-                    android:text="COD"
+                    android:text="@string/title_rb_cod"
                     android:textColor="#000"
                     android:textSize="16sp" />
 
@@ -333,7 +340,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="Banking"
+                    android:text="@string/title_rb_banking"
                     android:textColor="#000"
                     android:textSize="16sp" />
 
@@ -359,7 +366,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/title_discount_code"
             android:textColor="@color/green_primary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <!-- Discount Code Section -->
@@ -388,9 +395,9 @@
                 android:id="@+id/tv_discount_applied"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Discount applied"
+                android:text="@string/title_tv_discount_applied"
                 android:textColor="@color/green_primary"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 android:textStyle="italic" />
         </LinearLayout>
 
@@ -401,125 +408,125 @@
             android:orientation="vertical"
             android:padding="18dp"
             android:background="@drawable/bg_edit_text"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="100dp"
             android:layout_marginTop="10dp">
 
-            <!-- Order Total -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start|center_vertical"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:id="@+id/tv_order_total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Order Total:"
-                    android:textColor="#000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_order_total_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="VND 360,000"
-                    android:textColor="@color/green_primary"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Discount -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start|center_vertical"
-                android:layout_marginBottom="10dp">
-
-                <TextView
-                    android:id="@+id/tv_discount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Discount:"
-                    android:textColor="@color/yellow_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold|italic" />
-
-                <TextView
-                    android:id="@+id/tv_discount_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/yellow_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold|italic" />
-            </LinearLayout>
-
-            <!-- Total After Discount -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start|center_vertical">
-
-                <TextView
-                    android:id="@+id/tv_total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Total:"
-                    android:textColor="#000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_total_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/green_primary"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-
+        <!-- Order Total -->
         <LinearLayout
-            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:gravity="center">
+            android:gravity="start|center_vertical"
+            android:layout_marginBottom="8dp">
 
-            <Button
-                android:id="@+id/btnCancel"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/tv_order_total"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_green_secondary"
-                android:text="@string/btn_cancel"
-                android:textColor="@color/green_secondary"
-                android:textSize="14sp" />
+                android:text="@string/title_tv_order_total"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btn_place_order"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/tv_order_total_value"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_green_primary"
-                android:text="@string/btn_place_order"
-                android:textColor="@android:color/white"
-                android:textSize="14sp" />
+                android:text="VND 360,000"
+                android:textColor="@color/green_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
+        <!-- Discount -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:layout_marginBottom="10dp">
 
+            <TextView
+                android:id="@+id/tv_discount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/title_tv_discount"
+                android:textColor="@color/yellow_primary"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/tv_discount_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow_primary"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+        <!-- Total After Discount -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical">
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/title_tv_total"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_total_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
-
+    </LinearLayout>
 </ScrollView>
+
+
+<LinearLayout
+android:id="@+id/bottom_bar"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_alignParentBottom="true"
+android:orientation="horizontal"
+android:gravity="end|center_vertical"
+android:padding="16dp"
+android:background="#F6F6F6">
+
+<Button
+    android:id="@+id/btnCancel"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_weight="1"
+    android:background="@drawable/button_green_secondary"
+    android:text="@string/btn_cancel"
+    android:textColor="@color/green_secondary"
+    android:textSize="14sp" />
+
+<Button
+    android:id="@+id/btn_place_order"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_weight="1"
+    android:background="@drawable/button_green_primary"
+    android:text="@string/btn_place_order"
+    android:textColor="@android:color/white"
+    android:textSize="14sp" />
+</LinearLayout>
+</RelativeLayout>
