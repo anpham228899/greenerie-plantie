@@ -49,25 +49,67 @@
     <string name="nav_cart">Cart</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_homepage_reminder" />
-    <string name="nav_homepage_careremind">Reminder</string>
+    <string name="nav_homepage_careremind">Product</string>
     <string name="title_signin_and_signup_greenery">Greenerie</string>
     <string name="title_signin_and_signup_welcome">Welcome to Greenerie — grow your garden, nourish your life. Sign in or create an account to get started!</string>
     <string name="btn_signin_and_signup_signin">Sign in</string>
     <string name="btn_signin_and_signup_signup">Sign up</string>
-    <string name="title_order_number">Order Number</string>
-    <string name="title_view_details">View Details</string>
-    <string name="title_currency">VND</string>
-    <string name="hint_write_review">Write your review here...</string>
-    <string name="title_review">Review</string>
-    <string name="title_subtotal">"Subtotal: "</string>
-    <string name="title_shipping_fee">"Shipping Fee: "</string>
-    <string name="title_discount">"Discount: "</string>
-    <string name="title_submit_review">Submit Review</string>
-    <string name="title_cancel">Cancel</string>
-    <string name="title_order_id">Order ID:</string>
-    <string name="title_order_date">"Order Date: "</string>
-    <string name="title_delivery_progress">Delivery</string>
-    <string name="title_order_items">Order Items</string>
+    <string-array name="sort_options">
+        <item>New</item>
+        <item>Best Seller</item>
+        <item>Price A - Z</item>
+        <item>Price Z - A</item>
+    </string-array>
+
+    <string name="product_image_description">Product image</string>
+    <string name="back_button_description">Back button</string>
+    <string name="currency_unit_vnd">VND</string>
+    <string name="currency_unit_vnd_bold">VND</string>
+    <string name="view_all_feedback">View all</string>
+    <string name="show_less_feedback">Show Less Feedback</string>
+    <string name="product_detail_discount_placeholder">10%</string>
+    <string name="product_detail_name_placeholder">Red Apple</string>
+    <string name="product_detail_category_placeholder">Fruit trees</string>
+    <string name="product_detail_original_price_placeholder">200,000</string>
+    <string name="product_detail_current_price_placeholder">180,000</string>
+    <string name="product_detail_description_placeholder">The tree is a deciduous tree, meaning it sheds its leaves in the fall. It has a relatively slender trunk, and the branches spread outward, eventually reaching a mature height that can vary based on the rootstock (dwarf, semi-dwarf, or standard). In spring, the tree will be covered in white or pink blossoms.</string>
+
+    <string name="product_type_seed_pack">Seed Pack</string>
+    <string name="product_type_plant_tree">Plant tree</string>
+
+    <string name="attribute_label_level">Level</string>
+    <string name="attribute_value_level_placeholder">Medium</string>
+    <string name="level_icon_description">Level icon</string>
+
+    <string name="attribute_label_water">Water</string>
+    <string name="attribute_value_water_placeholder">Daily need</string>
+    <string name="water_icon_description">Water icon</string>
+
+    <string name="attribute_label_special_conditions">Special Conditions</string>
+    <string name="attribute_value_conditions_placeholder">No</string>
+    <string name="conditions_icon_description">Special conditions icon</string>
+
+    <string name="attribute_label_growth_period">Growth period</string>
+    <string name="attribute_value_growth_period_placeholder">4 - 6 years</string>
+
+    <string name="attribute_label_selling_amount">Selling amount</string>
+    <string name="attribute_value_selling_amount_placeholder">Per plant</string>
+
+    <string name="section_title_description">Description</string>
+    <string name="section_title_feedback">Feedback</string>
+
+    <string name="feedback_user_image_description">User profile image</string>
+    <string name="feedback_title_1_placeholder">Red Apple - Plant Tree - 4/5⭐️</string>
+    <string name="feedback_content_1_placeholder">Fast delivery, and the plants were carefully packaged with no damage. The seedlings are healthy, well-rooted, and started growing well after just a few days in the soil. The shop also provided detailed and easy-to-follow care instructions — very helpful for beginners. I will definitely order again!</string>
+    <string name="feedback_author_date_1_placeholder">Đăng Khoa - 25/5/2025</string>
+
+    <string name="feedback_title_2_placeholder">Red Apple - Seed Pack - 5/5⭐️</string>
+    <string name="feedback_content_2_placeholder">The seedlings were healthy, well-rooted, and matched the description. The shop was helpful with additional tips for care. Excellent customer service! I am very satisfied and highly recommend this shop for anyone looking to grow plants, whether new or experienced.</string>
+    <string name="feedback_author_date_2_placeholder">Nguyễn Thị Bảy - 25/5/2025</string>
+
+
+    <string name="button_add_to_cart">Add to cart</string>
+    <string name="button_buy_now">Buy now</string>
     <string name="title_sign_in_greenerie">Greenerie</string>
     <string name="title_sign_in_welcome">Welcome back to Greenerie.\nSign in to continue growing with us.</string>
     <string name="edt_sign_in_email">Email\n</string>
@@ -158,6 +200,22 @@
     <string name="title_account_settings">Account Settings</string>
     <string name="title_profile_settings">Profile Settings</string>
     <string name="title_order_history">Order History</string>
+    <string name="title_order_date">Order Date</string>
+    <string name="title_subtotal">Sub total</string>
+    <string name="title_currency">Currency</string>
+    <string name="title_order_items">Order Items</string>
+    <string name="title_shipping_fee">Shipping fee</string>
+    <string name="title_discount">Discount</string>
+    <string name="title_delivery_progress">Delivery progess</string>
+    <string name="title_submit_review">Submit Review</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="hint_write_review">Hint Write Review</string>
+    <string name="title_order_id">Order ID</string>
+    <string name="title_review">Review</string>
+    <string name="title_order_number">Order number</string>
+    <string name="title_view_details">Details</string>
+
+
     <string name="title_care_reminder">Care Reminder</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_change_language">Change Language</string>
@@ -215,6 +273,20 @@
     <string name="title_phone">Phone</string>
     <string name="hint_phone">Enter phone number</string>
 
+    <string name="title_product_header">Our Product</string>
+    <string name="btn_product_allplants">All Plants</string>
+    <string name="btn_product_fruittree">Fruit Tree</string>
+    <string name="btn_product_foodcrops">Food Crops</string>
+    <string name="btn_product_veggies">Veggies</string>
+    <string name="title_product_category">Category</string>
+    <string-array name="sn_product_sort_options">
+        <item>New</item>
+        <item>Best Seller</item>
+        <item>Price A - Z</item>
+        <item>Price Z - A</item>
+    </string-array>
+
+
     <string-array name="country">
         <item>Vietnam</item>
     </string-array>
@@ -264,4 +336,22 @@
     <string name="title_gender">Gender</string>
     <string name="title_dob">Date of Birth</string>
     <string name="title_order_details">Order Details</string>
+    <string name="title_cart_you_have">You have</string>
+    <string name="title_cart_items_in_your_cart">items in your cart</string>
+    <string name="title_cart_cb_select_all">Select all</string>
+    <string name="title_cart_button_checkout">Checkout</string>
+    <string name="title_rb_standard">Standard</string>
+    <string name="title_tv_standard_shipping_time">(5 - 7 days)</string>
+    <string name="title_tv_standard_shipping_price">Free</string>
+    <string name="title_rb_express">Express</string>
+    <string name="title_tv_express_shipping_time">(1 - 2 days)</string>
+    <string name="title_tv_express_shipping_price">VND 15,000</string>
+    <string name="title_rb_cod">COD</string>
+    <string name="title_rb_banking">Banking</string>
+    <string name="title_tv_discount_applied">Discount applied</string>
+    <string name="title_tv_order_total">Order Total:</string>
+    <string name="title_tv_discount">Discount:</string>
+    <string name="title_tv_total">Total:</string>
+
+    <string name="title_origin">"Origin: "</string>
 </resources>

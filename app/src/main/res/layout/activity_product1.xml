@@ -5,59 +5,61 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     android:background="#F4F4F4"
     android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context=".ProductActivity">
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="Back"
+        android:padding="8dp"
+        android:src="@mipmap/ic_back"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingHorizontal="16dp">
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_product_title"
+            android:layout_width="297dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="16dp"
+
+            android:paddingBottom="16dp"
+            android:text="@string/title_product_header"
+            android:textColor="@color/green_primary"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:background="?android:attr/selectableItemBackground"
-            android:contentDescription="Back"
-            android:padding="8dp"
-            android:src="@mipmap/ic_back" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_product_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/title_product_header"
-                android:textColor="@color/green_primary"
-                android:textSize="36sp"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/imgbtn_cart"
-                android:layout_width="38dp"
-                android:layout_height="43dp"
-                android:background="@null"
-                android:scaleType="fitEnd"
-                app:srcCompat="@mipmap/ic_shoppingcart" />
-        </LinearLayout>
-
+            android:id="@+id/imgbtn_cart"
+            android:layout_width="38dp"
+            android:layout_height="43dp"
+            android:layout_gravity="top"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="106dp"
+            android:background="@null"
+            android:gravity="top"
+            android:scaleType="fitEnd"
+            app:srcCompat="@mipmap/ic_shoppingcart" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
         <LinearLayout
             android:id="@+id/ll_product_search_box_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_edit_text"
+            android:layout_marginHorizontal="18dp"
+
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="8dp"
@@ -69,8 +71,8 @@
                 android:layout_height="35dp"
                 android:layout_marginEnd="10dp"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/ic_homepage_search" />
-
+                android:src="@mipmap/ic_homepage_search"
+                />
             <EditText
                 android:id="@+id/et_product_search"
                 android:layout_width="0dp"
@@ -80,26 +82,26 @@
                 android:hint="@string/et_homepage_search"
                 android:inputType="text"
                 android:paddingVertical="2dp"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:ignore="DuplicateIds" />
         </LinearLayout>
-
         <LinearLayout
             android:id="@+id/ll_product_category_buttons"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_allplants"
-                android:layout_width="wrap_content"
+                android:layout_width="71dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:paddingHorizontal="6dp"
                 android:text="@string/btn_product_allplants"
-                android:textColor="#BDBDBD"
-                android:textSize="12sp" />
+                android:textColor="#517B2C"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_fruittree"
@@ -113,7 +115,7 @@
 
             <Button
                 android:id="@+id/btn_foodcrops"
-                android:layout_width="wrap_content"
+                android:layout_width="76dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:paddingHorizontal="6dp"
@@ -123,7 +125,7 @@
 
             <Button
                 android:id="@+id/btn_veggies"
-                android:layout_width="wrap_content"
+                android:layout_width="69dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:paddingHorizontal="6dp"
@@ -140,26 +142,27 @@
                 android:popupBackground="@drawable/bg_spinner_sort"
                 android:spinnerMode="dropdown"
                 android:textSize="12sp" />
-        </LinearLayout>
 
+        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_products"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clipToPadding="false"
             android:padding="4dp"
             android:scrollbars="vertical" />
     </LinearLayout>
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="10dp"
         android:background="@color/white"
         app:itemIconTint="@color/green_primary"
         app:itemTextColor="@color/green_primary"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        android:layout_marginBottom="12dp"/>
+
 </LinearLayout>

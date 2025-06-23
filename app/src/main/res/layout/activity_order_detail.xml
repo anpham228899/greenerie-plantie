@@ -293,7 +293,7 @@
                 android:layout_height="wrap_content"
                 android:max="3"
                 android:progress="1"
-                android:progressDrawable="@drawable/progress_bar_custom" />
+                android:progressDrawable="@drawable/dialog_payment" />
 
             <TextView
                 android:id="@+id/txtDeliveryStage"
@@ -329,7 +329,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:numStars="5"
-                    android:progressTint="@color/rating_selected_color"
+                    android:progressTint="@color/yellow_primary"
                     android:rating="0"
                     android:stepSize="0.5" />
 

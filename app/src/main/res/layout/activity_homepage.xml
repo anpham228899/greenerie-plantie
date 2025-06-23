@@ -123,7 +123,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_product_search_box_1"
+                android:id="@+id/thanhtimkiem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -556,17 +556,18 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/layout_homepage_product4"
                         android:layout_width="wrap_content"
                         android:layout_height="300dp"
                         android:layout_marginEnd="9dp"
-                        android:visibility="gone"
-
                         android:gravity="center_horizontal"
-                        android:orientation="vertical"
 
-                        android:padding="8dp">
+                        android:orientation="vertical"
+                        android:padding="8dp"
+
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:id="@+id/rmbbv7uxsdvqqcdve"
@@ -604,9 +605,9 @@
                                 android:id="@+id/title_homepage_product4_orgin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="19dp"
                                 android:text="@string/title_homepage_product4_orgin"
                                 android:textColor="#828282"
-                                android:layout_marginTop="19dp"
                                 android:textSize="10sp" />
                         </LinearLayout>
 
@@ -644,8 +645,8 @@
                                 android:id="@+id/rqhwwjr6fvvssvv9p"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
                                 android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
                                 android:orientation="horizontal"
                                 android:paddingRight="1dp">
 
@@ -678,9 +679,9 @@
 
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
+                        android:padding="8dp"
 
-
-                        android:padding="8dp">
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:id="@+id/rmbbv7uxsdfsvqqe"
@@ -708,8 +709,8 @@
                                     android:id="@+id/tile_homepage_name_product5_for_you"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/tile_homepage_name_product5_for_you"
                                     android:layout_marginTop="8dp"
+                                    android:text="@string/tile_homepage_name_product5_for_you"
                                     android:textColor="#333333"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
@@ -719,8 +720,8 @@
                                 android:id="@+id/title_homepage_product5_orgin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/title_homepage_product5_orgin"
                                 android:layout_marginTop="22dp"
+                                android:text="@string/title_homepage_product5_orgin"
                                 android:textColor="#828282"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -760,9 +761,9 @@
                                 android:id="@+id/rqhwwjvrggrr6v9p"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
                                 android:paddingRight="1dp">
 
                                 <TextView
@@ -784,16 +785,17 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/layout_homepage_product6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="9dp"
-                        android:visibility="gone"
-
                         android:gravity="center_horizontal"
+
                         android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="8dp"
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:id="@+id/rmbbv7uxsdvfgfsvqqe"
@@ -873,9 +875,9 @@
                                 android:id="@+id/rqhwwjvrggrr6vcc9p"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
                                 android:paddingRight="1dp">
 
                                 <TextView
@@ -897,16 +899,17 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/layout_homepage_product7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="9dp"
-                        android:visibility="gone"
-
                         android:gravity="center_horizontal"
+
                         android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="8dp"
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:id="@+id/rmbbv7uxsdvfgfsvqqcddvddve"
@@ -986,9 +989,9 @@
                                 android:id="@+id/rqhwwjvrggrdvdvr6vcc9p"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
                                 android:paddingRight="1dp">
 
                                 <TextView
@@ -1010,6 +1013,7 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/layout_homepage_product8"
                         android:layout_width="wrap_content"
@@ -1017,9 +1021,8 @@
                         android:layout_marginEnd="9dp"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
-                        android:visibility="gone"
                         android:padding="8dp"
-                        >
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:id="@+id/rmbbv7uxsdvfgfsvqqcdhdvddve"
@@ -1122,17 +1125,18 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/layout_homepage_product9"
                         android:layout_width="wrap_content"
-                        android:visibility="gone"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="9dp"
-
-
                         android:gravity="center_horizontal"
+
+
                         android:orientation="vertical"
-                        android:padding="8dp">
+                        android:padding="8dp"
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:id="@+id/rmbbv7uxsdvfgfsvvvqqcddvddve"
@@ -1212,9 +1216,9 @@
                                 android:id="@+id/rqhwwjvrggrdvdvrvv6vcc9p"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
-                                android:layout_marginTop="10dp"
                                 android:paddingRight="1dp">
 
                                 <TextView
@@ -1236,11 +1240,6 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
-
-
-
-
-
 
 
                 </LinearLayout>

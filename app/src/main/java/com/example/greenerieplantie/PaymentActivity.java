@@ -24,6 +24,7 @@ import java.util.List;
 
 import adapters.CartAdapter;
 import models.Cart;
+import models.Product;
 import utils.Discount;
 import utils.ListCart;
 
@@ -31,7 +32,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CartAdapter adapter;
-    private List<Cart> cartItems;
+    private List<Cart> cartItemsForPayment;
 
     private RadioButton rbStandard, rbExpress;
     private RadioButton rbCOD, rbBanking;
@@ -48,26 +49,47 @@ public class PaymentActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_payment);
 
-        // Initialize discount codes
         Discount.initDiscounts();
 
-        // Init cart data
-        cartItems = ListCart.getSampleCartData();
+        cartItemsForPayment = new ArrayList<>();
 
-        // RecyclerView setup
+        if (getIntent().hasExtra("product_for_purchase")) {
+            Product productToBuy = getIntent().getParcelableExtra("product_for_purchase");
+            if (productToBuy != null) {
+                cartItemsForPayment.add(new Cart(
+                        productToBuy.getProductId(),
+                        productToBuy.getName(),
+                        productToBuy.getCategory(),
+                        "VND " + productToBuy.getFormattedOriginalPrice(),
+                        "VND " + productToBuy.getFormattedPrice(),
+                        1,
+                        productToBuy.getImageResId()
+                ));
+            }
+        } else {
+            for (Cart item : ListCart.getCartItems()) {
+                if (item.isSelected()) {
+                    cartItemsForPayment.add(item);
+                }
+            }
+            if (cartItemsForPayment.isEmpty()) {
+                Toast.makeText(this, "No items selected for payment. Returning to cart.", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+        }
+
         recyclerView = findViewById(R.id.item_cart_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new CartAdapter(cartItems);
+        adapter = new CartAdapter(cartItemsForPayment);
         recyclerView.setAdapter(adapter);
 
-        // UI padding handling
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Shipping & Payment RadioButtons
         rbStandard = findViewById(R.id.rb_standard);
         rbExpress = findViewById(R.id.rb_express);
         rbCOD = findViewById(R.id.rb_cod);
@@ -89,7 +111,6 @@ public class PaymentActivity extends AppCompatActivity {
             if (rbBanking.isChecked()) rbCOD.setChecked(false);
         });
 
-        // Edit buttons
         ImageView editShippingAddress = findViewById(R.id.img_edit_img_shipping_address);
         ImageView editInformation = findViewById(R.id.img_edit_phone);
 
@@ -103,7 +124,6 @@ public class PaymentActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Discount Code UI
         etDiscountCode = findViewById(R.id.et_discount_code);
         tvDiscountApplied = findViewById(R.id.tv_discount_applied);
         tvDiscountValue = findViewById(R.id.tv_discount_value);
@@ -112,10 +132,8 @@ public class PaymentActivity extends AppCompatActivity {
 
         tvDiscountApplied.setVisibility(TextView.GONE);
 
-        // Calculate and display order total initially
         calculateAndDisplayOrderTotal();
 
-        // Handle discount code input
         etDiscountCode.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_GO || actionId == EditorInfo.IME_ACTION_NEXT) {
                 String enteredCode = etDiscountCode.getText().toString().trim();
@@ -128,7 +146,6 @@ public class PaymentActivity extends AppCompatActivity {
                     double discountPercentage = discount.getDiscountPercentage();
                     tvDiscountValue.setText(String.format("%.0f%%", discountPercentage));
 
-                    // Apply discount
                     double discountedTotal = orderTotal * (1 - discountPercentage / 100);
                     String discountedText = String.format("VND %,d", (int) discountedTotal);
                     tvTotalValue.setText(discountedText);
@@ -150,7 +167,6 @@ public class PaymentActivity extends AppCompatActivity {
             return false;
         });
 
-        // Place Order Button
         Button btnPlaceOrder = findViewById(R.id.btn_place_order);
         btnPlaceOrder.setOnClickListener(v -> {
             showOrderPlacedDialog();
@@ -160,7 +176,7 @@ public class PaymentActivity extends AppCompatActivity {
     private void calculateAndDisplayOrderTotal() {
         orderTotal = 0.0;
 
-        for (Cart item : cartItems) {
+        for (Cart item : cartItemsForPayment) {
             try {
                 String raw = item.getPriceAfterDiscount()
                         .replace("VND", "")
@@ -183,11 +199,10 @@ public class PaymentActivity extends AppCompatActivity {
     private void showOrderPlacedDialog() {
         Dialog dialog = new Dialog(PaymentActivity.this);
         dialog.setContentView(R.layout.dialog_order_placed);
-        dialog.setCancelable(false);  // Optional: make dialog not dismissible by touch outside
+        dialog.setCancelable(false);
 
-        // Get the ImageView for closing the dialog (Close button)
         ImageView btnCloseDialog = dialog.findViewById(R.id.img_close);
-        btnCloseDialog.setOnClickListener(v -> dialog.dismiss()); // Dismiss dialog on click
+        btnCloseDialog.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
     }

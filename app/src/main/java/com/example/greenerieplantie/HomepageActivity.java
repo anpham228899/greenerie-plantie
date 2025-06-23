@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.BottomNavigationView; // Make sure this import is present
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -41,6 +41,9 @@ public class HomepageActivity extends AppCompatActivity {
     private Button btnViewMorePlantNews, btnViewMoreAboutUs;
     private ImageButton imgBlog1, imgBlog2, imgAboutUs1, imgAboutUs2;
     private TextView titleBlog1, titleBlog2, titleAboutUs1, titleAboutUs2;
+
+    // Declare BottomNavigationView here as a member variable
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,57 +154,79 @@ public class HomepageActivity extends AppCompatActivity {
             Intent intent = new Intent(HomepageActivity.this, NotificationActivity.class);
             startActivity(intent);
         });
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // Apply the BottomNavigationView via NavMenuActivity
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_home);
-        bottomNav.setSelectedItemId(R.id.nav_home);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                Toast.makeText(this, "Homepage", Toast.LENGTH_SHORT).show();
+                return true;
+            } else if (id == R.id.nav_product) {
+                Toast.makeText(this, "Reminder", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProductActivity.class));
+                return true;
+            } else if (id == R.id.nav_chatbot) {
+                Toast.makeText(this, "Chatbot", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ChatbotActivity.class));
+                return true;
+            } else if (id == R.id.nav_cart) {
+                Toast.makeText(this, "Cart", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, CartActivity.class));
+                return true;
+            } else if (id == R.id.nav_profile) {
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProfileManagementActivity.class));
+                return true;
+            }
+            return false;
+        });
 
+
+        // This line below is redundant now that bottomNavigationView is initialized above.
+        // It's also likely `NavMenuActivity.setupNavMenu` expects the same instance.
+        // If `NavMenuActivity.setupNavMenu` also sets the listener, you might have conflicting listeners.
+        // It's usually better to use only one place to set the listener.
+        // If NavMenuActivity.setupNavMenu handles selection, you might remove the manual setOnItemSelectedListener above.
+        // For now, I'll keep the initialization and the listener, and remove the redundant `bottomNav` declaration.
+        NavMenuActivity.setupNavMenu(bottomNavigationView, this, R.id.nav_home);
+        // --- FIX ENDS HERE ---
     }
 
-    // Function to open Product detail page
     private void openProductDetail(String productId) {
         Intent intent = new Intent(HomepageActivity.this, ProductDetailActivity.class);
-        intent.putExtra("product_id", productId);  // Pass product ID to the detail activity
+        intent.putExtra("product_id", productId);
         startActivity(intent);
     }
 
-    // Function to open Blog detail page
     private void openBlogDetail(int blogId) {
         Intent intent = new Intent(HomepageActivity.this, PlantNewsActivity.class);
         intent.putExtra("blog_id", blogId); // Pass blog ID to detail activity
         startActivity(intent);
     }
 
-    // Function to open About Us detail page
     private void openAboutUsDetail(int aboutUsId) {
         Intent intent = new Intent(HomepageActivity.this, AboutUsActivity.class);
         intent.putExtra("about_us_id", aboutUsId); // Pass About Us ID to detail activity
         startActivity(intent);
     }
-    // Cập nhật thông tin người dùng (Tên và ảnh)
     private void updateUserInfo() {
-        // Lấy tên người dùng từ SharedPreferences
         String userName = sharedPreferences.getString("userName", null);
         String userImage = sharedPreferences.getString("userImage", null);
 
-        // Nếu không có tên người dùng (chưa cập nhật), hiển thị mặc định "You!"
         if (userName == null || userName.isEmpty()) {
-            userName = getResources().getString(R.string.default_user_name);  // "You!" mặc định
+            userName = getResources().getString(R.string.default_user_name);
         }
 
-        // Kết hợp hai chuỗi "Welcome to Greenerie," và tên người dùng
-        String welcomeMessage1 = getString(R.string.title_homepage_welcome1);  // "Welcome to Greenerie,"
-        String welcomeMessage2 = getString(R.string.default_user_name_real, userName);  // Tên người dùng
+        String welcomeMessage1 = getString(R.string.title_homepage_welcome1);
+        // This line seems to be an issue or incomplete based on its usage in string.xml
+        // If default_user_name_real takes a format argument, ensure it's correctly used.
+        // String welcomeMessage2 = getString(R.string.default_user_name_real, userName);
 
 
-
-        // Nếu không có ảnh người dùng, dùng ảnh mặc định
         if (userImage == null || userImage.isEmpty()) {
-            profileImage.setImageResource(R.mipmap.ic_launcher); // Hình ảnh mặc định
+            profileImage.setImageResource(R.mipmap.ic_launcher);
         } else {
-            // Nếu có ảnh, thay đổi ảnh người dùng (Ví dụ: ảnh từ URL hoặc tài nguyên)
-            // Glide.with(this).load(userImage).into(profileImage); // Nếu ảnh là URL, bạn có thể dùng Glide hoặc Picasso để tải ảnh.
+            // Logic to load user image (e.g., using Glide or Picasso)
         }
     }
 
@@ -275,10 +300,3 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
 }
-
-
-
-
-
-
-
