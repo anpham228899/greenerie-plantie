@@ -34,7 +34,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @NonNull
     @Override
     public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflate the layout for individual order item (not the whole activity layout)
         View view = LayoutInflater.from(context).inflate(R.layout.item_order, parent, false);
         return new OrderViewHolder(view);
     }
@@ -52,6 +51,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             Intent intent = new Intent(context, OrderDetailActivity.class);
             intent.putExtra("order_number", order.getOrderNumber());
             intent.putExtra("order_date", order.getOrderDate());
+            intent.putExtra("order_status", "shipping");
             intent.putParcelableArrayListExtra("order_items", (ArrayList<OrderItem>) order.getOrderItems());
             context.startActivity(intent);
         });
@@ -71,7 +71,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             super(itemView);
 
             imgProductMain = itemView.findViewById(R.id.imgProductMain);
-            txtOrderNumber = itemView.findViewById(R.id.txtOrderNumber);
+            txtOrderNumber = itemView.findViewById(R.id.txtProductPrice);
             txtOrderDate = itemView.findViewById(R.id.txtOrderDate);
             btnViewDetails = itemView.findViewById(R.id.btnViewDetails);
         }

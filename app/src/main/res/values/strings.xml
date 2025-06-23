@@ -2,9 +2,9 @@
     <string name="app_name">GreeneriePlantie</string>
     <string name="title_blog_author" />
     <string name="title_plant_news">Plant News</string>
-    <string name="title_home_page_welcome_customer">Welcome to Greenerie, \\nAn Pham!</string>
-    <string name="title_homepage_welcome_customer">Welcome to Greenerie, \\nAn Pham!</string>
-    <string name="title_homepage_welcome">Welcome to Greenerie, An Pham!</string>
+    <string name="title_home_page_welcome_customer">Welcome to Greenery, \\nAn Pham!</string>
+    <string name="title_homepage_welcome_customer">Welcome to Greenery, \\nAn Pham!</string>
+    <string name="title_homepage_welcome">Welcome to Greenery, An Pham!</string>
     <string name="title_homepage_weather">Sun Cloudy 29°</string>
     <string name="et_homepage_search">Find your plant</string>
     <string name="btn_homepage_for_you">For You</string>
@@ -40,9 +40,9 @@
     <string name="title_homepage_about_us">About Us</string>
     <string name="btn_homepage_viewmore_abus">View more\n</string>
     <string name="title_homepage_abus1">Grow smarter, Live greener</string>
-    <string name="title_homepage_des_abus1">Greenerie is your all-in-one plant care assistant. From watering reminders to expert tips, we help you keep your plants thriving and your spaces blooming. Whether you’re a beginner or a botanical pro, we’re here to support your green journey.</string>
+    <string name="title_homepage_des_abus1">Greenery is your all-in-one plant care assistant. From watering reminders to expert tips, we help you keep your plants thriving and your spaces blooming. Whether you’re a beginner or a botanical pro, we’re here to support your green journey.</string>
     <string name="title_homepage_abus2">A greener world, one plant at a time</string>
-    <string name="title_homepage_des_abus2">We imagine a future where every home and city corner is alive with nature. At Greenerie, we believe plant care is self-care—and a step toward a healthier, more sustainable planet.</string>
+    <string name="title_homepage_des_abus2">We imagine a future where every home and city corner is alive with nature. At Greenery, we believe plant care is self-care—and a step toward a healthier, more sustainable planet.</string>
     <string name="nav_home">Home</string>
     <string name="nav_reminder">Care Reminder</string>
     <string name="nav_chatbot">Chatbot</string>
@@ -52,10 +52,29 @@
     <string name="nav_homepage_careremind">Product</string>
     <string name="title_signin_and_signup_greenery">Greenerie</string>
     <string name="title_signin_and_signup_welcome">Welcome to Greenerie — grow your garden, nourish your life. Sign in or create an account to get started!</string>
-    <string name="btn_signin_and_signup_signin">Sign in\n</string>
+    <string name="btn_signin_and_signup_signin">Sign in</string>
     <string name="btn_signin_and_signup_signup">Sign up</string>
-
-    <string name="title_sign_in_greenery">Greenery</string>
+    <string-array name="sort_options">
+        <item>New</item>
+        <item>Best Seller</item>
+        <item>Price A - Z</item>
+        <item>Price Z - A</item>
+    </string-array>
+    <string name="title_order_number">Order Number</string>
+    <string name="title_view_details">View Details</string>
+    <string name="title_currency">VND</string>
+    <string name="hint_write_review">Write your review here...</string>
+    <string name="title_review">Review</string>
+    <string name="title_subtotal">"Subtotal: "</string>
+    <string name="title_shipping_fee">"Shipping Fee: "</string>
+    <string name="title_discount">"Discount: "</string>
+    <string name="title_submit_review">Submit Review</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="title_order_id">Order ID:</string>
+    <string name="title_order_date">"Order Date: "</string>
+    <string name="title_delivery_progress">Delivery</string>
+    <string name="title_order_items">Order Items</string>
+    <string name="title_sign_in_greenerie">Greenerie</string>
     <string name="title_sign_in_welcome">Welcome back to Greenerie.\nSign in to continue growing with us.</string>
     <string name="edt_sign_in_email">Email\n</string>
     <string name="edt_sign_in_password">Password</string>
@@ -64,14 +83,14 @@
     <string name="cb_remember_me">Remember me</string>
     <string name="btn_sign_in_forogt_password">Forgot your password? Click here</string>
     <string name="btn_signin_signin">Sign in</string>
-    <string name="title_signup_greenery">Greenery</string>
+    <string name="title_signup_greenerie">Greenerie</string>
     <string name="title_signup_welcome">Welcome to Greenerie.\nSign up to discover our wonderful store</string>
     <string name="edt_sign_up_input_email">Email</string>
     <string name="edt_sign_up_input_password">Enter new password</string>
     <string name="edt_sign_up_input_confirm_password">Confirm new password</string>
     <string name="btn_sign_up_send_verification_code">Send verification code</string>
     <string name="text_sign_up_term_policy" />
-    <string name="title_reset_password_greenery">Greenerie</string>
+    <string name="title_reset_password_greenerie">Greenerie</string>
     <string name="title_reset_password_let_reset">Let\'s reset your password!</string>
     <string name="edt_reset_password_input_email">Email</string>
     <string name="edt_reset_password_input_password">Enter new password</string>
@@ -164,6 +183,27 @@
     <string name="title_policy">Policy</string>
     <string name="title_about_us_sub_1">Grow smarter, Live greener</string>
     <string name="title_about_us_sub_2">A greener world, one plant at a time</string>
+    <string name="text_policy_title1">1. Privacy Policy</string>
+    <string name="text_policy_tex1">Greenary is committed to protecting users’ personal data—including full name, email, phone number, and shipping address and will use it solely to process orders, provide plant-care advice, and improve our services. We may share data with third parties such as shipping partners (Viettel Post, Giao Hàng Nhanh) or payment gateways (Momo, Napas) only to fulfill transactions; all partners must sign confidentiality agreements. Users have the right to access, correct, or request deletion of their data via the “Account Settings” section in the app or by contacting Greenary directly. This policy is reviewed periodically, and any changes will be announced to users via in-app pop-ups or email before taking effect.</string>
+    <string name="text_policy_title2">2. Terms of Service</string>
+    <string name="text_policy_text2">By using Greenary, you agree that the app is licensed to you for personal, non-commercial use only. Any copying, redistribution, or abuse of our services is strictly prohibited. You must not upload content that infringes copyright, is obscene, defamatory, or disruptive; violations may result in warnings or immediate account suspension without prior notice. Greenary reserves the right to terminate or suspend accounts suspected of fraud, abuse, or breach of these terms. All content, images, and trademarks in Greenary are owned by Greenary or our partners; you may not reuse any materials without written permission. Any disputes will be governed by Vietnamese law and resolved by the courts in Ho Chi Minh City.</string>
+    <string name="text_policy_title3">3. Shipping Policy</string>
+    <string name="text_policy_description3">Greenary offers Cash on Delivery (COD) or prepaid orders, with order processing taking 1–2 business days. Delivery time is typically 2–4 days within Ho Chi Minh City and 4–6 days to suburban areas. Shipping fees are calculated based on package weight and dimensions; orders over ₫500,000 within Ho Chi Minh City qualify for free shipping. Customers can track their orders in the “My Orders” section of the app or via the tracking number provided by our shipping partners. If delivery exceeds the promised timeframe, Greenary will cover any additional fees and assist in coordinating with the carrier.</string>
+    <string name="text_policy_title4"><![CDATA[4. Return & Refund Policy]]></string>
+    <string name="text_policy_description4">Customers may request returns within 7 days of receipt if their seedlings arrive damaged, incorrect, or not as described (e.g., dead roots, cracked pots). To initiate a return, submit a claim via the in-app chat with photos showing the issue; Greenary will verify and provide a prepaid return label if the fault lies with us or our carrier. Once we receive and inspect the return, refunds will be issued to your original payment method or app wallet within 3–5 business days, or we can provide a coupon of equal value for your next purchase. If you change your mind (non-defective return), you’ll be responsible for return shipping costs; Greenary will guide you through the process.</string>
+    <string name="text_policy_title5">5. Payment Policy</string>
+    <string name="text_policy_description5">Greenary accepts COD, bank transfers (Vietcombank, Techcombank), e-wallets (Momo, VNPay), and international cards (Visa, MasterCard). All transactions are SSL-encrypted and PCI-DSS compliant to protect card and payment data. In case of any payment dispute, Greenary and our payment partners will cooperate to resolve and refund valid claims arising from system errors on our side.</string>
+    <string name="text_policy_title6">6. Security Policy</string>
+    <string name="text_policy_description6">All connections between the app and Greenary’s servers use HTTPS and AES-256 encryption to safeguard sensitive data. We enforce secure authentication with OTP or a 6-digit PIN, automatic logout after 15 minutes of inactivity, and account lockout after multiple failed login attempts. Regular vulnerability scans and patch updates are conducted in line with OWASP recommendations to defend against emerging threats.</string>
+    <string name="text_policy_title7">7. Cookie Policy</string>
+    <string name="text_policy_description7">Greenary uses cookies to maintain login sessions, remember user preferences, and analyze in-app behavior for ongoing improvement. You can disable or clear cookies at any time in Settings → Legal → Cookie Policy, but note that certain features may not function properly if cookies are blocked.</string>
+    <string name="text_policy_title8"><![CDATA[8. User Conduct & Content Policy]]></string>
+    <string name="text_policy_description8">Users must not post content that is illegal, defamatory, pornographic, or infringes intellectual property rights; violations may result in content removal or account suspension without notice. Greenary reserves the right to permanently ban accounts or delete offending content after prior warning. To report inappropriate content, use the “Report” feature in the app; we commit to investigating and responding within 48 business hours.</string>
+    <string name="default_user_name">You!</string>
+    <string name="title_homepage_welcome1">Welcome to</string>
+    <string name="default_user_name_real">%1$s</string>
+    <string name="nav_product">Product</string>
+
     <string name="tv_in_app_notifications">In-app Notifications</string>
     <string name="title_payment">Payment</string>
     <string name="title_payment_shipping_address">Shipping Address</string>
@@ -248,4 +288,11 @@
     </string-array>
     <string name="title_cart">Your cart</string>
     <string name="title_total">Total</string>
+    <string name="title_profile_setting">Profile\nSettings</string>
+    <string name="profile_saved">Your information is saved</string>
+    <string name="fill_fields">Please fill the required fields</string>
+    <string name="title_fullname">Fullname</string>
+    <string name="title_gender">Gender</string>
+    <string name="title_dob">Date of Birth</string>
+    <string name="title_order_details">Order Details</string>
 </resources>

@@ -496,7 +496,7 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/btn_cancel"
+                android:id="@+id/btnCancel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -512,7 +512,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_background_btn_checkout"
+                android:background="@drawable/button_green_primary"
                 android:text="@string/btn_place_order"
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />

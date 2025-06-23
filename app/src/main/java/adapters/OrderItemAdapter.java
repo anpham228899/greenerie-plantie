@@ -46,12 +46,14 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Orde
         public TextView productName;
         public TextView productPrice;
         public ImageView productImage;
+        public TextView productCategory;
 
         public OrderItemViewHolder(View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.edtProductName);
-            productPrice = itemView.findViewById(R.id.edtProductPrice);
-            productImage = itemView.findViewById(R.id.imgProductImage);
+            productName = itemView.findViewById(R.id.txtProductName);
+            productPrice = itemView.findViewById(R.id.txtProductPrice);
+            productImage = itemView.findViewById(R.id.imgProductMain);
+            productCategory = itemView.findViewById(R.id.txtProductCategory);
         }
     }
 }

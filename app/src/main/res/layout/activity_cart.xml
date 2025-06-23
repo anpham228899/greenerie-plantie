@@ -5,14 +5,12 @@
     android:background="#F6F6F6"
     android:padding="16dp">
 
-    <!-- Only one direct child, LinearLayout -->
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- "Your Cart" Title -->
         <TextView
             android:id="@+id/cart_title"
             android:layout_width="wrap_content"
@@ -23,18 +21,40 @@
             android:textSize="36sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <!-- Cart Item Count -->
-        <TextView
-            android:id="@+id/tv_cart_item_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You have 0 items in your cart"
-            android:textColor="#000"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/tv_cart_item_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="You have"
+                android:textColor="#000"
+                android:textSize="16sp" />
 
-        <!-- Cart Items List (RecyclerView) -->
+            <TextView
+                android:id="@+id/cart_item_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="0"
+                android:textColor="@color/green_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="items in your cart" />
+        </LinearLayout>
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/item_cart_recycler_view"
             android:layout_width="match_parent"
@@ -50,7 +70,6 @@
             android:gravity="start|center_vertical"
             android:orientation="horizontal">
 
-            <!-- "Select All" Checkbox -->
             <CheckBox
                 android:id="@+id/cb_select_all"
                 android:layout_width="wrap_content"
@@ -61,7 +80,6 @@
                 android:textColor="#000"
                 android:textSize="16sp" />
 
-            <!-- Vertical layout for Total and its value -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -70,7 +88,6 @@
                 android:layout_marginEnd="15dp"
                 android:gravity="end|center_vertical">
 
-                <!-- Total Text -->
                 <TextView
                     android:id="@+id/title_total"
                     android:layout_width="wrap_content"
@@ -81,7 +98,6 @@
                     android:textColor="#000"
                     android:textSize="16sp" />
 
-                <!-- Total Value Text (Dynamic) -->
                 <TextView
                     android:id="@+id/tv_total_value"
                     android:layout_width="wrap_content"
@@ -99,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:background="@drawable/rounded_background_btn_checkout"
+                android:background="@drawable/button_green_primary"
                 android:text="Checkout"
                 android:textColor="@color/white" />
         </LinearLayout>

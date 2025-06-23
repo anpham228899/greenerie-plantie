@@ -69,10 +69,10 @@
 
                 <EditText
                     android:id="@+id/edt_sign_up_verify_input_code"
-                    android:layout_width="320dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="6dp"
-                    android:layout_marginStart="48dp"
+                    android:layout_marginStart="45dp"
 
                     android:hint="@string/edt_sign_up_verify_input_code"
 
@@ -84,7 +84,7 @@
                     android:id="@+id/title_sign_up_verify_invalid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
+                    android:layout_marginStart="45dp"
                     android:layout_marginBottom="1dp"
                     android:text="@string/title_sign_up_verify_invalid"
                     android:textColor="#FF0000"
@@ -93,7 +93,7 @@
 
                 <LinearLayout
                     android:id="@+id/btn_popup_oke"
-                    android:layout_width="320dp"
+                    android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal"
                     android:background="@drawable/rounded_background_btn_signup_signin"
@@ -101,7 +101,7 @@
 
 
                     android:layout_marginBottom="21dp"
-                    android:layout_marginHorizontal="48dp"
+                    android:layout_marginHorizontal="45dp"
                     android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:focusable="true"

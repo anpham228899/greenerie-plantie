@@ -28,7 +28,7 @@ public class ListNotificationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_notifications);
 
         // Khởi tạo RecyclerView
-        notificationsRecyclerView = findViewById(R.id.NotificationsRecyclerView);
+        notificationsRecyclerView = findViewById(R.id.newsRecyclerView);
         notificationsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Lấy SharedPreferences để kiểm tra trạng thái của "In-app notifications"

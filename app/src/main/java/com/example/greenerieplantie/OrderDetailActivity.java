@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import adapters.OrderItemAdapter;
 import models.OrderItem;
@@ -35,34 +34,27 @@ public class OrderDetailActivity extends AppCompatActivity {
         txtOrderDate = findViewById(R.id.edtOrderDetailDate);
         txtDeliveryStage = findViewById(R.id.txtDeliveryStage);
         btnCancel = findViewById(R.id.btnCancel);
-        btnSubmitReview = findViewById(R.id.btnSubmitReview);
+        btnSubmitReview = findViewById(R.id.btnSave);
         deliveryProgressBar = findViewById(R.id.barDeliveryProgress);
         rcvItemOrderDetail = findViewById(R.id.rcvItemOrderDetail);
 
-        // Get the order details passed from the intent
         String orderNumber = getIntent().getStringExtra("order_number");
         String orderDate = getIntent().getStringExtra("order_date");
         orderItems = getIntent().getParcelableArrayListExtra("order_items");
+        String orderStatus = getIntent().getStringExtra("order_status");
 
-        // Set the order details on the UI
         txtOrderNumber.setText(orderNumber);
         txtOrderDate.setText(orderDate);
 
-        // Set the RecyclerView layout manager and adapter for order items
         rcvItemOrderDetail.setLayoutManager(new LinearLayoutManager(this));
-        orderItemAdapter = new OrderItemAdapter(orderItems);  // Use the OrderItemAdapter
+        orderItemAdapter = new OrderItemAdapter(orderItems);
         rcvItemOrderDetail.setAdapter(orderItemAdapter);
 
-        // Update the delivery stage and progress
-        updateDeliveryStage();
+        updateDeliveryStage(orderStatus);
 
-        // Cancel order dialog
         btnCancel.setOnClickListener(v -> showCancelConfirmationDialog());
-
-        // Submit review success
         btnSubmitReview.setOnClickListener(v -> showSuccessNotification());
 
-        // Set subtotal, shipping fee, discount, and total (hardcoded values)
         String subtotal = "800,000 VND";
         String shippingFee = "50,000 VND";
         String discount = "20,000 VND";
@@ -79,25 +71,55 @@ public class OrderDetailActivity extends AppCompatActivity {
         edtTotal.setText(total);
     }
 
-    private void updateDeliveryStage() {
-        // Set the delivery stage (hardcoded for now)
-        txtDeliveryStage.setText("Stage 1: Preparing for Shipment");
-        deliveryProgressBar.setProgress(1);
+    private void updateDeliveryStage(String orderStatus) {
+        if (orderStatus == null) orderStatus = "preparing";
+
+        switch (orderStatus) {
+            case "preparing":
+                txtDeliveryStage.setText("Stage 1: Preparing for Shipment");
+                deliveryProgressBar.setProgress(1);
+                btnCancel.setEnabled(true);
+                btnSubmitReview.setEnabled(false);
+                break;
+            case "shipping":
+                txtDeliveryStage.setText("Stage 2: Shipping");
+                deliveryProgressBar.setProgress(2);
+                btnCancel.setEnabled(false);
+                btnSubmitReview.setEnabled(false);
+                break;
+            case "delivered":
+                txtDeliveryStage.setText("Stage 3: Delivered");
+                deliveryProgressBar.setProgress(3);
+                btnCancel.setEnabled(false);
+                btnSubmitReview.setEnabled(true);
+                break;
+            case "cancelled":
+                txtDeliveryStage.setText("Order Cancelled");
+                deliveryProgressBar.setProgress(0);
+                btnCancel.setEnabled(false);
+                btnSubmitReview.setEnabled(false);
+                break;
+            default:
+                txtDeliveryStage.setText("Unknown Status");
+                deliveryProgressBar.setProgress(0);
+                btnCancel.setEnabled(false);
+                btnSubmitReview.setEnabled(false);
+                break;
+        }
     }
 
     private void showCancelConfirmationDialog() {
-        // Show a dialog for order cancellation confirmation
         new AlertDialog.Builder(this)
                 .setTitle("Cancel Order")
                 .setMessage("Are you sure you want to cancel this order?")
                 .setCancelable(false)
-                .setPositiveButton("Yes", (dialog, id) -> Toast.makeText(OrderDetailActivity.this, "Order cancelled", Toast.LENGTH_SHORT).show())
+                .setPositiveButton("Yes", (dialog, id) ->
+                        Toast.makeText(OrderDetailActivity.this, "Order cancelled", Toast.LENGTH_SHORT).show())
                 .setNegativeButton("No", null)
                 .show();
     }
 
     private void showSuccessNotification() {
-        // Show success message when review is submitted
         Toast.makeText(OrderDetailActivity.this, "Review submitted successfully", Toast.LENGTH_SHORT).show();
     }
 }

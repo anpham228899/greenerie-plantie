@@ -45,14 +45,36 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/title_homepage_welcome"
+                        android:id="@+id/title_homepage_welcome1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/title_homepage_welcome1"
+                        android:textColor="#333333"
+                        android:textSize="24sp" />
+                    <TextView
+                        android:id="@+id/title_homepage_welcome3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-32dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="132dp"
+                        android:textStyle="bold"
+                        android:text="Greenerie"
+                        android:textColor="#517B2C"
+                        android:textSize="24sp" />
+
+
+                    <TextView
+                        android:id="@+id/default_user_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="7dp"
+
                         android:layout_weight="1"
-                        android:text="@string/title_homepage_welcome"
+                        android:text="@string/default_user_name"
                         android:textColor="#333333"
-                        android:textSize="24sp" />
+                        android:textSize="30sp" />
 
                     <LinearLayout
                         android:id="@+id/rp3nngxjb3uj"
@@ -101,7 +123,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/rwe18eysl54h"
+                android:id="@+id/thanhtimkiem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="18dp"
