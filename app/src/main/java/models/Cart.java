@@ -1,81 +1,79 @@
 package models;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Cart implements Serializable {
-
+public class Cart implements Parcelable {
+    private String productId;
     private String productName;
-    private String productDescription;
-    private String priceBeforeDiscount;
+    private String productType;
+    private String originalPrice;
     private String priceAfterDiscount;
     private int quantity;
     private int imageResId;
-    private boolean isSelected;  // Track if the item is selected
+    private boolean isSelected;
 
-    public Cart(String productName, String productDescription, String priceBeforeDiscount, String priceAfterDiscount, int quantity, int imageResId) {
+    public Cart(String productId, String productName, String productType, String originalPrice, String priceAfterDiscount, int quantity, int imageResId) {
+        this.productId = productId;
         this.productName = productName;
-        this.productDescription = productDescription;
-        this.priceBeforeDiscount = priceBeforeDiscount;
+        this.productType = productType;
+        this.originalPrice = originalPrice;
         this.priceAfterDiscount = priceAfterDiscount;
         this.quantity = quantity;
         this.imageResId = imageResId;
-        this.isSelected = false; // Default is not selected
+        this.isSelected = false;
     }
 
-    // Getters and setters
-    public String getProductName() {
-        return productName;
+    public String getProductId() { return productId; }
+    public String getProductName() { return productName; }
+    public String getProductType() { return productType; }
+    public String getOriginalPrice() { return originalPrice; }
+    public String getPriceAfterDiscount() { return priceAfterDiscount; }
+    public int getQuantity() { return quantity; }
+    public int getImageResId() { return imageResId; }
+    public boolean isSelected() { return isSelected; }
+
+    // Setters (for quantity and selection status)
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public void setSelected(boolean selected) { isSelected = selected; }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.productId);
+        dest.writeString(this.productName);
+        dest.writeString(this.productType);
+        dest.writeString(this.originalPrice);
+        dest.writeString(this.priceAfterDiscount);
+        dest.writeInt(this.quantity);
+        dest.writeInt(this.imageResId);
+        dest.writeByte(this.isSelected ? (byte) 1 : (byte) 0);
     }
 
-    public String getProductDescription() {
-        return productDescription;
+    protected Cart(Parcel in) {
+        this.productId = in.readString();
+        this.productName = in.readString();
+        this.productType = in.readString();
+        this.originalPrice = in.readString();
+        this.priceAfterDiscount = in.readString();
+        this.quantity = in.readInt();
+        this.imageResId = in.readInt();
+        this.isSelected = in.readByte() != 0;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
-    }
+    public static final Creator<Cart> CREATOR = new Creator<Cart>() {
+        @Override
+        public Cart createFromParcel(Parcel source) {
+            return new Cart(source);
+        }
 
-    public String getPriceBeforeDiscount() {
-        return priceBeforeDiscount;
-    }
-
-    public void setPriceBeforeDiscount(String priceBeforeDiscount) {
-        this.priceBeforeDiscount = priceBeforeDiscount;
-    }
-
-    public String getPriceAfterDiscount() {
-        return priceAfterDiscount;
-    }
-
-    public void setPriceAfterDiscount(String priceAfterDiscount) {
-        this.priceAfterDiscount = priceAfterDiscount;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getImageResId() {
-        return imageResId;
-    }
-
-    public void setImageResId(int imageResId) {
-        this.imageResId = imageResId;
-    }
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
+        @Override
+        public Cart[] newArray(int size) {
+            return new Cart[size];
+        }
+    };
 }

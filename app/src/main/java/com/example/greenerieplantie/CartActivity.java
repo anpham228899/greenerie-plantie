@@ -12,17 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DecimalFormat;
-import java.util.List;
+// No need to import List anymore here as it's directly from ListCart.getCartItems()
 
 import adapters.CartAdapter;
 import models.Cart;
-import utils.ListCart;
+import utils.ListCart; // Import ListCart
 
 public class CartActivity extends AppCompatActivity {
 
     private TextView cartItemCountTextView, totalPriceTextView;
     private RecyclerView recyclerView;
-    private List<Cart> cartItems;
     private CartAdapter cartAdapter;
     private CheckBox selectAllCheckbox;
 
@@ -39,12 +38,8 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        cartItems = ListCart.getSampleCartData();
-
-        cartAdapter = new CartAdapter(cartItems);
+        cartAdapter = new CartAdapter(ListCart.getCartItems());
         recyclerView.setAdapter(cartAdapter);
-
-        updateCartItemCount();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -54,21 +49,28 @@ public class CartActivity extends AppCompatActivity {
 
         selectAllCheckbox = findViewById(R.id.cb_select_all);
         selectAllCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            for (Cart cartItem : cartItems) {
+
+            for (Cart cartItem : ListCart.getCartItems()) {
                 cartItem.setSelected(isChecked);
             }
             cartAdapter.notifyDataSetChanged();
-            updateCartItemCount();
+            refreshCartDisplay();
         });
     }
 
-    public void updateCartItemCount() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshCartDisplay();
+    }
+
+    public void refreshCartDisplay() {
         int itemCount = 0;
         double totalPrice = 0;
 
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
 
-        for (Cart cartItem : cartItems) {
+        for (Cart cartItem : ListCart.getCartItems()) {
             if (cartItem.isSelected()) {
                 itemCount += cartItem.getQuantity();
 
@@ -84,7 +86,23 @@ public class CartActivity extends AppCompatActivity {
         }
 
         cartItemCountTextView.setText(String.valueOf(itemCount));
-
         totalPriceTextView.setText("VND " + decimalFormat.format(totalPrice));
+
+        cartAdapter.notifyDataSetChanged();
+
+        if (ListCart.getCartItems().isEmpty()) {
+            selectAllCheckbox.setChecked(false);
+            selectAllCheckbox.setEnabled(false);
+        } else {
+            selectAllCheckbox.setEnabled(true);
+            boolean allSelected = true;
+            for (Cart cartItem : ListCart.getCartItems()) {
+                if (!cartItem.isSelected()) {
+                    allSelected = false;
+                    break;
+                }
+            }
+            selectAllCheckbox.setChecked(allSelected);
+        }
     }
 }

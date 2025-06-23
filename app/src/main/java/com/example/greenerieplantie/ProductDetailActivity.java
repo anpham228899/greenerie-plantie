@@ -1,18 +1,25 @@
 package com.example.greenerieplantie;
 
-import android.graphics.Paint; // Import for strikethrough
+import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout; // Import for discountBubbleLayout
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import models.Product; // Your Product model
-import models.Feedback; // Your Feedback model
-import adapters.FeedbackAdapter; // Your FeedbackAdapter
+import com.google.android.material.snackbar.Snackbar;
+
+import models.Product;
+import models.Feedback;
+import adapters.FeedbackAdapter;
+import utils.ListCart;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +48,11 @@ public class ProductDetailActivity extends AppCompatActivity {
     private TextView tvViewAllFeedback;
     private boolean isFeedbackExpanded = false;
     private final int INITIAL_FEEDBACK_LIMIT = 3;
+
+    private Button btnAddToCart;
+    private Button btnBuyNow;
+
+    private Product currentProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,41 +95,76 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         backButton.setOnClickListener(v -> finish());
 
+        btnAddToCart = findViewById(R.id.btn_add_to_cart);
+        btnBuyNow = findViewById(R.id.btn_buy_now);
+
         if (getIntent().hasExtra("product_data")) {
-            Product product = getIntent().getParcelableExtra("product_data");
-            if (product != null) {
-                productImageView.setImageResource(product.getImageResId());
+            currentProduct = getIntent().getParcelableExtra("product_data");
+            if (currentProduct != null) {
+                productImageView.setImageResource(currentProduct.getImageResId());
 
-                productNameTextView.setText(product.getName());
+                productNameTextView.setText(currentProduct.getName());
 
-                productCategoryTextView.setText(product.getCategory());
-                setCategoryIcon(product.getCategory());
+                productCategoryTextView.setText(currentProduct.getCategory());
+                setCategoryIcon(currentProduct.getCategory());
 
-                productCurrentPriceTextView.setText(String.format("%s %s", getString(R.string.currency_unit_vnd), product.getFormattedPrice()));
+                productCurrentPriceTextView.setText(String.format("%s %s", getString(R.string.currency_unit_vnd), currentProduct.getFormattedPrice()));
 
-                if (product.getDiscountPercentage() > 0) {
-                    productOriginalPriceTextView.setText(String.format("%s %s", getString(R.string.currency_unit_vnd), product.getFormattedOriginalPrice()));
+                if (currentProduct.getDiscountPercentage() > 0) {
+                    productOriginalPriceTextView.setText(String.format("%s %s", getString(R.string.currency_unit_vnd), currentProduct.getFormattedOriginalPrice()));
 
                     productOriginalPriceTextView.setPaintFlags(productOriginalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     productOriginalPriceTextView.setVisibility(View.VISIBLE);
 
-                    productDiscountTextView.setText(product.getFormattedDiscountPercentage());
+                    productDiscountTextView.setText(currentProduct.getFormattedDiscountPercentage());
                     discountBubbleLayout.setVisibility(View.VISIBLE);
                 } else {
                     productOriginalPriceTextView.setVisibility(View.GONE);
                     discountBubbleLayout.setVisibility(View.GONE);
                 }
 
-                productDescriptionTextView.setText(product.getDescription());
-                productLevelTextView.setText(product.getLevel());
-                productWaterTextView.setText(product.getWaterNeeds());
-                productSpecialConditionsTextView.setText(product.getSpecialConditions());
-                productGrowthPeriodTextView.setText(product.getGrowthPeriod());
-                productSellingAmountTextView.setText(product.getSellingAmount());
+                productDescriptionTextView.setText(currentProduct.getDescription());
+                productLevelTextView.setText(currentProduct.getLevel());
+                productWaterTextView.setText(currentProduct.getWaterNeeds());
+                productSpecialConditionsTextView.setText(currentProduct.getSpecialConditions());
+                productGrowthPeriodTextView.setText(currentProduct.getGrowthPeriod());
+                productSellingAmountTextView.setText(currentProduct.getSellingAmount());
+
+                btnAddToCart.setOnClickListener(v -> handleAddToCart());
+                btnBuyNow.setOnClickListener(v -> handleBuyNow());
 
             } else {
+                Toast.makeText(this, "Error: Product data not found.", Toast.LENGTH_SHORT).show();
+                finish();
             }
         } else {
+            Toast.makeText(this, "Error: No product data provided.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    }
+
+    private void handleAddToCart() {
+        if (currentProduct != null) {
+            ListCart.addOrUpdateProduct(currentProduct, 1);
+
+            Snackbar.make(findViewById(android.R.id.content),
+                            currentProduct.getName() + " added to cart!",
+                            Snackbar.LENGTH_SHORT)
+                    .setAction("VIEW CART", view -> {
+                        Intent intent = new Intent(ProductDetailActivity.this, CartActivity.class);
+                        startActivity(intent);
+                    })
+                    .show();
+        }
+    }
+
+    private void handleBuyNow() {
+        if (currentProduct != null) {
+            Intent intent = new Intent(ProductDetailActivity.this, PaymentActivity.class);
+            intent.putExtra("product_for_purchase", currentProduct);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Cannot buy: Product data is missing.", Toast.LENGTH_SHORT).show();
         }
     }
 

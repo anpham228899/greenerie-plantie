@@ -568,7 +568,7 @@
             android:paddingVertical="10dp">
 
             <Button
-                android:id="@+id/add_to_cart_button"
+                android:id="@+id/btn_add_to_cart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -578,7 +578,7 @@
                 android:textColor="#517B2C" />
 
             <Button
-                android:id="@+id/buy_now_button"
+                android:id="@+id/btn_buy_now"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
