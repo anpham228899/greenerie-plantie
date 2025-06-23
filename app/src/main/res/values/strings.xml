@@ -131,6 +131,18 @@
     <string name="tile_homepage_name_product5_for_you">Frech Grape</string>
     <string name="title_homepage_product5_orgin">Orgin: Frech</string>
     <string name="title_homepage_product5_type">Seed</string>
+    <string name="title_product_header">Our Product</string>
+    <string name="btn_product_allplants">All Plants</string>
+    <string name="btn_product_fruittree">Fruit Tree</string>
+    <string name="btn_product_foodcrops">Food Crops</string>
+    <string name="btn_product_veggies">Veggies</string>
+    <string name="title_product_category">Category</string>
+    <string-array name="sn_product_sort_options">
+        <item>New</item>
+        <item>Best Seller</item>
+        <item>Price A - Z</item>
+        <item>Price Z - A</item>
+    </string-array>
     <string name="title_homepage_product5_price">99,000</string>
     <string name="tile_homepage_name_product6_for_you">Purple Glutinous Corn</string>
     <string name="title_homepage_product6_orgin">Orgin: China</string>

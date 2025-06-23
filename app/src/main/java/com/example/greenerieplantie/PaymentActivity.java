@@ -19,12 +19,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import adapters.CartAdapter;
 import models.Cart;
-import utils.Discount;
+import models.Product;
 import utils.ListCart;
 
 public class PaymentActivity extends AppCompatActivity {
@@ -49,7 +48,7 @@ public class PaymentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
 
         // Initialize discount codes
-        Discount.initDiscounts();
+        Product.Discount.initDiscounts();
 
         // Init cart data
         cartItems = ListCart.getSampleCartData();
@@ -119,7 +118,7 @@ public class PaymentActivity extends AppCompatActivity {
         etDiscountCode.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_GO || actionId == EditorInfo.IME_ACTION_NEXT) {
                 String enteredCode = etDiscountCode.getText().toString().trim();
-                Discount discount = Discount.getDiscountByCode(enteredCode);
+                Product.Discount discount = Product.Discount.getDiscountByCode(enteredCode);
 
                 if (discount != null) {
                     tvDiscountApplied.setVisibility(TextView.VISIBLE);
