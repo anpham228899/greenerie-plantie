@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,13 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerInside"
-            android:src="@mipmap/img_homepage_red_apple"/>
-
+            android:src="@drawable/ic_launcher_foreground"/>
         <TextView
             android:id="@+id/tv_product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Red Apple"
+            android:text="Product"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginTop="4dp"/>
@@ -31,7 +31,7 @@
             android:id="@+id/tv_origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Origin: America"
+            android:text="Origin"
             android:textColor="#7C7C7C"
             android:textSize="12sp"/>
 
@@ -45,9 +45,9 @@
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fruit trees"
+                android:text="Category"
                 android:textColor="#8BC34A"
-                android:background=""
+                android:background="@color/cardview_dark_background"
                 android:textSize="12sp"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="2dp"/>
@@ -56,7 +56,7 @@
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100,000 - 200,000"
+                android:text="Price"
                 android:textColor="#8BC34A"
                 android:textSize="13sp"
                 android:layout_marginStart="8dp"/>

@@ -152,10 +152,34 @@ public class HomepageActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) {
+                Toast.makeText(this, "Homepage", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, HomepageActivity.class));
+                return true;
+            } else if (id == R.id.nav_reminder) {
+                Toast.makeText(this, "Reminder", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProductActivity.class));
+                return true;
+            } else if (id == R.id.nav_chatbot) {
+                Toast.makeText(this, "Chatbot", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ChatbotActivity.class));
+                return true;
+            } else if (id == R.id.nav_cart) {
+                Toast.makeText(this, "Cart", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, CartActivity.class));
+                return true;
+            } else if (id == R.id.nav_profile) {
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProfileManagementActivity.class));
+                return true;
+            }
+            return false;
+        });
         // Apply the BottomNavigationView via NavMenuActivity
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_home);
-
     }
 
     // Function to open Product detail page

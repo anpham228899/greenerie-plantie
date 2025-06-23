@@ -34,7 +34,7 @@ public class PlantNewsActivity extends AppCompatActivity {
             return insets;
         });
 
-        newsRecyclerView = findViewById(R.id.newsRecyclerView);
+        newsRecyclerView = findViewById(R.id.NotificationsRecyclerView);
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         newsList = ListNewsDetail.getSampleNews();
