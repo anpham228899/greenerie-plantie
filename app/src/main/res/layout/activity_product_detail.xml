@@ -17,8 +17,7 @@
             <RelativeLayout
                 android:id="@+id/ruiticthm19_rl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content" >
 
                 <ImageView
                     android:id="@+id/ruiticthm19"
@@ -733,3 +732,7 @@
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
+
+    tools:context=".PoliciesActivity">
+
+</androidx.constraintlayout.widget.ConstraintLayout>

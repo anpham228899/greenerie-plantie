@@ -38,11 +38,12 @@
 
         <TextView
             android:id="@+id/txtSupportCustomer"
-            android:layout_width="456dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="@string/title_customer_support"
+            android:textAlignment="textStart"
             android:textColor="@color/green_primary"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -84,7 +85,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:padding="12dp"
-            android:text="@string/title_click_here"
+            android:text="@string/btn_click_here"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>

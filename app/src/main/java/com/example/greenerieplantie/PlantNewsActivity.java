@@ -37,7 +37,7 @@ public class PlantNewsActivity extends AppCompatActivity {
         newsRecyclerView = findViewById(R.id.newsRecyclerView);
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        newsList = ListNewsDetail.getSampleNews(); // load your sample news
+        newsList = ListNewsDetail.getSampleNews();
         adapter = new NewsDetailAdapter(newsList, this);
         newsRecyclerView.setAdapter(adapter);
     }
