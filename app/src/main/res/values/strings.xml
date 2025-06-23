@@ -295,4 +295,20 @@
     <string name="title_gender">Gender</string>
     <string name="title_dob">Date of Birth</string>
     <string name="title_order_details">Order Details</string>
+    <string name="title_cart_you_have">You have</string>
+    <string name="title_cart_items_in_your_cart">items in your cart</string>
+    <string name="title_cart_cb_select_all">Select all</string>
+    <string name="title_cart_button_checkout">Checkout</string>
+    <string name="title_rb_standard">Standard</string>
+    <string name="title_tv_standard_shipping_time">(5 - 7 days)</string>
+    <string name="title_tv_standard_shipping_price">Free</string>
+    <string name="title_rb_express">Express</string>
+    <string name="title_tv_express_shipping_time">(1 - 2 days)</string>
+    <string name="title_tv_express_shipping_price">VND 15,000</string>
+    <string name="title_rb_cod">COD</string>
+    <string name="title_rb_banking">Banking</string>
+    <string name="title_tv_discount_applied">Discount applied</string>
+    <string name="title_tv_order_total">Order Total:</string>
+    <string name="title_tv_discount">Discount:</string>
+    <string name="title_tv_total">Total:</string>
 </resources>

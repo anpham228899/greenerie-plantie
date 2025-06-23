@@ -1,8 +1,11 @@
 package com.example.greenerieplantie;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -11,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.DecimalFormat;  // Import for formatting numbers
+import java.text.DecimalFormat;
 import java.util.List;
 
 import adapters.CartAdapter;
@@ -24,7 +27,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Cart> cartItems;
     private CartAdapter cartAdapter;
-    private CheckBox selectAllCheckbox;  // Checkbox to select all items
+    private CheckBox selectAllCheckbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,13 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         // Initialize views
+<<<<<<< HEAD
         cartItemCountTextView = findViewById(R.id.tv_cart_item_count);
         totalPriceTextView = findViewById(R.id.tv_total_value);  
+=======
+        cartItemCountTextView = findViewById(R.id.cart_item_count);
+        totalPriceTextView = findViewById(R.id.tv_total_value);
+>>>>>>> f9c8761 (fixuicartandpayment)
         recyclerView = findViewById(R.id.item_cart_recycler_view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -67,7 +75,14 @@ public class CartActivity extends AppCompatActivity {
                 cartItem.setSelected(isChecked);
             }
             cartAdapter.notifyDataSetChanged();
-            updateCartItemCount();  // Update cart item count and total
+            updateCartItemCount();
+        });
+
+        // ✅ Handle Checkout button click
+        Button checkoutButton = findViewById(R.id.btn_checkout);
+        checkoutButton.setOnClickListener(v -> {
+            Intent intent = new Intent(CartActivity.this, PaymentActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -76,19 +91,18 @@ public class CartActivity extends AppCompatActivity {
         int itemCount = 0;
         double totalPrice = 0;
 
-        // Create a DecimalFormat instance to format the total price with commas
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
 
-        // Calculate the total number of items and the total price for selected items
         for (Cart cartItem : cartItems) {
             if (cartItem.isSelected()) {
                 itemCount += cartItem.getQuantity();
 
-                // Remove "VND" and commas before parsing the price
-                String priceString = cartItem.getPriceAfterDiscount().replace("VND", "").replace(",", "").trim();
+                String priceString = cartItem.getPriceAfterDiscount()
+                        .replace("VND", "")
+                        .replace(",", "")
+                        .trim();
 
                 try {
-                    // Parse the cleaned-up string into a double value
                     double price = Double.parseDouble(priceString);
                     totalPrice += cartItem.getQuantity() * price;
                 } catch (NumberFormatException e) {
@@ -97,10 +111,7 @@ public class CartActivity extends AppCompatActivity {
             }
         }
 
-        // Update the cart item count and total price
-        cartItemCountTextView.setText(itemCount);
-
-        // Format the total price with commas and update the total price display
+        cartItemCountTextView.setText(String.valueOf(itemCount));
         totalPriceTextView.setText("VND " + decimalFormat.format(totalPrice));
     }
 }

@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:layout_marginBottom="8dp"
-    android:padding="5dp">
+    android:orientation="horizontal"
+    android:background="@mipmap/bg_news_card"
+    android:elevation="2dp">
 
     <!-- Item Cart Container -->
     <LinearLayout
