@@ -53,8 +53,8 @@ public class HomepageActivity extends AppCompatActivity {
         }
 
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
-        searchEditText = findViewById(R.id.et_homepage_search);
-        searchButton = findViewById(R.id.btn_homepage_search);
+        searchEditText = findViewById(R.id.et_product_search);
+        searchButton = findViewById(R.id.btn_product_search);
         // Khởi tạo các thành phần
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         profileImage = findViewById(R.id.img_homepage_avatar_custimer);
@@ -155,6 +155,7 @@ public class HomepageActivity extends AppCompatActivity {
         // Apply the BottomNavigationView via NavMenuActivity
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_home);
+        bottomNav.setSelectedItemId(R.id.nav_home);
 
     }
 
