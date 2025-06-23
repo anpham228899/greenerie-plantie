@@ -15,17 +15,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DecimalFormat;
-import java.util.List;
 
 import adapters.CartAdapter;
 import models.Cart;
-import utils.ListCart;
+import utils.ListCart; 
 
 public class CartActivity extends AppCompatActivity {
 
     private TextView cartItemCountTextView, totalPriceTextView;
     private RecyclerView recyclerView;
-    private List<Cart> cartItems;
     private CartAdapter cartAdapter;
     private CheckBox selectAllCheckbox;
 
@@ -33,74 +31,53 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Enable edge-to-edge display
         EdgeToEdge.enable(this);
-
-        // Set content view
         setContentView(R.layout.activity_cart);
 
-        // Initialize views
-<<<<<<< HEAD
         cartItemCountTextView = findViewById(R.id.tv_cart_item_count);
-        totalPriceTextView = findViewById(R.id.tv_total_value);  
-=======
-        cartItemCountTextView = findViewById(R.id.cart_item_count);
         totalPriceTextView = findViewById(R.id.tv_total_value);
->>>>>>> f9c8761 (fixuicartandpayment)
+
         recyclerView = findViewById(R.id.item_cart_recycler_view);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize the cart data
-        cartItems = ListCart.getSampleCartData();
-
-        // Set up the RecyclerView with CartAdapter
-        cartAdapter = new CartAdapter(cartItems);
+        cartAdapter = new CartAdapter(ListCart.getCartItems());
         recyclerView.setAdapter(cartAdapter);
 
-        // Initialize the cart item count
-        updateCartItemCount();
-
-        // Handle window insets for Edge-to-Edge mode
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Initialize the "select all" checkbox
         selectAllCheckbox = findViewById(R.id.cb_select_all);
         selectAllCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            for (Cart cartItem : cartItems) {
+
+            for (Cart cartItem : ListCart.getCartItems()) {
                 cartItem.setSelected(isChecked);
             }
             cartAdapter.notifyDataSetChanged();
-            updateCartItemCount();
-        });
+            refreshCartDisplay();
 
-        // ✅ Handle Checkout button click
-        Button checkoutButton = findViewById(R.id.btn_checkout);
-        checkoutButton.setOnClickListener(v -> {
-            Intent intent = new Intent(CartActivity.this, PaymentActivity.class);
-            startActivity(intent);
         });
     }
 
-    // Method to update the cart item count and total price
-    public void updateCartItemCount() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshCartDisplay();
+    }
+
+    public void refreshCartDisplay() {
         int itemCount = 0;
         double totalPrice = 0;
 
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
-
-        for (Cart cartItem : cartItems) {
+        for (Cart cartItem : ListCart.getCartItems()) {
             if (cartItem.isSelected()) {
                 itemCount += cartItem.getQuantity();
 
-                String priceString = cartItem.getPriceAfterDiscount()
-                        .replace("VND", "")
-                        .replace(",", "")
-                        .trim();
+                String priceString = cartItem.getPriceAfterDiscount().replace("VND", "").replace(",", "").trim();
 
                 try {
                     double price = Double.parseDouble(priceString);
@@ -113,5 +90,22 @@ public class CartActivity extends AppCompatActivity {
 
         cartItemCountTextView.setText(String.valueOf(itemCount));
         totalPriceTextView.setText("VND " + decimalFormat.format(totalPrice));
+
+        cartAdapter.notifyDataSetChanged();
+
+        if (ListCart.getCartItems().isEmpty()) {
+            selectAllCheckbox.setChecked(false);
+            selectAllCheckbox.setEnabled(false);
+        } else {
+            selectAllCheckbox.setEnabled(true);
+            boolean allSelected = true;
+            for (Cart cartItem : ListCart.getCartItems()) {
+                if (!cartItem.isSelected()) {
+                    allSelected = false;
+                    break;
+                }
+            }
+            selectAllCheckbox.setChecked(allSelected);
+        }
     }
 }

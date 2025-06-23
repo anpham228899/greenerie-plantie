@@ -1,7 +1,9 @@
-package models;
+package utils;
 
 import java.io.Serializable;
 import java.util.List;
+
+import models.OrderItem;
 
 public class ListOrderDetail implements Serializable {
     private String orderNumber;

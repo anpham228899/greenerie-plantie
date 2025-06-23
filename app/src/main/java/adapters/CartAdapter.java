@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.greenerieplantie.CartActivity;
 import com.example.greenerieplantie.R;
 import models.Cart;
+import utils.ListCart;
 
 import java.util.List;
 
@@ -26,53 +27,50 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     @Override
     public CartViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflate the layout for each cart item
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cart, parent, false);
         return new CartViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(CartViewHolder holder, int position) {
-        // Get the cart item at the current position
         Cart cartItem = cartItemList.get(position);
 
-        // Change background color depending on whether the item is selected or not
         if (cartItem.isSelected()) {
-            // Set background to green if selected
             holder.itemView.setBackgroundResource(R.drawable.bg_edit_text_green);
         } else {
             holder.itemView.setBackgroundResource(R.drawable.bg_edit_text);
         }
 
-        // Bind data to the views
         holder.productName.setText(cartItem.getProductName());
-        holder.productDescription.setText(cartItem.getProductDescription());
-        holder.priceBeforeDiscount.setText(cartItem.getPriceBeforeDiscount());
+        holder.productDescription.setText(cartItem.getProductType());
+        holder.priceBeforeDiscount.setText(cartItem.getOriginalPrice());
         holder.priceAfterDiscount.setText(cartItem.getPriceAfterDiscount());
         holder.quantity.setText(String.valueOf(cartItem.getQuantity()));
         holder.productImage.setImageResource(cartItem.getImageResId());
 
-        // Apply strikethrough to the price before discount
         holder.priceBeforeDiscount.setPaintFlags(holder.priceBeforeDiscount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-        // Handle quantity decrease and increase
         holder.icMinus.setOnClickListener(v -> updateQuantity(holder, cartItem, position, false));
         holder.icPlus.setOnClickListener(v -> updateQuantity(holder, cartItem, position, true));
 
-        // Handle delete icon
         holder.deleteIcon.setOnClickListener(v -> {
-            cartItemList.remove(position);
+            ListCart.removeProduct(cartItem.getProductId());
+
             notifyItemRemoved(position);
-            notifyItemRangeChanged(position, cartItemList.size());  // Ensure remaining items are updated
-            // After removing item, refresh the cart item count
-            ((CartActivity) v.getContext()).updateCartItemCount();
+            notifyItemRangeChanged(position, cartItemList.size());
+
+            if (v.getContext() instanceof CartActivity) {
+                ((CartActivity) v.getContext()).refreshCartDisplay();
+            }
         });
 
-        // Handle item selection toggle
         holder.itemView.setOnClickListener(v -> {
             cartItem.setSelected(!cartItem.isSelected());
             notifyItemChanged(position);
-            ((CartActivity) v.getContext()).updateCartItemCount();
+
+            if (v.getContext() instanceof CartActivity) {
+                ((CartActivity) v.getContext()).refreshCartDisplay();
+            }
         });
     }
 
@@ -81,24 +79,25 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         return cartItemList.size();
     }
 
-    // Method to handle quantity change
     private void updateQuantity(CartViewHolder holder, Cart cartItem, int position, boolean isIncrease) {
         int newQuantity = cartItem.getQuantity() + (isIncrease ? 1 : -1);
         if (newQuantity >= 1) {
             cartItem.setQuantity(newQuantity);
             holder.quantity.setText(String.valueOf(cartItem.getQuantity()));
+
             notifyItemChanged(position);
-            // After updating quantity, refresh the cart item count
-            ((CartActivity) holder.itemView.getContext()).updateCartItemCount();
+
+            if (holder.itemView.getContext() instanceof CartActivity) {
+                ((CartActivity) holder.itemView.getContext()).refreshCartDisplay();
+            }
         }
     }
 
-    // ViewHolder class to hold references to the views for each item in the cart
     public static class CartViewHolder extends RecyclerView.ViewHolder {
 
         private TextView productName, productDescription, priceBeforeDiscount, priceAfterDiscount, quantity;
         private ImageView productImage;
-        private ImageButton icMinus, icPlus, deleteIcon;  // Use ImageButton for clickable buttons
+        private ImageButton icMinus, icPlus, deleteIcon;
 
         public CartViewHolder(View itemView) {
             super(itemView);

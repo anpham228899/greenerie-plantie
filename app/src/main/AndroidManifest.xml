@@ -53,8 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".HomepageActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".PlantNewsActivity"
             android:exported="false" />
@@ -75,7 +74,7 @@
             android:exported="false" />
         <activity
             android:name=".CartActivity"
-            android:exported="false">
+            android:exported="false" />
         <activity
             android:name=".PaymentActivity"
             android:exported="false"/>
