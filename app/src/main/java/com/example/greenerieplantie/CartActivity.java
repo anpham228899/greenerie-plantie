@@ -89,6 +89,7 @@ public class CartActivity extends AppCompatActivity {
         }
 
         cartItemCountTextView.setText(String.valueOf(itemCount));
+
         totalPriceTextView.setText("VND " + decimalFormat.format(totalPrice));
 
         cartAdapter.notifyDataSetChanged();

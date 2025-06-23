@@ -17,7 +17,7 @@
     <string name="title_homepage_product1_price">200,000</string>
     <string name="title_homepage_product1_vnd">VND</string>
     <string name="title_homepage_product2_orgin">Origin: Vietnam\n</string>
-    <string name="title_homepage_product2_type">Seeds</string>
+    <string name="title_homepage_product2_type">Seed Pack</string>
     <string name="title_homepage_name_product3_for_you">Musanking Durian\n</string>
     <string name="title_homepage_product3_orgin">Origin: Malaysia\n</string>
     <string name="title_homepage_product3_price">300,000</string>
@@ -172,7 +172,12 @@
     <string name="title_homepage_product4_orgin_new">Janpan</string>
     <string name="tile_homepage_name_product5_for_you">Frech Grape</string>
     <string name="title_homepage_product5_orgin">Orgin: Frech</string>
-    <string name="title_homepage_product5_type">Seed</string>
+    <string name="title_homepage_product5_type">Seed Pack</string>
+    <string name="title_homepage_type_food_crop">Food Crop</string>
+    <string name="title_homepage_type_fruit_tree">Fruit trees</string>
+    <string name="title_homepage_type_seed">Seed Pack</string>
+    <string name="title_homepage_type_item_planting">Item Planting</string>
+    <string name="title_homepage_type_fertilizer">Fertilizer</string>
     <string name="title_homepage_product5_price">99,000</string>
     <string name="tile_homepage_name_product6_for_you">Purple Glutinous Corn</string>
     <string name="title_homepage_product6_orgin">Orgin: China</string>

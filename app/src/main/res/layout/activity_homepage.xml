@@ -126,26 +126,26 @@
                 android:id="@+id/thanhtimkiem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="18dp"
-
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_edit_text"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="10dp">
 
                 <ImageButton
-                    android:id="@+id/btn_homepage_search"
+                    android:id="@+id/btn_product_search"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
                     android:background="@android:color/transparent"
-                    android:src="@mipmap/ic_homepage_search"
+                    android:src="@mipmap/ic_homepage_search" />
 
-                    />
+
 
                 <EditText
-                    android:id="@+id/et_homepage_search"
+                    android:id="@+id/et_product_search"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -153,7 +153,6 @@
                     android:hint="@string/et_homepage_search"
                     android:inputType="text"
                     android:paddingVertical="2dp"
-                    android:textColor="#BDBDBD"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -177,6 +176,7 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
+
                     <Button
                         android:id="@+id/btn_homepage_for_you"
                         android:layout_width="83dp"
@@ -184,9 +184,7 @@
                         android:background="@android:color/transparent"
                         android:text="@string/btn_homepage_for_you"
                         android:textColor="#517B2C"
-                        android:textSize="16sp"
-                         />
-
+                        android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/btn_homepage_new_arrivals"
@@ -294,7 +292,8 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkdfvvfv"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="27dp"
+                                android:background="@drawable/bg_type_tag_fruit"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -306,7 +305,7 @@
                                     android:id="@+id/title_homepage_product1_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/title_homepage_product1_type"
+                                    android:text="@string/title_homepage_type_fruit_tree"
                                     android:textColor="#517B2C"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -402,7 +401,8 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkd02ivv"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="27dp"
+                                android:background="@drawable/bg_type_tag_food_crop"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -414,8 +414,8 @@
                                     android:id="@+id/title_homepage_product2_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/title_homepage_product2_type"
-                                    android:textColor="#517B2C"
+                                    android:text="@string/title_homepage_type_food_crop"
+                                    android:textColor="#FFA500"
                                     android:textSize="12sp" />
                             </LinearLayout>
 
@@ -512,6 +512,7 @@
                                 android:id="@+id/r41fq0hkd02i"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:background="@drawable/bg_type_tag_fruit"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -523,7 +524,7 @@
                                     android:id="@+id/title_homepage_product3_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/title_homepage_product2_type"
+                                    android:text="@string/title_homepage_type_fruit_tree"
                                     android:textColor="#517B2C"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -621,8 +622,9 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkbfbdbdbd02i"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="28dp"
                                 android:layout_marginTop="10dp"
+                                android:background="@drawable/bg_type_tag_fruit"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -634,8 +636,8 @@
                                     android:id="@+id/title_homepage_product4_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/title_homepage_product1_type"
-                                    android:textColor="#517B2C"
+                                    android:text="@string/title_homepage_type_fruit_tree"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp" />
                             </LinearLayout>
 
@@ -673,6 +675,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="9dp"
+                        android:visibility="gone"
 
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
@@ -734,7 +737,9 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkdfvff02i"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="28dp"
+                                android:background="@drawable/bg_type_tag_seed"
+                                android:layout_marginTop="10dp"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -746,9 +751,9 @@
                                     android:id="@+id/title_homepage_product5_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="@string/title_homepage_product2_type"
-                                    android:textColor="#517B2C"
+
+                                    android:text="@string/title_homepage_type_seed"
+                                    android:textColor="@color/black"
                                     android:textSize="12sp" />
                             </LinearLayout>
 
@@ -846,7 +851,9 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkdfvsfgff02i"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="28dp"
+                                android:background="@drawable/bg_type_tag_seed"
+                                android:layout_marginTop="10dp"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -858,8 +865,8 @@
                                     android:id="@+id/title_homepage_product6_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="@string/title_homepage_product2_type"
+
+                                    android:text="@string/title_homepage_type_seed"
                                     android:textColor="#517B2C"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -958,7 +965,9 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkdfvsfgdvdvdvff02i"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="28dp"
+                                android:background="@drawable/bg_type_tag_fertilizer"
+                                android:layout_marginTop="10dp"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -970,9 +979,9 @@
                                     android:id="@+id/title_homepage_product7_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="@string/title_homepage_product7_type"
-                                    android:textColor="#517B2C"
+
+                                    android:text="@string/title_homepage_type_fertilizer"
+                                    android:textColor="@color/yellow_primary"
                                     android:textSize="12sp" />
                             </LinearLayout>
 
@@ -1069,7 +1078,8 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkdfvsfggfcdvdvdvff02i"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="28dp"
+                                android:background="@drawable/bg_type_tag_item_planting"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -1082,7 +1092,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
 
-                                    android:text="@string/title_homepage_product8_type"
+                                    android:text="@string/title_homepage_type_item_planting"
                                     android:textColor="#517B2C"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -1182,7 +1192,9 @@
                             <LinearLayout
                                 android:id="@+id/r41fq0hkdfvsfgdvdvdcxvvff02i"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="28dp"
+                                android:background="@drawable/bg_type_tag_item_planting"
+                                android:layout_marginTop="10dp"
 
                                 android:layout_marginEnd="34dp"
                                 android:clickable="true"
@@ -1194,8 +1206,8 @@
                                     android:id="@+id/title_homepage_product9_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:text="@string/title_homepage_product8_type"
+
+                                    android:text="@string/title_homepage_type_item_planting"
                                     android:textColor="#517B2C"
                                     android:textSize="12sp" />
                             </LinearLayout>
@@ -1636,6 +1648,10 @@
         android:background="@color/white"
         app:itemIconTint="@color/green_primary"
         app:itemTextColor="@color/green_primary"
+        app:itemIconSize="24dp"
+        app:labelVisibilityMode="labeled"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

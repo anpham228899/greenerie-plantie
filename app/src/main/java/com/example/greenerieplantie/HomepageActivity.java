@@ -56,8 +56,8 @@ public class HomepageActivity extends AppCompatActivity {
         }
 
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
-        searchEditText = findViewById(R.id.et_homepage_search);
-        searchButton = findViewById(R.id.btn_homepage_search);
+        searchEditText = findViewById(R.id.et_product_search);
+        searchButton = findViewById(R.id.btn_product_search);
         // Khởi tạo các thành phần
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         profileImage = findViewById(R.id.img_homepage_avatar_custimer);
@@ -154,9 +154,6 @@ public class HomepageActivity extends AppCompatActivity {
             Intent intent = new Intent(HomepageActivity.this, NotificationActivity.class);
             startActivity(intent);
         });
-
-        // --- FIX STARTS HERE ---
-        // Initialize bottomNavigationView BEFORE setting the listener on it
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -183,6 +180,7 @@ public class HomepageActivity extends AppCompatActivity {
             }
             return false;
         });
+
 
         // This line below is redundant now that bottomNavigationView is initialized above.
         // It's also likely `NavMenuActivity.setupNavMenu` expects the same instance.
