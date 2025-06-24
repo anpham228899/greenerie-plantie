@@ -87,10 +87,15 @@ public class SignInActivity extends AppCompatActivity {
                         Log.e("DEBUG", "User email or password is null, skip");
                         continue;
                     }
+                    user.setUid(child.getKey());
                     String fixedHash = user.getPassword().replaceFirst("^\\$2b\\$", "\\$2a\\$");
                     if (user.getEmail().equals(email) && BCrypt.checkpw(password, fixedHash)) {
                         isFound = true;
                         models.User.currentUser = user;
+                        sharedPreferences.edit()
+                                .putString("user_uid", user.getUid())
+                                .apply();
+                        Log.d("DEBUG", "Saved UID: " + user.getUid());
 
                         if (rememberMe.isChecked()) {
                             sharedPreferences.edit()
