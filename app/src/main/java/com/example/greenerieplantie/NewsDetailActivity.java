@@ -15,6 +15,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
+
 import models.NewsBlock;
 import models.NewsDetail;
 
@@ -51,54 +53,55 @@ public class NewsDetailActivity extends AppCompatActivity {
             titleView.setText(news.getTitle());
             authorDateView.setText(news.getAuthor() + " • " + news.getDate());
 
-            int resId = getResources().getIdentifier(news.getFirstImageName(), "drawable", getPackageName());
-            if (resId != 0) {
-                headerImage.setImageResource(resId);
+            int imageResId = getResources().getIdentifier(news.getImage(), "drawable", getPackageName());
+            if (imageResId != 0) {
+                headerImage.setImageResource(imageResId);
             }
 
-            for (NewsBlock block : news.getBlocks()) {
-                switch (block.getType()) {
-                    case HEADING:
-                        addHeading(block.getContent());
-                        break;
-                    case PARAGRAPH:
-                        addParagraph(block.getContent());
-                        break;
-                    case IMAGE:
-                        addImage(block.getContent());
-                        break;
+            if (news.getBlocks() != null) {
+                for (NewsBlock block : news.getBlocks()) {
+                    String type = block.getType();
+                    String content = block.getContent();
+                    if (type == null || content == null) continue;
+
+                    switch (type) {
+                        case "HEADING":
+                            addTextBlock(content, true);
+                            break;
+                        case "PARAGRAPH":
+                            addTextBlock(content, false);
+                            break;
+                        case "IMAGE":
+                            addImageBlock(content);
+                            break;
+                    }
                 }
             }
         } else {
-            titleView.setText("No News Found");
+            titleView.setText("News not found");
         }
     }
 
-    private void addHeading(String text) {
-        TextView heading = new TextView(this);
-        heading.setText(text);
-        heading.setTextSize(18);
-        heading.setTypeface(null, Typeface.BOLD);
-        heading.setPadding(0, 24, 0, 12);
-        blogContentContainer.addView(heading);
+    private void addTextBlock(String text, boolean isHeading) {
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        textView.setTextSize(isHeading ? 18 : 14);
+        textView.setTypeface(null, isHeading ? Typeface.BOLD : Typeface.NORMAL);
+        textView.setPadding(0, isHeading ? 24 : 0, 0, 16);
+        blogContentContainer.addView(textView);
     }
 
-    private void addParagraph(String text) {
-        TextView paragraph = new TextView(this);
-        paragraph.setText(text);
-        paragraph.setTextSize(14);
-        paragraph.setPadding(0, 0, 0, 16);
-        blogContentContainer.addView(paragraph);
-    }
+    private void addImageBlock(String imageUrl) {
+        ImageView imageView = new ImageView(this);
+        imageView.setAdjustViewBounds(true);
+        imageView.setPadding(0, 16, 0, 16);
+        blogContentContainer.addView(imageView);
 
-    private void addImage(String imageName) {
-        ImageView image = new ImageView(this);
-        image.setAdjustViewBounds(true);
-        int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
-        if (resId != 0) {
-            image.setImageResource(resId);
-            blogContentContainer.addView(image);
-        }
+        Glide.with(this)
+                .load(imageUrl)
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
+                .into(imageView);
     }
 
     @Override
@@ -109,8 +112,10 @@ public class NewsDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (news == null) return super.onOptionsItemSelected(item);
+
         int id = item.getItemId();
-        if (id == R.id.action_share && news != null) {
+        if (id == R.id.action_share) {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, news.getTitle());

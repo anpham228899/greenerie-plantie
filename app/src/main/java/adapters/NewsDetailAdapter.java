@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.greenerieplantie.NewsDetailActivity;
 import com.example.greenerieplantie.R;
 
@@ -41,12 +42,13 @@ public class NewsDetailAdapter extends RecyclerView.Adapter<NewsDetailAdapter.Vi
         holder.title.setText(news.getTitle());
         holder.authorDate.setText(news.getAuthor() + " • " + news.getDate());
 
-        int resId = news.getImageResId();
-        if (resId != 0) {
-            holder.image.setImageResource(resId);
-        } else {
-            holder.image.setImageResource(R.drawable.ic_launcher_background);
-        }
+        // Lấy tên ảnh (vd: img_blog1_01) và ánh xạ sang R.drawable.img_blog1_01
+        Glide.with(context)
+                .load(news.getImage())
+                .placeholder(R.drawable.ic_launcher_background) // ảnh loading tạm
+                .error(R.drawable.ic_launcher_foreground)      // nếu URL lỗi
+                .into(holder.image);
+
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, NewsDetailActivity.class);
