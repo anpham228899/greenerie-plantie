@@ -113,6 +113,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             case "Fruit Trees":
                 iconResId = R.mipmap.ic_label_fruit_trees;
                 break;
+            case "Seed Pack":
+                iconResId = R.mipmap.ic_label_seed_pack;
+                break;
+            case "Fertilizer":
+                iconResId = R.mipmap.ic_label_fertilizer;
+                break;
+            case "Item Planting":
+                iconResId = R.mipmap.ic_label_item_planting;
+                break;
             default:
                 iconResId = R.mipmap.ic_launcher;
                 break;

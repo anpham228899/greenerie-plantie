@@ -639,7 +639,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/title_homepage_type_fruit_tree"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/green_primary"
                                     android:textSize="12sp" />
                             </LinearLayout>
 
