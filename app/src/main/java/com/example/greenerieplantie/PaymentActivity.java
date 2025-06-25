@@ -1,9 +1,8 @@
 package com.example.greenerieplantie;
-
 import android.app.Dialog;
-import android.content.Intent;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,33 +12,36 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.greenerieplantie.R;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import adapters.CartAdapter;
+import connectors.CartConnector;
 import models.Cart;
-import models.Product;
-import utils.ListCart;
 
 public class PaymentActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CartAdapter adapter;
-    private List<Cart> cartItems;
+    private List<Cart> cartItems = new ArrayList<>();
 
     private RadioButton rbStandard, rbExpress;
     private RadioButton rbCOD, rbBanking;
-
     private EditText etDiscountCode;
-    private TextView tvDiscountApplied;
-    private TextView tvDiscountValue, tvOrderTotalValue, tvTotalValue;
+    private TextView tvDiscountApplied, tvDiscountValue, tvOrderTotalValue, tvTotalValue;
 
     private double orderTotal = 0.0;
+    private double discountValue = 0.0;
+    private String selectedPaymentMethod = "COD";
+    private String selectedShippingMethod = "Standard";
+
+    private String currentUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,155 +49,137 @@ public class PaymentActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_payment);
 
-        // Initialize discount codes
-        Product.Discount.initDiscounts();
+        SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        currentUid = prefs.getString("user_uid", null);
 
-        // Init cart data
-        cartItems = ListCart.getSampleCartData();
+        if (currentUid == null) {
+            Toast.makeText(this, "Không tìm thấy phiên đăng nhập!", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
-        // RecyclerView setup
+        // Ánh xạ view
         recyclerView = findViewById(R.id.item_cart_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new CartAdapter(cartItems);
-        recyclerView.setAdapter(adapter);
 
-        // UI padding handling
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-        // Shipping & Payment RadioButtons
         rbStandard = findViewById(R.id.rb_standard);
         rbExpress = findViewById(R.id.rb_express);
         rbCOD = findViewById(R.id.rb_cod);
         rbBanking = findViewById(R.id.rb_banking);
-
-        rbStandard.setChecked(true);
-        rbCOD.setChecked(true);
-
-        rbStandard.setOnClickListener(v -> {
-            if (rbStandard.isChecked()) rbExpress.setChecked(false);
-        });
-        rbExpress.setOnClickListener(v -> {
-            if (rbExpress.isChecked()) rbStandard.setChecked(false);
-        });
-        rbCOD.setOnClickListener(v -> {
-            if (rbCOD.isChecked()) rbBanking.setChecked(false);
-        });
-        rbBanking.setOnClickListener(v -> {
-            if (rbBanking.isChecked()) rbCOD.setChecked(false);
-        });
-
-        // Edit buttons
-        ImageView editShippingAddress = findViewById(R.id.img_edit_img_shipping_address);
-        ImageView editInformation = findViewById(R.id.img_edit_phone);
-
-        editShippingAddress.setOnClickListener(v -> {
-            Intent intent = new Intent(PaymentActivity.this, ShippingAddressActivity.class);
-            startActivity(intent);
-        });
-
-        editInformation.setOnClickListener(v -> {
-            Intent intent = new Intent(PaymentActivity.this, ShippingInformationActivity.class);
-            startActivity(intent);
-        });
-
-        // Discount Code UI
         etDiscountCode = findViewById(R.id.et_discount_code);
         tvDiscountApplied = findViewById(R.id.tv_discount_applied);
         tvDiscountValue = findViewById(R.id.tv_discount_value);
         tvOrderTotalValue = findViewById(R.id.tv_order_total_value);
         tvTotalValue = findViewById(R.id.tv_total_value);
+        Button btnPlaceOrder = findViewById(R.id.btn_place_order);
 
+        rbStandard.setChecked(true);
+        rbCOD.setChecked(true);
         tvDiscountApplied.setVisibility(TextView.GONE);
 
-        // Calculate and display order total initially
-        calculateAndDisplayOrderTotal();
-
-        // Handle discount code input
-        etDiscountCode.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_GO || actionId == EditorInfo.IME_ACTION_NEXT) {
-                String enteredCode = etDiscountCode.getText().toString().trim();
-                Product.Discount discount = Product.Discount.getDiscountByCode(enteredCode);
-
-                if (discount != null) {
-                    tvDiscountApplied.setVisibility(TextView.VISIBLE);
-                    tvDiscountApplied.setText("Discount applied");
-
-                    double discountPercentage = discount.getDiscountPercentage();
-                    tvDiscountValue.setText(String.format("%.0f%%", discountPercentage));
-
-                    // Apply discount
-                    double discountedTotal = orderTotal * (1 - discountPercentage / 100);
-                    String discountedText = String.format("VND %,d", (int) discountedTotal);
-                    tvTotalValue.setText(discountedText);
-
-                    Toast.makeText(PaymentActivity.this,
-                            "Applied " + discountPercentage + "% discount!",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    tvDiscountApplied.setVisibility(TextView.GONE);
-                    tvDiscountValue.setText("0%");
-                    tvTotalValue.setText(tvOrderTotalValue.getText());
-
-                    Toast.makeText(PaymentActivity.this,
-                            "Invalid discount code",
-                            Toast.LENGTH_SHORT).show();
-                }
-                return true;
+        rbStandard.setOnClickListener(v -> {
+            if (rbStandard.isChecked()) {
+                rbExpress.setChecked(false);
+                selectedShippingMethod = "Standard";
             }
-            return false;
         });
 
-        // Place Order Button
-        Button btnPlaceOrder = findViewById(R.id.btn_place_order);
-        btnPlaceOrder.setOnClickListener(v -> {
-            showOrderPlacedDialog();
+        rbExpress.setOnClickListener(v -> {
+            if (rbExpress.isChecked()) {
+                rbStandard.setChecked(false);
+                selectedShippingMethod = "Express";
+            }
         });
+
+        rbCOD.setOnClickListener(v -> {
+            if (rbCOD.isChecked()) {
+                rbBanking.setChecked(false);
+                selectedPaymentMethod = "COD";
+            }
+        });
+
+        rbBanking.setOnClickListener(v -> {
+            if (rbBanking.isChecked()) {
+                rbCOD.setChecked(false);
+                selectedPaymentMethod = "Banking";
+            }
+        });
+
+        // Load giỏ hàng từ Firebase
+        new CartConnector(currentUid).getCartItems(new CartConnector.CartLoadCallback() {
+            @Override
+            public void onCartLoaded(List<Cart> items) {
+                cartItems.clear();
+                for (Cart item : items) {
+                    if (item.isSelected()) cartItems.add(item);
+                }
+
+                adapter = new CartAdapter(cartItems, PaymentActivity.this, currentUid, new CartAdapter.OnCartChangeListener() {
+                    @Override
+                    public void onQuantityChanged() {
+                        calculateTotal();
+                    }
+
+                    @Override
+                    public void onItemRemoved(Cart removedItem) {
+                        cartItems.remove(removedItem);
+                        adapter.notifyDataSetChanged();
+                        calculateTotal();
+                    }
+                });
+
+                recyclerView.setAdapter(adapter);
+                calculateTotal();
+            }
+
+            @Override
+            public void onCartLoadFailed(Exception e) {
+                Toast.makeText(PaymentActivity.this, "Lỗi tải giỏ hàng", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Mã giảm giá (đơn giản)
+        etDiscountCode.setOnEditorActionListener((v, actionId, event) -> {
+            String enteredCode = etDiscountCode.getText().toString().trim();
+            if (enteredCode.equalsIgnoreCase("SALE10")) {
+                discountValue = 0.10;
+                tvDiscountApplied.setVisibility(TextView.VISIBLE);
+                tvDiscountApplied.setText("Đã áp dụng mã giảm giá!");
+                tvDiscountValue.setText("10%");
+                calculateTotal();
+            } else {
+                discountValue = 0.0;
+                tvDiscountApplied.setVisibility(TextView.GONE);
+                tvDiscountValue.setText("0%");
+                calculateTotal();
+            }
+            return true;
+        });
+
+        // Đặt hàng (demo dialog)
+        btnPlaceOrder.setOnClickListener(v -> showOrderPlacedDialog());
     }
 
-    private void calculateAndDisplayOrderTotal() {
+    private void calculateTotal() {
         orderTotal = 0.0;
 
         for (Cart item : cartItems) {
-            try {
-                String raw = item.getPriceAfterDiscount()
-                        .replace("VND", "")
-                        .replace(",", "")
-                        .trim();
-
-                double price = Double.parseDouble(raw);
-                orderTotal += price * item.getQuantity();
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                Toast.makeText(this, "Price format error: " + item.getPriceAfterDiscount(), Toast.LENGTH_SHORT).show();
-            }
+            orderTotal += item.getProduct_price() * item.getQuantity();
         }
 
-        String formattedTotal = String.format("VND %,d", (int) orderTotal);
-        tvOrderTotalValue.setText(formattedTotal);
-        tvTotalValue.setText(formattedTotal);
+        double discountedTotal = orderTotal * (1 - discountValue);
+        String formatted = String.format("VND %,d", (int) discountedTotal);
+
+        tvOrderTotalValue.setText(String.format("VND %,d", (int) orderTotal));
+        tvTotalValue.setText(formatted);
     }
 
     private void showOrderPlacedDialog() {
         Dialog dialog = new Dialog(PaymentActivity.this);
         dialog.setContentView(R.layout.dialog_order_placed);
-        dialog.setCancelable(false);  // Optional: make dialog not dismissible by touch outside
-
-        // Get the ImageView for closing the dialog (Close button)
+        dialog.setCancelable(false);
         ImageView btnCloseDialog = dialog.findViewById(R.id.img_close);
-        btnCloseDialog.setOnClickListener(v -> dialog.dismiss()); // Dismiss dialog on click
-
+        btnCloseDialog.setOnClickListener(v -> dialog.dismiss());
         dialog.show();
-    }
-
-    private boolean isShippingOptionSelected() {
-        return rbStandard.isChecked() || rbExpress.isChecked();
-    }
-
-    private boolean isPaymentMethodSelected() {
-        return rbCOD.isChecked() || rbBanking.isChecked();
     }
 }

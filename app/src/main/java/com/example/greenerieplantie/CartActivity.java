@@ -1,106 +1,135 @@
 package com.example.greenerieplantie;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import androidx.activity.EdgeToEdge;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.DecimalFormat;  // Import for formatting numbers
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import adapters.CartAdapter;
+import connectors.CartConnector;
 import models.Cart;
-import utils.ListCart;
 
 public class CartActivity extends AppCompatActivity {
 
-    private TextView cartItemCountTextView, totalPriceTextView;
     private RecyclerView recyclerView;
-    private List<Cart> cartItems;
+    private TextView cartItemCount, tvCartItemCountText, tvItemsText, tvTotalValue;
+    private CheckBox cbSelectAll;
+    private Button btnCheckout;
+
+    private List<Cart> cartList = new ArrayList<>();
     private CartAdapter cartAdapter;
-    private CheckBox selectAllCheckbox;  // Checkbox to select all items
+    private String currentUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Enable edge-to-edge display
-        EdgeToEdge.enable(this);
-
-        // Set content view
         setContentView(R.layout.activity_cart);
 
-        // Initialize views
-        cartItemCountTextView = findViewById(R.id.cart_item_count);
-        totalPriceTextView = findViewById(R.id.tv_total_value);  
+        // Lấy UID hiện tại (có thể thay thế nếu bạn không dùng FirebaseAuth)
+        SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        currentUid = prefs.getString("user_uid", null);
+
+        if (currentUid == null) {
+            Toast.makeText(this, "Không tìm thấy phiên đăng nhập!", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        // Ánh xạ View theo XML
         recyclerView = findViewById(R.id.item_cart_recycler_view);
+        cartItemCount = findViewById(R.id.cart_item_count);
+        tvCartItemCountText = findViewById(R.id.tv_cart_item_count); // "You have"
+        tvItemsText = findViewById(R.id.txtItems); // "items in your cart"
+        tvTotalValue = findViewById(R.id.tv_total_value);
+        cbSelectAll = findViewById(R.id.cb_select_all);
+        btnCheckout = findViewById(R.id.btn_checkout);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Thiết lập RecyclerView
+        cartAdapter = new CartAdapter(cartList, this, currentUid, new CartAdapter.OnCartChangeListener() {
+            @Override
+            public void onQuantityChanged() {
+                calculateTotal();
+            }
 
-        // Initialize the cart data
-        cartItems = ListCart.getSampleCartData();
-
-        // Set up the RecyclerView with CartAdapter
-        cartAdapter = new CartAdapter(cartItems);
-        recyclerView.setAdapter(cartAdapter);
-
-        // Initialize the cart item count
-        updateCartItemCount();
-
-        // Handle window insets for Edge-to-Edge mode
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+            @Override
+            public void onItemRemoved(Cart removedItem) {
+                calculateTotal();
+                updateCartCount();
+            }
         });
 
-        // Initialize the "select all" checkbox
-        selectAllCheckbox = findViewById(R.id.cb_select_all);
-        selectAllCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            for (Cart cartItem : cartItems) {
-                cartItem.setSelected(isChecked);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(cartAdapter);
+
+        // Load dữ liệu giỏ hàng
+        loadCartItems();
+
+        // Select All checkbox (có thể dùng sau)
+        cbSelectAll.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            CartConnector connector = new CartConnector(currentUid);
+            for (Cart item : cartList) {
+                item.setSelected(isChecked); // cập nhật local
+                connector.updateSelection(item.getProduct_id(), isChecked); // cập nhật Firebase
             }
-            cartAdapter.notifyDataSetChanged();
-            updateCartItemCount();  // Update cart item count and total
+            cartAdapter.notifyDataSetChanged(); // cập nhật giao diện
+            calculateTotal(); // cập nhật tổng tiền
+        });
+
+        // Xử lý khi click checkout
+        btnCheckout.setOnClickListener(v -> {
+            Toast.makeText(this, "Đặt hàng thành công (demo)", Toast.LENGTH_SHORT).show();
+            // TODO: chuyển sang OrderActivity nếu cần
         });
     }
 
-    // Method to update the cart item count and total price
-    public void updateCartItemCount() {
-        int itemCount = 0;
-        double totalPrice = 0;
+    private void loadCartItems() {
+        CartConnector connector = new CartConnector(currentUid);
+        connector.getCartItems(new CartConnector.CartLoadCallback() {
+            @Override
+            public void onCartLoaded(List<Cart> items) {
+                cartList.clear();
+                cartList.addAll(items);
+                cartAdapter.notifyDataSetChanged();
+                updateCartCount();
+                calculateTotal();
+            }
 
-        // Create a DecimalFormat instance to format the total price with commas
-        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+            @Override
+            public void onCartLoadFailed(Exception e) {
+                Toast.makeText(CartActivity.this, "Không tải được giỏ hàng: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
-        // Calculate the total number of items and the total price for selected items
-        for (Cart cartItem : cartItems) {
-            if (cartItem.isSelected()) {
-                itemCount += cartItem.getQuantity();
+    private void updateCartCount() {
+        cartItemCount.setText(String.valueOf(cartList.size()));
+    }
 
-                // Remove "VND" and commas before parsing the price
-                String priceString = cartItem.getPriceAfterDiscount().replace("VND", "").replace(",", "").trim();
-
-                try {
-                    // Parse the cleaned-up string into a double value
-                    double price = Double.parseDouble(priceString);
-                    totalPrice += cartItem.getQuantity() * price;
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
+    private void calculateTotal() {
+        int total = 0;
+        for (Cart item : cartList) {
+            if (item.isSelected()) { // nếu bạn muốn chỉ tính item được chọn
+                total += item.getProduct_price() * item.getQuantity();
             }
         }
+        tvTotalValue.setText(formatCurrency(total));
+    }
 
-        // Update the cart item count and total price
-        cartItemCountTextView.setText(itemCount);
-
-        // Format the total price with commas and update the total price display
-        totalPriceTextView.setText("VND " + decimalFormat.format(totalPrice));
+    private String formatCurrency(int amount) {
+        NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+        return nf.format(amount).replace("₫", "VND");
     }
 }

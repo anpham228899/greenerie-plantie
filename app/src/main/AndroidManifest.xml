@@ -74,7 +74,9 @@
             android:exported="false" />
         <activity
             android:name=".CartActivity"
-            android:exported="false"/>
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".PaymentActivity"
             android:exported="false"/>
