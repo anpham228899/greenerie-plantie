@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +18,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView; // Make sure this import is present
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
+
+import models.Product;
+import utils.ListProduct;
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -42,8 +44,7 @@ public class HomepageActivity extends AppCompatActivity {
     private ImageButton imgBlog1, imgBlog2, imgAboutUs1, imgAboutUs2;
     private TextView titleBlog1, titleBlog2, titleAboutUs1, titleAboutUs2;
 
-    // Declare BottomNavigationView here as a member variable
-    private BottomNavigationView bottomNavigationView;
+    private List<Product> productList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +59,9 @@ public class HomepageActivity extends AppCompatActivity {
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         searchEditText = findViewById(R.id.et_product_search);
         searchButton = findViewById(R.id.btn_product_search);
-        // Khởi tạo các thành phần
-        titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         profileImage = findViewById(R.id.img_homepage_avatar_custimer);
-        // Lấy SharedPreferences để lưu trữ thông tin người dùng
         sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
         updateUserInfo();
-
 
         btnForYou = findViewById(R.id.btn_homepage_for_you);
         btnNewArrivals = findViewById(R.id.btn_homepage_new_arrivals);
@@ -91,15 +88,19 @@ public class HomepageActivity extends AppCompatActivity {
         imgProduct8 = findViewById(R.id.img_homepage_product8_for_you);
         imgProduct9 = findViewById(R.id.img_homepage_product9_for_you);
 
-        imgProduct1.setOnClickListener(v -> openProductDetail("product1"));
-        imgProduct2.setOnClickListener(v -> openProductDetail("product2"));
-        imgProduct3.setOnClickListener(v -> openProductDetail("product3"));
-        imgProduct4.setOnClickListener(v -> openProductDetail("product4"));
-        imgProduct5.setOnClickListener(v -> openProductDetail("product5"));
-        imgProduct6.setOnClickListener(v -> openProductDetail("product6"));
-        imgProduct7.setOnClickListener(v -> openProductDetail("product7"));
-        imgProduct8.setOnClickListener(v -> openProductDetail("product8"));
-        imgProduct9.setOnClickListener(v -> openProductDetail("product9"));
+        // Lấy danh sách sản phẩm từ ListProduct
+        productList = ListProduct.getSampleProductData();
+
+        // Gắn sự kiện click vào các hình ảnh sản phẩm
+        imgProduct1.setOnClickListener(v -> openProductDetail("P001"));
+        imgProduct2.setOnClickListener(v -> openProductDetail("P002"));
+        imgProduct3.setOnClickListener(v -> openProductDetail("P003"));
+        imgProduct4.setOnClickListener(v -> openProductDetail("P004"));
+        imgProduct5.setOnClickListener(v -> openProductDetail("P005"));
+        imgProduct6.setOnClickListener(v -> openProductDetail("P006"));
+        imgProduct7.setOnClickListener(v -> openProductDetail("P007"));
+        imgProduct8.setOnClickListener(v -> openProductDetail("P008"));
+        imgProduct9.setOnClickListener(v -> openProductDetail("P009"));
 
         btnViewMorePlantNews = findViewById(R.id.btn_homepage_view_more_blog);
         btnViewMoreAboutUs = findViewById(R.id.btn_homepage_viewmore_abus);
@@ -134,11 +135,12 @@ public class HomepageActivity extends AppCompatActivity {
         titleAboutUs1.setOnClickListener(v -> openAboutUsDetail(1));
         titleAboutUs2.setOnClickListener(v -> openAboutUsDetail(2));
 
-
         searchButton.setOnClickListener(v -> {
             String query = searchEditText.getText().toString().trim();
             if (!query.isEmpty()) {
-                searchProduct(query);
+                Intent intent = new Intent(HomepageActivity.this, ProductActivity.class);
+                intent.putExtra("search_query", query);
+                startActivity(intent);
             } else {
                 Toast.makeText(this, "Please enter a product to search!", Toast.LENGTH_SHORT).show();
             }
@@ -147,68 +149,44 @@ public class HomepageActivity extends AppCompatActivity {
         btnForYou.setOnClickListener(v -> updateTab("foryou"));
         btnNewArrivals.setOnClickListener(v -> updateTab("new"));
         btnBestSeller.setOnClickListener(v -> updateTab("best"));
-
         updateTab("foryou");
 
         btnNotification.setOnClickListener(v -> {
             Intent intent = new Intent(HomepageActivity.this, NotificationActivity.class);
             startActivity(intent);
         });
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                Toast.makeText(this, "Homepage", Toast.LENGTH_SHORT).show();
-                return true;
-            } else if (id == R.id.nav_product) {
-                Toast.makeText(this, "Reminder", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, ProductActivity.class));
-                return true;
-            } else if (id == R.id.nav_chatbot) {
-                Toast.makeText(this, "Chatbot", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, ChatbotActivity.class));
-                return true;
-            } else if (id == R.id.nav_cart) {
-                Toast.makeText(this, "Cart", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, CartActivity.class));
-                return true;
-            } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, ProfileManagementActivity.class));
-                return true;
-            }
-            return false;
-        });
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_home);
+        bottomNav.setSelectedItemId(R.id.nav_home);
 
-
-        // This line below is redundant now that bottomNavigationView is initialized above.
-        // It's also likely `NavMenuActivity.setupNavMenu` expects the same instance.
-        // If `NavMenuActivity.setupNavMenu` also sets the listener, you might have conflicting listeners.
-        // It's usually better to use only one place to set the listener.
-        // If NavMenuActivity.setupNavMenu handles selection, you might remove the manual setOnItemSelectedListener above.
-        // For now, I'll keep the initialization and the listener, and remove the redundant `bottomNav` declaration.
-        NavMenuActivity.setupNavMenu(bottomNavigationView, this, R.id.nav_home);
-        // --- FIX ENDS HERE ---
     }
 
+    // Truy cập chi tiết sản phẩm bằng productId
     private void openProductDetail(String productId) {
-        Intent intent = new Intent(HomepageActivity.this, ProductDetailActivity.class);
-        intent.putExtra("product_id", productId);
-        startActivity(intent);
+        for (Product product : productList) {
+            if (product.getProductId().equals(productId)) {
+                Intent intent = new Intent(HomepageActivity.this, ProductDetailActivity.class);
+                intent.putExtra("product_data", product);  // Đảm bảo Product implements Parcelable
+                startActivity(intent);
+                return;
+            }
+        }
+        Toast.makeText(this, "Product not found", Toast.LENGTH_SHORT).show();
     }
 
     private void openBlogDetail(int blogId) {
         Intent intent = new Intent(HomepageActivity.this, PlantNewsActivity.class);
-        intent.putExtra("blog_id", blogId); // Pass blog ID to detail activity
+        intent.putExtra("blog_id", blogId);
         startActivity(intent);
     }
 
     private void openAboutUsDetail(int aboutUsId) {
         Intent intent = new Intent(HomepageActivity.this, AboutUsActivity.class);
-        intent.putExtra("about_us_id", aboutUsId); // Pass About Us ID to detail activity
+        intent.putExtra("about_us_id", aboutUsId);
         startActivity(intent);
     }
+
     private void updateUserInfo() {
         String userName = sharedPreferences.getString("userName", null);
         String userImage = sharedPreferences.getString("userImage", null);
@@ -217,19 +195,11 @@ public class HomepageActivity extends AppCompatActivity {
             userName = getResources().getString(R.string.default_user_name);
         }
 
-        String welcomeMessage1 = getString(R.string.title_homepage_welcome1);
-        // This line seems to be an issue or incomplete based on its usage in string.xml
-        // If default_user_name_real takes a format argument, ensure it's correctly used.
-        // String welcomeMessage2 = getString(R.string.default_user_name_real, userName);
-
-
         if (userImage == null || userImage.isEmpty()) {
             profileImage.setImageResource(R.mipmap.ic_launcher);
-        } else {
-            // Logic to load user image (e.g., using Glide or Picasso)
         }
+        // Có thể dùng Glide/Picasso để load ảnh từ URL nếu cần
     }
-
 
     private void updateTab(String selectedTab) {
         btnForYou.setTextColor(Color.parseColor("#BDBDBD"));
@@ -268,10 +238,6 @@ public class HomepageActivity extends AppCompatActivity {
         }
     }
 
-    private void searchProduct(String query) {
-        Toast.makeText(this, "Searching for: " + query, Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_news_detail, menu);
@@ -283,7 +249,6 @@ public class HomepageActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_share) {
-            Toast.makeText(this, "Chia sẻ", Toast.LENGTH_SHORT).show();
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sharing Homepage Info");
@@ -298,5 +263,5 @@ public class HomepageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
+
