@@ -65,11 +65,15 @@ public class OrderConnector {
 
             String name = itemSnap.child("product_name").getValue(String.class);
             String price = String.valueOf(itemSnap.child("unit_price").getValue());
-
+            String imageUrl = "";
+            DataSnapshot imageSnap = itemSnap.child("product_images/image1");
+            if (imageSnap.exists()) {
+                imageUrl = imageSnap.getValue(String.class);
+            }
             Log.d("DEBUG", "Raw product_name: " + name + " | price: " + price);
-
+            item.setImageUrl(imageUrl);
             item.setProductName(name);
- //           item.setPrice(price);
+            item.setPrice(price);
  //           item.setImageUrl(""); // fallback nếu không có ảnh
 
             itemList.add(item);

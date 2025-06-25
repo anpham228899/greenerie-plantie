@@ -41,7 +41,13 @@ public class OrderItem implements Parcelable {
     public String getImageResId() {
         return imageUrl;
     }
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
     public String getImageUrl() {
         return imageUrl;
     }
