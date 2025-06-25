@@ -23,7 +23,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 
 import models.Product;
+import models.NewsDetail;
 import utils.ListProduct;
+import utils.ListNewsDetail;
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -88,10 +90,8 @@ public class HomepageActivity extends AppCompatActivity {
         imgProduct8 = findViewById(R.id.img_homepage_product8_for_you);
         imgProduct9 = findViewById(R.id.img_homepage_product9_for_you);
 
-        // Lấy danh sách sản phẩm từ ListProduct
         productList = ListProduct.getSampleProductData();
 
-        // Gắn sự kiện click vào các hình ảnh sản phẩm
         imgProduct1.setOnClickListener(v -> openProductDetail("P001"));
         imgProduct2.setOnClickListener(v -> openProductDetail("P002"));
         imgProduct3.setOnClickListener(v -> openProductDetail("P003"));
@@ -125,10 +125,22 @@ public class HomepageActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        imgBlog1.setOnClickListener(v -> openBlogDetail(1));
-        imgBlog2.setOnClickListener(v -> openBlogDetail(2));
-        titleBlog1.setOnClickListener(v -> openBlogDetail(1));
-        titleBlog2.setOnClickListener(v -> openBlogDetail(2));
+        // Lấy dữ liệu blog từ ListNewsDetail
+        List<NewsDetail> newsList = ListNewsDetail.getSampleNews();
+        if (newsList.size() >= 2) {
+            NewsDetail news1 = newsList.get(0);
+            NewsDetail news2 = newsList.get(1);
+
+            imgBlog1.setImageResource(news1.getImageResId());
+            titleBlog1.setText(news1.getTitle());
+            imgBlog2.setImageResource(news2.getImageResId());
+            titleBlog2.setText(news2.getTitle());
+
+            imgBlog1.setOnClickListener(v -> openBlogDetail(news1));
+            titleBlog1.setOnClickListener(v -> openBlogDetail(news1));
+            imgBlog2.setOnClickListener(v -> openBlogDetail(news2));
+            titleBlog2.setOnClickListener(v -> openBlogDetail(news2));
+        }
 
         imgAboutUs1.setOnClickListener(v -> openAboutUsDetail(1));
         imgAboutUs2.setOnClickListener(v -> openAboutUsDetail(2));
@@ -159,15 +171,13 @@ public class HomepageActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_home);
         bottomNav.setSelectedItemId(R.id.nav_home);
-
     }
 
-    // Truy cập chi tiết sản phẩm bằng productId
     private void openProductDetail(String productId) {
         for (Product product : productList) {
             if (product.getProductId().equals(productId)) {
                 Intent intent = new Intent(HomepageActivity.this, ProductDetailActivity.class);
-                intent.putExtra("product_data", product);  // Đảm bảo Product implements Parcelable
+                intent.putExtra("product_data", product);
                 startActivity(intent);
                 return;
             }
@@ -175,9 +185,10 @@ public class HomepageActivity extends AppCompatActivity {
         Toast.makeText(this, "Product not found", Toast.LENGTH_SHORT).show();
     }
 
-    private void openBlogDetail(int blogId) {
-        Intent intent = new Intent(HomepageActivity.this, PlantNewsActivity.class);
-        intent.putExtra("blog_id", blogId);
+    // Đã thay thế openBlogDetail(int) bằng openBlogDetail(NewsDetail)
+    private void openBlogDetail(NewsDetail newsDetail) {
+        Intent intent = new Intent(HomepageActivity.this, NewsDetailActivity.class);
+        intent.putExtra("newsDetail", newsDetail); // key trùng với NewsDetailActivity
         startActivity(intent);
     }
 
@@ -264,4 +275,3 @@ public class HomepageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-

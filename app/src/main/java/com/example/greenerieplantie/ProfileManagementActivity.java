@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class ProfileManagementActivity extends AppCompatActivity {
 
@@ -24,6 +26,9 @@ public class ProfileManagementActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_profile);
+        bottomNav.setSelectedItemId(R.id.nav_profile);
 
         findViewById(R.id.layoutProfileSettings).setOnClickListener(v -> openProfileSettingsActivity());
         findViewById(R.id.layoutOrderHistory).setOnClickListener(v -> openOrderHistoryActivity());

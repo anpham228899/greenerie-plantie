@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -55,9 +56,9 @@ public class ProductActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_product);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.recycler_products), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), systemBars.bottom);
             return insets;
         });
 
@@ -102,28 +103,11 @@ public class ProductActivity extends AppCompatActivity {
         productAdapter = new ProductAdapter(productList);
         recyclerView.setAdapter(productAdapter);
 
-        bottomNavigationView.setSelectedItemId(R.id.nav_product);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_product);
+        bottomNav.setSelectedItemId(R.id.nav_product);
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(this, HomepageActivity.class));
-                return true;
-            } else if (id == R.id.nav_product) {
-                Toast.makeText(this, "You are already on the Product screen!", Toast.LENGTH_SHORT).show();
-                return true;
-            } else if (id == R.id.nav_chatbot) {
-                startActivity(new Intent(this, ChatbotActivity.class));
-                return true;
-            } else if (id == R.id.nav_cart) {
-                startActivity(new Intent(this, CartActivity.class));
-                return true;
-            } else if (id == R.id.nav_profile) {
-                startActivity(new Intent(this, ProfileManagementActivity.class));
-                return true;
-            }
-            return false;
-        });
+
 
         ImageButton cartButton = findViewById(R.id.imgbtn_cart);
         cartButton.setOnClickListener(v -> {

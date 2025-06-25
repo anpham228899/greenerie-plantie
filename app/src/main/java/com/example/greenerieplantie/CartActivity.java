@@ -18,7 +18,8 @@ import java.text.DecimalFormat;
 
 import adapters.CartAdapter;
 import models.Cart;
-import utils.ListCart; 
+import utils.ListCart;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        EdgeToEdge.enable(this);
+
         setContentView(R.layout.activity_cart);
 
         cartItemCountTextView = findViewById(R.id.tv_cart_item_count);
@@ -43,12 +44,13 @@ public class CartActivity extends AppCompatActivity {
 
         cartAdapter = new CartAdapter(ListCart.getCartItems());
         recyclerView.setAdapter(cartAdapter);
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.bottom_navigation), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(0, 0, 0, 0);
             return insets;
         });
+
+
 
         selectAllCheckbox = findViewById(R.id.cb_select_all);
         selectAllCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -60,6 +62,9 @@ public class CartActivity extends AppCompatActivity {
             refreshCartDisplay();
 
         });
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_cart); // ID này phải trùng trong menu XML
+        bottomNav.setSelectedItemId(R.id.nav_cart);
     }
 
     @Override
