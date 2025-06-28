@@ -16,6 +16,8 @@ public class VerifyCodeActivity extends AppCompatActivity {
     private TextView errorMessage, goBackText;
     private String correctCode;  // Thêm biến để lưu mã code gửi qua Intent
 
+    private String email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(VerifyCodeActivity.this, ForgetPasswordActivity.class);
+                intent.putExtra("email", email);
                 startActivity(intent);
                 finish(); // Kết thúc màn hình VerifyCodeActivity
             }
@@ -65,6 +68,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
             errorMessage.setVisibility(View.GONE); // Ẩn thông báo lỗi
             // Chuyển sang màn hình nhập mật khẩu mới
             Intent intent = new Intent(VerifyCodeActivity.this, ResetPasswordActivity.class);
+            intent.putExtra("email", getIntent().getStringExtra("email"));
             startActivity(intent);
             finish(); // Kết thúc màn hình hiện tại
         } else {

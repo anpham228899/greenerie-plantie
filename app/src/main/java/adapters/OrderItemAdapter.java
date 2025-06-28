@@ -8,10 +8,12 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.greenerieplantie.R;
-import models.OrderItem;
 
 import java.util.List;
+
+import models.OrderItem;
 
 public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.OrderItemViewHolder> {
 
@@ -32,8 +34,18 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Orde
         OrderItem orderItem = orderItems.get(position);
 
         holder.productName.setText(orderItem.getProductName());
-        holder.productPrice.setText(orderItem.getPrice());
-        holder.productImage.setImageResource(orderItem.getImageResId());
+
+        try {
+            double price = Double.parseDouble(orderItem.getPrice());
+            holder.productPrice.setText(String.format("%,.0f đ", price));
+        } catch (Exception e) {
+            holder.productPrice.setText(orderItem.getPrice());
+        }
+
+        Glide.with(holder.itemView.getContext())
+                .load(orderItem.getImageUrl())
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(holder.productImage);
     }
 
     @Override
@@ -46,14 +58,12 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Orde
         public TextView productName;
         public TextView productPrice;
         public ImageView productImage;
-        public TextView productCategory;
 
         public OrderItemViewHolder(View itemView) {
             super(itemView);
             productName = itemView.findViewById(R.id.txtProductName);
             productPrice = itemView.findViewById(R.id.txtProductPrice);
             productImage = itemView.findViewById(R.id.imgProductMain);
-            productCategory = itemView.findViewById(R.id.txtProductCategory);
         }
     }
 }

@@ -1,5 +1,4 @@
 package com.example.greenerieplantie;
-
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -8,12 +7,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import java.util.ArrayList;
+import com.example.greenerieplantie.R;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import adapters.OrderItemAdapter;
+import connectors.OrderConnector;
+import models.Order;
 import models.OrderItem;
 
 public class OrderDetailActivity extends AppCompatActivity {
@@ -22,14 +29,31 @@ public class OrderDetailActivity extends AppCompatActivity {
     private Button btnCancel, btnSubmitReview;
     private ProgressBar deliveryProgressBar;
     private RecyclerView rcvItemOrderDetail;
-    private OrderItemAdapter orderItemAdapter;
-    private ArrayList<OrderItem> orderItems;
+    private OrderItemAdapter OrderItemAdapter;
+
+    private TextView edtSubtotal, edtShippingFee, textView5, edtTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
 
+        initViews();
+
+        String orderId = getIntent().getStringExtra("orderId");
+        if (orderId == null) {
+            Toast.makeText(this, "Order ID not found", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        loadOrderFromFirebase(orderId);
+
+        btnCancel.setOnClickListener(v -> showCancelConfirmationDialog());
+        btnSubmitReview.setOnClickListener(v -> showSuccessNotification());
+    }
+
+    private void initViews() {
         txtOrderNumber = findViewById(R.id.edtOrderDetailID);
         txtOrderDate = findViewById(R.id.edtOrderDetailDate);
         txtDeliveryStage = findViewById(R.id.txtDeliveryStage);
@@ -37,44 +61,66 @@ public class OrderDetailActivity extends AppCompatActivity {
         btnSubmitReview = findViewById(R.id.btnSave);
         deliveryProgressBar = findViewById(R.id.barDeliveryProgress);
         rcvItemOrderDetail = findViewById(R.id.rcvItemOrderDetail);
-
-        String orderNumber = getIntent().getStringExtra("order_number");
-        String orderDate = getIntent().getStringExtra("order_date");
-        orderItems = getIntent().getParcelableArrayListExtra("order_items");
-        String orderStatus = getIntent().getStringExtra("order_status");
-
-        txtOrderNumber.setText(orderNumber);
-        txtOrderDate.setText(orderDate);
-
         rcvItemOrderDetail.setLayoutManager(new LinearLayoutManager(this));
-        orderItemAdapter = new OrderItemAdapter(orderItems);
-        rcvItemOrderDetail.setAdapter(orderItemAdapter);
 
-        updateDeliveryStage(orderStatus);
+        edtSubtotal = findViewById(R.id.edtSubtotal);
+        edtShippingFee = findViewById(R.id.edtShippingFee);
+        textView5 = findViewById(R.id.textView5);
+        edtTotal = findViewById(R.id.edtTotal);
+    }
 
-        btnCancel.setOnClickListener(v -> showCancelConfirmationDialog());
-        btnSubmitReview.setOnClickListener(v -> showSuccessNotification());
+    private void loadOrderFromFirebase(String orderId) {
+        new OrderConnector().getAllOrders(new OrderConnector.OrderCallback() {
+            @Override
+            public void onOrdersLoaded(List<Order> orders) {
+                for (Order order : orders) {
+                    if (order.orderId != null && order.orderId.equals(orderId)) {
+                        bindOrderToView(order);
+                        return;
+                    }
+                }
+                Toast.makeText(OrderDetailActivity.this, "Order not found", Toast.LENGTH_SHORT).show();
+            }
 
-        String subtotal = "800,000 VND";
-        String shippingFee = "50,000 VND";
-        String discount = "20,000 VND";
-        String total = "830,000 VND";
+            @Override
+            public void onError(String errorMessage) {
+                Toast.makeText(OrderDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
-        TextView edtSubtotal = findViewById(R.id.edtSubtotal);
-        TextView edtShippingFee = findViewById(R.id.edtShippingFee);
-        TextView textView5 = findViewById(R.id.textView5);
-        TextView edtTotal = findViewById(R.id.edtTotal);
+    private void bindOrderToView(Order order) {
+        txtOrderNumber.setText("#" + order.orderId);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+        String formattedDate = sdf.format(new Date(order.getCreatedAt()));
+        txtOrderDate.setText(formattedDate);
+        updateDeliveryStage(order.status);
 
-        edtSubtotal.setText(subtotal);
-        edtShippingFee.setText(shippingFee);
-        textView5.setText(discount);
-        edtTotal.setText(total);
+        OrderItemAdapter = new OrderItemAdapter(order.orderItems);
+        rcvItemOrderDetail.setAdapter(OrderItemAdapter);
+
+        // Giả sử bạn có shipping_fee, discount, tax_amount trong Firebase
+        double subtotal = 0;
+        for (OrderItem item : order.orderItems) {
+            try {
+                subtotal += Double.parseDouble(item.getPrice());
+            } catch (Exception ignored) {}
+        }
+
+        double shippingFee = order.shippingInfo != null ? 50000 : 0;
+        double discount = order.paymentInfo != null && order.paymentInfo.amount < subtotal ? subtotal - order.paymentInfo.amount : 0;
+        double total = order.totalAmount;
+
+        edtSubtotal.setText(String.format("%,.0f", subtotal));
+        edtShippingFee.setText(String.format("%,.0f", shippingFee));
+        textView5.setText(String.format("%,.0f", discount));
+        edtTotal.setText(String.format("%,.0f", total));
     }
 
     private void updateDeliveryStage(String orderStatus) {
         if (orderStatus == null) orderStatus = "preparing";
 
-        switch (orderStatus) {
+        switch (orderStatus.toLowerCase()) {
             case "preparing":
                 txtDeliveryStage.setText("Stage 1: Preparing for Shipment");
                 deliveryProgressBar.setProgress(1);
@@ -113,8 +159,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 .setTitle("Cancel Order")
                 .setMessage("Are you sure you want to cancel this order?")
                 .setCancelable(false)
-                .setPositiveButton("Yes", (dialog, id) ->
-                        Toast.makeText(OrderDetailActivity.this, "Order cancelled", Toast.LENGTH_SHORT).show())
+                .setPositiveButton("Yes", (dialog, id) -> cancelOrderOnFirebase())
                 .setNegativeButton("No", null)
                 .show();
     }
@@ -122,4 +167,31 @@ public class OrderDetailActivity extends AppCompatActivity {
     private void showSuccessNotification() {
         Toast.makeText(OrderDetailActivity.this, "Review submitted successfully", Toast.LENGTH_SHORT).show();
     }
+
+    private void cancelOrderOnFirebase() {
+        String orderId = getIntent().getStringExtra("orderId");
+        if (orderId == null) return;
+
+        String userId = getSharedPreferences("LoginPrefs", MODE_PRIVATE).getString("user_uid", null);
+        if (userId == null) {
+            Toast.makeText(this, "User ID not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        FirebaseDatabase.getInstance()
+                .getReference("orders")
+                .child(userId)
+                .child(orderId)
+                .child("status")
+                .setValue("cancelled")
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this, "Order cancelled successfully", Toast.LENGTH_SHORT).show();
+                        updateDeliveryStage("cancelled");
+                    } else {
+                        Toast.makeText(this, "Failed to cancel order", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }

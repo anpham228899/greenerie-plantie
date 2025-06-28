@@ -1,8 +1,10 @@
 package com.example.greenerieplantie;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,15 +16,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
-
-import models.Product;
-import models.Feedback;
-import adapters.FeedbackAdapter;
-import utils.ListCart;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import adapters.FeedbackAdapter;
+import connectors.CartConnector;
+import models.Cart;
+import models.Feedback;
+import models.Product;
+import utils.ListCart;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
@@ -59,6 +69,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
 
+        // Ánh xạ view
         productImageView = findViewById(R.id.product_detail_image);
         backButton = findViewById(R.id.product_detail_back_button);
         productNameTextView = findViewById(R.id.product_detail_name);
@@ -74,94 +85,208 @@ public class ProductDetailActivity extends AppCompatActivity {
         productGrowthPeriodTextView = findViewById(R.id.product_detail_growth_period);
         productSellingAmountTextView = findViewById(R.id.product_detail_selling_amount);
         discountBubbleLayout = findViewById(R.id.product_discount_bubble_layout);
+        btnAddToCart = findViewById(R.id.btn_add_to_cart);
+        btnBuyNow = findViewById(R.id.btn_buy_now);
 
         rvFeedback = findViewById(R.id.rvFeedback);
         tvViewAllFeedback = findViewById(R.id.tv_view_all_feedback);
         fullFeedbackList = new ArrayList<>();
-
         loadAllFeedbackData();
 
         rvFeedback.setLayoutManager(new LinearLayoutManager(this));
         feedbackAdapter = new FeedbackAdapter(fullFeedbackList, INITIAL_FEEDBACK_LIMIT);
         rvFeedback.setAdapter(feedbackAdapter);
 
-        if (fullFeedbackList.size() > INITIAL_FEEDBACK_LIMIT) {
-            tvViewAllFeedback.setVisibility(View.VISIBLE);
-            tvViewAllFeedback.setText(getString(R.string.view_all_feedback));
-        } else {
-            tvViewAllFeedback.setVisibility(View.GONE);
-        }
+        tvViewAllFeedback.setVisibility(fullFeedbackList.size() > INITIAL_FEEDBACK_LIMIT ? View.VISIBLE : View.GONE);
         tvViewAllFeedback.setOnClickListener(v -> toggleFeedbackView());
 
         backButton.setOnClickListener(v -> finish());
 
-        btnAddToCart = findViewById(R.id.btn_add_to_cart);
-        btnBuyNow = findViewById(R.id.btn_buy_now);
+        // --- Lấy product_id từ Intent và load từ Firebase ---
+        String productId = getIntent().getStringExtra("product_id");
 
-        if (getIntent().hasExtra("product_data")) {
-            currentProduct = getIntent().getParcelableExtra("product_data");
-            if (currentProduct != null) {
-                productImageView.setImageResource(currentProduct.getImageResId());
-
-                productNameTextView.setText(currentProduct.getName());
-
-                productCategoryTextView.setText(currentProduct.getCategory());
-                setCategoryIcon(currentProduct.getCategory());
-
-                productCurrentPriceTextView.setText(String.format("%s %s", getString(R.string.currency_unit_vnd), currentProduct.getFormattedPrice()));
-
-                if (currentProduct.getDiscountPercentage() > 0) {
-                    productOriginalPriceTextView.setText(String.format("%s %s", getString(R.string.currency_unit_vnd), currentProduct.getFormattedOriginalPrice()));
-
-                    productOriginalPriceTextView.setPaintFlags(productOriginalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                    productOriginalPriceTextView.setVisibility(View.VISIBLE);
-
-                    productDiscountTextView.setText(currentProduct.getFormattedDiscountPercentage());
-                    discountBubbleLayout.setVisibility(View.VISIBLE);
-                } else {
-                    productOriginalPriceTextView.setVisibility(View.GONE);
-                    discountBubbleLayout.setVisibility(View.GONE);
-                }
-
-                productDescriptionTextView.setText(currentProduct.getDescription());
-                productLevelTextView.setText(currentProduct.getLevel());
-                productWaterTextView.setText(currentProduct.getWaterNeeds());
-                productSpecialConditionsTextView.setText(currentProduct.getSpecialConditions());
-                productGrowthPeriodTextView.setText(currentProduct.getGrowthPeriod());
-                productSellingAmountTextView.setText(currentProduct.getSellingAmount());
-
-                btnAddToCart.setOnClickListener(v -> handleAddToCart());
-                btnBuyNow.setOnClickListener(v -> handleBuyNow());
-
-            } else {
-                Toast.makeText(this, "Error: Product data not found.", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        } else {
-            Toast.makeText(this, "Error: No product data provided.", Toast.LENGTH_SHORT).show();
+        if (productId == null || productId.isEmpty()) {
+            Toast.makeText(this, "No product data provided", Toast.LENGTH_SHORT).show();
             finish();
+            return;
         }
+
+
+        FirebaseDatabase.getInstance().getReference("products").child(productId).get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult().exists()) {
+
+                        try {
+                            DataSnapshot snapshot = task.getResult();
+
+                            String name = String.valueOf(snapshot.child("product_name").getValue());
+                            String category = String.valueOf(snapshot.child("category_id").getValue());
+                            String description = String.valueOf(snapshot.child("product_description").getValue());
+                            String instruction = String.valueOf(snapshot.child("product_instruction").getValue());
+                            String level = String.valueOf(snapshot.child("product_level").getValue());
+                            String water = String.valueOf(snapshot.child("water_demand").getValue());
+                            String cond = String.valueOf(snapshot.child("conditions").getValue());
+                            String rating = String.valueOf(snapshot.child("product_rating").getValue());
+
+                            double price = 0;
+                            try {
+                                Object rawPrice = snapshot.child("product_price").getValue();
+                                price = rawPrice instanceof Number
+                                        ? ((Number) rawPrice).doubleValue()
+                                        : Double.parseDouble(String.valueOf(rawPrice));
+                            } catch (Exception e) {}
+
+                            double prevPrice = 0;
+                            try {
+                                Object rawPrev = snapshot.child("product_previous_price").getValue();
+                                prevPrice = rawPrev instanceof Number
+                                        ? ((Number) rawPrev).doubleValue()
+                                        : Double.parseDouble(String.valueOf(rawPrev));
+                            } catch (Exception e) {}
+
+                            int discount = 0;
+                            try {
+                                Object rawDiscount = snapshot.child("product_discount").getValue();
+                                discount = rawDiscount instanceof Number
+                                        ? ((Number) rawDiscount).intValue()
+                                        : Integer.parseInt(String.valueOf(rawDiscount));
+                            } catch (Exception e) {}
+
+                            int stock = 0;
+                            try {
+                                Object rawStock = snapshot.child("product_stock").getValue();
+                                stock = rawStock instanceof Number
+                                        ? ((Number) rawStock).intValue()
+                                        : Integer.parseInt(String.valueOf(rawStock));
+                            } catch (Exception e) {}
+
+                            // Parse images
+                            String image1 = null;
+                            if (snapshot.child("product_images").child("image1").exists()) {
+                                image1 = String.valueOf(snapshot.child("product_images").child("image1").getValue());
+                            }
+
+                            // Khởi tạo product đơn giản (nếu bạn có constructor phù hợp)
+                            currentProduct = new Product();
+                            currentProduct.setProduct_name(name);
+                            currentProduct.setCategory_id(category);
+                            currentProduct.setProduct_description(description);
+                            currentProduct.setProduct_instruction(instruction);
+                            currentProduct.setProduct_level(level);
+                            currentProduct.setWater_demand(water);
+                            currentProduct.setConditions(cond);
+                            currentProduct.setProduct_price(price);
+                            currentProduct.setProduct_previous_price(prevPrice);
+                            currentProduct.setProduct_discount(discount);
+                            currentProduct.setProduct_stock(stock);
+
+                            Map<String, String> images = new HashMap<>();
+                            DataSnapshot imageSnap = snapshot.child("product_images");
+
+                            for (DataSnapshot imgEntry : imageSnap.getChildren()) {
+                                String key = imgEntry.getKey();
+                                Object val = imgEntry.getValue();
+
+                                if (key != null && val != null) {
+                                    images.put(key, String.valueOf(val));
+                                }
+                            }
+                            currentProduct.setProduct_images(images);
+                            currentProduct.setProduct_id(productId);
+                            showProductDetail(currentProduct);
+                            Log.d("AddToCart", "product_id = " + currentProduct.getProduct_id());
+                        } catch (Exception e) {
+                            Log.e("ProductDetail", "Parse error: " + e.getMessage());
+                            Toast.makeText(this, "Product data error", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    } else {
+                        Toast.makeText(this, "Failed to load product", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                });
+    }
+    private void showProductDetail(Product product) {
+        if (product.getProduct_images() != null && product.getProduct_images().get("image1") != null) {
+            Glide.with(this)
+                    .load(product.getProduct_images().get("image1"))
+                    .placeholder(R.mipmap.ic_launcher)
+                    .error(R.mipmap.ic_launcher)
+                    .into(productImageView);
+        } else {
+            productImageView.setImageResource(R.mipmap.ic_launcher);
+        }
+
+        productNameTextView.setText(product.getProduct_name());
+        productCategoryTextView.setText(product.getCategory_id());
+        setCategoryIcon(product.getCategory_id());
+
+        productCurrentPriceTextView.setText("VND " + String.format("%s %,.0f", getString( R.string.currency_unit_vnd), product.getProduct_price()));
+
+        if (product.getProduct_discount() > 0) {
+            productOriginalPriceTextView.setText( "VND " + String.format("%s %,.0f", getString(R.string.currency_unit_vnd_bold), product.getProduct_previous_price()));
+            productOriginalPriceTextView.setPaintFlags(productOriginalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            productOriginalPriceTextView.setVisibility(View.VISIBLE);
+
+            productDiscountTextView.setText(product.getProduct_discount() + "%");
+            discountBubbleLayout.setVisibility(View.VISIBLE);
+        } else {
+            productOriginalPriceTextView.setVisibility(View.GONE);
+            discountBubbleLayout.setVisibility(View.GONE);
+        }
+
+        productDescriptionTextView.setText(product.getProduct_description());
+        productLevelTextView.setText(product.getProduct_level());
+        productWaterTextView.setText(product.getWater_demand());
+        productSpecialConditionsTextView.setText(product.getConditions());
+        productGrowthPeriodTextView.setText(product.getProduct_instruction());
+        productSellingAmountTextView.setText(product.getProduct_stock() + " in stock");
+
+        btnAddToCart.setOnClickListener(v -> handleAddToCart());
+        btnBuyNow.setOnClickListener(v -> handleBuyNow());
     }
 
     private void handleAddToCart() {
-        if (currentProduct != null) {
-            ListCart.addOrUpdateProduct(currentProduct, 1);
+        SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        String userId = prefs.getString("user_uid", null);
+        if (userId == null) {
+            Toast.makeText(this, "Bạn chưa đăng nhập!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            Snackbar.make(findViewById(android.R.id.content),
-                            currentProduct.getName() + " added to cart!",
-                            Snackbar.LENGTH_SHORT)
-                    .setAction("VIEW CART", view -> {
-                        Intent intent = new Intent(ProductDetailActivity.this, CartActivity.class);
-                        startActivity(intent);
-                    })
-                    .show();
+        if (currentProduct != null) {
+            Cart cartItem = new Cart();
+            cartItem.setProduct_id(currentProduct.getProduct_id());
+            cartItem.setProduct_name(currentProduct.getProduct_name());
+            cartItem.setProduct_price((int) currentProduct.getProduct_price());
+            cartItem.setQuantity(1);
+            cartItem.setSelected(true);
+
+
+            cartItem.setProduct_images(currentProduct.getProduct_images());
+
+            CartConnector connector = new CartConnector(userId);
+            connector.addToCart(cartItem, success -> {
+                if (success) {
+                    Snackbar.make(findViewById(android.R.id.content),
+                                    currentProduct.getProduct_name() + " đã thêm vào giỏ hàng!",
+                                    Snackbar.LENGTH_SHORT)
+                            .setAction("XEM GIỎ", view -> {
+                                startActivity(new Intent(ProductDetailActivity.this, CartActivity.class));
+                            }).show();
+                } else {
+                    Toast.makeText(this, "Thêm giỏ hàng thất bại!", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
+
 
     private void handleBuyNow() {
         if (currentProduct != null) {
             Intent intent = new Intent(ProductDetailActivity.this, PaymentActivity.class);
-            intent.putExtra("product_for_purchase", currentProduct);
+            intent.putExtra("product_id", currentProduct.getProduct_id()); // ✅ gửi product_id
+            intent.putExtra("buy_now", true); // ✅ gửi cờ mua ngay
             startActivity(intent);
         } else {
             Toast.makeText(this, "Cannot buy: Product data is missing.", Toast.LENGTH_SHORT).show();

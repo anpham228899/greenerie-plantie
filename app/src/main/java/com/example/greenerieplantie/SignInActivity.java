@@ -3,13 +3,20 @@ package com.example.greenerieplantie;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import org.mindrot.jbcrypt.BCrypt;
 import androidx.appcompat.app.AppCompatActivity;
+
+import connectors.UserConnector;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -19,8 +26,6 @@ public class SignInActivity extends AppCompatActivity {
     private CheckBox rememberMe;
     private SharedPreferences sharedPreferences;
 
-    private static final String SAMPLE_EMAIL = "hoang2k4@gmail.com";
-    private static final String SAMPLE_PASSWORD = "hoang01062004";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,47 +61,70 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void handleSignIn() {
-        // Lấy dữ liệu người dùng nhập vào
         String email = emailInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
 
-        // Kiểm tra email và mật khẩu hợp lệ
-        if (isValidEmail(email) && isValidPassword(password)) {
-            // Kiểm tra tài khoản mẫu
-            if (email.equals(SAMPLE_EMAIL) && password.equals(SAMPLE_PASSWORD)) {
-                // Đăng nhập thành công
-                errorMessage.setVisibility(View.GONE); // Ẩn thông báo lỗi
-                // Lưu trạng thái đăng nhập nếu "Remember me" được chọn
-                if (rememberMe.isChecked()) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("email", email);
-                    editor.putString("password", password);
-                    editor.apply();
+        if (email.isEmpty() || password.isEmpty()) {
+            showError("Please fill all fields.");
+            return;
+        }
+
+        new UserConnector().getAllUsers(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                boolean isFound = false;
+
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    models.User user = child.getValue(models.User.class);
+                    if (user == null) {
+                        Log.e("DEBUG", "User object is null, skip this child");
+                        continue;
+                    }
+                    Log.d("DEBUG", "User email: " + user.getEmail());
+                    Log.d("DEBUG", "User password: " + user.getPassword());
+                    if (user.getEmail() == null || user.getPassword() == null) {
+                        Log.e("DEBUG", "User email or password is null, skip");
+                        continue;
+                    }
+                    user.setUid(child.getKey());
+                    String fixedHash = user.getPassword().replaceFirst("^\\$2b\\$", "\\$2a\\$");
+                    if (user.getEmail().equals(email) && BCrypt.checkpw(password, fixedHash)) {
+                        isFound = true;
+                        models.User.currentUser = user;
+                        sharedPreferences.edit()
+                                .putString("user_uid", user.getUid())
+                                .apply();
+                        Log.d("DEBUG", "Saved UID: " + user.getUid());
+
+                        if (rememberMe.isChecked()) {
+                            sharedPreferences.edit()
+                                    .putString("email", email)
+                                    .putString("password", password)
+                                    .apply();
+                        }
+
+                        startActivity(new Intent(SignInActivity.this, HomepageActivity.class));
+                        finish();
+                        break;
+                    }
                 }
 
-                // Chuyển tới màn hình HomepageActivity sau khi đăng nhập thành công
-                Intent intent = new Intent(SignInActivity.this, HomepageActivity.class);
-                startActivity(intent);
-                finish(); // Kết thúc SignInActivity để người dùng không quay lại màn hình đăng nhập
-            } else {
-                // Hiển thị thông báo lỗi
-                errorMessage.setVisibility(View.VISIBLE);
-                errorMessage.setText("Email or password invalid. Please try again.");
+                if (!isFound) {
+                    showError("Email or password incorrect.");
+                }
             }
-        } else {
-            // Nếu không hợp lệ
-            errorMessage.setVisibility(View.VISIBLE);
-            errorMessage.setText("Email or password invalid. Please try again.");
-        }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                showError("Database error: " + error.getMessage());
+            }
+        });
     }
 
-    // Kiểm tra email hợp lệ
-    private boolean isValidEmail(String email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
-    }
 
-    // Kiểm tra mật khẩu hợp lệ
-    private boolean isValidPassword(String password) {
-        return password.length() > 6; // Mật khẩu phải dài hơn 6 ký tự
+    private void showError(String message) {
+        errorMessage.setVisibility(View.VISIBLE);
+        errorMessage.setText(message);
     }
 }

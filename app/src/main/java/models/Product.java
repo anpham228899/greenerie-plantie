@@ -4,75 +4,111 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.Locale;
+import java.util.Map;
 
 public class Product implements Parcelable {
-    private String productId; // Add this field
-    private String name;
-    private String origin;
-    private String category;
-    private double price;
-    private int imageResId;
-    private String description;
-    private String level;
-    private String waterNeeds;
-    private String specialConditions;
-    private String growthPeriod;
-    private String sellingAmount;
-    private double originalPrice;
-    private double discountPercentage;
+    private String product_id;
+    private String product_name;
+    private String category_id;
+    private String product_description;
+    private String product_instruction;
+    private double product_price;
+    private double product_previous_price;
+    private int product_discount;
+    private int product_stock;
+    private String product_level;
+    private String water_demand;
+    private String conditions;
+    private String product_rating;
+    private Map<String, String> product_reviews;
+    private Map<String, String> product_images;
 
-    public Product(String productId, String name, String origin, String category, double price, int imageResId) {
-        this(productId, name, origin, category, price, imageResId,
-                "No description provided.", "N/A", "N/A", "N/A", "N/A", "N/A", price, 0.0);
+    public Product() {
     }
 
-    public Product(String productId, String name, String origin, String category, double price, int imageResId,
-                   String description, String level, String waterNeeds, String specialConditions,
-                   String growthPeriod, String sellingAmount, double originalPrice, double discountPercentage) {
-        this.productId = productId;
-        this.name = name;
-        this.origin = origin;
-        this.category = category;
-        this.price = price;
-        this.imageResId = imageResId;
-        this.description = description;
-        this.level = level;
-        this.waterNeeds = waterNeeds;
-        this.specialConditions = specialConditions;
-        this.growthPeriod = growthPeriod;
-        this.sellingAmount = sellingAmount;
-        this.originalPrice = originalPrice;
-        this.discountPercentage = discountPercentage;
+    public Product(String product_id, String product_name, String category_id, String product_description, String product_instruction, double product_price, double product_previous_price, int product_discount, int product_stock, String product_level, String water_demand, String conditions, String product_rating, Map<String, String> product_reviews, Map<String, String> product_images) {
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.category_id = category_id;
+        this.product_description = product_description;
+        this.product_instruction = product_instruction;
+        this.product_price = product_price;
+        this.product_previous_price = product_previous_price;
+        this.product_discount = product_discount;
+        this.product_stock = product_stock;
+        this.product_level = product_level;
+        this.water_demand = water_demand;
+        this.conditions = conditions;
+        this.product_rating = product_rating;
+        this.product_reviews = product_reviews;
+        this.product_images = product_images;
     }
-    public String getProductId() { return productId; }
 
-    public String getName() { return name; }
-    public String getOrigin() { return origin; }
-    public String getCategory() { return category; }
-    public double getPrice() { return price; }
-    public int getImageResId() { return imageResId; }
-    public String getDescription() { return description; }
-    public String getLevel() { return level; }
-    public String getWaterNeeds() { return waterNeeds; }
-    public String getSpecialConditions() { return specialConditions; }
-    public String getGrowthPeriod() { return growthPeriod; }
-    public String getSellingAmount() { return sellingAmount; }
-    public double getOriginalPrice() { return originalPrice; }
-    public double getDiscountPercentage() { return discountPercentage; }
+    public String getProduct_id() {
+        return product_id;
+    }
 
+    public void setProduct_id(String product_id) {
+        this.product_id = product_id;
+    }
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public String getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(String category_id) {
+        this.category_id = category_id;
+    }
     public String getFormattedPrice() {
-        return String.format(Locale.getDefault(), "%,.0f", price);
+        return String.format(Locale.getDefault(), "%,.0f", product_price);
     }
 
-    public String getFormattedOriginalPrice() {
-        return String.format(Locale.getDefault(), "%,.0f", originalPrice);
+    public String getFormattedPreviousPrice() {
+        return String.format(Locale.getDefault(), "%,.0f", product_previous_price);
+    }
+    protected Product(Parcel in) {
+        product_id = in.readString();
+        product_name = in.readString();
+        category_id = in.readString();
+        product_description = in.readString();
+        product_instruction = in.readString();
+        product_price = in.readDouble();
+        product_previous_price = in.readDouble();
+        product_discount = in.readInt();
+        product_stock = in.readInt();
+        product_level = in.readString();
+        water_demand = in.readString();
+        conditions = in.readString();
+        product_rating = in.readString();
+        product_reviews = in.readHashMap(String.class.getClassLoader());
+        product_images = in.readHashMap(String.class.getClassLoader());
     }
 
-    public String getFormattedDiscountPercentage() {
-        if (discountPercentage > 0) {
-            return String.format(Locale.getDefault(), "%.0f%%", discountPercentage * 100);
-        }
-        return "";
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(product_id);
+        dest.writeString(product_name);
+        dest.writeString(category_id);
+        dest.writeString(product_description);
+        dest.writeString(product_instruction);
+        dest.writeDouble(product_price);
+        dest.writeDouble(product_previous_price);
+        dest.writeInt(product_discount);
+        dest.writeInt(product_stock);
+        dest.writeString(product_level);
+        dest.writeString(water_demand);
+        dest.writeString(conditions);
+        dest.writeString(product_rating);
+        dest.writeMap(product_reviews);
+        dest.writeMap(product_images);
     }
 
     @Override
@@ -80,45 +116,10 @@ public class Product implements Parcelable {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.productId);
-        dest.writeString(this.name);
-        dest.writeString(this.origin);
-        dest.writeString(this.category);
-        dest.writeDouble(this.price);
-        dest.writeInt(this.imageResId);
-        dest.writeString(this.description);
-        dest.writeString(this.level);
-        dest.writeString(this.waterNeeds);
-        dest.writeString(this.specialConditions);
-        dest.writeString(this.growthPeriod);
-        dest.writeString(this.sellingAmount);
-        dest.writeDouble(this.originalPrice);
-        dest.writeDouble(this.discountPercentage);
-    }
-
-    protected Product(Parcel in) {
-        this.productId = in.readString();
-        this.name = in.readString();
-        this.origin = in.readString();
-        this.category = in.readString();
-        this.price = in.readDouble();
-        this.imageResId = in.readInt();
-        this.description = in.readString();
-        this.level = in.readString();
-        this.waterNeeds = in.readString();
-        this.specialConditions = in.readString();
-        this.growthPeriod = in.readString();
-        this.sellingAmount = in.readString();
-        this.originalPrice = in.readDouble();
-        this.discountPercentage = in.readDouble();
-    }
-
     public static final Creator<Product> CREATOR = new Creator<Product>() {
         @Override
-        public Product createFromParcel(Parcel source) {
-            return new Product(source);
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
         }
 
         @Override
@@ -126,4 +127,104 @@ public class Product implements Parcelable {
             return new Product[size];
         }
     };
+
+    public String getFormattedDiscount() {
+        return product_discount > 0 ? product_discount + "%" : "";
+    }
+
+    public String getProduct_description() {
+        return product_description;
+    }
+
+    public void setProduct_description(String product_description) {
+        this.product_description = product_description;
+    }
+
+    public String getProduct_instruction() {
+        return product_instruction;
+    }
+
+    public void setProduct_instruction(String product_instruction) {
+        this.product_instruction = product_instruction;
+    }
+
+    public double getProduct_price() {
+        return product_price;
+    }
+
+    public void setProduct_price(double product_price) {
+        this.product_price = product_price;
+    }
+
+    public double getProduct_previous_price() {
+        return product_previous_price;
+    }
+
+    public void setProduct_previous_price(double product_previous_price) {
+        this.product_previous_price = product_previous_price;
+    }
+
+    public int getProduct_discount() {
+        return product_discount;
+    }
+
+    public void setProduct_discount(int product_discount) {
+        this.product_discount = product_discount;
+    }
+
+    public int getProduct_stock() {
+        return product_stock;
+    }
+
+    public void setProduct_stock(int product_stock) {
+        this.product_stock = product_stock;
+    }
+
+    public String getProduct_level() {
+        return product_level;
+    }
+
+    public void setProduct_level(String product_level) {
+        this.product_level = product_level;
+    }
+
+    public String getWater_demand() {
+        return water_demand;
+    }
+
+    public void setWater_demand(String water_demand) {
+        this.water_demand = water_demand;
+    }
+
+    public String getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(String conditions) {
+        this.conditions = conditions;
+    }
+
+    public String getProduct_rating() {
+        return product_rating;
+    }
+
+    public void setProduct_rating(String product_rating) {
+        this.product_rating = product_rating;
+    }
+
+    public Map<String, String> getProduct_reviews() {
+        return product_reviews;
+    }
+
+    public void setProduct_reviews(Map<String, String> product_reviews) {
+        this.product_reviews = product_reviews;
+    }
+
+    public Map<String, String> getProduct_images() {
+        return product_images;
+    }
+
+    public void setProduct_images(Map<String, String> product_images) {
+        this.product_images = product_images;
+    }
 }

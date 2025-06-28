@@ -9,14 +9,17 @@ public class NewsDetail implements Serializable {
     private String author;
     private String date;
     private List<NewsBlock> blocks;
-    private int imageResId;
+    private String image; // đổi từ imageResId (int) sang image (String)
 
-    public NewsDetail(String title, String author, String date, List<NewsBlock> blocks, int imageResId) {
+    public NewsDetail() {
+    } // constructor rỗng
+
+    public NewsDetail(String title, String author, String date, List<NewsBlock> blocks, String image) {
         this.title = title;
         this.author = author;
         this.date = date;
         this.blocks = blocks;
-        this.imageResId = imageResId;
+        this.image = image;
     }
 
     public String getTitle() {
@@ -35,8 +38,8 @@ public class NewsDetail implements Serializable {
         return blocks;
     }
 
-    public int getImageResId() {
-        return imageResId;
+    public String getImage() {
+        return image;
     }
 
     public void setTitle(String title) {
@@ -55,16 +58,17 @@ public class NewsDetail implements Serializable {
         this.blocks = blocks;
     }
 
-    public void setImageResId(int imageResId) {
-        this.imageResId = imageResId;
+    public void setImage(String image) {
+        this.image = image;
     }
+
     public String getFirstImageName() {
         for (NewsBlock block : blocks) {
-            if (block.getType() == NewsBlock.Type.IMAGE) {
+            if ("IMAGE".equals(block.getType())) {
                 return block.getContent();
             }
         }
         return null;
     }
-
 }
+

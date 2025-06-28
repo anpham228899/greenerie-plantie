@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,13 +22,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.List;
-
-import models.Product;
-import models.NewsDetail;
-import utils.ListProduct;
-import utils.ListNewsDetail;
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -46,8 +42,6 @@ public class HomepageActivity extends AppCompatActivity {
     private ImageButton imgBlog1, imgBlog2, imgAboutUs1, imgAboutUs2;
     private TextView titleBlog1, titleBlog2, titleAboutUs1, titleAboutUs2;
 
-    private List<Product> productList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +55,13 @@ public class HomepageActivity extends AppCompatActivity {
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         searchEditText = findViewById(R.id.et_product_search);
         searchButton = findViewById(R.id.btn_product_search);
+        // Khởi tạo các thành phần
+        titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         profileImage = findViewById(R.id.img_homepage_avatar_custimer);
+        // Lấy SharedPreferences để lưu trữ thông tin người dùng
         sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
         updateUserInfo();
+
 
         btnForYou = findViewById(R.id.btn_homepage_for_you);
         btnNewArrivals = findViewById(R.id.btn_homepage_new_arrivals);
@@ -90,17 +88,15 @@ public class HomepageActivity extends AppCompatActivity {
         imgProduct8 = findViewById(R.id.img_homepage_product8_for_you);
         imgProduct9 = findViewById(R.id.img_homepage_product9_for_you);
 
-        productList = ListProduct.getSampleProductData();
-
-        imgProduct1.setOnClickListener(v -> openProductDetail("P001"));
-        imgProduct2.setOnClickListener(v -> openProductDetail("P002"));
-        imgProduct3.setOnClickListener(v -> openProductDetail("P003"));
-        imgProduct4.setOnClickListener(v -> openProductDetail("P004"));
-        imgProduct5.setOnClickListener(v -> openProductDetail("P005"));
-        imgProduct6.setOnClickListener(v -> openProductDetail("P006"));
-        imgProduct7.setOnClickListener(v -> openProductDetail("P007"));
-        imgProduct8.setOnClickListener(v -> openProductDetail("P008"));
-        imgProduct9.setOnClickListener(v -> openProductDetail("P009"));
+        imgProduct1.setOnClickListener(v -> openProductDetail("product1"));
+        imgProduct2.setOnClickListener(v -> openProductDetail("product2"));
+        imgProduct3.setOnClickListener(v -> openProductDetail("product3"));
+        imgProduct4.setOnClickListener(v -> openProductDetail("product4"));
+        imgProduct5.setOnClickListener(v -> openProductDetail("product5"));
+        imgProduct6.setOnClickListener(v -> openProductDetail("product6"));
+        imgProduct7.setOnClickListener(v -> openProductDetail("product7"));
+        imgProduct8.setOnClickListener(v -> openProductDetail("product8"));
+        imgProduct9.setOnClickListener(v -> openProductDetail("product9"));
 
         btnViewMorePlantNews = findViewById(R.id.btn_homepage_view_more_blog);
         btnViewMoreAboutUs = findViewById(R.id.btn_homepage_viewmore_abus);
@@ -125,34 +121,21 @@ public class HomepageActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Lấy dữ liệu blog từ ListNewsDetail
-        List<NewsDetail> newsList = ListNewsDetail.getSampleNews();
-        if (newsList.size() >= 2) {
-            NewsDetail news1 = newsList.get(0);
-            NewsDetail news2 = newsList.get(1);
-
-            imgBlog1.setImageResource(news1.getImageResId());
-            titleBlog1.setText(news1.getTitle());
-            imgBlog2.setImageResource(news2.getImageResId());
-            titleBlog2.setText(news2.getTitle());
-
-            imgBlog1.setOnClickListener(v -> openBlogDetail(news1));
-            titleBlog1.setOnClickListener(v -> openBlogDetail(news1));
-            imgBlog2.setOnClickListener(v -> openBlogDetail(news2));
-            titleBlog2.setOnClickListener(v -> openBlogDetail(news2));
-        }
+        imgBlog1.setOnClickListener(v -> openBlogDetail(1));
+        imgBlog2.setOnClickListener(v -> openBlogDetail(2));
+        titleBlog1.setOnClickListener(v -> openBlogDetail(1));
+        titleBlog2.setOnClickListener(v -> openBlogDetail(2));
 
         imgAboutUs1.setOnClickListener(v -> openAboutUsDetail(1));
         imgAboutUs2.setOnClickListener(v -> openAboutUsDetail(2));
         titleAboutUs1.setOnClickListener(v -> openAboutUsDetail(1));
         titleAboutUs2.setOnClickListener(v -> openAboutUsDetail(2));
 
+
         searchButton.setOnClickListener(v -> {
             String query = searchEditText.getText().toString().trim();
             if (!query.isEmpty()) {
-                Intent intent = new Intent(HomepageActivity.this, ProductActivity.class);
-                intent.putExtra("search_query", query);
-                startActivity(intent);
+                searchProduct(query);
             } else {
                 Toast.makeText(this, "Please enter a product to search!", Toast.LENGTH_SHORT).show();
             }
@@ -161,6 +144,7 @@ public class HomepageActivity extends AppCompatActivity {
         btnForYou.setOnClickListener(v -> updateTab("foryou"));
         btnNewArrivals.setOnClickListener(v -> updateTab("new"));
         btnBestSeller.setOnClickListener(v -> updateTab("best"));
+
         updateTab("foryou");
 
         btnNotification.setOnClickListener(v -> {
@@ -168,49 +152,58 @@ public class HomepageActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Apply the BottomNavigationView via NavMenuActivity
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_home);
-        bottomNav.setSelectedItemId(R.id.nav_home);
+
     }
 
+    // Function to open Product detail page
     private void openProductDetail(String productId) {
-        for (Product product : productList) {
-            if (product.getProductId().equals(productId)) {
-                Intent intent = new Intent(HomepageActivity.this, ProductDetailActivity.class);
-                intent.putExtra("product_data", product);
-                startActivity(intent);
-                return;
-            }
-        }
-        Toast.makeText(this, "Product not found", Toast.LENGTH_SHORT).show();
-    }
-
-    // Đã thay thế openBlogDetail(int) bằng openBlogDetail(NewsDetail)
-    private void openBlogDetail(NewsDetail newsDetail) {
-        Intent intent = new Intent(HomepageActivity.this, NewsDetailActivity.class);
-        intent.putExtra("newsDetail", newsDetail); // key trùng với NewsDetailActivity
+        Intent intent = new Intent(HomepageActivity.this, ProductDetailActivity.class);
+        intent.putExtra("product_id", productId);  // Pass product ID to the detail activity
         startActivity(intent);
     }
 
+    // Function to open Blog detail page
+    private void openBlogDetail(int blogId) {
+        Intent intent = new Intent(HomepageActivity.this, PlantNewsActivity.class);
+        intent.putExtra("blog_id", blogId); // Pass blog ID to detail activity
+        startActivity(intent);
+    }
+
+    // Function to open About Us detail page
     private void openAboutUsDetail(int aboutUsId) {
         Intent intent = new Intent(HomepageActivity.this, AboutUsActivity.class);
-        intent.putExtra("about_us_id", aboutUsId);
+        intent.putExtra("about_us_id", aboutUsId); // Pass About Us ID to detail activity
         startActivity(intent);
     }
-
+    // Cập nhật thông tin người dùng (Tên và ảnh)
     private void updateUserInfo() {
+        // Lấy tên người dùng từ SharedPreferences
         String userName = sharedPreferences.getString("userName", null);
         String userImage = sharedPreferences.getString("userImage", null);
 
+        // Nếu không có tên người dùng (chưa cập nhật), hiển thị mặc định "You!"
         if (userName == null || userName.isEmpty()) {
-            userName = getResources().getString(R.string.default_user_name);
+            userName = getResources().getString(R.string.default_user_name);  // "You!" mặc định
         }
 
+        // Kết hợp hai chuỗi "Welcome to Greenerie," và tên người dùng
+        String welcomeMessage1 = getString(R.string.title_homepage_welcome1);  // "Welcome to Greenerie,"
+        String welcomeMessage2 = getString(R.string.default_user_name_real, userName);  // Tên người dùng
+
+
+
+        // Nếu không có ảnh người dùng, dùng ảnh mặc định
         if (userImage == null || userImage.isEmpty()) {
-            profileImage.setImageResource(R.mipmap.ic_launcher);
+            profileImage.setImageResource(R.mipmap.ic_launcher); // Hình ảnh mặc định
+        } else {
+            // Nếu có ảnh, thay đổi ảnh người dùng (Ví dụ: ảnh từ URL hoặc tài nguyên)
+            // Glide.with(this).load(userImage).into(profileImage); // Nếu ảnh là URL, bạn có thể dùng Glide hoặc Picasso để tải ảnh.
         }
-        // Có thể dùng Glide/Picasso để load ảnh từ URL nếu cần
     }
+
 
     private void updateTab(String selectedTab) {
         btnForYou.setTextColor(Color.parseColor("#BDBDBD"));
@@ -249,6 +242,10 @@ public class HomepageActivity extends AppCompatActivity {
         }
     }
 
+    private void searchProduct(String query) {
+        Toast.makeText(this, "Searching for: " + query, Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_news_detail, menu);
@@ -260,6 +257,7 @@ public class HomepageActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_share) {
+            Toast.makeText(this, "Chia sẻ", Toast.LENGTH_SHORT).show();
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sharing Homepage Info");
@@ -274,4 +272,12 @@ public class HomepageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
+
+
+
+
+
+
+

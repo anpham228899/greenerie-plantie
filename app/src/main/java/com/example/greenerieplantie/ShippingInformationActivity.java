@@ -1,101 +1,94 @@
 package com.example.greenerieplantie;
 
-import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.regex.Pattern;
+import androidx.appcompat.app.AppCompatActivity;
+import models.User;
 
 public class ShippingInformationActivity extends AppCompatActivity {
 
     private EditText etFullName, etEmail, etPhone;
     private Button btnCancel, btnSave;
     private ImageView btnBack;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_shipping_information);
 
+        // Ánh xạ view
         etFullName = findViewById(R.id.et_full_name);
         etEmail = findViewById(R.id.et_email);
         etPhone = findViewById(R.id.et_phone);
         btnCancel = findViewById(R.id.btnCancel);
         btnSave = findViewById(R.id.btnSave);
+        btnBack = findViewById(R.id.btnBack);
 
-        ImageView btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(v -> onBackPressed());
+        // Lấy UID từ SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        userId = prefs.getString("user_uid", null);
 
+        // Hiển thị dữ liệu từ currentUser
+        if (User.currentUser != null) {
+            etFullName.setText(User.currentUser.getName());
+            etEmail.setText(User.currentUser.getEmail());
+            etPhone.setText(User.currentUser.getPhoneNumber());
+        }
+
+        // Quay lại
+        btnBack.setOnClickListener(v -> finish());
+
+        // Xoá dữ liệu
         btnCancel.setOnClickListener(v -> {
             etFullName.setText("");
             etEmail.setText("");
             etPhone.setText("");
         });
 
+        // Lưu lại Firebase
         btnSave.setOnClickListener(v -> {
-            String fullName = etFullName.getText().toString();
-            String email = etEmail.getText().toString();
-            String phone = etPhone.getText().toString();
+            String name = etFullName.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String phone = etPhone.getText().toString().trim();
 
-            if (fullName.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-                Toast.makeText(ShippingInformationActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
-            } else if (!isValidPhoneNumber(phone)) {
-                Toast.makeText(ShippingInformationActivity.this, "Please enter a valid 10-digit phone number", Toast.LENGTH_SHORT).show();
-            } else if (!isValidEmail(email)) {
-                Toast.makeText(ShippingInformationActivity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
-            } else {
-                showDialog(fullName, email, phone);
+            if (name.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if (userId == null) {
+                Toast.makeText(this, "Không xác định được người dùng", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Cập nhật vào User.currentUser
+            User.currentUser.setName(name);
+            User.currentUser.setEmail(email);
+            User.currentUser.setPhoneNumber(phone);
+
+            // Lưu lên Firebase
+            FirebaseDatabase.getInstance()
+                    .getReference("users")
+                    .child(userId)
+                    .setValue(User.currentUser)
+                    .addOnSuccessListener(unused -> {
+                        Toast.makeText(this, "Đã lưu thông tin giao hàng!", Toast.LENGTH_SHORT).show();
+                        finish(); // Quay lại màn trước
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Lỗi lưu thông tin", Toast.LENGTH_SHORT).show();
+                        Log.e("FirebaseError", "Lỗi khi lưu user info", e);
+                    });
         });
-
-        btnBack.setOnClickListener(v -> {
-            Intent intent = new Intent(ShippingInformationActivity.this, PaymentActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
-        });
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-    }
-
-    private void showDialog(String fullName, String email, String phone) {
-        Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_save_shipping_info);
-        dialog.setCancelable(true);
-
-        TextView tvUpdatedInfo = dialog.findViewById(R.id.tv_infoupdated);
-
-        String info = fullName + ", " + email + ", " + phone;
-        tvUpdatedInfo.setText(info);
-
-        ImageView imgClose = dialog.findViewById(R.id.img_close);
-        imgClose.setOnClickListener(v -> dialog.dismiss());
-
-        dialog.show();
-    }
-
-    private boolean isValidPhoneNumber(String phone) {
-        return phone.matches("\\d{10}");
-    }
-
-    private boolean isValidEmail(String email) {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}";
-        return Pattern.matches(emailPattern, email);
     }
 }

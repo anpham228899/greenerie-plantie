@@ -1,25 +1,24 @@
 package adapters;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.content.Context;
-import android.graphics.Paint;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.greenerieplantie.R;
+import com.bumptech.glide.Glide;
 import com.example.greenerieplantie.ProductDetailActivity;
-import models.Product;
+import com.example.greenerieplantie.R;
 
 import java.util.List;
+
+import models.Product;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
@@ -27,6 +26,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public void updateProductList(List<Product> newList) {
+        this.productList = newList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -40,28 +44,34 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
 
-        holder.productName.setText(product.getName());
-        holder.tv_origin.setText(product.getOrigin());
+        holder.productName.setText(product.getProduct_name());
+        holder.tv_origin.setText(product.getProduct_instruction()); // hoặc getOrigin() nếu bạn có field đó
 
-        String category = product.getCategory();
+        String category = product.getCategory_id();
         if (category != null && !category.isEmpty()) {
             setCategoryIcon(holder.imgCategoryIcon, category);
         } else {
             holder.imgCategoryIcon.setImageResource(R.mipmap.ic_launcher);
         }
 
-        holder.tv_price.setText("VND " + product.getFormattedPrice());
+        holder.tv_price.setText( String.format("%,.0f", product.getProduct_price()));
 
-        if (product.getDiscountPercentage() > 0) {
-            holder.tv_original_price.setText("VND " + product.getFormattedOriginalPrice());
+        if (product.getProduct_discount() > 0) {
+            holder.tv_original_price.setText( String.format("%,.0f", product.getProduct_previous_price()));
             holder.tv_original_price.setPaintFlags(holder.tv_original_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.tv_original_price.setVisibility(View.VISIBLE);
         } else {
             holder.tv_original_price.setVisibility(View.GONE);
         }
 
-        if (product.getImageResId() != 0) {
-            holder.imgProduct.setImageResource(product.getImageResId());
+        // Load ảnh từ URL Firebase
+        String imageUrl = product.getProduct_images() != null ? product.getProduct_images().get("image1") : null;
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            Glide.with(holder.itemView.getContext())
+                    .load(imageUrl)
+                    .placeholder(R.mipmap.ic_launcher)
+                    .error(R.mipmap.ic_launcher)
+                    .into(holder.imgProduct);
         } else {
             holder.imgProduct.setImageResource(R.mipmap.ic_launcher);
         }
@@ -69,7 +79,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.itemView.setOnClickListener(v -> {
             Context context = v.getContext();
             Intent intent = new Intent(context, ProductDetailActivity.class);
-            intent.putExtra("product_data", product);
+            intent.putExtra("product_id", product.getProduct_id()); // ✅ chỉ truyền ID
             context.startActivity(intent);
         });
     }
@@ -82,9 +92,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView imgProduct;
         TextView productName;
-        TextView tv_origin_label;
         TextView tv_origin;
-        TextView tv_category;
         ImageView imgCategoryIcon;
         TextView tv_price;
         TextView tv_original_price;
@@ -93,7 +101,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             super(itemView);
             imgProduct = itemView.findViewById(R.id.img_product);
             productName = itemView.findViewById(R.id.tv_product_name);
-            tv_origin_label = itemView.findViewById(R.id.tv_origin_label);
             tv_origin = itemView.findViewById(R.id.tv_origin);
             imgCategoryIcon = itemView.findViewById(R.id.img_category_icon);
             tv_price = itemView.findViewById(R.id.tv_price);
@@ -114,23 +121,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 iconResId = R.mipmap.ic_label_fruit_trees;
                 break;
             case "Seed Pack":
-                iconResId = R.mipmap.ic_label_seed_pack;
-                break;
             case "Fertilizer":
-                iconResId = R.mipmap.ic_label_fertilizer;
-                break;
             case "Item Planting":
-                iconResId = R.mipmap.ic_label_item_planting;
+                iconResId = R.mipmap.ic_label_fruit_trees;
                 break;
             default:
                 iconResId = R.mipmap.ic_launcher;
                 break;
         }
         imageView.setImageResource(iconResId);
-    }
-
-    public void updateProductList(List<Product> newList) {
-        this.productList = newList;
-        notifyDataSetChanged();
     }
 }
