@@ -1,21 +1,27 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Order {
-
 
     public String orderId;
     public String userId;
     public String status;
     public long createdAt;
     public double totalAmount;
-    public List<OrderItem> orderItems = new ArrayList<>();
 
-    public Order(String orderId, String userId, String status, long createdAt, double totalAmount, List<OrderItem> orderItems, ShippingInfo shippingInfo, PaymentInfo paymentInfo) {
+    // ✅ Sửa từ List → Map cho đúng với Firebase
+    public Map<String, OrderItem> orderItems = new HashMap<>();
+
+    public ShippingInfo shippingInfo;
+    public PaymentInfo paymentInfo;
+
+    public Order() {} // Firebase cần constructor rỗng
+
+    // ✅ Constructor chính xác
+    public Order(String orderId, String userId, String status, long createdAt, double totalAmount,
+                 Map<String, OrderItem> orderItems, ShippingInfo shippingInfo, PaymentInfo paymentInfo) {
         this.orderId = orderId;
         this.userId = userId;
         this.status = status;
@@ -26,20 +32,15 @@ public class Order {
         this.paymentInfo = paymentInfo;
     }
 
-
-
-    public ShippingInfo shippingInfo;
-    public PaymentInfo paymentInfo;
-
-
-    public Order() {} // Firebase cần constructor rỗng
-    public List<OrderItem> getOrderItems() {
+    // ✅ Getter và Setter đúng kiểu Map
+    public Map<String, OrderItem> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
+    public void setOrderItems(Map<String, OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
+
     public String getOrderId() {
         return orderId;
     }
@@ -80,7 +81,6 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
-
     public ShippingInfo getShippingInfo() {
         return shippingInfo;
     }
@@ -97,4 +97,3 @@ public class Order {
         this.paymentInfo = paymentInfo;
     }
 }
-

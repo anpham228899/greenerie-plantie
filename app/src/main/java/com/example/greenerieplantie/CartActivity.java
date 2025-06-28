@@ -60,7 +60,7 @@ public class CartActivity extends AppCompatActivity {
         btnCheckout = findViewById(R.id.btn_checkout);
 
         // Thiết lập RecyclerView
-        cartAdapter = new CartAdapter(cartList, this, currentUid, new CartAdapter.OnCartChangeListener() {
+        cartAdapter = new CartAdapter(cartList, this, currentUid,true, new CartAdapter.OnCartChangeListener() {
             @Override
             public void onQuantityChanged() {
                 calculateTotal();

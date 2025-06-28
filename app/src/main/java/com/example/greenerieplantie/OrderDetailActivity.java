@@ -14,6 +14,7 @@ import com.example.greenerieplantie.R;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -70,45 +71,65 @@ public class OrderDetailActivity extends AppCompatActivity {
     }
 
     private void loadOrderFromFirebase(String orderId) {
-        new OrderConnector().getAllOrders(new OrderConnector.OrderCallback() {
-            @Override
-            public void onOrdersLoaded(List<Order> orders) {
-                for (Order order : orders) {
-                    if (order.orderId != null && order.orderId.equals(orderId)) {
-                        bindOrderToView(order);
-                        return;
-                    }
-                }
-                Toast.makeText(OrderDetailActivity.this, "Order not found", Toast.LENGTH_SHORT).show();
-            }
+        String userId = getSharedPreferences("LoginPrefs", MODE_PRIVATE).getString("user_uid", null);
+        if (userId == null) {
+            Toast.makeText(this, "User ID not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            @Override
-            public void onError(String errorMessage) {
-                Toast.makeText(OrderDetailActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
-            }
-        });
+        FirebaseDatabase.getInstance()
+                .getReference("orders")
+                .child(userId)
+                .child(orderId)
+                .get()
+                .addOnSuccessListener(snapshot -> {
+                    if (snapshot.exists()) {
+                        Order order = snapshot.getValue(Order.class);
+                        if (order != null) {
+                            bindOrderToView(order);
+                        } else {
+                            Toast.makeText(this, "Lỗi chuyển đổi dữ liệu", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(this, "Không tìm thấy đơn hàng", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Lỗi tải dữ liệu đơn hàng", Toast.LENGTH_SHORT).show();
+                });
     }
 
     private void bindOrderToView(Order order) {
-        txtOrderNumber.setText("#" + order.orderId);
+        String shortOrderId = order.orderId;
+        if (shortOrderId != null && shortOrderId.length() >= 6) {
+            shortOrderId = shortOrderId.substring(shortOrderId.length() - 6); // Lấy 6 ký tự cuối
+        }
+        txtOrderNumber.setText(shortOrderId);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
         String formattedDate = sdf.format(new Date(order.getCreatedAt()));
         txtOrderDate.setText(formattedDate);
         updateDeliveryStage(order.status);
 
-        OrderItemAdapter = new OrderItemAdapter(order.orderItems);
+
+        List<OrderItem> itemList = new ArrayList<>();
+        if (order.orderItems != null) {
+            itemList.addAll(order.orderItems.values());
+        }
+        OrderItemAdapter = new OrderItemAdapter(itemList);
         rcvItemOrderDetail.setAdapter(OrderItemAdapter);
 
-        // Giả sử bạn có shipping_fee, discount, tax_amount trong Firebase
+        // Tính toán đơn hàng
         double subtotal = 0;
-        for (OrderItem item : order.orderItems) {
+        for (OrderItem item : itemList) {
             try {
                 subtotal += Double.parseDouble(item.getPrice());
             } catch (Exception ignored) {}
         }
 
         double shippingFee = order.shippingInfo != null ? 50000 : 0;
-        double discount = order.paymentInfo != null && order.paymentInfo.amount < subtotal ? subtotal - order.paymentInfo.amount : 0;
+        double discount = order.paymentInfo != null && order.paymentInfo.amount < subtotal
+                ? subtotal - order.paymentInfo.amount
+                : 0;
         double total = order.totalAmount;
 
         edtSubtotal.setText(String.format("%,.0f", subtotal));
@@ -116,6 +137,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         textView5.setText(String.format("%,.0f", discount));
         edtTotal.setText(String.format("%,.0f", total));
     }
+
 
     private void updateDeliveryStage(String orderStatus) {
         if (orderStatus == null) orderStatus = "preparing";

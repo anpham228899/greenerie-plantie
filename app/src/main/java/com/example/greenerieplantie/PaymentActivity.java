@@ -152,7 +152,7 @@ public class PaymentActivity extends AppCompatActivity {
                             cartItems.clear();
                             cartItems.add(item);
 
-                            adapter = new CartAdapter(cartItems, PaymentActivity.this, currentUid, null);
+                            adapter = new CartAdapter(cartItems, PaymentActivity.this, currentUid,false, null);
                             recyclerView.setAdapter(adapter);
                             calculateTotal();
 
@@ -175,7 +175,7 @@ public class PaymentActivity extends AppCompatActivity {
                         if (item.isSelected()) cartItems.add(item);
                     }
 
-                    adapter = new CartAdapter(cartItems, PaymentActivity.this, currentUid, new CartAdapter.OnCartChangeListener() {
+                    adapter = new CartAdapter(cartItems, PaymentActivity.this, currentUid,false, new CartAdapter.OnCartChangeListener() {
                         @Override
                         public void onQuantityChanged() {
                             calculateTotal();

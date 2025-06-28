@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import adapters.OrderAdapter;
@@ -57,6 +58,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
             @Override
             public void onOrdersLoaded(List<Order> orders) {
                 orderList.clear();
+                Collections.sort(orders, (o1, o2) -> Long.compare(o2.createdAt, o1.createdAt));
                 orderList.addAll(orders);
                 Log.d("OrderHistory", "Tổng đơn hàng: " + orderList.size());
                 if (orders.isEmpty()) {

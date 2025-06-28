@@ -5,20 +5,21 @@ import android.os.Parcelable;
 
 public class OrderItem implements Parcelable {
 
-    private String product_name;
-    private String imageUrl;
+    private String productName;
+    private String imageResId;
     private String price;
-    public OrderItem() {
-    }
+
+    public OrderItem() {}
+
     public OrderItem(String productName, String imageResId, String price) {
-        this.product_name = productName;
-        this.imageUrl = imageResId;
+        this.productName = productName;
+        this.imageResId = imageResId;
         this.price = price;
     }
 
     protected OrderItem(Parcel in) {
-        product_name = in.readString();
-        imageUrl = in.readString();
+        productName = in.readString();
+        imageResId = in.readString();
         price = in.readString();
     }
 
@@ -35,39 +36,38 @@ public class OrderItem implements Parcelable {
     };
 
     public String getProductName() {
-        return product_name;
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getImageResId() {
-        return imageUrl;
-    }
-    public void setPrice(String price) {
-        this.price = price;
+        return imageResId;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageResId(String imageResId) {
+        this.imageResId = imageResId;
     }
-    public String getImageUrl() {
-        return imageUrl;
-    }
+
     public String getPrice() {
         return price;
     }
 
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(product_name);
-        parcel.writeString(imageUrl);
+        parcel.writeString(productName);
+        parcel.writeString(imageResId);
         parcel.writeString(price);
     }
 
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    public void setProductName(String product_name) {
-        this.product_name = product_name;
     }
 }

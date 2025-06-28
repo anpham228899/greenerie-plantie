@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.greenerieplantie.R;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private final List<Cart> cartList;
     private final Context context;
     private final String userUid;
-
+    private boolean highlightSelected;
     public interface OnCartChangeListener {
         void onQuantityChanged();
         void onItemRemoved(Cart removedItem);
@@ -33,10 +34,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     private final OnCartChangeListener cartChangeListener;
 
-    public CartAdapter(List<Cart> cartList, Context context, String userUid, OnCartChangeListener listener) {
+    public CartAdapter(List<Cart> cartList, Context context, String userUid,boolean highlightSelected, OnCartChangeListener listener) {
         this.cartList = cartList;
         this.context = context;
         this.userUid = userUid;
+        this.highlightSelected = highlightSelected;
         this.cartChangeListener = listener;
     }
 
@@ -63,7 +65,27 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             Glide.with(context).load(imageMap.get("image1")).into(holder.imgProduct);
         }
 
-        // Increase quantity
+
+        if (highlightSelected && item.isSelected()) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#FFF9C4")); // vàng nhạt
+        } else {
+            holder.itemView.setBackgroundColor(Color.TRANSPARENT);
+        }
+
+
+        holder.itemView.setOnClickListener(v -> {
+            boolean newState = !item.isSelected();
+            item.setSelected(newState);
+
+            // Nếu bạn dùng Firebase để lưu trạng thái selected:
+            updateSelectionInFirebase(item.getProduct_id(), newState);
+
+            notifyItemChanged(position);
+            if (cartChangeListener != null)
+                cartChangeListener.onQuantityChanged(); // có thể thay bằng onSelectionChanged()
+        });
+
+
         holder.icPlus.setOnClickListener(v -> {
             int newQty = item.getQuantity() + 1;
             item.setQuantity(newQty);
@@ -72,7 +94,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             if (cartChangeListener != null) cartChangeListener.onQuantityChanged();
         });
 
-        // Decrease quantity
+
         holder.icMinus.setOnClickListener(v -> {
             if (item.getQuantity() > 1) {
                 int newQty = item.getQuantity() - 1;
@@ -83,7 +105,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             }
         });
 
-        // Delete item
+
         holder.icDelete.setOnClickListener(v -> {
             removeItemFromFirebase(item.getProduct_id());
             Cart removedItem = cartList.remove(position);
@@ -91,7 +113,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             if (cartChangeListener != null) cartChangeListener.onItemRemoved(removedItem);
         });
     }
-
+    private void updateSelectionInFirebase(String productId, boolean isSelected) {
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference("carts")
+                .child(userUid)
+                .child(productId)
+                .child("selected");
+        ref.setValue(isSelected);
+    }
     @Override
     public int getItemCount() {
         return cartList.size();

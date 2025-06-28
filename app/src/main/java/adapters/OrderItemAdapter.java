@@ -43,7 +43,7 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Orde
         }
 
         Glide.with(holder.itemView.getContext())
-                .load(orderItem.getImageUrl())
+                .load(orderItem.getImageResId())  // đổi lại đúng getter
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.productImage);
     }

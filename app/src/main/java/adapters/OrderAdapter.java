@@ -44,24 +44,33 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = orderList.get(position);
-
-        holder.txtOrderNumber.setText(order.orderId);
-        holder.txtOrderDate.setText("Date: " + order.createdAt);
+        Log.d("DEBUG", "orderId = " + order.orderId);
+        Log.d("DEBUG", "orderItems = " + order.orderItems);
+        String shortOrderId = order.orderId;
+        if (shortOrderId != null && shortOrderId.length() >= 6) {
+            shortOrderId = shortOrderId.substring(shortOrderId.length() - 6); // Lấy 6 ký tự cuối
+        }
+        holder.txtOrderNumber.setText(shortOrderId);
+        holder.txtOrderDate.setText("Ngày: " + formatDate(order.createdAt));
 
         // Gán mặc định nếu không có sản phẩm
         holder.txtProductName.setText("No product");
 
         if (order.orderItems != null && !order.orderItems.isEmpty()) {
-            OrderItem item = order.orderItems.get(0);
-            Log.d("DEBUG", "First item product_name: " + item.getProductName());
+            List<OrderItem> itemList = new ArrayList<>(order.orderItems.values());
+            OrderItem item = itemList.get(0);
 
-            // Gán product name nếu có
-            if (item.getProductName() != null) {
+            Log.d("DEBUG", ">>> First item = " + item);
+            Log.d("DEBUG", ">>> productName = " + item.getProductName());
+            Log.d("DEBUG", ">>> imageResId = " + item.getImageResId());
+            Log.d("DEBUG", ">>> imageUrl = " + item.getImageResId());
+
+            if (item.getProductName() != null && !item.getProductName().isEmpty()) {
                 holder.txtProductName.setText(item.getProductName());
             }
 
             // Gán ảnh nếu có
-            String imageUrl = item.getImageUrl();
+            String imageUrl = item.getImageResId();
             if (imageUrl != null && !imageUrl.isEmpty()) {
                 Glide.with(context)
                         .load(imageUrl)
@@ -86,7 +95,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     public int getItemCount() {
         return orderList.size();
     }
-
+    private String formatDate(long timestamp) {
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm", java.util.Locale.getDefault());
+        return sdf.format(new java.util.Date(timestamp));
+    }
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
         ImageView imgProductMain;
         TextView txtOrderNumber, txtOrderDate, txtProductName;
