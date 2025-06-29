@@ -29,12 +29,8 @@
             android:theme="@style/Theme.GreeneriePlantie" />
         <activity
             android:name=".SignInSignUpActivity"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".ForgetPasswordActivity"
@@ -51,7 +47,13 @@
             android:exported="false" />
         <activity
             android:name=".ChatbotActivity"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".HomepageActivity"
             android:exported="false" />
