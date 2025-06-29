@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GreeneriePlantie</string>
+    <string name="title_blog_author" />
+    <string name="title_plant_news">Tin tức về cây trồng</string>
+    <string name="title_home_page_welcome_customer">Chào mừng đến với Greenery, \\nAn Pham!</string>
+    <string name="title_homepage_welcome_customer">Chào mừng đến với Greenery, \\nAn Pham!</string>
+    <string name="title_homepage_welcome">Chào mừng đến với Greenery, An Pham!</string>
+    <string name="title_homepage_weather">Trời nắng mây, 29°</string>
+    <string name="et_homepage_search">Tìm cây trồng của bạn</string>
+    <string name="btn_homepage_for_you">Dành cho bạn</string>
+    <string name="btn_homepage_new_arrivals">Sản phẩm mới</string>
+    <string name="btn_homepage_best_seller">Bán chạy nhất</string>
+    <string name="title_homepage_name_product1_for_you">Quả Táo Đỏ\n</string>
+    <string name="title_homepage_name_product2_for_you">Gạo ST25\n</string>
+    <string name="title_homepage_product1_orgin">Nguồn gốc: Mỹ</string>
+    <string name="title_homepage_product1_type">Cây ăn quả\n</string>
+    <string name="title_homepage_product1_price">200,000</string>
+    <string name="title_homepage_product1_vnd">VND</string>
+    <string name="title_homepage_product2_orgin">Nguồn gốc: Việt Nam\n</string>
+    <string name="title_homepage_product2_type">Gói hạt giống</string>
+    <string name="title_homepage_name_product3_for_you">Sầu Riêng Musanking\n</string>
+    <string name="title_homepage_product3_orgin">Nguồn gốc: Malaysia\n</string>
+    <string name="title_homepage_product3_price">300,000</string>
+    <string name="title_homepage_product2_price">100,000</string>
+    <string name="tile_homepage_name_product4_for_you">Đào Tuyết Nhật Bản</string>
+    <string name="title_homepage_product4_orgin">Nguồn gốc: Nhật Bản</string>
+    <string name="title_homepage_name_product4">Đào Tuyết</string>
+    <string name="title_homepage_freeship">Miễn phí vận chuyển\n</string>
+    <string name="title_homepage_from_499k">Từ 499,000 VND</string>
+    <string name="title_homepage_timeapply">Áp dụng từ 20/5 đến 30/8/2025</string>
+    <string name="title_homepage_from499k">" từ 499,000 VND "</string>
+    <string name="title_homepae_plant_news">Tin tức về cây trồng</string>
+    <string name="btn_homepage_view_more_blog">Xem thêm\n</string>
+    <string name="title_homepage_blog1_title">Hướng dẫn toàn diện về nhân giống cây con cho người mới bắt đầu</string>
+    <string name="title_homepage_blog1_des">Khi bắt đầu trồng cây, bạn cần lưu ý và chuẩn bị những gì? Các bước để chuyển cây ra khỏi chậu hoặc nhân giống từ củ hoặc cây con như thế nào? Bài viết dưới đây sẽ cung cấp cho bạn thông tin chi tiết từ A đến Z.\n</string>
+    <string name="title_homepage_blog1_author">Tác giả: An Pham\n20PM 18/5/2025</string>
+    <string name="title_homepage_blog2_title">Cách làm phân compost từ rác thải sinh hoạt không mùi</string>
+    <string name="title_homepage_blog2_des">Phân hữu cơ rất cần thiết và thực sự có lợi cho khu vườn của bạn. Thay vì mua các sản phẩm phân compost có sẵn trên thị trường, bạn có thể tự làm phân compost chất lượng cao tại nhà bằng cách sử dụng rác thải nhà bếp hàng ngày.</string>
+    <string name="title_homepage_blog2_author">Tác giả: Hoang Tran\n11PM 20/5/2025</string>
+    <string name="title_homepage_about_us">Giới thiệu về chúng tôi</string>
+    <string name="btn_homepage_viewmore_abus">Xem thêm\n</string>
+    <string name="title_homepage_abus1">Trồng cây thông minh, sống xanh hơn</string>
+    <string name="title_homepage_des_abus1">Greenery là trợ lý chăm sóc cây trồng tất cả trong một của bạn. Từ nhắc nhở tưới cây đến những mẹo chuyên gia, chúng tôi giúp bạn giữ cho cây trồng khỏe mạnh và không gian của bạn luôn tươi mới. Cho dù bạn là người mới bắt đầu hay một chuyên gia về thực vật, chúng tôi luôn sẵn sàng hỗ trợ hành trình xanh của bạn.</string>
+    <string name="title_homepage_abus2">Một thế giới xanh hơn, một cây trồng một lần</string>
+    <string name="title_homepage_des_abus2">Chúng tôi hình dung một tương lai mà mỗi ngôi nhà và góc phố đều tràn đầy thiên nhiên. Tại Greenery, chúng tôi tin rằng chăm sóc cây trồng chính là chăm sóc bản thân—và là một bước tiến tới một hành tinh bền vững và khỏe mạnh hơn.</string>
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_reminder">Nhắc nhở chăm sóc</string>
+    <string name="nav_chatbot">Chatbot</string>
+    <string name="nav_cart">Giỏ hàng</string>
+    <string name="nav_profile">Hồ sơ</string>
+    <string name="nav_homepage_reminder" />
+    <string name="nav_homepage_careremind">Sản phẩm</string>
+    <string name="title_signin_and_signup_greenery">Greenerie</string>
+    <string name="title_signin_and_signup_welcome">Chào mừng đến với Greenerie — trồng vườn của bạn, nuôi dưỡng cuộc sống của bạn. Đăng nhập hoặc tạo tài khoản để bắt đầu!</string>
+    <string name="btn_signin_and_signup_signin">Đăng nhập</string>
+    <string name="btn_signin_and_signup_signup">Đăng ký</string>
+    <string-array name="sort_options">
+        <item>Mới nhất</item>
+        <item>Bán chạy nhất</item>
+        <item>Giá A - Z</item>
+        <item>Giá Z - A</item>
+    </string-array>
+
+    <string name="product_image_description">Hình ảnh sản phẩm</string>
+    <string name="back_button_description">Nút quay lại</string>
+    <string name="currency_unit_vnd">VND</string>
+    <string name="currency_unit_vnd_bold">VND</string>
+    <string name="view_all_feedback">Xem tất cả</string>
+    <string name="show_less_feedback">Thu gọn phản hồi</string>
+    <string name="product_detail_discount_placeholder">10%</string>
+    <string name="product_detail_name_placeholder">Táo Đỏ</string>
+    <string name="product_detail_category_placeholder">Cây ăn quả</string>
+    <string name="product_detail_original_price_placeholder">200,000</string>
+    <string name="product_detail_current_price_placeholder">180,000</string>
+    <string name="product_detail_description_placeholder">Cây này là cây rụng lá, có nghĩa là nó rụng lá vào mùa thu. Nó có thân cây khá mảnh, và các cành cây lan rộng ra, cuối cùng đạt chiều cao trưởng thành có thể thay đổi tùy thuộc vào gốc ghép (thấp, trung bình, hoặc tiêu chuẩn). Vào mùa xuân, cây sẽ phủ đầy hoa trắng hoặc hồng.</string>
+
+    <string name="product_type_seed_pack">Gói hạt giống</string>
+    <string name="product_type_plant_tree">Cây ăn quả</string>
+
+    <string name="attribute_label_level">Mức độ</string>
+    <string name="attribute_value_level_placeholder">Trung bình</string>
+    <string name="level_icon_description">Biểu tượng mức độ</string>
+
+    <string name="attribute_label_water">Nước</string>
+    <string name="attribute_value_water_placeholder">Cần nước hàng ngày</string>
+    <string name="water_icon_description">Biểu tượng nước</string>
+
+    <string name="attribute_label_special_conditions">Điều kiện đặc biệt</string>
+    <string name="attribute_value_conditions_placeholder">Không</string>
+    <string name="conditions_icon_description">Biểu tượng điều kiện đặc biệt</string>
+
+    <string name="attribute_label_growth_period">Thời gian phát triển</string>
+    <string name="attribute_value_growth_period_placeholder">4 - 6 năm</string>
+
+    <string name="attribute_label_selling_amount">Số lượng bán</string>
+    <string name="attribute_value_selling_amount_placeholder">Mỗi cây</string>
+
+    <string name="section_title_description">Mô tả</string>
+    <string name="section_title_feedback">Phản hồi</string>
+
+    <string name="feedback_user_image_description">Hình ảnh hồ sơ người dùng</string>
+    <string name="feedback_title_1_placeholder">Táo Đỏ - Cây ăn quả - 4/5⭐️</string>
+    <string name="feedback_content_1_placeholder">Giao hàng nhanh chóng, và cây được đóng gói cẩn thận không bị hư hại. Cây con khỏe mạnh, rễ phát triển tốt, và đã bắt đầu phát triển tốt chỉ sau vài ngày trong đất. Cửa hàng cũng cung cấp hướng dẫn chăm sóc chi tiết và dễ hiểu — rất hữu ích cho người mới bắt đầu. Tôi sẽ chắc chắn đặt hàng lại!</string>
+    <string name="feedback_author_date_1_placeholder">Đăng Khoa - 25/5/2025</string>
+
+    <string name="feedback_title_2_placeholder">Táo Đỏ - Gói hạt giống - 5/5⭐️</string>
+    <string name="feedback_content_2_placeholder">Cây con khỏe mạnh, rễ phát triển tốt, và đúng như mô tả. Cửa hàng rất hữu ích với những mẹo chăm sóc thêm. Dịch vụ khách hàng tuyệt vời! Tôi rất hài lòng và khuyến khích mua hàng tại cửa hàng này cho những ai muốn trồng cây, dù là mới bắt đầu hay đã có kinh nghiệm.</string>
+    <string name="feedback_author_date_2_placeholder">Nguyễn Thị Bảy - 25/5/2025</string>
+
+
+    <string name="button_add_to_cart">Thêm vào giỏ hàng</string>
+    <string name="button_buy_now">Mua ngay</string>
+    <string name="title_sign_in_greenerie">Greenerie</string>
+    <string name="title_sign_in_welcome">Chào mừng bạn quay lại với Greenerie.\nĐăng nhập để tiếp tục trồng cây cùng chúng tôi.</string>
+    <string name="edt_sign_in_email">Email\n</string>
+    <string name="edt_sign_in_password">Mật khẩu</string>
+    <string name="edt_sign_in_input_email">Email</string>
+    <string name="title_sign_in_email_invalid">Email không hợp lệ. Vui lòng thử lại.</string>
+    <string name="cb_remember_me">Ghi nhớ tôi</string>
+    <string name="btn_sign_in_forogt_password">Quên mật khẩu? Nhấn vào đây</string>
+    <string name="btn_signin_signin">Đăng nhập</string>
+    <string name="title_signup_greenerie">Greenerie</string>
+    <string name="title_signup_welcome">Chào mừng bạn đến với Greenerie.\nĐăng ký để khám phá cửa hàng tuyệt vời của chúng tôi</string>
+    <string name="edt_sign_up_input_email">Email</string>
+    <string name="edt_sign_up_input_password">Nhập mật khẩu mới</string>
+    <string name="edt_sign_up_input_confirm_password">Xác nhận mật khẩu mới</string>
+    <string name="btn_sign_up_send_verification_code">Gửi mã xác nhận</string>
+    <string name="text_sign_up_term_policy" />
+    <string name="title_reset_password_greenerie">Greenerie</string>
+    <string name="title_reset_password_let_reset">Hãy reset mật khẩu của bạn!</string>
+    <string name="edt_reset_password_input_email">Email</string>
+    <string name="edt_reset_password_input_password">Nhập mật khẩu mới</string>
+    <string name="edt_sign_reset_password_confirm_password">Xác nhận mật khẩu mới</string>
+    <string name="btn_reset_password_send_verification_code">Reset mật khẩu</string>
+    <string name="text_reset_password_back">Quay lại\n</string>
+    <string name="text_reset_password_go_back" />
+    <string name="title_onboarding_hello_welcome">Chào mừng đến với Greenerie</string>
+    <string name="text_onboarding_hello_descrip">Khám phá một cách mới để mua cây trồng! Ứng dụng của chúng tôi cung cấp một bộ sưu tập cây trồng khỏe mạnh, sống động được giao ngay đến cửa nhà bạn.</string>
+    <string name="title_onboarding_plant_sell_welcome">Gặp gỡ Plantie - Trợ lý AI của bạn</string>
+    <string name="text_onboarding_plant_sell_descrip">Chatbot AI tích hợp của chúng tôi có mặt 24/7 để trả lời câu hỏi, đưa ra mẹo chăm sóc và gợi ý cây trồng cho không gian và phong cách sống của bạn.</string>
+    <string name="title_onboarding_plant_chatbot">Mua sắm đơn giản</string>
+    <string name="text_onboarding_chatbot_description">Duyệt, đặt hàng, theo dõi và chăm sóc—tất cả trong một trải nghiệm ứng dụng mượt mà và liền mạch, được thiết kế đặc biệt cho những người yêu thích cây trồng.</string>
+    <string name="btn_onboarding_let_start">Bắt đầu nào</string>
+    <string name="title_policy_term">Điều khoản và Chính sách</string>
+    <string name="text_policy_description"><![CDATA[1. Chính sách quyền riêng tư\nGreenerie cam kết bảo vệ dữ liệu cá nhân của người dùng—bao gồm tên đầy đủ, email, số điện thoại và địa chỉ giao hàng—và chỉ sử dụng chúng để xử lý đơn hàng, cung cấp tư vấn chăm sóc cây và cải thiện dịch vụ. Chúng tôi có thể chia sẻ dữ liệu với các bên thứ ba như đối tác vận chuyển (Viettel Post, Giao Hàng Nhanh) hoặc cổng thanh toán (Momo, Napas) chỉ để hoàn tất giao dịch; tất cả các đối tác phải ký kết thỏa thuận bảo mật. Người dùng có quyền truy cập, chỉnh sửa hoặc yêu cầu xóa dữ liệu của mình qua mục "Cài đặt tài khoản" trong ứng dụng hoặc liên hệ trực tiếp với Greenary. Chính sách này được xem xét định kỳ, và mọi thay đổi sẽ được thông báo tới người dùng thông qua pop-up trong ứng dụng hoặc email trước khi có hiệu lực.\n\n]]></string>
+    <string name="title_language">Ngôn ngữ\n</string>
+    <string name="text_language_engsub">Tiếng Anh</string>
+    <string name="title_language_vietsub">Tiếng Việt\n</string>
+    <string name="title_sign_in_invalid">Email hoặc mật khẩu không hợp lệ. Vui lòng thử lại.</string>
+    <string name="text_forget_password_description">Nhập email đã đăng ký của bạn để đặt lại mật khẩu mới.</string>
+    <string name="edt_forget_password_email">Email</string>
+    <string name="title_forget_password_email_invalid">Email không hợp lệ. Vui lòng thử lại.</string>
+    <string name="btn_forget_password_send_code">Gửi mã đặt lại</string>
+    <string name="text_foger_password_go_back">Quay lại\n</string>
+    <string name="text_forget_password_go_back">Quay lại</string>
+    <string name="text_verify_code_description">Nhập mã được gửi đến email của bạn ở đây.</string>
+    <string name="edt_verify_code_code">Nhập mã của bạn\n</string>
+    <string name="btn_verify_code_reset_password">Đặt lại mật khẩu</string>
+    <string name="title_verify_code_code_invalid">Mã không hợp lệ. Vui lòng thử lại.</string>
+    <string name="text_verify_code_go_back">Quay lại</string>
+    <string name="hint_verify_code_input">Nhập mã của bạn</string>
+    <string name="title_reset_password_invalid">Hai mật khẩu không khớp. Vui lòng nhập lại.</string>
+    <string name="text_popup_reset_success">Mật khẩu của bạn đã được đặt lại thành công!</string>
+    <string name="text_popup_navigating">Đang chuyển hướng đến trang đăng nhập...</string>
+    <string name="btn_popup_oke">OK\n</string>
+    <string name="title_sign_up_invalid">Hai mật khẩu không khớp. Vui lòng thử lại.</string>
+    <string name="text_sign_up_verify_description">Nhập mã xác nhận</string>
+    <string name="edt_sign_up_verify_input_code">Mã xác nhận</string>
+    <string name="btn_sign_up_verify">Xác nhận</string>
+    <string name="title_sign_up_verify_invalid">Mã không hợp lệ. Vui lòng thử lại.</string>
+    <string name="tile_homepage_name_product4_new">Đào Nhật Bản Đỏ</string>
+    <string name="title_homepage_product4_orgin_new">Nhật Bản</string>
+    <string name="tile_homepage_name_product5_for_you">Nho Pháp</string>
+    <string name="title_homepage_product5_orgin">Nguồn gốc: Pháp</string>
+    <string name="title_homepage_product5_type">Gói hạt giống</string>
+    <string name="title_homepage_type_food_crop">Cây trồng thực phẩm</string>
+    <string name="title_homepage_type_fruit_tree">Cây ăn quả</string>
+    <string name="title_homepage_type_seed">Gói hạt giống</string>
+    <string name="title_homepage_type_item_planting">Vật dụng trồng cây</string>
+    <string name="title_homepage_type_fertilizer">Phân bón</string>
+    <string name="title_homepage_product5_price">99,000</string>
+    <string name="tile_homepage_name_product6_for_you">Ngô Nếp Tím</string>
+    <string name="title_homepage_product6_orgin">Nguồn gốc: Trung Quốc</string>
+    <string name="title_homepage_product6_price">45,000</string>
+    <string name="tile_homepage_name_product7_for_you">Phân Gà Hữu Cơ AKI</string>
+    <string name="title_homepage_product7_type">Phân bón</string>
+    <string name="title_homepage_product7_price">175,000</string>
+    <string name="tile_homepage_name_product8_for_you">Chậu nhựa trồng cây</string>
+    <string name="tile_homepage_name_product8_for_you1">Chậu nhựa trồng cây</string>
+    <string name="title_homepage_product8_type">Vật dụng trồng cây</string>
+    <string name="title_homepage_product8_price">3,000</string>
+    <string name="tile_homepage_name_product9_for_you">Xẻng mini làm vườn</string>
+    <string name="title_homepage_product9_orgin">Nguồn gốc: Italy</string>
+    <string name="title_homepage_product9_price">22,000</string>
+    <string name="title_customer_support">Hỗ trợ khách hàng</string>
+    <string name="title_hotline">Đường dây nóng</string>
+    <string name="title_try_chatbot">Thử ngay Chatbot của chúng tôi</string>
+    <string name="btn_click_here">Nhấn vào đây</string>
+    <string name="title_profile_management">Quản lý hồ sơ</string>
+    <string name="title_account_settings">Cài đặt tài khoản</string>
+    <string name="title_profile_settings">Cài đặt hồ sơ</string>
+    <string name="title_order_history">Lịch sử đơn hàng</string>
+    <string name="title_order_date">Ngày đặt hàng</string>
+    <string name="title_subtotal">Tổng phụ</string>
+    <string name="title_currency">Đơn vị tiền tệ</string>
+    <string name="title_order_items">Sản phẩm trong đơn hàng</string>
+    <string name="title_shipping_fee">Phí vận chuyển</string>
+    <string name="title_discount">Giảm giá</string>
+    <string name="title_delivery_progress">Tiến độ giao hàng</string>
+    <string name="title_submit_review">Gửi đánh giá</string>
+    <string name="title_cancel">Hủy</string>
+    <string name="hint_write_review">Gợi ý viết đánh giá</string>
+    <string name="title_order_id">ID đơn hàng</string>
+    <string name="title_review">Đánh giá</string>
+    <string name="title_order_number">Số đơn hàng</string>
+    <string name="title_view_details">Chi tiết</string>
+
+    <string name="title_care_reminder">Nhắc nhở chăm sóc</string>
+    <string name="title_notifications">Thông báo</string>
+    <string name="title_change_language">Thay đổi ngôn ngữ</string>
+    <string name="title_shop_info">Thông tin cửa hàng</string>
+    <string name="title_about_us">Giới thiệu về chúng tôi</string>
+    <string name="title_policy">Chính sách</string>
+    <string name="title_about_us_sub_1">Trồng cây thông minh, sống xanh hơn</string>
+    <string name="title_about_us_sub_2">Một thế giới xanh hơn, một cây trồng một lần</string>
+    <string name="text_policy_title1">1. Chính sách bảo mật</string>
+    <string name="text_policy_tex1">Greenary cam kết bảo vệ dữ liệu cá nhân của người dùng—bao gồm tên đầy đủ, email, số điện thoại và địa chỉ giao hàng—và chỉ sử dụng chúng để xử lý đơn hàng, cung cấp tư vấn chăm sóc cây và cải thiện dịch vụ. Chúng tôi có thể chia sẻ dữ liệu với các bên thứ ba như đối tác vận chuyển (Viettel Post, Giao Hàng Nhanh) hoặc cổng thanh toán (Momo, Napas) chỉ để hoàn tất giao dịch; tất cả các đối tác phải ký kết thỏa thuận bảo mật. Người dùng có quyền truy cập, chỉnh sửa hoặc yêu cầu xóa dữ liệu của mình qua mục "Cài đặt tài khoản" trong ứng dụng hoặc liên hệ trực tiếp với Greenary. Chính sách này được xem xét định kỳ, và mọi thay đổi sẽ được thông báo tới người dùng thông qua pop-up trong ứng dụng hoặc email trước khi có hiệu lực.</string>
+    <string name="text_policy_title2">2. Điều khoản dịch vụ</string>
+    <string name="text_policy_text2">Khi sử dụng Greenary, bạn đồng ý rằng ứng dụng này chỉ cấp phép cho bạn sử dụng cá nhân, không có mục đích thương mại. Mọi hành vi sao chép, phân phối hoặc lạm dụng dịch vụ của chúng tôi đều bị nghiêm cấm. Bạn không được tải lên nội dung vi phạm bản quyền, tục tĩu, phỉ báng hoặc gây rối; vi phạm có thể dẫn đến cảnh báo hoặc đình chỉ tài khoản mà không cần thông báo trước. Greenary có quyền chấm dứt hoặc đình chỉ tài khoản nếu nghi ngờ gian lận, lạm dụng hoặc vi phạm các điều khoản này. Tất cả nội dung, hình ảnh và thương hiệu trong Greenary đều thuộc quyền sở hữu của Greenary hoặc các đối tác của chúng tôi; bạn không thể tái sử dụng bất kỳ tài liệu nào mà không có sự cho phép bằng văn bản. Mọi tranh chấp sẽ được giải quyết theo luật pháp Việt Nam và thẩm quyền của tòa án tại Thành phố Hồ Chí Minh.</string>
+    <string name="text_policy_title3">3. Chính sách giao hàng</string>
+    <string name="text_policy_description3">Greenary cung cấp phương thức giao hàng trả tiền khi nhận (COD) hoặc thanh toán trước, với thời gian xử lý đơn hàng từ 1–2 ngày làm việc. Thời gian giao hàng thường là 2–4 ngày trong nội thành TP.HCM và 4–6 ngày đối với các khu vực ngoại ô. Phí vận chuyển được tính dựa trên trọng lượng và kích thước gói hàng; các đơn hàng trên 500,000 VND trong TP.HCM sẽ được miễn phí vận chuyển. Khách hàng có thể theo dõi đơn hàng trong mục "Đơn hàng của tôi" trong ứng dụng hoặc qua số theo dõi được cung cấp bởi đối tác vận chuyển. Nếu giao hàng vượt quá thời gian cam kết, Greenary sẽ chịu mọi khoản phí phát sinh và hỗ trợ phối hợp với đơn vị vận chuyển.</string>
+
+    <string name="text_policy_title4"><![CDATA[4. Chính sách trả hàng & Hoàn tiền]]></string>
+    <string name="text_policy_description4">Khách hàng có thể yêu cầu trả lại hàng trong vòng 7 ngày kể từ ngày nhận hàng nếu cây con bị hư hỏng, sai hoặc không đúng như mô tả (ví dụ: rễ chết, chậu bị nứt). Để yêu cầu trả lại, vui lòng gửi yêu cầu qua chat trong ứng dụng cùng với hình ảnh chứng minh sự cố; Greenary sẽ xác minh và cung cấp tem trả lại miễn phí nếu lỗi thuộc về chúng tôi hoặc đối tác vận chuyển. Sau khi nhận và kiểm tra hàng trả lại, Greenary sẽ hoàn tiền vào phương thức thanh toán ban đầu hoặc ví ứng dụng trong vòng 3–5 ngày làm việc, hoặc cung cấp mã giảm giá tương đương cho lần mua hàng tiếp theo. Nếu bạn thay đổi quyết định (trả lại không phải do lỗi), bạn sẽ chịu phí vận chuyển trả lại; Greenary sẽ hướng dẫn bạn qua quy trình này.</string>
+
+    <string name="text_policy_title5">5. Chính sách thanh toán</string>
+    <string name="text_policy_description5">Greenary chấp nhận thanh toán qua COD, chuyển khoản ngân hàng (Vietcombank, Techcombank), ví điện tử (Momo, VNPay) và thẻ quốc tế (Visa, MasterCard). Mọi giao dịch đều được mã hóa SSL và tuân thủ tiêu chuẩn PCI-DSS để bảo vệ dữ liệu thẻ và thanh toán. Trong trường hợp có tranh chấp thanh toán, Greenary và các đối tác thanh toán của chúng tôi sẽ hợp tác để giải quyết và hoàn tiền cho các khiếu nại hợp lệ phát sinh từ lỗi hệ thống của chúng tôi.</string>
+    <string name="text_policy_title6">6. Chính sách bảo mật</string>
+    <string name="text_policy_description6">Tất cả các kết nối giữa ứng dụng và máy chủ của Greenary đều sử dụng HTTPS và mã hóa AES-256 để bảo vệ dữ liệu nhạy cảm. Chúng tôi thực thi xác thực bảo mật với mã OTP hoặc mã PIN 6 chữ số, tự động đăng xuất sau 15 phút không hoạt động và khóa tài khoản sau nhiều lần đăng nhập thất bại. Các quét lỗ hổng bảo mật định kỳ và cập nhật bản vá được thực hiện theo các khuyến nghị của OWASP để phòng chống các mối đe dọa mới.</string>
+    <string name="text_policy_title7">7. Chính sách Cookie</string>
+    <string name="text_policy_description7">Greenary sử dụng cookie để duy trì phiên đăng nhập, ghi nhớ sở thích của người dùng và phân tích hành vi trong ứng dụng để cải thiện liên tục. Bạn có thể tắt hoặc xóa cookie bất cứ lúc nào trong Cài đặt → Pháp lý → Chính sách Cookie, nhưng lưu ý rằng một số tính năng có thể không hoạt động đúng nếu cookie bị chặn.</string>
+    <string name="text_policy_title8"><![CDATA[8. Chính sách về Hành vi Người Dùng & Nội Dung]]></string>
+    <string name="text_policy_description8">Người dùng không được đăng tải nội dung bất hợp pháp, phỉ báng, khiêu dâm hoặc xâm phạm quyền sở hữu trí tuệ; vi phạm có thể dẫn đến việc xóa nội dung hoặc đình chỉ tài khoản mà không có thông báo trước. Greenary có quyền cấm tài khoản vĩnh viễn hoặc xóa nội dung vi phạm sau khi đã cảnh báo trước. Để báo cáo nội dung không phù hợp, sử dụng tính năng "Báo cáo" trong ứng dụng; chúng tôi cam kết sẽ điều tra và phản hồi trong vòng 48 giờ làm việc.</string>
+    <string name="default_user_name">Bạn!</string>
+    <string name="title_homepage_welcome1">Chào mừng đến với</string>
+    <string name="default_user_name_real">%1$s</string>
+    <string name="nav_product">Sản phẩm</string>
+
+    <string name="tv_in_app_notifications">Thông báo trong ứng dụng</string>
+    <string name="title_payment">Thanh toán</string>
+    <string name="title_payment_shipping_address">Địa chỉ giao hàng</string>
+    <string name="title_payment_information">Thông tin</string>
+    <string name="title_payment_product">Sản phẩm</string>
+    <string name="title_payment_shipping_options">Tùy chọn giao hàng</string>
+    <string name="title_payment_method">Phương thức thanh toán</string>
+    <string name="title_discount_code">Mã giảm giá</string>
+    <string name="hint_enter_discount_code">Nhập mã giảm giá</string>
+    <string name="btn_place_order">Đặt hàng</string>
+    <string name="btn_cancel">Hủy</string>
+    <string name="title_dialog_order_placed">Đơn hàng đã được đặt!</string>
+    <string name="title_dialog_order_placed_message">Đơn hàng của bạn đã được đặt thành công!</string>
+    <string name="title_dialog_navigation_message">Đang chuyển hướng đến trang chủ...</string>
+    <string name="btn_save">Lưu</string>
+    <string name="hint_country">Việt Nam</string>
+    <string name="hint_city">Thủ Đức</string>
+    <string name="hint_district">Linh Xuân</string>
+    <string name="hint_street">Đỗ Mười</string>
+    <string name="hint_no_street">699</string>
+    <string name="hint_shipping_infor_name">Nhập họ và tên đầy đủ</string>
+    <string name="title_shipping_infor_name">Họ và tên</string>
+    <string name="title_shipping_information">Thông tin giao hàng</string>
+    <string name="title_email">Email</string>
+    <string name="hint_enter_email">Nhập email</string>
+    <string name="title_phone">Số điện thoại</string>
+    <string name="hint_phone">Nhập số điện thoại</string>
+
+    <string name="title_product_header">Sản phẩm của chúng tôi</string>
+    <string name="btn_product_allplants">Tất cả cây trồng</string>
+    <string name="btn_product_fruittree">Cây ăn quả</string>
+    <string name="btn_product_foodcrops">Cây trồng thực phẩm</string>
+    <string name="btn_product_veggies">Rau củ</string>
+    <string name="title_product_category">Danh mục</string>
+    <string-array name="sn_product_sort_options">
+        <item>Mới nhất</item>
+        <item>Bán chạy nhất</item>
+        <item>Giá A - Z</item>
+        <item>Giá Z - A</item>
+    </string-array>
+
+    <string-array name="country">
+        <item>Việt Nam</item>
+    </string-array>
+
+    <string-array name="provinces_name">
+        <item>Hà Nội</item>
+        <item>TP.HCM</item>
+        <item>Huế</item>
+        <item>Đà Nẵng</item>
+        <item>Cần Thơ</item>
+        <item>Hải Phòng</item>
+        <item>Lai Châu</item>
+        <item>Điện Biên</item>
+        <item>Sơn La</item>
+        <item>Lạng Sơn</item>
+        <item>Quảng Ninh</item>
+        <item>Thanh Hóa</item>
+        <item>Nghệ An</item>
+        <item>Hà Tĩnh</item>
+        <item>Cao Bằng</item>
+        <item>Tuyên Quang</item>
+        <item>Lào Cai</item>
+        <item>Thái Nguyên</item>
+        <item>Phú Thọ</item>
+        <item>Bắc Ninh</item>
+        <item>Hưng Yên</item>
+        <item>Ninh Bình</item>
+        <item>Quảng Trị</item>
+        <item>Quảng Ngãi</item>
+        <item>Gia Lai</item>
+        <item>Khanh Hòa</item>
+        <item>Lâm Đồng</item>
+        <item>Đắk Lắk</item>
+        <item>Đồng Nai</item>
+        <item>Tây Ninh</item>
+        <item>Vĩnh Long</item>
+        <item>Đồng Tháp</item>
+        <item>Cà Mau</item>
+        <item>An Giang</item>
+    </string-array>
+
+    <string name="title_cart">Giỏ hàng của bạn</string>
+    <string name="title_total">Tổng cộng</string>
+    <string name="title_profile_setting">Cài đặt hồ sơ</string>
+    <string name="profile_saved">Thông tin của bạn đã được lưu</string>
+    <string name="fill_fields">Vui lòng điền các trường bắt buộc</string>
+    <string name="title_fullname">Họ và tên</string>
+    <string name="title_gender">Giới tính</string>
+    <string name="title_dob">Ngày sinh</string>
+    <string name="title_order_details">Chi tiết đơn hàng</string>
+    <string name="title_cart_you_have">Bạn có</string>
+    <string name="title_cart_items_in_your_cart">sản phẩm trong giỏ hàng của bạn</string>
+    <string name="title_cart_cb_select_all">Chọn tất cả</string>
+    <string name="title_cart_button_checkout">Thanh toán</string>
+    <string name="title_rb_standard">Tiêu chuẩn</string>
+    <string name="title_tv_standard_shipping_time">(5 - 7 ngày)</string>
+    <string name="title_tv_standard_shipping_price">Miễn phí</string>
+    <string name="title_rb_express">Giao hàng nhanh</string>
+    <string name="title_tv_express_shipping_time">(1 - 2 ngày)</string>
+    <string name="title_tv_express_shipping_price">15,000 VND</string>
+    <string name="title_rb_cod">COD</string>
+    <string name="title_rb_banking">Ngân hàng</string>
+    <string name="title_tv_discount_applied">Giảm giá đã áp dụng</string>
+    <string name="title_tv_order_total">Tổng đơn hàng:</string>
+    <string name="title_tv_discount">Giảm giá:</string>
+    <string name="title_tv_total">Tổng cộng:</string>
+
+    <string name="title_origin">"Nguồn gốc: "</string>
+    <string name="title_chatbot_plantie">Plantie</string>
+    <string name="title_chatbot_sub">Chat với trợ lý AI Chatbot của bạn</string>
+    <string name="title_chatbot_hint">Nhập tin nhắn...</string>
+
+</resources>
