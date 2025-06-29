@@ -83,15 +83,18 @@ public class OrderConnector {
         Long timestamp = snapshot.child("createdAt").getValue(Long.class);
         order.createdAt = (timestamp != null) ? timestamp : 0L;
 
-        Double total = snapshot.child("totalAmount").getValue(Double.class);
-        order.totalAmount = (total != null) ? total : 0.0;
+        Double totalAmount = snapshot.child("totalAmount").getValue(Double.class);
+        order.totalAmount = (totalAmount != null) ? totalAmount : 0.0;
 
-        // ✅ Parse order_items đúng theo Firebase (dạng Map)
+        // ✅ Parse subtotal riêng nếu có
+        Double subtotal = snapshot.child("subtotal").getValue(Double.class);
+        order.subtotal = (subtotal != null) ? subtotal : 0.0;
+
+        // ✅ Parse order_items
         Map<String, OrderItem> itemMap = new HashMap<>();
         DataSnapshot itemsSnap = snapshot.child("order_items");
-
         for (DataSnapshot itemSnap : itemsSnap.getChildren()) {
-            OrderItem item = itemSnap.getValue(OrderItem.class); // auto map nếu OrderItem chuẩn
+            OrderItem item = itemSnap.getValue(OrderItem.class);
             if (item != null) {
                 itemMap.put(itemSnap.getKey(), item);
             }
@@ -113,19 +116,30 @@ public class OrderConnector {
             order.shippingInfo = shippingInfo;
         }
 
-        // ✅ Parse payment_info
+        // ✅ Parse payment_info nâng cấp
         DataSnapshot paymentSnap = snapshot.child("payment_info");
         if (paymentSnap.exists()) {
             PaymentInfo paymentInfo = new PaymentInfo();
-            Double payAmount = paymentSnap.child("total").getValue(Double.class); // hoặc "amount" nếu bạn đổi
-            paymentInfo.amount = (payAmount != null) ? payAmount : 0.0;
+
+            Double amount = paymentSnap.child("amount").getValue(Double.class);
+            Double discount = paymentSnap.child("discount").getValue(Double.class);
+            Double shippingFee = paymentSnap.child("shippingFee").getValue(Double.class);
+            Double total = paymentSnap.child("total").getValue(Double.class);
+
+            paymentInfo.amount = (amount != null) ? amount : 0.0;
+            paymentInfo.discount = (discount != null) ? discount : 0.0;
+            paymentInfo.shippingFee = (shippingFee != null) ? shippingFee : 0.0;
+            paymentInfo.total = (total != null) ? total : 0.0;
+
             paymentInfo.method = paymentSnap.child("method").getValue(String.class);
             paymentInfo.status = paymentSnap.child("status").getValue(String.class);
+
             order.paymentInfo = paymentInfo;
         }
 
         return order;
     }
+
 
 
 }

@@ -16,7 +16,7 @@ public class Order {
 
     public ShippingInfo shippingInfo;
     public PaymentInfo paymentInfo;
-
+    public double subtotal;
     public Order() {} // Firebase cần constructor rỗng
 
     // ✅ Constructor chính xác
@@ -40,7 +40,13 @@ public class Order {
     public void setOrderItems(Map<String, OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
+    public double getSubtotal() {
+        return subtotal;
+    }
 
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
     public String getOrderId() {
         return orderId;
     }

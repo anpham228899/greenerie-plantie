@@ -158,14 +158,6 @@
                         android:textAlignment="textEnd"
                         android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1"
-                        android:text="@string/title_currency"
-                        android:textAlignment="textEnd"
-                        android:textSize="12sp" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -187,15 +179,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="TextView"
-                        android:textAlignment="textEnd"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/textView7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1"
-                        android:text="@string/title_currency"
                         android:textAlignment="textEnd"
                         android:textSize="12sp" />
 
@@ -223,14 +206,6 @@
                         android:textAlignment="textEnd"
                         android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.1"
-                        android:text="@string/title_currency"
-                        android:textAlignment="textEnd"
-                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -258,15 +233,6 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="0.01"
-                        android:text="@string/title_currency"
-                        android:textAlignment="textEnd"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.example.greenerieplantie;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -11,18 +12,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.greenerieplantie.R;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import adapters.OrderItemAdapter;
 import connectors.OrderConnector;
 import models.Order;
 import models.OrderItem;
+import models.PaymentInfo;
 
 public class OrderDetailActivity extends AppCompatActivity {
 
@@ -84,12 +89,49 @@ public class OrderDetailActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(snapshot -> {
                     if (snapshot.exists()) {
-                        Order order = snapshot.getValue(Order.class);
-                        if (order != null) {
-                            bindOrderToView(order);
-                        } else {
-                            Toast.makeText(this, "Lỗi chuyển đổi dữ liệu", Toast.LENGTH_SHORT).show();
+                        Order order = new Order();
+                        order.orderId = snapshot.child("orderId").getValue(String.class);
+                        order.userId = snapshot.child("userId").getValue(String.class);
+                        order.status = snapshot.child("status").getValue(String.class);
+                        order.createdAt = snapshot.child("createdAt").getValue(Long.class) != null
+                                ? snapshot.child("createdAt").getValue(Long.class) : 0L;
+                        order.totalAmount = snapshot.child("totalAmount").getValue(Double.class) != null
+                                ? snapshot.child("totalAmount").getValue(Double.class) : 0.0;
+                        order.subtotal = snapshot.child("subtotal").getValue(Double.class) != null
+                                ? snapshot.child("subtotal").getValue(Double.class) : 0.0;
+
+                        // Parse payment_info
+                        DataSnapshot paymentSnap = snapshot.child("payment_info");
+                        if (paymentSnap.exists()) {
+                            PaymentInfo pi = new PaymentInfo();
+                            pi.setAmount(paymentSnap.child("amount").getValue(Double.class) != null
+                                    ? paymentSnap.child("amount").getValue(Double.class) : 0.0);
+                            pi.setDiscount(paymentSnap.child("discount").getValue(Double.class) != null
+                                    ? paymentSnap.child("discount").getValue(Double.class) : 0.0);
+                            pi.setShippingFee(paymentSnap.child("shippingFee").getValue(Double.class) != null
+                                    ? paymentSnap.child("shippingFee").getValue(Double.class) : 0.0);
+                            pi.setTotal(paymentSnap.child("total").getValue(Double.class) != null
+                                    ? paymentSnap.child("total").getValue(Double.class) : 0.0);
+                            pi.setMethod(paymentSnap.child("method").getValue(String.class));
+                            pi.setStatus(paymentSnap.child("status").getValue(String.class));
+                            order.setPaymentInfo(pi);
                         }
+
+                        // Parse order_items
+                        DataSnapshot itemsSnap = snapshot.child("order_items");
+                        if (itemsSnap.exists()) {
+                            Map<String, OrderItem> itemMap = new HashMap<>();
+                            for (DataSnapshot itemSnap : itemsSnap.getChildren()) {
+                                OrderItem item = itemSnap.getValue(OrderItem.class);
+                                if (item != null) {
+                                    itemMap.put(itemSnap.getKey(), item);
+                                }
+                            }
+                            order.setOrderItems(itemMap);
+                        }
+
+                        // Gọi hàm bind ra UI
+                        bindOrderToView(order);
                     } else {
                         Toast.makeText(this, "Không tìm thấy đơn hàng", Toast.LENGTH_SHORT).show();
                     }
@@ -99,18 +141,21 @@ public class OrderDetailActivity extends AppCompatActivity {
                 });
     }
 
+
     private void bindOrderToView(Order order) {
         String shortOrderId = order.orderId;
         if (shortOrderId != null && shortOrderId.length() >= 6) {
-            shortOrderId = shortOrderId.substring(shortOrderId.length() - 6); // Lấy 6 ký tự cuối
+            shortOrderId = shortOrderId.substring(shortOrderId.length() - 6);
         }
         txtOrderNumber.setText(shortOrderId);
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
         String formattedDate = sdf.format(new Date(order.getCreatedAt()));
         txtOrderDate.setText(formattedDate);
+
         updateDeliveryStage(order.status);
 
-
+        // Load item list
         List<OrderItem> itemList = new ArrayList<>();
         if (order.orderItems != null) {
             itemList.addAll(order.orderItems.values());
@@ -118,24 +163,18 @@ public class OrderDetailActivity extends AppCompatActivity {
         OrderItemAdapter = new OrderItemAdapter(itemList);
         rcvItemOrderDetail.setAdapter(OrderItemAdapter);
 
-        // Tính toán đơn hàng
-        double subtotal = 0;
-        for (OrderItem item : itemList) {
-            try {
-                subtotal += Double.parseDouble(item.getPrice());
-            } catch (Exception ignored) {}
-        }
-
-        double shippingFee = order.shippingInfo != null ? 50000 : 0;
-        double discount = order.paymentInfo != null && order.paymentInfo.amount < subtotal
-                ? subtotal - order.paymentInfo.amount
-                : 0;
+        // ✅ Lấy dữ liệu chính xác từ Firebase
+        double subtotal = order.subtotal; // Đã được lưu từ PaymentActivity
+        double shippingFee = order.paymentInfo != null ? order.paymentInfo.shippingFee : 0;
+        double discount = order.paymentInfo != null ? order.paymentInfo.discount : 0;
         double total = order.totalAmount;
 
-        edtSubtotal.setText(String.format("%,.0f", subtotal));
-        edtShippingFee.setText(String.format("%,.0f", shippingFee));
-        textView5.setText(String.format("%,.0f", discount));
-        edtTotal.setText(String.format("%,.0f", total));
+        edtSubtotal.setText(String.format("%,d VND", (int) subtotal));
+        edtShippingFee.setText(String.format("%,d VND", (int) shippingFee));
+        textView5.setText(String.format("- %,d VND", (int) discount));
+        edtTotal.setText(String.format("%,d VND", (int) total));
+        Log.d("shipping", "shippingFee from order = " + (order.paymentInfo != null ? order.paymentInfo.shippingFee : "null"));
+
     }
 
 

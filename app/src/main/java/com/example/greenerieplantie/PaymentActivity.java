@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -41,6 +42,7 @@ public class PaymentActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CartAdapter adapter;
     private List<Cart> cartItems = new ArrayList<>();
+    private int shippingFee;
 
     private RadioButton rbStandard, rbExpress;
     private RadioButton rbCOD, rbBanking;
@@ -120,7 +122,23 @@ public class PaymentActivity extends AppCompatActivity {
                 selectedPaymentMethod = "Banking";
             }
         });
+        rbStandard.setOnClickListener(v -> {
+            if (rbStandard.isChecked()) {
+                selectedShippingMethod = "Standard";
+                shippingFee = 0; // ✅ reset ship về 0
+                rbExpress.setChecked(false);
+                calculateTotal(); // ✅ cập nhật lại giá trị ngay
+            }
+        });
 
+        rbExpress.setOnClickListener(v -> {
+            if (rbExpress.isChecked()) {
+                selectedShippingMethod = "Express";
+                shippingFee = 15000; // ✅ áp dụng phí ship express
+                rbStandard.setChecked(false);
+                calculateTotal(); // ✅ cập nhật lại giá trị ngay
+            }
+        });
         // ✅ Phân biệt mua ngay vs giỏ hàng
         boolean isBuyNow = getIntent().getBooleanExtra("buy_now", false);
         String productId = getIntent().getStringExtra("product_id");
@@ -265,6 +283,7 @@ public class PaymentActivity extends AppCompatActivity {
         }
 
 
+
         SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
         currentUid = prefs.getString("user_uid", null);
         if (currentUid != null) {
@@ -294,10 +313,8 @@ public class PaymentActivity extends AppCompatActivity {
         }
 
 
-        double shippingFee = selectedShippingMethod.equals("Standard") ? 50000 : 80000;
         double discountAmount = subtotal * discountValue;
-        double total = subtotal + shippingFee - discountAmount;
-
+        double total = subtotal - discountAmount + shippingFee;
         Map<String, Object> orderData = new HashMap<>();
         orderData.put("orderId", orderId);
         orderData.put("userId", userId);
@@ -305,7 +322,7 @@ public class PaymentActivity extends AppCompatActivity {
         orderData.put("createdAt", System.currentTimeMillis());
         orderData.put("totalAmount", total);
         orderData.put("order_items", itemMap);
-
+        orderData.put("subtotal", subtotal);
         Map<String, Object> paymentInfo = new HashMap<>();
         paymentInfo.put("method", selectedPaymentMethod);
         paymentInfo.put("status", "unpaid");
@@ -422,18 +439,23 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void calculateTotal() {
-        orderTotal = 0.0;
-
+        double subtotal = 0.0;
         for (Cart item : cartItems) {
-            orderTotal += item.getProduct_price() * item.getQuantity();
+            subtotal += item.getProduct_price() * item.getQuantity();
         }
+        orderTotal = subtotal;
 
-        double discountedTotal = orderTotal * (1 - discountValue);
-        String formatted = String.format("VND %,d", (int) discountedTotal);
+        double discountAmount = subtotal * discountValue;
+        double total = subtotal - discountAmount + shippingFee;
 
-        tvOrderTotalValue.setText(String.format("VND %,d", (int) orderTotal));
-        tvTotalValue.setText(formatted);
+        Log.d("CALC", "Subtotal = " + subtotal + ", Discount = " + discountAmount + ", Shipping = " + shippingFee + ", Total = " + total);
+
+        tvOrderTotalValue.setText(String.format("VND %,d", (int) subtotal));
+        tvTotalValue.setText(String.format("VND %,d", (int) total));
     }
+
+
+
 
     private void showOrderPlacedDialog() {
         Dialog dialog = new Dialog(PaymentActivity.this);

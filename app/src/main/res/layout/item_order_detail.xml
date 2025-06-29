@@ -74,14 +74,6 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtVND"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/title_currency"
-                android:textSize="12sp"
-                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
