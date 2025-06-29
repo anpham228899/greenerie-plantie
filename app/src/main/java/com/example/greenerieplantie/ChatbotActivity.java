@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.greenerieplantie.databinding.ActivityChatbotBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -81,6 +82,9 @@ public class ChatbotActivity extends AppCompatActivity {
                 runOnUiThread(() -> Toast.makeText(this, "Data Initialization Failed", Toast.LENGTH_SHORT).show());
             }
         });
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_chatbot);
+        bottomNav.setSelectedItemId(R.id.nav_chatbot);
 
         binding.imgSendButton.setOnClickListener(v -> {
             if (!isReady) {
