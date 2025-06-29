@@ -38,7 +38,13 @@ public class CartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         setContentView(R.layout.activity_cart);
+
+
 
         // Lấy UID hiện tại (có thể thay thế nếu bạn không dùng FirebaseAuth)
         SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);

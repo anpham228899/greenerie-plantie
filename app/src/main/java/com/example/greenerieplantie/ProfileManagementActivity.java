@@ -18,6 +18,9 @@ public class ProfileManagementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile_management);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.plant_news), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
