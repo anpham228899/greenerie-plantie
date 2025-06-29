@@ -1,0 +1,950 @@
+[
+  {
+    "tag": "Pepperbell_Bacterial_spot",
+    "answer": "That’s bacterial spot; in advanced stages the lesions necrose and leaves may drop prematurely.",
+    "question": "The pepper‑bell leaf has yellow‑edged brown spots-what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Pepperbell_Bacterial_spot",
+    "answer": "It’s caused by Xanthomonas bacteria entering through wounds; high humidity and overhead sprinkling accelerate its spread.",
+    "question": "What causes bacterial spot on pepper‑bell?",
+    "context": "cause"
+  },
+  {
+    "tag": "Pepperbell_Bacterial_spot",
+    "answer": "Bacterial spots show yellow halos and ooze when wet; fungal spots often bear gray‑white spores without aqueous exudate.",
+    "question": "How to distinguish bacterial spots from fungal spots on pepper‑bell leaves?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Pepperbell_Bacterial_spot",
+    "answer": "Rotate crops, avoid overhead sprinklers, mulch or sand around stems for drainage, remove infected leaves, and maintain proper plant spacing.",
+    "question": "What are effective prevention measures for bacterial spot on pepper‑bells?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Pepperbell_Bacterial_spot",
+    "answer": "Spray copper oxychloride at 0.2–0.3 % or streptomycin at 0.1 %, alternating every 7–10 days; apply on dry days and avoid rain for at least 2 hours post‑application.",
+    "question": "Which treatment and dose work against bacterial spot on pepper‑bells?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Pepperbell_Bacterial_spot",
+    "answer": "Uproot and destroy heavily infected plants, disinfect tools, rotate with non‑Solanaceae crops for at least one season, and amend soil with bio‑organic fertilizer.",
+    "question": "How should you urgently manage a severe bacterial spot outbreak in your pepper‑field?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Apple_Black_Rot",
+    "answer": "This is frogeye leaf spot, a form of black rot caused by the fungus Botryosphaeria obtusa. These spots typically appear 1–3 weeks after petal fall.",
+    "question": "\tApple leaves have circular brown spots with purple margins—what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Apple_Black_Rot",
+    "answer": "The disease is caused by the fungus Botryosphaeria obtusa, which often enters through wounds on the tree, especially under warm and humid conditions. Trees stressed by drought or cold injury are more susceptible.",
+    "question": "What causes black rot disease on apple trees?",
+    "context": "cause"
+  },
+  {
+    "tag": "Apple_Black_Rot",
+    "answer": "Black rot usually starts at the calyx end of the fruit, forming dark brown to black concentric rings. Infected fruits may shrivel and remain attached to the tree, unlike other rots like bitter rot or white rot.",
+    "question": "\tHow to distinguish black rot from other fruit rots on apples?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Apple_Black_Rot",
+    "answer": "Maintain good orchard sanitation by removing mummified fruits, dead branches, and pruning properly to enhance air circulation and reduce humidity. Avoid injuring trees during maintenance.",
+    "question": "What are effective prevention methods for black rot in apple trees?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Apple_Black_Rot",
+    "answer": "Apply copper-based fungicides (like copper oxychloride) or those containing captan, mancozeb, or strobilurins (such as Merivon) as part of a regular spray program, especially after petal fall.",
+    "question": "Which fungicides are effective against black rot in apples?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Apple_Black_Rot",
+    "answer": "Yes. The disease can cause premature leaf drop, fruit rot, and limb cankers, leading to reduced yield and lower fruit quality.",
+    "question": "Does black rot affect apple yield and fruit quality?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Apple_Black_Rot",
+    "answer": "Prune and destroy severely infected limbs, disinfect pruning tools, and implement strict orchard sanitation practices. In severe cases, consider more aggressive chemical treatments and crop rotation strategies.",
+    "question": "How should a severe black rot outbreak in an orchard be managed?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Apple_Cedar_Rust",
+    "answer": "This is cedar-apple rust, caused by the fungus Gymnosporangium juniperi-virginianae. The disease typically appears in spring after the tree has bloomed.",
+    "question": "Apple leaves have circular orange-yellow spots—what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Apple_Cedar_Rust",
+    "answer": "The disease is caused by the fungus Gymnosporangium juniperi-virginianae, which requires two host plants to complete its life cycle: apple trees and Eastern red cedar (Juniperus virginiana).",
+    "question": "What causes cedar-apple rust disease?",
+    "context": "cause"
+  },
+  {
+    "tag": "Apple_Cedar_Rust",
+    "answer": "Cedar-apple rust causes circular orange-yellow spots on the upper leaf surface, with orange tube-like structures on the underside. Other diseases like apple scab or leaf spot typically do not have these features.",
+    "question": "How to distinguish cedar-apple rust from other leaf diseases on apples?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Apple_Cedar_Rust",
+    "answer": "Plant resistant apple cultivars, remove nearby Eastern red cedar trees, and maintain good orchard sanitation by removing fallen leaves and infected branches.",
+    "question": "What are effective prevention methods for cedar-apple rust?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Apple_Cedar_Rust",
+    "answer": "Use fungicides containing myclobutanil or propiconazole, starting applications when new leaf shoots appear and repeating as directed on the product label.",
+    "question": "\tWhich fungicides are effective against cedar-apple rust?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Apple_Cedar_Rust",
+    "answer": "Prune and destroy infected branches, disinfect pruning tools, and implement a strict preventative fungicide spray program in spring to prevent disease spread.",
+    "question": "How should a severe cedar-apple rust outbreak in an orchard be managed?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Apple_Scab",
+    "answer": "This is apple scab, caused by the fungus Venturia inaequalis. These spots typically appear on young leaves in spring and can expand, causing leaves to yellow and drop prematurely.",
+    "question": "Apple leaves have olive-green to light brown spots with blurred edges—what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Apple_Scab",
+    "answer": "The disease is caused by the fungus Venturia inaequalis, which thrives in cool, moist conditions in spring. The fungus spreads through spores from infected fallen leaves from the previous season.",
+    "question": "        What causes apple scab, and what conditions favor its development?",
+    "context": "cause"
+  },
+  {
+    "tag": "Apple_Scab",
+    "answer": "Apple scab causes olive-green to light brown spots on leaves and fruits, often with irregular shapes and a rough surface. Infected fruits may become deformed and cracked as they mature.",
+    "question": "How to distinguish apple scab from other diseases on apple leaves and fruits?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Apple_Scab",
+    "answer": "Maintain good orchard sanitation by collecting and destroying fallen leaves in autumn, prune trees to improve air circulation, and plant scab-resistant apple varieties.",
+    "question": "What are effective prevention methods for apple scab?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Apple_Scab",
+    "answer": "Use fungicides such as captan, mancozeb, myclobutanil, or propiconazole, starting applications when new leaf shoots appear and repeating every 7–14 days during wet conditions.",
+    "question": "\tWhich fungicides are effective against apple scab, and how should they be used?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Apple_Scab",
+    "answer": "The disease can cause premature leaf drop, weakening the tree, and produce scabby lesions on fruits, reducing their market value and overall yield.",
+    "question": "\tHow does apple scab affect yield and fruit quality?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Apple_Scab",
+    "answer": "Prune and destroy severely infected branches, disinfect pruning tools, and implement a strict preventative fungicide spray program in spring to prevent disease spread.",
+    "question": "\tHow should a severe apple scab outbreak in an orchard be managed?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Corn_Cercospora_Leaf_Spot",
+    "answer": "This is Gray Leaf Spot, caused by the fungus Cercospora zeae-maydis. The disease typically appears on lower leaves first and spreads upward, reducing photosynthetic area and affecting yield.",
+    "question": "        Corn leaves have rectangular gray-brown lesions running along the leaf veins—what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Corn_Cercospora_Leaf_Spot",
+    "answer": "The disease is caused by the fungus Cercospora zeae-maydis, which thrives in warm, humid conditions with high moisture. The fungus survives on crop residue and spreads through spores carried by wind or rain.",
+    "question": "What causes Gray Leaf Spot in corn, and what conditions favor its development?",
+    "context": "cause"
+  },
+  {
+    "tag": "Corn_Cercospora_Leaf_Spot",
+    "answer": "Gray Leaf Spot causes rectangular, gray to brown lesions between leaf veins, running lengthwise along the leaf. Other diseases like Northern Corn Leaf Blight typically produce oval or cigar-shaped lesions, lacking the characteristic rectangular shape of Gray Leaf Spot.",
+    "question": "How to distinguish Gray Leaf Spot from other leaf diseases in corn?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Corn_Cercospora_Leaf_Spot",
+    "answer": "Implement crop rotation, manage crop residue by tilling or removing it, plant resistant corn hybrids, and maintain proper plant spacing to improve air circulation and reduce leaf moisture.",
+    "question": "\tWhat are effective prevention methods for Gray Leaf Spot in corn?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Corn_Cercospora_Leaf_Spot",
+    "answer": "Use fungicides such as pyraclostrobin, azoxystrobin, or strobilurin/triazole mixtures, starting applications when corn reaches the V14 to VT growth stage (before tasseling) and repeating as directed on the product label. Fungicide application should be based on disease severity and weather conditions.",
+    "question": "Which fungicides are effective against Gray Leaf Spot in corn, and how should they be used?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Corn_Cercospora_Leaf_Spot",
+    "answer": "The disease can reduce the photosynthetic area of leaves, leading to lower grain yield. In severe cases, it can cause premature leaf drop and decrease kernel quality, impacting market value.",
+    "question": "        How does Gray Leaf Spot affect corn yield and quality?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Corn_Cercospora_Leaf_Spot",
+    "answer": "Remove and destroy severely infected leaves, disinfect pruning tools, and implement a strict preventative fungicide spray program before tasseling to prevent disease spread. Additionally, consider changing corn hybrids and improving cultivation practices to reduce the risk of reinfection.",
+    "question": "How should a severe Gray Leaf Spot outbreak in a cornfield be managed?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Corn_Common_Rust",
+    "answer": "This is common rust, caused by the fungus Puccinia sorghi. These lesions typically appear on lower leaves first and spread upward, reducing photosynthetic area and affecting yield.",
+    "question": "Corn leaves have small, reddish-brown, oval lesions on both leaf surfaces—what disease is this?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Corn_Common_Rust",
+    "answer": "The disease is caused by the fungus Puccinia sorghi, which thrives in cool (60–77°F) and moist conditions. The fungus does not overwinter in temperate regions but spreads via windborne spores from tropical and subtropical areas.",
+    "question": "\tWhat causes common rust in corn, and what conditions favor its development?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Corn_Common_Rust",
+    "answer": "Common rust causes reddish-brown to dark brown lesions on both upper and lower leaf surfaces, whereas southern rust typically appears only on the upper leaf surface with brighter orange-colored pustules.",
+    "question": "How to distinguish common rust from southern rust on corn leaves?",
+    "context": "cause"
+  },
+  {
+    "tag": "Corn_Common_Rust",
+    "answer": "Plant resistant corn hybrids, regularly scout fields to detect early symptoms, and avoid late planting to reduce the risk of infection.",
+    "question": "What are effective prevention methods for common rust in corn?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Corn_Common_Rust",
+    "answer": "Use fungicides such as pyraclostrobin, azoxystrobin, or strobilurin/triazole mixtures, starting applications when corn reaches the V14 to VT growth stage (before tasseling) and repeating as directed on the product label. Fungicide application should be based on disease severity and weather conditions.",
+    "question": "Which fungicides are effective against common rust in corn, and how should they be used?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Corn_Common_Rust",
+    "answer": "The disease can reduce the photosynthetic area of leaves, leading to lower grain yield. In severe cases, it can cause premature leaf drop and decrease kernel quality, impacting market value.",
+    "question": "How does common rust affect corn yield and quality?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Grape_Black_Rot",
+    "answer": "You’ll see small brown leaf spots with black margins that enlarge and develop black fungal fruiting bodies (pycnidia). Infected berries shrivel into hard, black mummies.",
+    "question": "What are the symptoms of black rot on grapevines?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Grape_Black_Rot",
+    "answer": "It's caused by the fungus Guignardia bidwellii, which overwinters in mummified fruit and infected canes.",
+    "question": "What causes black rot in grapes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Grape_Black_Rot",
+    "answer": "Prune and remove infected canes and mummies, apply fungicides starting at early leaf development, and maintain open canopy structure for airflow.",
+    "question": "How can I prevent black rot in grape vineyards?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Grape_Black_Rot",
+    "answer": "Practice good vineyard sanitation, rotate fungicide classes, and use resistant cultivars when available.",
+    "question": "How do I manage black rot over multiple seasons?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Grape_Esca_Black_Measles",
+    "answer": "Leaves show interveinal yellowing or browning (tiger-stripe pattern), and berries may shrivel, darken, or fail to ripen. White rot is visible in the trunk in cross-section.",
+    "question": "What are the signs of Esca or black measles in grapevines?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Grape_Esca_Black_Measles",
+    "answer": "It’s a complex disease caused by a group of fungi including Phaeomoniella chlamydospora and Fomitiporia mediterranea.",
+    "question": "What causes Esca (black measles) in grapes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Grape_Esca_Black_Measles",
+    "answer": "Avoid large pruning wounds, sanitize tools, and apply wound protectants after pruning. Remove and destroy infected vines.",
+    "question": "How can Esca be prevented in vineyards?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Grape_Esca_Black_Measles",
+    "answer": "Currently, there is no curative treatment. Use trunk sprays with biological agents or protectants and manage vine stress.",
+    "question": "Are there chemical treatments for Esca disease?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Grape_Esca_Black_Measles",
+    "answer": "Practice good pruning hygiene, avoid water stress, and replant with certified disease-free vines",
+    "question": "What are long-term strategies for Esca control?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Grape_Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "answer": "You’ll see irregular brown lesions on older leaves, often with a yellow halo. Severe infection leads to early leaf drop.",
+    "question": "What are the symptoms of Isariopsis leaf spot in grapes?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Grape_Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "answer": "It is caused by the fungus Isariopsis clavispora.",
+    "question": "What causes grape leaf blight (Isariopsis leaf spot)?",
+    "context": "cause"
+  },
+  {
+    "tag": "Grape_Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "answer": "Improve air circulation by pruning, remove infected leaves, and avoid overhead irrigation.",
+    "question": "How can I prevent leaf blight in grape plants?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Grape_Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "answer": "Use foliar fungicides like mancozeb, chlorothalonil, or azoxystrobin during early symptom appearance.",
+    "question": "What fungicides are effective against Isariopsis leaf spot?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Grape_Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "answer": "Practice regular canopy thinning, rotate fungicides, and remove leaf debris after harvest.",
+    "question": "How do I manage Isariopsis leaf spot long-term?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Potato_Early_blight",
+    "answer": "Dark brown spots with concentric rings (target pattern) appear on older leaves, followed by yellowing and defoliation.",
+    "question": "What are the symptoms of early blight on potatoes?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Potato_Early_blight",
+    "answer": "It’s caused by the fungus Alternaria solani.",
+    "question": "What causes early blight in potatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Potato_Early_blight",
+    "answer": "Use certified seed, rotate crops, avoid overhead irrigation, and apply balanced fertilizers.",
+    "question": "How can I prevent early blight in my potato field?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Potato_Early_blight",
+    "answer": "Apply mancozeb, chlorothalonil, or azoxystrobin starting from early plant growth stages.",
+    "question": "What fungicides are recommended for early blight control?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Potato_Early_blight",
+    "answer": "Rotate with non-host crops, remove crop debris, and monitor for early symptoms to apply preventive sprays.",
+    "question": "How do I manage early blight over multiple seasons?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Potato_Late_blight",
+    "answer": "That’s late blight, a destructive disease that thrives in cool, humid conditions and can rapidly spread.",
+    "question": "My potato leaves have brown spots with white mold underneath, especially during wet weather-what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Potato_Late_blight",
+    "answer": "It is caused by a pathogen called Phytophthora infestans, which thrives in humid weather.",
+    "question": "What causes late blight on my potato plants?",
+    "context": "cause"
+  },
+  {
+    "tag": "Potato_Late_blight",
+    "answer": "Use healthy certified seed potatoes and avoid watering from above.",
+    "question": "How can I prevent late blight in my potato field?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Potato_Late_blight",
+    "answer": "Spray with recommended fungicides like mancozeb or chlorothalonil as soon as possible.",
+    "question": "What should I do if I see late blight symptoms on my potatoes?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Potato_Late_blight",
+    "answer": "Monitor weather, remove infected plants, and rotate with non-host crops next season.",
+    "question": "How do I manage late blight throughout the season?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Bacterial_Leaf_Blight",
+    "answer": "That’s bacterial leaf blight, a common rice disease caused by Xanthomonas bacteria that affects yield and plant health.",
+    "question": "My rice plants have yellowing leaf tips that spread downward with water-soaked streaks-what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Rice_Bacterial_Leaf_Blight",
+    "answer": "It is caused by a bacterium called Xanthomonas oryzae pv. oryzae.",
+    "question": "What causes bacterial leaf blight in my rice crop?",
+    "context": "cause"
+  },
+  {
+    "tag": "Rice_Bacterial_Leaf_Blight",
+    "answer": "Plant resistant rice varieties and avoid applying too much nitrogen.",
+    "question": "How can I prevent bacterial leaf blight in rice?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Rice_Bacterial_Leaf_Blight",
+    "answer": "Use copper-based bactericides and manage irrigation carefully.",
+    "question": "What should I do when bacterial blight appears in my rice field?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Bacterial_Leaf_Blight",
+    "answer": "Practice crop rotation, clean equipment, and remove leftover plant debris.",
+    "question": "How do I manage bacterial blight over multiple rice seasons?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Brown_Spot",
+    "answer": "That’s brown spot, a fungal disease that affects both yield and grain quality.",
+    "question": "My rice plants have small brown spots with yellow halos on the leaves and grains-what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Rice_Brown_Spot",
+    "answer": "It is caused by a fungus named Bipolaris oryzae.",
+    "question": "What causes brown spot in rice?",
+    "context": "cause"
+  },
+  {
+    "tag": "Rice_Brown_Spot",
+    "answer": "Make sure to use balanced fertilizers and avoid drought stress.",
+    "question": "How can I prevent brown spot in my rice fields?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Rice_Brown_Spot",
+    "answer": "Apply recommended fungicides like propiconazole or tricyclazole.",
+    "question": "What should I do if brown spot appears on my rice leaves?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Brown_Spot",
+    "answer": "Use clean seeds, remove old straw, and rotate crops.",
+    "question": "How do I manage brown spot disease long-term?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Leaf_Blast",
+    "answer": "That’s rice leaf blast, a fungal disease that spreads rapidly in warm, humid weather.",
+    "question": "My rice leaves have diamond-shaped gray spots with dark edges-what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Rice_Leaf_Blast",
+    "answer": "It is caused by the fungus Magnaporthe oryzae.",
+    "question": "What causes rice leaf blast?",
+    "context": "cause"
+  },
+  {
+    "tag": "Rice_Leaf_Blast",
+    "answer": "Use resistant varieties, avoid overcrowding, and manage nitrogen levels.",
+    "question": "How can I prevent leaf blast in my rice field?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Rice_Leaf_Blast",
+    "answer": "Apply fungicides like tricyclazole during early disease stages.",
+    "question": "What should I do if rice blast symptoms appear?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Leaf_Blast",
+    "answer": "Remove crop residue, rotate crops, and monitor during wet conditions.",
+    "question": "How can I manage rice blast every season?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Leaf_Scald",
+    "answer": "That’s rice leaf scald.",
+    "question": "My rice plants have large water-soaked lesions that turn grayish brown and dry out-what disease is this?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Rice_Leaf_Scald",
+    "answer": "It is caused by the fungus Microdochium oryzae.",
+    "question": "What causes rice leaf scald?",
+    "context": "cause"
+  },
+  {
+    "tag": "Rice_Leaf_Scald",
+    "answer": "Plant with good spacing and ensure proper drainage to reduce moisture.",
+    "question": "How can I prevent rice leaf scald?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Rice_Leaf_Scald",
+    "answer": "Spray fungicides like carbendazim and monitor field conditions closely.",
+    "question": "What should I do if I see leaf scald in my rice field?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Leaf_Scald",
+    "answer": "Rotate crops, clean up straw and stubble, and avoid excess nitrogen.\n\n",
+    "question": "How do I manage leaf scald across cropping seasons?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Narrow brown spot appears as short, linear, brown lesions (2-10 mm long, 1-1.5 mm wide) on leaves, sheaths, pedicels, and glumes, often parallel to leaf veins. On susceptible varieties, lesions may enlarge, connect, and cause leaf necrosis.",
+    "question": "What are the symptoms of narrow brown spot on rice plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Narrow brown spot lesions are linear, brown, and parallel to veins, unlike the circular spots of brown spot or diamond-shaped lesions of blast disease. On resistant varieties, lesions are smaller, darker, and less severe.",
+    "question": "How can I distinguish narrow brown spot from other rice leaf diseases?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "It’s caused by the fungus Sphaerulina oryzina (syn. Cercospora janseana, Cercospora oryzae), which spreads via airborne spores or infected plant debris. The disease is favored by potassium-deficient soils and temperatures of 25-28°C.",
+    "question": "What causes narrow brown spot in rice?",
+    "context": "cause"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "The disease typically emerges at the heading stage and worsens as plants mature, due to increased susceptibility during panicle initiation and favorable conditions like high humidity and warm temperatures.",
+    "question": "Why does narrow brown spot appear late in the rice growing season?",
+    "context": "cause"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Use resistant varieties, remove weeds and volunteer rice to eliminate alternate hosts, apply balanced fertilization with adequate potassium, and plow crop residues after harvest to reduce fungal survival.",
+    "question": "How can I prevent narrow brown spot in my rice field?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Spray propiconazole at 0.5-1.0 L/ha during booting to heading stages. Alternatively, carbendazim (500 g/ha) or mancozeb (2 kg/ha) can be applied, ensuring good coverage on dry days.",
+    "question": "What fungicides are effective for controlling narrow brown spot on rice?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Use resistant rice varieties and ensure proper soil nutrition, especially potassium. Biological control with Trichoderma species has shown potential but is not widely available. No curative organic fungicides are currently effective.",
+    "question": "Are there non-chemical treatments for narrow brown spot in rice?",
+    "context": "organic_control"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Remove and destroy heavily infected plant debris, use certified disease-free seeds, apply propiconazole or carbendazim immediately, and rotate with non-host crops like legumes for at least one season.",
+    "question": "How should I manage a severe outbreak of narrow brown spot in my rice field?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Yes, it causes premature leaf death, premature grain ripening, and purplish-brown grain discoloration, reducing yield by up to 10-20% in severe cases and lowering milling recovery and market value.",
+    "question": "Can narrow brown spot affect rice yield and quality?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Rice_Narrow_Brown_Spot",
+    "answer": "Potassium deficiency weakens plant defenses, making rice more susceptible to fungal infection. Adequate potassium fertilization strengthens cell walls and reduces disease severity.",
+    "question": "How does potassium deficiency contribute to narrow brown spot?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Bacterial spot causes small, water-soaked spots on leaves, stems, and fruit, turning dark brown to black with yellow halos. Leaves may yellow and drop, and fruit lesions become raised and scabby.",
+    "question": "What are the signs of bacterial spot on tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Bacterial spot lesions have yellow halos and may ooze in wet conditions, while fungal spots (like early blight) often show concentric rings or grayish-white spores without the watery exudate.",
+    "question": "How can I differentiate bacterial spot from fungal diseases on tomatoes?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "It’s caused by Xanthomonas species, primarily Xanthomonas perforans, spread through rain splash, overhead irrigation, or contaminated tools/seeds. High humidity and warm temperatures (24-30°C) promote infection.",
+    "question": "What causes bacterial spot in tomatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Use disease-free seeds or transplants, avoid overhead watering, ensure proper plant spacing for air circulation, rotate crops with non-Solanaceae plants, and remove plant debris after harvest.",
+    "question": "How can I prevent bacterial spot on my tomato crop?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Apply copper-based bactericides (e.g., copper hydroxide at 1.5-2 kg/ha) or copper oxychloride (0.2-0.3%) every 7-10 days. Combine with mancozeb for better control, spraying on dry days.",
+    "question": "What treatments are effective for bacterial spot on tomatoes?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Some varieties, like ‘Plum Regal’ or ‘Mountain Merit,’ show partial resistance to specific Xanthomonas strains. Check with local agricultural extensions for resistant cultivars suited to your area.",
+    "question": "Are there resistant tomato varieties for bacterial spot?",
+    "context": "organic_control"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Remove and destroy severely infected plants, disinfect tools with a 10% bleach solution, avoid working in wet fields, apply copper-based sprays immediately, and rotate crops for 2-3 years with non-hosts.",
+    "question": "How do I manage a severe bacterial spot outbreak in my tomato field?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Yes, fruit lesions reduce marketability due to scabbing and cracking. Severe infections cause defoliation, reducing photosynthesis and yield by up to 30-50% in heavy outbreaks.",
+    "question": "Can bacterial spot affect tomato fruit quality and yield?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Wet conditions, especially rain or overhead irrigation, splash Xanthomonas bacteria onto plants, and high humidity aids bacterial entry through natural openings or wounds.",
+    "question": "How does wet weather contribute to bacterial spot spread?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Bacterial_Spot",
+    "answer": "Bacterial spot causes small, water-soaked spots on leaves, stems, and fruit, turning dark brown to black with yellow halos. Leaves may yellow and drop, and fruit lesions become raised and scabby.",
+    "question": "What are the signs of bacterial spot on tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Early blight appears as dark brown to black spots with concentric rings (“target spots”) on older leaves, often starting at the bottom. Spots enlarge, causing yellowing and leaf drop; stems and fruit may develop dark, sunken lesions.",
+    "question": "What are the symptoms of early blight on tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Early blight spots have concentric rings and lack yellow halos, unlike bacterial spot’s water-soaked lesions with yellow halos and oozing in wet conditions. Early blight is fungal, caused by Alternaria species.",
+    "question": "How can I distinguish early blight from bacterial spot on tomatoes?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "It’s caused by the fungus Alternaria solani, spread via spores in wind, rain, or infected plant debris. Warm (24-29°C), wet conditions, and high humidity favor its development.",
+    "question": "What causes early blight in tomatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Older, lower leaves are more susceptible due to higher humidity near the soil, greater exposure to fungal spores in debris, and reduced vigor compared to younger leaves.",
+    "question": "Why does early blight often affect older tomato leaves first?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Use resistant varieties, rotate crops with non-Solanaceae plants (2-3 years), remove and destroy plant debris, stake or trellis plants for better air circulation, and avoid overhead watering.",
+    "question": "How can I prevent early blight in my tomato crop?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Apply chlorothalonil (1.5-2 kg/ha) or mancozeb (2-2.5 kg/ha) every 7-10 days, starting at flowering. Azoxystrobin (0.5 L/ha) is also effective but alternate fungicides to prevent resistance. Spray on dry days.",
+    "question": "What fungicides are effective for controlling early blight on tomatoes?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Use resistant cultivars like ‘Defiant’ or ‘Iron Lady,’ mulch around plants to reduce spore splash, prune lower leaves to improve airflow, and apply biofungicides like Bacillus subtilis for partial control.",
+    "question": "Are there non-chemical methods to manage early blight in tomatoes?",
+    "context": "organic_control"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Remove and destroy heavily infected leaves and plants, apply chlorothalonil or azoxystrobin immediately, disinfect tools, improve field drainage, and rotate with non-host crops for at least two seasons.",
+    "question": "How should I manage a severe early blight outbreak in my tomato field?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Yes, severe defoliation reduces photosynthesis, leading to smaller, fewer fruits and yield losses of up to 30-40%. Fruit lesions cause sunken, unmarketable spots, lowering quality.",
+    "question": "Can early blight affect tomato yield and fruit quality?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Early_Blight",
+    "answer": "Rotating with non-host crops like legumes or grains reduces Alternaria spore buildup in soil and plant debris, breaking the disease cycle and lowering infection risk in subsequent seasons.",
+    "question": "How does crop rotation help prevent early blight in tomatoes?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Late blight causes irregular, water-soaked, grayish-green spots on leaves, turning dark brown to black. White, fuzzy mold appears on leaf undersides in wet conditions. Stems develop brown lesions, and fruits show greasy, brown, decayed areas.",
+    "question": "What are the symptoms of late blight on tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Late blight has irregular, water-soaked lesions with white mold on leaf undersides in humid conditions, while early blight shows concentric “target spots” without mold. Late blight spreads faster in cool, wet weather.",
+    "question": "How can I distinguish late blight from early blight on tomatoes?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "It’s caused by the oomycete Phytophthora infestans, spread via airborne spores, rain splash, or infected plant material (e.g., potato tubers). Cool (15-21°C), moist conditions promote rapid infection.",
+    "question": "What causes late blight in tomatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Phytophthora infestans produces abundant spores that spread via wind and water in cool, wet conditions. The pathogen can infect entire fields in days, especially if plants are densely spaced or poorly ventilated.",
+    "question": "Why does late blight spread so quickly in tomato fields?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Use disease-free seeds/transplants, remove nearby volunteer potatoes/tomatoes, ensure wide plant spacing for airflow, avoid overhead irrigation, and apply preventive fungicides in high-risk areas.",
+    "question": "How can I prevent late blight in my tomato crop?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Apply metalaxyl (0.5-1 kg/ha) or dimethomorph (0.5 kg/ha) every 7-10 days in wet weather. Chlorothalonil (1.5-2 kg/ha) can be used preventively. Alternate fungicides to avoid resistance and spray on dry days.",
+    "question": "What fungicides are effective for controlling late blight on tomatoes?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Use resistant varieties like ‘Mountain Magic’ or ‘Plum Regal,’ remove infected plant debris promptly, improve field drainage, and apply copper-based organic sprays (e.g., copper hydroxide) for partial control.",
+    "question": "Are there non-chemical methods to manage late blight in tomatoes?",
+    "context": "organic_control"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Immediately remove and destroy infected plants, apply metalaxyl or dimethomorph, disinfect tools with 10% bleach, avoid working in wet fields, and rotate with non-host crops (e.g., cereals) for 3-4 years.",
+    "question": "How should I manage a severe late blight outbreak in my tomato field?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Yes, it can destroy foliage and fruit rapidly, causing near-total yield loss (up to 100%) in severe cases. Infected fruits develop unmarketable, decayed lesions, drastically reducing quality.",
+    "question": "Can late blight affect tomato yield and fruit quality?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Late_Blight",
+    "answer": "Potatoes are a primary host for Phytophthora infestans. Infected potato tubers or volunteer plants harbor the pathogen, releasing spores that spread to nearby tomato fields, especially in wet conditions.",
+    "question": "How do nearby potato crops contribute to late blight in tomatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Leaf mold appears as pale green or yellowish spots on upper leaf surfaces, with grayish-white to purplish mold on leaf undersides. In severe cases, leaves turn yellow, wilt, and drop, and fruit yield may decrease.",
+    "question": "What are the symptoms of leaf mold on tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Leaf mold shows grayish-white to purplish mold on leaf undersides with yellowing above, while late blight has irregular, water-soaked lesions with white mold in wet conditions. Leaf mold is limited to leaves, not stems or fruit.",
+    "question": "How can I distinguish leaf mold from late blight on tomatoes?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "It’s caused by the fungus Fulvia fulva (syn. Cladosporium fulvum), spread via airborne spores or infected plant debris. High humidity (>85%) and moderate temperatures (20-25°C) promote its development, especially in greenhouses.",
+    "question": "What causes leaf mold in tomatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Greenhouses provide high humidity and limited air circulation, ideal for Fulvia fulva spore germination and spread. Poor ventilation and dense plant canopies exacerbate the disease.",
+    "question": "Why is leaf mold more common in greenhouse-grown tomatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Use resistant varieties, ensure good air circulation by spacing plants and pruning lower leaves, maintain humidity below 85% with ventilation or fans, avoid overhead watering, and remove plant debris.",
+    "question": "How can I prevent leaf mold in my tomato crop?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Apply chlorothalonil (1.5-2 kg/ha) or mancozeb (2-2.5 kg/ha) every 7-10 days, starting at early disease signs. Azoxystrobin (0.5 L/ha) is also effective; alternate fungicides to prevent resistance and spray on dry days.",
+    "question": "What fungicides are effective for controlling leaf mold on tomatoes?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Use resistant cultivars like ‘F1 Trust’ or ‘F1 Geronimo,’ increase ventilation in greenhouses, prune infected leaves early, and apply sulfur-based organic sprays for partial control. Maintain low humidity with proper irrigation.",
+    "question": "Are there non-chemical methods to manage leaf mold in tomatoes?",
+    "context": "organic_control"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Remove and destroy infected leaves, improve ventilation immediately, apply chlorothalonil or azoxystrobin, disinfect tools and greenhouse surfaces with 10% bleach, and avoid planting tomatoes in the same area for 1-2 years.",
+    "question": "How should I manage a severe leaf mold outbreak in my tomato field or greenhouse?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "Leaf mold primarily affects leaves, reducing photosynthesis and indirectly lowering fruit yield and quality. Fruit is rarely infected directly, but severe leaf loss can lead to smaller, fewer fruits.",
+    "question": "Can leaf mold affect tomato fruit directly?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Leaf_Mold",
+    "answer": "High humidity (>85%) promotes Fulvia fulva spore germination and fungal growth on leaf surfaces. Prolonged leaf wetness, especially in greenhouses, allows rapid disease spread.",
+    "question": "How does high humidity contribute to leaf mold in tomatoes?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Mosaic_Virus",
+    "answer": "Tomato Mosaic Virus (ToMV) is a highly contagious plant virus that poses a serious threat to tomato crops worldwide. It disrupts the plant's physiological processes, stunts growth, and significantly reduces fruit yield and quality. ToMV belongs to the same virus family as Tobacco Mosaic Virus (TMV) and can persist in plant debris, soil, and even on tools for extended periods. The virus is primarily transmitted through mechanical contact via hands, tools, contaminated seeds, or direct plant-to-plant interaction rather than by insect vectors.",
+    "question": "What is Tomato Mosaic Virus (ToMV)?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Mosaic_Virus",
+    "answer": "The most recognizable symptom of ToMV infection is the appearance of mosaic or mottled patterns on leaves areas of light and dark green patches. Infected leaves often become curled, distorted, or malformed, particularly on younger foliage. Infected plants exhibit stunted growth, poor flowering, and reduced fruit set. The fruits themselves may show yellow blotches, uneven ripening, or surface roughness, making them unsuitable for market. Early detection of these symptoms is essential to minimize spread and losses.",
+    "question": "What are the symptoms of ToMV infection in tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Mosaic_Virus",
+    "answer": "ToMV is transmitted mainly through mechanical means, unlike many other plant viruses that are spread by insects. The virus can be carried on workers' hands, gloves, or cutting tools that come into contact with infected plants and are then used on healthy ones. Contaminated seeds can also serve as a source of infection. Furthermore, ToMV is highly stable in the environment and can remain infectious in plant debris, soil, and surfaces for months. This makes hygiene and sanitation critically important in disease prevention.\n",
+    "question": "How is Tomato Mosaic Virus transmitted?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Mosaic_Virus",
+    "answer": "Unfortunately, there is currently no chemical treatment available to cure viral diseases in plants, including Tomato Mosaic Virus. Therefore, management of ToMV relies entirely on preventive measures and sanitation. Key steps include early detection and removal of infected plants, disinfection of tools and surfaces, destruction of crop residues after harvest, and crop rotation with non-solanaceous species. Using resistant or tolerant tomato varieties—if available—is also an effective long-term strategy to reduce disease impact.",
+    "question": " Is there a cure or treatment for ToMV?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Mosaic_Virus",
+    "answer": "Effective prevention of ToMV involves a combination of good agricultural practices. Start by using certified, virus-free seeds that have been properly treated. Maintain strict hygiene by sanitizing tools, hands, and gloves with disinfectants such as diluted bleach or alcohol-based solutions. Avoid smoking in or near tomato fields, as tobacco products may carry related viruses. Remove and destroy infected plants promptly to prevent further spread, and practice crop rotation to reduce virus buildup in the soil. Implementing these measures consistently can significantly lower the risk of ToMV outbreaks and support sustainable tomato production.\n",
+    "question": "How can farmers prevent Tomato Mosaic Virus effectively?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Septoria_Leaf_Spot",
+    "answer": "Septoria Leaf Spot is a fungal disease that affects tomato plants, caused by the pathogen Septoria lycopersici. It is one of the most common and destructive foliar diseases in tomato cultivation. The fungus primarily targets the lower, older leaves first, leading to premature leaf drop and severely impacting the plant’s ability to photosynthesize, which in turn reduces fruit yield and quality. This disease thrives in warm, wet conditions and spreads rapidly under poor air circulation and prolonged leaf wetness.",
+    "question": "What is Septoria Leaf Spot and what causes it in tomato plants?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Septoria_Leaf_Spot",
+    "answer": "The disease is characterized by numerous small, circular spots on the leaves, typically with gray or tan centers and dark brown margins. These spots are usually 2–5 mm in diameter and may contain tiny black fungal fruiting bodies (pycnidia) in the center, which are visible with a hand lens. The infection usually begins on the lower leaves and progresses upward, eventually causing widespread yellowing and leaf drop, leaving the plant defoliated from the bottom up. Importantly, the disease rarely affects fruits directly but can severely limit their development.\n",
+    "question": " What are the visual symptoms of Septoria Leaf Spot?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Septoria_Leaf_Spot",
+    "answer": "The fungus spreads through water splashes, rain, irrigation, and contaminated tools or hands. Spores can also be dispersed by wind over short distances. The primary sources of inoculum include infected plant debris, nearby infected plants, and volunteer tomato plants that were not properly removed after previous seasons. Conditions with high humidity, overhead watering, dense planting, and lack of airflow create an ideal environment for the disease to develop and spread quickly.\n",
+    "question": "How does Septoria Leaf Spot spread in tomato crops?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Septoria_Leaf_Spot",
+    "answer": "Management of Septoria Leaf Spot involves a combination of cultural practices and chemical control. Begin by removing infected leaves as soon as symptoms appear and improving air circulation through proper spacing and pruning. Avoid overhead irrigation to keep foliage dry. Fungicides containing active ingredients such as chlorothalonil, mancozeb, copper-based products, or azoxystrobin can be applied as preventive or early curative measures. Always rotate fungicides with different modes of action to prevent resistance. Sanitation and crop rotation are key to long-term control.",
+    "question": "What are effective treatment options for managing Septoria Leaf Spot?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Septoria_Leaf_Spot",
+    "answer": "To prevent Septoria Leaf Spot, start with crop rotation, avoiding planting tomatoes or related species (e.g., potatoes, eggplants) in the same location for at least 2–3 years. Use disease-free seeds and transplants, and destroy all plant debris after harvest to reduce overwintering spores. Installing mulch at the base of plants can help minimize soil splashing. Regular monitoring and early detection are essential, and integrating resistant varieties if available can further reduce disease pressure. Good field hygiene and smart irrigation practices are the foundation of successful prevention.",
+    "question": "How can Septoria Leaf Spot be prevented in future growing seasons?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Spider_Mites",
+    "answer": "Spider mites, particularly the two-spotted spider mite (Tetranychus urticae), are tiny arachnid pests that can cause significant damage to tomato plants. These mites feed by piercing plant cells and sucking out their contents, leading to stippling, yellowing, and drying of leaves. Under heavy infestations, the leaves may curl, die, and drop prematurely. In addition, spider mites produce fine webbing on the undersides of leaves, which can further hinder photosynthesis and signal a severe infestation. If left unmanaged, they can severely reduce plant vigor and yield.\n",
+    "question": " What are spider mites and why are they harmful to tomato plants?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Spider_Mites",
+    "answer": "Early signs include tiny yellow or white speckles on the upper surface of leaves, known as stippling. As the infestation progresses, leaves may become bronzed, dry, or scorched, and begin to fall off. If you look closely, especially on the undersides of leaves, you may see fine silk webbing and even the mites themselves—small, red or yellowish dots moving slowly. The presence of webbing is a strong indicator of an advanced infestation, and plants may appear dusty or dirty as a result of mite activity and debris.",
+    "question": "What are the early signs of a spider mite infestation on tomatoes?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Spider_Mites",
+    "answer": "Spider mites spread primarily through wind, infested plant materials, and human or equipment movement. Hot, dry, and dusty conditions are ideal for spider mite outbreaks, as these pests thrive in low humidity and high temperatures. Overuse of certain insecticides that kill natural predators (like ladybugs or predatory mites) can also lead to population explosions. Dense planting and drought stress further increase plant susceptibility. Once established, mites reproduce rapidly, with a single female capable of laying hundreds of eggs in her short lifespan.",
+    "question": "How do spider mites spread and what conditions favor their development?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Spider_Mites",
+    "answer": "Effective control requires an integrated approach. First, monitor regularly and isolate or remove heavily infested plants. Increase humidity if possible, as spider mites dislike moist environments. Use a strong stream of water to wash off mites from the undersides of leaves. Biologically, you can release predatory mites such as Phytoseiulus persimilis to control populations naturally. In severe cases, apply miticides or insecticidal soaps specifically labeled for spider mites, rotating chemical classes to avoid resistance. Avoid broad-spectrum insecticides that can kill beneficial predators.\n",
+    "question": " What are effective methods to control spider mites on tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Spider_Mites",
+    "answer": "Prevention starts with maintaining plant health through proper irrigation, fertilization, and spacing to reduce plant stress. Avoid creating dry and dusty conditions around the crop. Use reflective mulches to deter mite movement and regularly inspect the undersides of leaves. Encourage biological control agents, such as lady beetles, predatory mites, and lacewings, by minimizing pesticide use and providing habitat. Sanitize tools and hands after handling infested plants to prevent spread. Implementing these preventive strategies helps reduce the risk of serious outbreaks and supports sustainable tomato production.",
+    "question": " How can spider mite infestations be prevented in tomato crops?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Target_Spot",
+    "answer": "Target Spot is a fungal disease caused primarily by Corynespora cassiicola. It affects the leaves, stems, and fruits of tomato plants, leading to defoliation and fruit blemishes that reduce both yield and marketability. The disease is named \"Target Spot\" because the leaf lesions often show concentric rings, resembling a target. The pathogen thrives in warm, humid environments and can be especially problematic in greenhouses or dense plantings with poor air circulation.",
+    "question": "What is Target Spot and what causes it in tomato plants?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Target_Spot",
+    "answer": "Symptoms usually begin as small, dark brown spots on older leaves near the bottom of the plant. These spots expand over time and develop a concentric ring pattern a hallmark of Target Spot. A yellow halo may surround the lesions. As the disease progresses, affected leaves turn yellow and drop prematurely, starting from the bottom and moving upward. In severe cases, fruit lesions may also appear, which can lead to cracking and secondary infections by other pathogens.\n",
+    "question": " What are the typical symptoms of Target Spot on tomato plants?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Target_Spot",
+    "answer": "Target Spot spreads primarily via windborne spores, water splashes, and contaminated equipment or hands. The pathogen can survive on infected plant debris and volunteer hosts between growing seasons. Conditions that favor its development include high humidity, leaf wetness for extended periods, and temperatures between 25–30°C . Dense canopies and overhead irrigation further increase risk by reducing airflow and promoting moisture retention on leaves.\n\n",
+    "question": "How does Target Spot spread and what conditions favor the disease?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Target_Spot",
+    "answer": "Effective management involves a combination of cultural, biological, and chemical methods. Remove infected plant parts promptly and avoid overhead irrigation to reduce leaf wetness. Improve air circulation through plant spacing and pruning. Apply preventive fungicides such as those containing chlorothalonil, mancozeb, or copper-based compounds when environmental conditions are favorable for disease development. Use crop rotation and resistant varieties when available, and always rotate fungicide modes of action to prevent resistance buildup.",
+    "question": "What are the best practices for managing Target Spot in tomato crops?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Target_Spot",
+    "answer": "Prevention begins with field sanitation, including the complete removal of plant debris after harvest. Implement crop rotation with non-host plants to reduce inoculum buildup in the soil. Use drip irrigation instead of overhead watering and apply mulch to reduce soil splashing. Select disease-free transplants and avoid working in fields when foliage is wet. Monitor the crop regularly and apply fungicides preventively in high-risk periods. Keeping plants healthy and stress-free is key to preventing severe outbreaks of Target Spot.",
+    "question": " How can farmers prevent Target Spot in future growing seasons?",
+    "context": "prevention"
+  },
+  {
+    "tag": "Tomato_Yellow_Leaf_CurlVirus",
+    "answer": "Tomato Yellow Leaf Curl Virus (TYLCV) is a viral disease that severely affects tomato production worldwide. It is transmitted by the silverleaf whitefly (Bemisia tabaci), which acts as a vector by feeding on infected plants and spreading the virus to healthy ones. The virus cannot spread through direct contact between plants or seeds it relies entirely on the whitefly for transmission. Once a plant is infected, it cannot be cured, making early prevention and vector control critical.",
+    "question": "What is Tomato Yellow Leaf Curl Virus (TYLCV) and how is it transmitted?",
+    "context": "cause"
+  },
+  {
+    "tag": "Tomato_Yellow_Leaf_CurlVirus",
+    "answer": "Typical symptoms of TYLCV include yellowing and upward curling of young leaves, stunted growth, and a general lack of vigor. The internodes become shortened, giving the plant a bushy appearance. Flower drop is common, leading to significantly reduced fruit set and yield. In severe cases, plants may appear almost entirely yellow and fail to produce any marketable fruit, particularly if infection occurs early in the growing season.",
+    "question": " What are the symptoms of TYLCV on tomato plants?",
+    "context": "symptom"
+  },
+  {
+    "tag": "Tomato_Yellow_Leaf_CurlVirus",
+    "answer": "TYLCV can cause up to 100% yield loss in highly susceptible cultivars, especially if infection occurs during early vegetative stages. Infected plants produce fewer and smaller fruits, and often drop flowers before fruit set. Even if some fruit develops, it may be delayed, uneven in size, and unmarketable due to poor plant health. Yield loss depends on factors such as the timing of infection, whitefly pressure, and the resistance level of the cultivar.",
+    "question": "How can TYLCV affect tomato yield and quality?",
+    "context": "follow_up"
+  },
+  {
+    "tag": "Tomato_Yellow_Leaf_CurlVirus",
+    "answer": "Since TYLCV is incurable once a plant is infected, management focuses on preventing infection and controlling whiteflies. Use TYLCV-resistant or tolerant tomato varieties whenever possible. Employ physical barriers like insect netting, yellow sticky traps, and row covers to reduce whitefly populations. Avoid planting near older tomato fields or weeds that may harbor whiteflies. Apply insecticides strategically to control whitefly vectors especially during early plant growth stages. Integrated Pest Management (IPM) practices, including regular monitoring and biological control, are essential for sustainable control.",
+    "question": "What strategies can be used to manage and control TYLCV?",
+    "context": "treatment"
+  },
+  {
+    "tag": "Tomato_Yellow_Leaf_CurlVirus",
+    "answer": "Yes, TYLCV prevention begins with a proactive, integrated approach. Choose certified virus-free seedlings and plant resistant cultivars suited for your region. Practice crop rotation and remove crop residues and nearby host weeds to eliminate potential virus reservoirs. Time your planting to avoid peak whitefly activity, and maintain field hygiene by cleaning tools and equipment. Use biological controls such as Encarsia formosa (a parasitic wasp) to help reduce whitefly populations naturally. Early action and continuous monitoring are key to keeping TYLCV under control season after season.",
+    "question": "Can TYLCV be prevented in future crops, and how?",
+    "context": "prevention"
+  }
+]
