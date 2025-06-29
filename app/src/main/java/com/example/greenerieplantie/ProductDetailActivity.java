@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 import adapters.FeedbackAdapter;
+import adapters.ProductImageSliderAdapter;
 import connectors.CartConnector;
 import models.Cart;
 import models.Feedback;
@@ -51,6 +53,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     private TextView productGrowthPeriodTextView;
     private TextView productSellingAmountTextView;
     private LinearLayout discountBubbleLayout;
+    private ViewPager2 imageSlider;
 
     private RecyclerView rvFeedback;
     private FeedbackAdapter feedbackAdapter;
@@ -68,9 +71,10 @@ public class ProductDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+        imageSlider = findViewById(R.id.product_image_slider);
 
         // Ánh xạ view
-        productImageView = findViewById(R.id.product_detail_image);
+//        productImageView = findViewById(R.id.product_detail_image);
         backButton = findViewById(R.id.product_detail_back_button);
         productNameTextView = findViewById(R.id.product_detail_name);
         productCategoryTextView = findViewById(R.id.product_detail_category);
@@ -127,7 +131,12 @@ public class ProductDetailActivity extends AppCompatActivity {
                             String water = String.valueOf(snapshot.child("water_demand").getValue());
                             String cond = String.valueOf(snapshot.child("conditions").getValue());
                             String rating = String.valueOf(snapshot.child("product_rating").getValue());
-
+                            String name_vi = String.valueOf(snapshot.child("product_name_vi").getValue());
+                            String description_vi = String.valueOf(snapshot.child("product_description_vi").getValue());
+                            String instruction_vi = String.valueOf(snapshot.child("product_instruction_vi").getValue());
+                            String level_vi = String.valueOf(snapshot.child("product_level_vi").getValue());
+                            String water_vi = String.valueOf(snapshot.child("water_demand_vi").getValue());
+                            String cond_vi = String.valueOf(snapshot.child("conditions_vi").getValue());
                             double price = 0;
                             try {
                                 Object rawPrice = snapshot.child("product_price").getValue();
@@ -179,7 +188,12 @@ public class ProductDetailActivity extends AppCompatActivity {
                             currentProduct.setProduct_previous_price(prevPrice);
                             currentProduct.setProduct_discount(discount);
                             currentProduct.setProduct_stock(stock);
-
+                            currentProduct.setProduct_name_vi(name_vi);
+                            currentProduct.setProduct_description_vi(description_vi);
+                            currentProduct.setProduct_instruction_vi(instruction_vi);
+                            currentProduct.setProduct_level_vi(level_vi);
+                            currentProduct.setWater_demand_vi(water_vi);
+                            currentProduct.setConditions_vi(cond_vi);
                             Map<String, String> images = new HashMap<>();
                             DataSnapshot imageSnap = snapshot.child("product_images");
 
@@ -206,25 +220,21 @@ public class ProductDetailActivity extends AppCompatActivity {
                     }
                 });
     }
-    private void showProductDetail(Product product) {
-        if (product.getProduct_images() != null && product.getProduct_images().get("image1") != null) {
-            Glide.with(this)
-                    .load(product.getProduct_images().get("image1"))
-                    .placeholder(R.mipmap.ic_launcher)
-                    .error(R.mipmap.ic_launcher)
-                    .into(productImageView);
+
+    private void setupImageSlider(Product product) {
+        if (product.getProduct_images() != null && !product.getProduct_images().isEmpty()) {
+            List<String> imageList = new ArrayList<>(product.getProduct_images().values());
+            ProductImageSliderAdapter sliderAdapter = new ProductImageSliderAdapter(imageList);
+            imageSlider.setAdapter(sliderAdapter);
         } else {
             productImageView.setImageResource(R.mipmap.ic_launcher);
         }
-
-        productNameTextView.setText(product.getProduct_name());
-        productCategoryTextView.setText(product.getCategory_id());
-        setCategoryIcon(product.getCategory_id());
-
-        productCurrentPriceTextView.setText("VND " + String.format("%s %,.0f", getString( R.string.currency_unit_vnd), product.getProduct_price()));
+    }
+    private void displayPricing(Product product) {
+        productCurrentPriceTextView.setText(String.format("%s %,.0f", getString(R.string.currency_unit_vnd), product.getProduct_price()));
 
         if (product.getProduct_discount() > 0) {
-            productOriginalPriceTextView.setText( "VND " + String.format("%s %,.0f", getString(R.string.currency_unit_vnd_bold), product.getProduct_previous_price()));
+            productOriginalPriceTextView.setText(String.format("%s %,.0f", getString(R.string.currency_unit_vnd_bold), product.getProduct_previous_price()));
             productOriginalPriceTextView.setPaintFlags(productOriginalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             productOriginalPriceTextView.setVisibility(View.VISIBLE);
 
@@ -234,17 +244,68 @@ public class ProductDetailActivity extends AppCompatActivity {
             productOriginalPriceTextView.setVisibility(View.GONE);
             discountBubbleLayout.setVisibility(View.GONE);
         }
-
-        productDescriptionTextView.setText(product.getProduct_description());
-        productLevelTextView.setText(product.getProduct_level());
-        productWaterTextView.setText(product.getWater_demand());
-        productSpecialConditionsTextView.setText(product.getConditions());
-        productGrowthPeriodTextView.setText(product.getProduct_instruction());
+    }
+    private void displayLocalizedInfo(Product product) {
+        productNameTextView.setText(product.getLocalizedProductName(this));
+        productDescriptionTextView.setText(product.getLocalizedProductDescription(this));
+        productLevelTextView.setText(product.getLocalizedProductLevel(this));
+        productWaterTextView.setText(product.getLocalizedWaterDemand(this));
+        productSpecialConditionsTextView.setText(product.getLocalizedConditions(this));
+        productGrowthPeriodTextView.setText(product.getLocalizedProductInstruction(this));
         productSellingAmountTextView.setText(product.getProduct_stock() + " in stock");
-
+    }
+    private void setupActionButtons() {
         btnAddToCart.setOnClickListener(v -> handleAddToCart());
         btnBuyNow.setOnClickListener(v -> handleBuyNow());
     }
+    private void showProductDetail(Product product) {
+        setupImageSlider(product);
+        productCategoryTextView.setText(product.getCategory_id());
+        setCategoryIcon(product.getCategory_id());
+
+        displayPricing(product);
+        displayLocalizedInfo(product);
+        setupActionButtons();
+    }
+
+//
+//    private void showProductDetail(Product product) {
+//        if (product.getProduct_images() != null && !product.getProduct_images().isEmpty()) {
+//            List<String> imageList = new ArrayList<>(product.getProduct_images().values());
+//            ProductImageSliderAdapter sliderAdapter = new ProductImageSliderAdapter(imageList);
+//            imageSlider.setAdapter(sliderAdapter);
+//        } else {
+//            productImageView.setImageResource(R.mipmap.ic_launcher);
+//        }
+//
+//        productNameTextView.setText(product.getProduct_name());
+//        productCategoryTextView.setText(product.getCategory_id());
+//        setCategoryIcon(product.getCategory_id());
+//
+//        productCurrentPriceTextView.setText( String.format("%s %,.0f", getString( R.string.currency_unit_vnd), product.getProduct_price()));
+//
+//        if (product.getProduct_discount() > 0) {
+//            productOriginalPriceTextView.setText(  String.format("%s %,.0f", getString(R.string.currency_unit_vnd_bold), product.getProduct_previous_price()));
+//            productOriginalPriceTextView.setPaintFlags(productOriginalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+//            productOriginalPriceTextView.setVisibility(View.VISIBLE);
+//
+//            productDiscountTextView.setText(product.getProduct_discount() + "%");
+//            discountBubbleLayout.setVisibility(View.VISIBLE);
+//        } else {
+//            productOriginalPriceTextView.setVisibility(View.GONE);
+//            discountBubbleLayout.setVisibility(View.GONE);
+//        }
+//
+//        productDescriptionTextView.setText(product.getProduct_description());
+//        productLevelTextView.setText(product.getProduct_level());
+//        productWaterTextView.setText(product.getWater_demand());
+//        productSpecialConditionsTextView.setText(product.getConditions());
+//        productGrowthPeriodTextView.setText(product.getProduct_instruction());
+//        productSellingAmountTextView.setText(product.getProduct_stock() + " in stock");
+//
+//        btnAddToCart.setOnClickListener(v -> handleAddToCart());
+//        btnBuyNow.setOnClickListener(v -> handleBuyNow());
+//    }
 
     private void handleAddToCart() {
         SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);

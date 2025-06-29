@@ -43,6 +43,13 @@ public class ProductConnector {
                         String water = String.valueOf(snapshot.child("water_demand").getValue());
                         String cond = String.valueOf(snapshot.child("conditions").getValue());
                         String rating = String.valueOf(snapshot.child("product_rating").getValue());
+// Load tiếng Việt nếu có
+                        String name_vi = String.valueOf(snapshot.child("product_name_vi").getValue());
+                        String description_vi = String.valueOf(snapshot.child("product_description_vi").getValue());
+                        String instruction_vi = String.valueOf(snapshot.child("product_instruction_vi").getValue());
+                        String level_vi = String.valueOf(snapshot.child("product_level_vi").getValue());
+                        String water_vi = String.valueOf(snapshot.child("water_demand_vi").getValue());
+                        String cond_vi = String.valueOf(snapshot.child("conditions_vi").getValue());
 
                         // Parse số an toàn
                         double price = 0.0;
@@ -103,6 +110,12 @@ public class ProductConnector {
                                 price, prevPrice, discount, stock,
                                 level, water, cond, rating, reviews, images
                         );
+                        product.setProduct_name_vi(name_vi);
+                        product.setProduct_description_vi(description_vi);
+                        product.setProduct_instruction_vi(instruction_vi);
+                        product.setProduct_level_vi(level_vi);
+                        product.setWater_demand_vi(water_vi);
+                        product.setConditions_vi(cond_vi);
                         productList.add(product);
                     } catch (Exception e) {
                         Log.e("ProductConnector", "Parse error: " + e.getMessage());

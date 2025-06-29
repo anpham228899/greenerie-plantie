@@ -3,6 +3,7 @@ package adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +45,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
 
-        holder.productName.setText(product.getProduct_name());
-        holder.tv_origin.setText(product.getProduct_instruction()); // hoặc getOrigin() nếu bạn có field đó
+        holder.productName.setText(product.getLocalizedProductName(holder.itemView.getContext()));
+        String lang = holder.itemView.getContext()
+                .getSharedPreferences("LanguagePrefs", Context.MODE_PRIVATE)
+                .getString("language", "en");
+
+        Log.d("LANG_CHECK", "Current lang: " + lang);
+        Log.d("NAME_CHECK", "Hiển thị: " + product.getLocalizedProductName(holder.itemView.getContext()));
+
+        holder.tv_origin.setText(product.getLocalizedProductInstruction(holder.itemView.getContext()));
+
 
         String category = product.getCategory_id();
         if (category != null && !category.isEmpty()) {
@@ -54,10 +63,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             holder.imgCategoryIcon.setImageResource(R.mipmap.ic_launcher);
         }
 
-        holder.tv_price.setText( String.format("%,.0f", product.getProduct_price()));
+        holder.tv_price.setText( String.format("%,.0f VND", product.getProduct_price()));
 
         if (product.getProduct_discount() > 0) {
-            holder.tv_original_price.setText( String.format("%,.0f", product.getProduct_previous_price()));
+            holder.tv_original_price.setText( String.format("%,.0f VND", product.getProduct_previous_price()));
             holder.tv_original_price.setPaintFlags(holder.tv_original_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.tv_original_price.setVisibility(View.VISIBLE);
         } else {

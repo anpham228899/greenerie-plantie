@@ -51,6 +51,9 @@ public class ChatbotActivity extends AppCompatActivity {
 
         copyAssetsToGallery();
 
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_chatbot);
+        bottomNav.setSelectedItemId(R.id.nav_chatbot);
         chatAdapter = new ChatAdapter(new ArrayList<>());
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerView.setAdapter(chatAdapter);
@@ -82,9 +85,6 @@ public class ChatbotActivity extends AppCompatActivity {
                 runOnUiThread(() -> Toast.makeText(this, "Data Initialization Failed", Toast.LENGTH_SHORT).show());
             }
         });
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        NavMenuActivity.setupNavMenu(bottomNav, this, R.id.nav_chatbot);
-        bottomNav.setSelectedItemId(R.id.nav_chatbot);
 
         binding.imgSendButton.setOnClickListener(v -> {
             if (!isReady) {

@@ -37,7 +37,7 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Orde
 
         try {
             double price = Double.parseDouble(orderItem.getPrice());
-            holder.productPrice.setText(String.format("%,.0f đ", price));
+            holder.productPrice.setText(String.format(" %,.0f VND", price));
         } catch (Exception e) {
             holder.productPrice.setText(orderItem.getPrice());
         }

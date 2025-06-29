@@ -17,13 +17,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/product_detail_image"
+<!--            <ImageView-->
+<!--                android:id="@+id/product_detail_image"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="365dp"-->
+<!--                android:contentDescription="@string/product_image_description"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:src="@mipmap/img_homepage_red_apple" />-->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/product_image_slider"
                 android:layout_width="match_parent"
-                android:layout_height="365dp"
-                android:contentDescription="@string/product_image_description"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/img_homepage_red_apple" />
+                android:layout_height="365dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -159,7 +163,7 @@
 
                         <ImageView
                             android:id="@+id/product_category_icon"
-                            android:layout_width="16dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="16dp"
                             android:layout_marginEnd="4dp"
                             android:src="@mipmap/ic_launcher" />
@@ -194,15 +198,6 @@
                         android:paddingEnd="8dp">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/currency_unit_vnd"
-                            android:textAlignment="textEnd"
-                            android:textColor="#FFA500"
-                            android:textSize="8sp" />
-
-                        <TextView
                             android:id="@+id/product_detail_original_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -219,15 +214,6 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingEnd="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="2dp"
-                            android:text="@string/currency_unit_vnd_bold"
-                            android:textColor="#90C447"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/product_detail_current_price"

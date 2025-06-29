@@ -172,9 +172,9 @@ public class ProductActivity extends AppCompatActivity {
             boolean matchesCategory = currentCategoryFilter.equals("All")
                     || product.getCategory_id().equalsIgnoreCase(currentCategoryFilter);
 
+            String localizedName = product.getLocalizedProductName(this);
             boolean matchesSearch = currentSearchQuery.isEmpty()
-                    || product.getProduct_name().toLowerCase(Locale.getDefault()).contains(currentSearchQuery.toLowerCase(Locale.getDefault()))
-                    || (product.getCategory_id() != null && product.getCategory_id().toLowerCase(Locale.getDefault()).contains(currentSearchQuery.toLowerCase(Locale.getDefault())));
+                    || localizedName.toLowerCase(Locale.getDefault()).contains(currentSearchQuery.toLowerCase(Locale.getDefault()));
 
             if (matchesCategory && matchesSearch) {
                 filteredList.add(product);
@@ -184,10 +184,10 @@ public class ProductActivity extends AppCompatActivity {
         String sortBy = spinnerSort.getSelectedItem().toString();
         switch (sortBy) {
             case "Name (A-Z)":
-                Collections.sort(filteredList, Comparator.comparing(Product::getProduct_name));
+                Collections.sort(filteredList, Comparator.comparing(p -> p.getLocalizedProductName(this)));
                 break;
             case "Name (Z-A)":
-                Collections.sort(filteredList, (p1, p2) -> p2.getProduct_name().compareTo(p1.getProduct_name()));
+                Collections.sort(filteredList, (p1, p2) -> p2.getLocalizedProductName(this).compareTo(p1.getLocalizedProductName(this)));
                 break;
             case "Price (Low to High)":
                 Collections.sort(filteredList, Comparator.comparingDouble(Product::getProduct_price));
