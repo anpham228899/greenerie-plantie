@@ -128,7 +128,6 @@
                     android:id="@+id/checkbox_remember_me"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/green_primary"
                     android:text="@string/cb_remember_me"
                     android:textColor="#000000"
                     android:textSize="14sp" />

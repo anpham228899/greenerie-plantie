@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    android:padding="16dp">
+    >
 
 
     <LinearLayout
@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_bar"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
 
         <TextView
@@ -129,7 +130,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-16dp"
         android:background="@color/white"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/green_primary"
@@ -139,7 +139,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        android:padding="3dp"/>
 
 </RelativeLayout>
 
