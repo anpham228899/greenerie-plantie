@@ -52,8 +52,7 @@
             android:exported="false" />
         <activity
             android:name=".HomepageActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".PlantNewsActivity"
             android:exported="false" />
