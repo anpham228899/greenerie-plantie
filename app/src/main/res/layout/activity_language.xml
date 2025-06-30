@@ -79,7 +79,7 @@
                         android:id="@+id/rzob5u1usiy8"
                         android:layout_width="40dp"
                         android:layout_height="20dp"
-                        android:orientation="vertical"></LinearLayout>
+                        android:orientation="vertical" />
                 </LinearLayout>
 
                 <View

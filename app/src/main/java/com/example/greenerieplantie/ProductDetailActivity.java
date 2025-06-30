@@ -41,7 +41,6 @@ public class ProductDetailActivity extends AppCompatActivity {
     private ImageView productImageView;
     private ImageView backButton;
     private TextView productNameTextView;
-    private TextView productCategoryTextView;
     private ImageView productCategoryIcon;
     private TextView productOriginalPriceTextView;
     private TextView productCurrentPriceTextView;
@@ -73,11 +72,8 @@ public class ProductDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_detail);
         imageSlider = findViewById(R.id.product_image_slider);
 
-        // Ánh xạ view
-//        productImageView = findViewById(R.id.product_detail_image);
         backButton = findViewById(R.id.product_detail_back_button);
         productNameTextView = findViewById(R.id.product_detail_name);
-        productCategoryTextView = findViewById(R.id.product_detail_category);
         productCategoryIcon = findViewById(R.id.product_category_icon);
         productOriginalPriceTextView = findViewById(R.id.product_detail_original_price);
         productCurrentPriceTextView = findViewById(R.id.product_detail_current_price);
@@ -260,53 +256,12 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
     private void showProductDetail(Product product) {
         setupImageSlider(product);
-        productCategoryTextView.setText(product.getCategory_id());
         setCategoryIcon(product.getCategory_id());
 
         displayPricing(product);
         displayLocalizedInfo(product);
         setupActionButtons();
     }
-
-//
-//    private void showProductDetail(Product product) {
-//        if (product.getProduct_images() != null && !product.getProduct_images().isEmpty()) {
-//            List<String> imageList = new ArrayList<>(product.getProduct_images().values());
-//            ProductImageSliderAdapter sliderAdapter = new ProductImageSliderAdapter(imageList);
-//            imageSlider.setAdapter(sliderAdapter);
-//        } else {
-//            productImageView.setImageResource(R.mipmap.ic_launcher);
-//        }
-//
-//        productNameTextView.setText(product.getProduct_name());
-//        productCategoryTextView.setText(product.getCategory_id());
-//        setCategoryIcon(product.getCategory_id());
-//
-//        productCurrentPriceTextView.setText( String.format("%s %,.0f", getString( R.string.currency_unit_vnd), product.getProduct_price()));
-//
-//        if (product.getProduct_discount() > 0) {
-//            productOriginalPriceTextView.setText(  String.format("%s %,.0f", getString(R.string.currency_unit_vnd_bold), product.getProduct_previous_price()));
-//            productOriginalPriceTextView.setPaintFlags(productOriginalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-//            productOriginalPriceTextView.setVisibility(View.VISIBLE);
-//
-//            productDiscountTextView.setText(product.getProduct_discount() + "%");
-//            discountBubbleLayout.setVisibility(View.VISIBLE);
-//        } else {
-//            productOriginalPriceTextView.setVisibility(View.GONE);
-//            discountBubbleLayout.setVisibility(View.GONE);
-//        }
-//
-//        productDescriptionTextView.setText(product.getProduct_description());
-//        productLevelTextView.setText(product.getProduct_level());
-//        productWaterTextView.setText(product.getWater_demand());
-//        productSpecialConditionsTextView.setText(product.getConditions());
-//        productGrowthPeriodTextView.setText(product.getProduct_instruction());
-//        productSellingAmountTextView.setText(product.getProduct_stock() + " in stock");
-//
-//        btnAddToCart.setOnClickListener(v -> handleAddToCart());
-//        btnBuyNow.setOnClickListener(v -> handleBuyNow());
-//    }
-
     private void handleAddToCart() {
         SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
         String userId = prefs.getString("user_uid", null);
@@ -346,8 +301,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     private void handleBuyNow() {
         if (currentProduct != null) {
             Intent intent = new Intent(ProductDetailActivity.this, PaymentActivity.class);
-            intent.putExtra("product_id", currentProduct.getProduct_id()); // ✅ gửi product_id
-            intent.putExtra("buy_now", true); // ✅ gửi cờ mua ngay
+            intent.putExtra("product_id", currentProduct.getProduct_id());
+            intent.putExtra("buy_now", true);
             startActivity(intent);
         } else {
             Toast.makeText(this, "Cannot buy: Product data is missing.", Toast.LENGTH_SHORT).show();
@@ -377,43 +332,36 @@ public class ProductDetailActivity extends AppCompatActivity {
         fullFeedbackList.clear();
 
         fullFeedbackList.add(new Feedback(
-                R.mipmap.ic_launcher,
                 "Nguyễn Văn A", 5,
                 "Giao hàng nhanh chóng và sản phẩm đúng mô tả. Cây rất khỏe mạnh, rễ phát triển tốt. Tôi rất hài lòng với sản phẩm này.",
                 "20/06/2025"
         ));
         fullFeedbackList.add(new Feedback(
-                R.mipmap.ic_launcher,
                 "Trần Thị B", 4,
                 "Cây tươi tốt, đóng gói cẩn thận. Tuy nhiên, thời gian giao hàng hơi lâu một chút so với dự kiến. Hy vọng lần sau sẽ nhanh hơn.",
                 "18/06/2025"
         ));
         fullFeedbackList.add(new Feedback(
-                R.mipmap.ic_launcher,
                 "Lê Cảnh C", 5,
                 "Sản phẩm tuyệt vời! Cây con khỏe mạnh, dễ trồng và đã cho ra quả sau vài tháng. Sẽ giới thiệu cho bạn bè.",
                 "15/06/2025"
         ));
         fullFeedbackList.add(new Feedback(
-                R.mipmap.ic_launcher,
                 "Phạm Doãn D", 3,
                 "Cây đẹp nhưng vận chuyển làm rụng mất vài lá. Mong shop cải thiện khâu đóng gói.",
                 "14/06/2025"
         ));
         fullFeedbackList.add(new Feedback(
-                R.mipmap.ic_launcher,
                 "Vũ Thị E", 5,
                 "Mầm cây nảy nở rất nhanh, chất lượng đất tốt. Đáng tiền!",
                 "12/06/2025"
         ));
         fullFeedbackList.add(new Feedback(
-                R.mipmap.ic_launcher,
                 "Hoàng Đức F", 4,
                 "Cây sống khỏe. Tư vấn nhiệt tình. Sẽ ủng hộ tiếp.",
                 "10/06/2025"
         ));
         fullFeedbackList.add(new Feedback(
-                R.mipmap.ic_launcher,
                 "Mai Lan G", 5,
                 "Hàng chất lượng, giao đúng hẹn. Rất hài lòng.",
                 "08/06/2025"

@@ -35,7 +35,6 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
     public void onBindViewHolder(@NonNull FeedbackViewHolder holder, int position) {
         Feedback feedback = feedbackList.get(position);
 
-        holder.userImage.setImageResource(feedback.getUserImageResId());
         holder.authorName.setText(feedback.getAuthorName());
         holder.content.setText(feedback.getContent());
         holder.date.setText(feedback.getDate());
@@ -82,7 +81,6 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
 
         public FeedbackViewHolder(@NonNull View itemView) {
             super(itemView);
-            userImage = itemView.findViewById(R.id.feedback_user_image);
             authorName = itemView.findViewById(R.id.feedback_author_name);
             content = itemView.findViewById(R.id.feedback_content);
             date = itemView.findViewById(R.id.feedback_date);
