@@ -153,7 +153,7 @@ public class PaymentActivity extends AppCompatActivity {
                             item.setProduct_id(productId);
                             item.setProduct_name(String.valueOf(snapshot.child("product_name").getValue()));
                             item.setCategory_id(String.valueOf(snapshot.child("category_id").getValue()));
-                            item.setProduct_description(String.valueOf(snapshot.child("product_description").getValue()));
+
                             item.setProduct_discount(snapshot.child("product_discount").getValue(Integer.class));
                             item.setProduct_previous_price(snapshot.child("product_previous_price").getValue(Integer.class));
                             item.setProduct_price(snapshot.child("product_price").getValue(Integer.class));

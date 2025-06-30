@@ -322,7 +322,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             cartItem.setProduct_price((int) currentProduct.getProduct_price());
             cartItem.setQuantity(1);
             cartItem.setSelected(true);
-
+            cartItem.setProduct_previous_price((int) currentProduct.getProduct_previous_price());
 
             cartItem.setProduct_images(currentProduct.getProduct_images());
 
