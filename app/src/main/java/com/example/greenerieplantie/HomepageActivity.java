@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,10 +52,7 @@ public class HomepageActivity extends AppCompatActivity {
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
         searchEditText = findViewById(R.id.et_product_search);
         searchButton = findViewById(R.id.btn_product_search);
-        // Khởi tạo các thành phần
         titleHomepageWelcome = findViewById(R.id.title_homepage_welcome1);
-        profileImage = findViewById(R.id.img_homepage_avatar_custimer);
-        // Lấy SharedPreferences để lưu trữ thông tin người dùng
         sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
         updateUserInfo();
 
@@ -165,7 +159,6 @@ public class HomepageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // Function to open Blog detail page
     private void openBlogDetail(int blogId) {
         Intent intent = new Intent(HomepageActivity.this, PlantNewsActivity.class);
         intent.putExtra("blog_id", blogId); // Pass blog ID to detail activity
@@ -178,30 +171,15 @@ public class HomepageActivity extends AppCompatActivity {
         intent.putExtra("about_us_id", aboutUsId); // Pass About Us ID to detail activity
         startActivity(intent);
     }
-    // Cập nhật thông tin người dùng (Tên và ảnh)
     private void updateUserInfo() {
-        // Lấy tên người dùng từ SharedPreferences
         String userName = sharedPreferences.getString("userName", null);
-        String userImage = sharedPreferences.getString("userImage", null);
 
-        // Nếu không có tên người dùng (chưa cập nhật), hiển thị mặc định "You!"
         if (userName == null || userName.isEmpty()) {
-            userName = getResources().getString(R.string.default_user_name);  // "You!" mặc định
+            userName = getResources().getString(R.string.default_user_name);
         }
+        String welcomeMessage1 = getString(R.string.title_homepage_welcome1);
+        String welcomeMessage2 = getString(R.string.default_user_name_real, userName);
 
-        // Kết hợp hai chuỗi "Welcome to Greenerie," và tên người dùng
-        String welcomeMessage1 = getString(R.string.title_homepage_welcome1);  // "Welcome to Greenerie,"
-        String welcomeMessage2 = getString(R.string.default_user_name_real, userName);  // Tên người dùng
-
-
-
-        // Nếu không có ảnh người dùng, dùng ảnh mặc định
-        if (userImage == null || userImage.isEmpty()) {
-            profileImage.setImageResource(R.mipmap.ic_launcher); // Hình ảnh mặc định
-        } else {
-            // Nếu có ảnh, thay đổi ảnh người dùng (Ví dụ: ảnh từ URL hoặc tài nguyên)
-            // Glide.with(this).load(userImage).into(profileImage); // Nếu ảnh là URL, bạn có thể dùng Glide hoặc Picasso để tải ảnh.
-        }
     }
 
 

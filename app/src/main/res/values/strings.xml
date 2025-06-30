@@ -357,4 +357,5 @@
     <string name="title_chatbot_plantie">Plantie</string>
     <string name="title_chatbot_sub">Chat with your AI Chatbot assistant</string>
     <string name="title_chatbot_hint">Type a message...</string>
+    <string name="title_period">"Period: "</string>
 </resources>

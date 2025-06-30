@@ -174,7 +174,7 @@
     <string name="tile_homepage_name_product5_for_you">Nho Pháp</string>
     <string name="title_homepage_product5_orgin">Nguồn gốc: Pháp</string>
     <string name="title_homepage_product5_type">Gói hạt giống</string>
-    <string name="title_homepage_type_food_crop">Cây trồng thực phẩm</string>
+    <string name="title_homepage_type_food_crop">Lương thực</string>
     <string name="title_homepage_type_fruit_tree">Cây ăn quả</string>
     <string name="title_homepage_type_seed">Gói hạt giống</string>
     <string name="title_homepage_type_item_planting">Vật dụng trồng cây</string>
@@ -243,7 +243,7 @@
     <string name="text_policy_title8"><![CDATA[8. Chính sách về Hành vi Người Dùng & Nội Dung]]></string>
     <string name="text_policy_description8">Người dùng không được đăng tải nội dung bất hợp pháp, phỉ báng, khiêu dâm hoặc xâm phạm quyền sở hữu trí tuệ; vi phạm có thể dẫn đến việc xóa nội dung hoặc đình chỉ tài khoản mà không có thông báo trước. Greenary có quyền cấm tài khoản vĩnh viễn hoặc xóa nội dung vi phạm sau khi đã cảnh báo trước. Để báo cáo nội dung không phù hợp, sử dụng tính năng "Báo cáo" trong ứng dụng; chúng tôi cam kết sẽ điều tra và phản hồi trong vòng 48 giờ làm việc.</string>
     <string name="default_user_name">Bạn!</string>
-    <string name="title_homepage_welcome1">Chào mừng đến với</string>
+    <string name="title_homepage_welcome1">Chào mừng</string>
     <string name="default_user_name_real">%1$s</string>
     <string name="nav_product">Sản phẩm</string>
 
@@ -278,7 +278,7 @@
     <string name="title_product_header">Sản phẩm của chúng tôi</string>
     <string name="btn_product_allplants">Tất cả cây trồng</string>
     <string name="btn_product_fruittree">Cây ăn quả</string>
-    <string name="btn_product_foodcrops">Cây trồng thực phẩm</string>
+    <string name="btn_product_foodcrops">Lương thực</string>
     <string name="btn_product_veggies">Rau củ</string>
     <string name="title_product_category">Danh mục</string>
     <string-array name="sn_product_sort_options">

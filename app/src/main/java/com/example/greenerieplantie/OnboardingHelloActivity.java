@@ -40,7 +40,7 @@ public class OnboardingHelloActivity extends AppCompatActivity {
         ImageButton nextButton = findViewById(R.id.imgbtn_onboarding_hello_next);
 
         nextButton.setOnClickListener(view -> {
-            Intent intent = new Intent(OnboardingHelloActivity.this, OnboardingPlantSellActivity.class);
+            Intent intent = new Intent(OnboardingHelloActivity.this, OnboardingChatbotActivity.class);
             startActivity(intent);
         });
     }
