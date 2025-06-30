@@ -1,17 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    android:padding="16dp">
-
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/plant_news"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottom_bar"
-        android:orientation="vertical">
+        android:layout_height="600sp"
+        android:orientation="vertical"
+        android:padding="16sp">
 
 
         <TextView
@@ -25,55 +24,68 @@
             android:textStyle="bold" />
 
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_cart_item_count"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="You have"
-                android:textColor="#000"
-                android:textSize="16sp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/cart_item_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="0"
-                android:textColor="@color/green_primary"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtItems"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_cart_items_in_your_cart" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_cart_item_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="You have"
+                        android:textColor="#000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/cart_item_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="0"
+                        android:textColor="@color/green_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_cart_items_in_your_cart" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/item_cart_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false" />
+
+            </LinearLayout>
+        </ScrollView>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/item_cart_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"/>
     </LinearLayout>
 
-    <!-- Thanh cố định tính tổng và nút thanh toán -->
     <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/bottom_navigation"
+        android:gravity="bottom|center_vertical"
         android:orientation="horizontal"
-        android:gravity="end|center_vertical">
+        android:paddingBottom="8dp">
 
         <CheckBox
             android:id="@+id/cb_select_all"
@@ -128,18 +140,14 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-19dp"
         android:layout_marginBottom="-16dp"
         android:background="@color/white"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/green_primary"
-        android:layout_marginStart="-19dp"
         app:itemTextColor="@color/green_primary"
         app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-</RelativeLayout>
+</LinearLayout>
 

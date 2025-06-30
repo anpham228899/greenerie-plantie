@@ -6,7 +6,13 @@
     android:orientation="vertical"
     android:background="#F6F6F6">
 
-    <!-- ScrollView should wrap content for scrolling -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:title="" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
