@@ -153,7 +153,7 @@ public class PaymentActivity extends AppCompatActivity {
                             item.setProduct_id(productId);
                             item.setProduct_name(String.valueOf(snapshot.child("product_name").getValue()));
                             item.setCategory_id(String.valueOf(snapshot.child("category_id").getValue()));
-                            item.setProduct_description(String.valueOf(snapshot.child("product_description").getValue()));
+
                             item.setProduct_discount(snapshot.child("product_discount").getValue(Integer.class));
                             item.setProduct_previous_price(snapshot.child("product_previous_price").getValue(Integer.class));
                             item.setProduct_price(snapshot.child("product_price").getValue(Integer.class));
@@ -175,12 +175,12 @@ public class PaymentActivity extends AppCompatActivity {
                             calculateTotal();
 
                         } else {
-                            Toast.makeText(this, "Không tìm thấy sản phẩm", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "No found product data", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Lỗi tải sản phẩm", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Error loading product data", Toast.LENGTH_SHORT).show();
                         finish();
                     });
         } else {
@@ -213,7 +213,7 @@ public class PaymentActivity extends AppCompatActivity {
 
                 @Override
                 public void onCartLoadFailed(Exception e) {
-                    Toast.makeText(PaymentActivity.this, "Lỗi tải giỏ hàng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PaymentActivity.this, "Error loading product data", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -224,7 +224,7 @@ public class PaymentActivity extends AppCompatActivity {
             if (enteredCode.equalsIgnoreCase("SALE10")) {
                 discountValue = 0.10;
                 tvDiscountApplied.setVisibility(TextView.VISIBLE);
-                tvDiscountApplied.setText("Đã áp dụng mã giảm giá!");
+                tvDiscountApplied.setText("Coupon code applied!");
                 tvDiscountValue.setText("10%");
                 calculateTotal();
             } else {
@@ -239,7 +239,7 @@ public class PaymentActivity extends AppCompatActivity {
         // Đặt hàng
         btnPlaceOrder.setOnClickListener(v -> {
             if (cartItems.isEmpty()) {
-                Toast.makeText(this, "Giỏ hàng trống", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Cart is empty", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -253,11 +253,11 @@ public class PaymentActivity extends AppCompatActivity {
                             ShippingInfo shippingInfo = snapshot.getValue(ShippingInfo.class);
                             placeOrderToFirebase(shippingInfo);  // ✅ Gọi bản có tham số
                         } else {
-                            Toast.makeText(this, "Bạn chưa nhập địa chỉ giao hàng", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "You have not entered a shipping address", Toast.LENGTH_LONG).show();
                         }
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Lỗi khi kiểm tra địa chỉ giao hàng", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Error checking shipping address", Toast.LENGTH_SHORT).show();
                     });
         });
         loadShippingAddress();
@@ -303,11 +303,11 @@ public class PaymentActivity extends AppCompatActivity {
                                 tvShippingAddress.setText(fullAddress);
                             }
                         } else {
-                            tvShippingAddress.setText("Chưa có địa chỉ giao hàng");
+                            tvShippingAddress.setText("No shipping address yet");
                         }
                     })
                     .addOnFailureListener(e -> {
-                        tvShippingAddress.setText("Lỗi tải địa chỉ");
+                        tvShippingAddress.setText("Error loading address");
                         Log.e("FirebaseError", "Không thể load shipping_info", e);
                     });
         }
@@ -353,7 +353,7 @@ public class PaymentActivity extends AppCompatActivity {
                         clearCart(userId);
                         gotoOrderDetail(orderId);
                     } else {
-                        Toast.makeText(this, "Lỗi tạo đơn hàng", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Error creating order", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -375,11 +375,11 @@ public class PaymentActivity extends AppCompatActivity {
                             tvShippingAddress.setText(fullAddress);
                         }
                     } else {
-                        tvShippingAddress.setText("Chưa có địa chỉ giao hàng");
+                        tvShippingAddress.setText("No shipping address yet");
                     }
                 })
                 .addOnFailureListener(e -> {
-                    tvShippingAddress.setText("Lỗi tải địa chỉ");
+                    tvShippingAddress.setText("Error loading address");
                     Log.e("FirebaseError", "Không thể load shipping_info", e);
                 });
     }
@@ -392,7 +392,7 @@ public class PaymentActivity extends AppCompatActivity {
                 .getReference("carts")
                 .child(userId)
                 .removeValue()
-                .addOnSuccessListener(unused -> Toast.makeText(this, "Đơn hàng đã được đặt và giỏ hàng đã được xóa", Toast.LENGTH_SHORT).show());
+                .addOnSuccessListener(unused -> Toast.makeText(this, "Order placed", Toast.LENGTH_SHORT).show());
     }
     private void loadShippingInformation() {
         FirebaseDatabase.getInstance()
@@ -410,13 +410,13 @@ public class PaymentActivity extends AppCompatActivity {
                         if (name != null && !name.isEmpty()) {
                             tvName.setText(name);
                         } else {
-                            tvName.setText("Chưa có tên");
+                            tvName.setText("No name yet");
                         }
 
                         if (phone != null && !phone.isEmpty()) {
                             tvPhone.setText(phone);
                         } else {
-                            tvPhone.setText("Chưa có số điện thoại");
+                            tvPhone.setText("No phone number yet");
                         }
                     }
                 })

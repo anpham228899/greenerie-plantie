@@ -142,7 +142,7 @@ public class HomepageActivity extends AppCompatActivity {
         updateTab("foryou");
 
         btnNotification.setOnClickListener(v -> {
-            Intent intent = new Intent(HomepageActivity.this, NotificationActivity.class);
+            Intent intent = new Intent(HomepageActivity.this, ListNotificationsActivity.class);
             startActivity(intent);
         });
 
@@ -235,7 +235,7 @@ public class HomepageActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_share) {
-            Toast.makeText(this, "Chia sẻ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sharing Homepage Info");

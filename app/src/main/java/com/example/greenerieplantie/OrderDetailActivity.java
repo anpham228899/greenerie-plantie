@@ -133,11 +133,11 @@ public class OrderDetailActivity extends AppCompatActivity {
                         // Gọi hàm bind ra UI
                         bindOrderToView(order);
                     } else {
-                        Toast.makeText(this, "Không tìm thấy đơn hàng", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Order not found", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Lỗi tải dữ liệu đơn hàng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Error loading order data", Toast.LENGTH_SHORT).show();
                 });
     }
 

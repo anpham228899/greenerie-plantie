@@ -58,6 +58,13 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        String savedEmail = sharedPreferences.getString("email", "");
+        String savedPassword = sharedPreferences.getString("password", "");
+        if (!savedEmail.isEmpty() && !savedPassword.isEmpty()) {
+            emailInput.setText(savedEmail);
+            passwordInput.setText(savedPassword);
+            rememberMe.setChecked(true);
+        }
     }
 
     private void handleSignIn() {

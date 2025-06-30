@@ -1,6 +1,7 @@
 package adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.tvProductDescription.setText(item.getProduct_description());
         holder.tvPriceBeforeDiscount.setText(String.format("VND %,d", item.getProduct_previous_price()));
         holder.tvPriceAfterDiscount.setText(String.format("VND %,d", item.getProduct_price()));
+        Log.d("CartAdapter", "previous_price: " + item.getProduct_previous_price());
         holder.tvQuantity.setText(String.valueOf(item.getQuantity()));
 
         // Load image (image1 from map)

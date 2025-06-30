@@ -51,7 +51,7 @@ public class CartActivity extends AppCompatActivity {
         currentUid = prefs.getString("user_uid", null);
 
         if (currentUid == null) {
-            Toast.makeText(this, "Không tìm thấy phiên đăng nhập!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login version not found!", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -106,7 +106,7 @@ public class CartActivity extends AppCompatActivity {
             }
 
             if (selectedItems.isEmpty()) {
-                Toast.makeText(this, "Vui lòng chọn sản phẩm để thanh toán", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please select product to checkout", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -131,11 +131,11 @@ public class CartActivity extends AppCompatActivity {
                 calculateTotal();
 
                 if (cartList.isEmpty()) {
-                    tvItemsText.setText("Giỏ hàng trống");
+                    tvItemsText.setText("Cart is empty");
                     cbSelectAll.setEnabled(false);
                     btnCheckout.setEnabled(false);
                 } else {
-                    tvItemsText.setText("items in your cart");
+                    tvItemsText.setText("Items in your cart");
                     cbSelectAll.setEnabled(true);
                     btnCheckout.setEnabled(true);
                 }
@@ -143,7 +143,7 @@ public class CartActivity extends AppCompatActivity {
 
             @Override
             public void onCartLoadFailed(Exception e) {
-                Toast.makeText(CartActivity.this, "Không tải được giỏ hàng: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CartActivity.this, "Unable to load cart: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
