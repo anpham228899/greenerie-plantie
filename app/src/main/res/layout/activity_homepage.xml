@@ -119,7 +119,7 @@
                     android:layout_height="77dp"
                     android:layout_margin="10dp"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/img_homepage_avatar_customer" />
+                     />
             </LinearLayout>
 
             <LinearLayout
@@ -179,7 +179,7 @@
 
                     <Button
                         android:id="@+id/btn_homepage_for_you"
-                        android:layout_width="83dp"
+                        android:layout_width="93dp"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:text="@string/btn_homepage_for_you"
@@ -591,7 +591,7 @@
                                     android:layout_marginBottom="8dp"
                                     android:background="@android:color/transparent"
                                     android:scaleType="fitXY"
-                                    android:src="@mipmap/ic_launcher" />
+                                    android:src="@mipmap/img_main_jpp" />
 
                                 <TextView
                                     android:id="@+id/tile_homepage_name_product4_for_you"
@@ -819,7 +819,7 @@
 
                                     android:background="@android:color/transparent"
                                     android:scaleType="fitXY"
-                                    android:src="@mipmap/ic_launcher" />
+                                    android:src="@mipmap/img_main_purpleglutinouscorn" />
 
                                 <TextView
                                     android:id="@+id/tile_homepage_name_product6_for_you"
@@ -933,7 +933,7 @@
 
                                     android:background="@android:color/transparent"
                                     android:scaleType="fitXY"
-                                    android:src="@mipmap/ic_launcher" />
+                                    android:src="@mipmap/img_main_fertilizer_aki" />
 
                                 <TextView
                                     android:id="@+id/tile_homepage_name_product7_for_you"
@@ -1047,7 +1047,7 @@
 
                                     android:background="@android:color/transparent"
                                     android:scaleType="fitXY"
-                                    android:src="@mipmap/ic_launcher" />
+                                    android:src="@mipmap/img_main_item_plasticpots" />
 
                                 <TextView
                                     android:id="@+id/tile_homepage_name_product8_for_you"
@@ -1161,7 +1161,7 @@
 
                                     android:background="@android:color/transparent"
                                     android:scaleType="fitXY"
-                                    android:src="@mipmap/ic_launcher" />
+                                    android:src="@mipmap/img_main_item_shovel" />
 
                                 <TextView
                                     android:id="@+id/tile_homepage_name_product9_for_you"

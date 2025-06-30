@@ -197,7 +197,7 @@ public class HomepageActivity extends AppCompatActivity {
 
         // Nếu không có ảnh người dùng, dùng ảnh mặc định
         if (userImage == null || userImage.isEmpty()) {
-            profileImage.setImageResource(R.mipmap.ic_launcher); // Hình ảnh mặc định
+            profileImage.setImageResource(R.mipmap.ic_user); // Hình ảnh mặc định
         } else {
             // Nếu có ảnh, thay đổi ảnh người dùng (Ví dụ: ảnh từ URL hoặc tài nguyên)
             // Glide.with(this).load(userImage).into(profileImage); // Nếu ảnh là URL, bạn có thể dùng Glide hoặc Picasso để tải ảnh.

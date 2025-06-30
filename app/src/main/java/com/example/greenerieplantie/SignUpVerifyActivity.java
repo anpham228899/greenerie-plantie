@@ -86,7 +86,7 @@ public class SignUpVerifyActivity extends AppCompatActivity {
         usersRef.child(userId).setValue(userMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(SignUpVerifyActivity.this, "Account created successfully!", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(SignUpVerifyActivity.this, SignInActivity.class));
+                startActivity(new Intent(SignUpVerifyActivity.this, OnboardingHelloActivity.class));
                 finish();
             } else {
                 errorMessage.setVisibility(View.VISIBLE);

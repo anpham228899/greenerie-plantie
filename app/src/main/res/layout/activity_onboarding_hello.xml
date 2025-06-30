@@ -37,7 +37,7 @@
                     android:layout_height="338dp"
 
                     android:scaleType="fitXY"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@mipmap/img_onborading_welcome" />
 
                 <TextView
                     android:id="@+id/title_onboarding_hello_welcome"
