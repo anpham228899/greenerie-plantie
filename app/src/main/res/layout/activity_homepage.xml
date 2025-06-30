@@ -1,10 +1,1646 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomepageActivity">
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:title="" />
+
+    <ScrollView
+        android:id="@+id/r3f4dbcbjbh9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F6F6F6"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rz3zycksuli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:paddingTop="18dp">
+
+                <LinearLayout
+                    android:id="@+id/rm3thywa0bz"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="7dp"
+
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_homepage_welcome1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/title_homepage_welcome1"
+                        android:textColor="#333333"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/title_homepage_welcome3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="100dp"
+                        android:layout_marginTop="-32dp"
+                        android:layout_weight="1"
+                        android:text="Greenerie"
+                        android:textColor="#517B2C"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/default_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="7dp"
+
+                        android:layout_weight="1"
+                        android:text="An Pham"
+                        android:textColor="#333333"
+                        android:textSize="30sp" />
+
+                    <LinearLayout
+                        android:id="@+id/rp3nngxjb3uj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/img_homepage_weather"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginEnd="8dp"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/img_homepage_weather" />
+
+                        <TextView
+                            android:id="@+id/title_homepage_weather"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_homepage_weather"
+                            android:textColor="#4F4F4F"
+
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/img_homepage_avatar_customer"
+                    android:layout_width="73dp"
+                    android:layout_height="77dp"
+                    android:layout_margin="10dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/img_homepage_avatar_customer" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_product_search_box_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_edit_text"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="10dp">
+
+                <ImageButton
+                    android:id="@+id/btn_product_search"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/ic_homepage_search" />
+
+                <EditText
+                    android:id="@+id/et_product_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/et_homepage_search"
+                    android:inputType="text"
+                    android:paddingVertical="2dp"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/r9359eoystq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ro31ra3sqo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:gravity="center|start|right"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/btn_homepage_for_you"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:text="@string/btn_homepage_for_you"
+                        android:textColor="#517B2C"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btn_homepage_new_arrivals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:text="@string/btn_homepage_new_arrivals"
+                        android:textAlignment="center"
+                        android:textColor="#BDBDBD"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btn_homepage_best_seller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:text="@string/btn_homepage_best_seller"
+                        android:textColor="#BDBDBD"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/icbtn_homepage_notification"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_homepage_notification" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/rgdcj2wzr5k"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginBottom="7dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipihse"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product1_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="@drawable/rounded_image_bg"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_homepage_red_apple" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product1_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:text="@string/title_homepage_name_product1_for_you"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product1_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_homepage_product1_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02fjvfnfjf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingVertical="10dp">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkdfvvfv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="27dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_fruit"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product1_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_type_fruit_tree"
+                                    android:textColor="#517B2C"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjr6vfvfvp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product1_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="@string/title_homepage_product1_vnd"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product1_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product1_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsddvdvv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipihscdvdve"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product2_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="@drawable/rounded_image_bg"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_rice" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product2_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_name_product2_for_you"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product2_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_homepage_product2_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpchtkndvdv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkd02ivv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="27dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_food_crop"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product2_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_type_food_crop"
+                                    android:textColor="#FFA500"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjr6v9dvp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product2_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product2_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product2_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdvqqe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipihsedvdv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product3_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_homepage_musangking_durian" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product3_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_name_product3_for_you"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product3_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_homepage_product3_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpchtkn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkd02i"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_fruit"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product3_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_type_fruit_tree"
+                                    android:textColor="#517B2C"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjr6v9p"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product3_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product3_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product3_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdvqqcdve"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipihsedvdvvdvd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product4_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_main_jpp" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product4_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tile_homepage_name_product4_new"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product4_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="19dp"
+                                android:text="@string/title_homepage_product4_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpchtkfbbcbn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkbfbdbdbd02i"
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_fruit"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product4_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_type_fruit_tree"
+                                    android:textColor="@color/green_primary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjr6fvvssvv9p"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product4_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product4_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product3_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+
+                        android:background="@drawable/bg_edit_text"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdfsvqqe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipivfhsedvdv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product5_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_grapes" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product5_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="@string/tile_homepage_name_product5_for_you"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product5_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="22dp"
+                                android:text="@string/title_homepage_product5_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpcvdvhtkn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkdfvff02i"
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_seed"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product5_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="@string/title_homepage_type_seed"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjvrggrr6v9p"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product5_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product5_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product5_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdvfgfsvqqe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipivfhsedvdvdv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product6_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_main_purpleglutinouscorn" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product6_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="@string/tile_homepage_name_product6_for_you"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product6_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="22dp"
+                                android:text="@string/title_homepage_product6_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpcvdfdvhtkn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkdfvsfgff02i"
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_seed"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product6_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="@string/title_homepage_type_seed"
+                                    android:textColor="#517B2C"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjvrggrr6vcc9p"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product6_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product6_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product6_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdvfgfsvqqcddvddve"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipivfhsedddvdvvdvdv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product7_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_main_fertilizer_aki" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product7_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="@string/tile_homepage_name_product7_for_you"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product7_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="22dp"
+                                android:text="@string/title_homepage_product4_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpcvdvdbbbbfdfdvhtkn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_edit_text"
+
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkdfvsfgdvdvdvff02i"
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_fertilizer"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product7_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="@string/title_homepage_type_fertilizer"
+                                    android:textColor="@color/yellow_primary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjvrggrdvdvr6vcc9p"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product7_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product7_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product7_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdvfgfsvqqcdhdvddve"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipivfhsedddevdvvdvdv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product8_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_main_item_plasticpots" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product8_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="@string/tile_homepage_name_product8_for_you1"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product8_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="22dp"
+                                android:text="@string/title_homepage_product2_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpcvdvdbbbbfdfdvhghtkn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkdfvsfggfcdvdvdvff02i"
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_item_planting"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product8_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="@string/title_homepage_type_item_planting"
+                                    android:textColor="#517B2C"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjvrggrdvdvr6vczccc9p"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product8_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product8_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product8_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_homepage_product9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:background="@drawable/bg_edit_text"
+                        android:gravity="center_horizontal"
+
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/rmbbv7uxsdvfgfsvvvqqcddvddve"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/rmccwpipivfhsvedddvdvvdvdv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/img_homepage_product9_for_you"
+                                    android:layout_width="187dp"
+                                    android:layout_height="167dp"
+
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/img_main_item_shovel" />
+
+                                <TextView
+                                    android:id="@+id/tile_homepage_name_product9_for_you"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="@string/tile_homepage_name_product9_for_you"
+                                    android:textColor="#333333"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/title_homepage_product9_orgin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="22dp"
+                                android:text="@string/title_homepage_product9_orgin"
+                                android:textColor="#828282"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/r02pxetpcvdvdbbbbfcvdfdvhtkn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/r41fq0hkdfvsfgdvdvdcxvvff02i"
+                                android:layout_width="wrap_content"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="34dp"
+
+                                android:background="@drawable/bg_type_tag_item_planting"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:padding="4dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product9_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="@string/title_homepage_type_item_planting"
+                                    android:textColor="#517B2C"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rqhwwjvrggrdvdvrvv6vcc9p"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="1dp">
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product9_vnd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="1dp"
+                                    android:text="VND"
+                                    android:textColor="#90C447"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/title_homepage_product9_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/title_homepage_product9_price"
+                                    android:textColor="#90C447"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <RelativeLayout
+                android:id="@+id/rtb8ylapmii"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginBottom="23dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/rpb90oj0hu58"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/img_homepage_background_freeship"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/rpolxw9r3mfb"
+                            android:layout_width="100dp"
+                            android:layout_height="104dp"
+                            android:layout_marginEnd="17dp"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/img_homepage_freeship" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/img_homepage_freeship"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/r0iqcvbnr72qg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="18dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title_homepage_freeship"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="Free shipping"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/title_homepage_from_499k"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="#FFBB56"
+                            android:text="@string/title_homepage_from499k"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/rotyeegyuvli"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="vertical"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="3dp">
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/ryzdpdphhd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginBottom="13dp"
+                        android:text="@string/title_homepage_timeapply"
+                        android:textColor="#000000"
+                        android:textSize="7sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/r24tax7u5f8l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title_homepae_plant_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/title_homepae_plant_news"
+                    android:textColor="#517B2C"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_homepage_view_more_blog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="-8dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:text="@string/btn_homepage_view_more_blog"
+                    android:textColor="#828282"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rkn0pakgjcb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginBottom="10dp"
+
+                android:background="@drawable/rounded_image_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp">
+
+                <ImageButton
+                    android:id="@+id/img_homepage_blog1"
+                    android:layout_width="103dp"
+                    android:layout_height="99dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/img_homepage_blog1" />
+
+                <LinearLayout
+                    android:id="@+id/rxz69tduxvir"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_homepage_blog1_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/title_homepage_blog1_title"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/rkzwz51cf3e"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title_homepage_blog1_des"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/title_homepage_blog1_des"
+                            android:textColor="#000000"
+                            android:textSize="7sp" />
+
+                        <TextView
+                            android:id="@+id/title_homepage_blog1_author"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_homepage_blog1_author"
+                            android:textColor="#828282"
+                            android:textSize="7sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rrpqomqpg2x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="19dp"
+                android:background="@drawable/rounded_image_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp">
+
+                <ImageButton
+                    android:id="@+id/img_homepage_blog2"
+                    android:layout_width="103dp"
+                    android:layout_height="99dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/img_homepage_blog2" />
+
+                <LinearLayout
+                    android:id="@+id/r08zy16bzv0kb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_homepage_blog2_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/title_homepage_blog2_title"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/rm8ykugdws1m"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title_homepage_blog2_des"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/title_homepage_blog2_des"
+                            android:textColor="#000000"
+                            android:textSize="7sp" />
+
+                        <TextView
+                            android:id="@+id/title_homepage_blog2_author"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/title_homepage_blog2_author"
+                            android:textColor="#828282"
+                            android:textSize="7sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rcx5x734o95"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/title_homepage_about_us"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/title_homepage_about_us"
+                    android:textColor="#517B2C"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_homepage_viewmore_abus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="-8dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:text="@string/btn_homepage_viewmore_abus"
+                    android:textColor="#828282"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rxj5wafxhfh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/rounded_image_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="13dp"
+                android:paddingVertical="6dp">
+
+                <LinearLayout
+                    android:id="@+id/ru7do2o8btz"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_homepage_abus1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/title_homepage_abus1"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/title_homepage_des_abus1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/title_homepage_des_abus1"
+                        android:textColor="#000000"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/img_homepage_about_us1"
+                    android:layout_width="103dp"
+                    android:layout_height="108dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/img_homepage_abus1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/r4juepbrxzw2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/rounded_image_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="13dp"
+                android:paddingVertical="8dp">
+
+                <ImageButton
+                    android:id="@+id/img_homepage_abus2"
+                    android:layout_width="103dp"
+                    android:layout_height="108dp"
+                    android:layout_marginEnd="7dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/img_homepage_abus2" />
+
+                <LinearLayout
+                    android:id="@+id/r9k3dfgactap"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_homepage_abus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:text="@string/title_homepage_abus2"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/title_homepage_des_abus2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/title_homepage_des_abus2"
+                        android:textColor="#000000"
+                        android:textSize="8sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/white"
+        app:itemIconTint="@color/green_primary"
+        app:itemTextColor="@color/green_primary"
+        app:itemIconSize="24dp"
+        app:labelVisibilityMode="labeled"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</LinearLayout>
+
+

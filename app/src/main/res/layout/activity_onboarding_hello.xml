@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/r3hymnudjt98"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/rb4q4150kfwq"
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:background="@drawable/bg_onboarding_box"
+
+                android:paddingBottom="20dp"
+                android:layout_marginTop="81dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginHorizontal="25dp"
+                android:elevation="37dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_onboarding_hello"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="338dp"
+
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/img_onborading_welcome" />
+
+                <TextView
+                    android:id="@+id/title_onboarding_hello_welcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="28dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/title_onboarding_hello_welcome"
+                    android:textColor="#202020"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_onboarding_hello_descrip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="21dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/text_onboarding_hello_descrip"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rhm76uawgđfpgjg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgbtn_onboarding_plant_sell_back"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginEnd="84dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                     />
+
+                <ImageButton
+                    android:id="@+id/imgbtn_onboarding_hello_next"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_next_page" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

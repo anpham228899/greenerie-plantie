@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F6F6">
+
+    <!-- Nội dung cuộn -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/plant_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Back Button -->
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="start|top"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:src="@mipmap/ic_back" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tv_shipping_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Shipping address"
+                android:textColor="@color/green_primary"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <!-- Country -->
+            <TextView
+                android:id="@+id/tv_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Country"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/actv_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                android:hint="@string/hint_country"
+                android:padding="16dp"
+                android:textSize="16sp" />
+
+            <!-- City -->
+            <TextView
+                android:id="@+id/tv_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="City"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/actv_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                android:hint="@string/hint_city"
+                android:padding="16dp"
+                android:textSize="16sp" />
+
+            <!-- District -->
+            <TextView
+                android:id="@+id/tv_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="District"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                android:hint="@string/hint_district"
+                android:padding="16dp"
+                android:textSize="16sp" />
+
+            <!-- Street -->
+            <TextView
+                android:id="@+id/tv_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Street"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                android:hint="@string/hint_street"
+                android:padding="16dp"
+                android:textSize="16sp" />
+
+            <!-- Number -->
+            <TextView
+                android:id="@+id/tv_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="No."
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                android:hint="@string/hint_no_street"
+                android:padding="16dp"
+                android:textSize="16sp" />
+
+            <!-- Khoảng trắng tránh nút -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Nút cố định ở cuối -->
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="end|center_vertical"
+        android:background="#F6F6F6">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_green_secondary"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/green_secondary" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/button_green_primary"
+            android:text="@string/btn_save"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</RelativeLayout>
